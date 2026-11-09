@@ -1,0 +1,878 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>כימיה – חומר לבחנים</title>
+<meta name="description" content="הסבר מסודר לבוחן קשרים כימיים ולבוחן סטויכיומטריה – כימיה כללית ואנאורגנית">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700;800&family=Frank+Ruhl+Libre:wght@400;500;700;900&display=swap">
+<style>
+:root{
+  --paper:#f6f4ee; --card:#ffffff; --ink:#1b1d22; --ink-2:#4a4f59; --ink-3:#7b808a; --rule:#dfdbd0;
+  --grid:rgba(27,29,34,.045);
+  --bonds:#0d6b74; --bonds-soft:#dff0ef; --stoich:#b3530b; --stoich-soft:#fbeadb;
+  --accent:var(--bonds); --accent-soft:var(--bonds-soft);
+  --hl:#ffe45c; --hl-ink:#1f1a00;
+  --trap:#c0262d; --trap-bg:#fde8e7;
+  --ok:#1d7a4f; --ok-bg:#e2f3ea;
+  --serif:"Frank Ruhl Libre",Georgia,serif; --sans:"Assistant","Segoe UI",system-ui,sans-serif;
+  --col:46rem; --wide:64rem; --r:12px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#121417; --card:#1b1e23; --ink:#ebe8e1; --ink-2:#b4b0a7; --ink-3:#8a867e; --rule:#2f333a; --grid:rgba(255,255,255,.035);
+  --bonds:#5cc6c9; --bonds-soft:#15302f; --stoich:#f0a35a; --stoich-soft:#36240f;
+  --hl:#f2d33a; --hl-ink:#1b1600; --trap:#ff7a73; --trap-bg:#3a1a19; --ok:#62d29a; --ok-bg:#14301f; color-scheme:dark;}}
+:root[data-theme="dark"]{
+  --paper:#121417; --card:#1b1e23; --ink:#ebe8e1; --ink-2:#b4b0a7; --ink-3:#8a867e; --rule:#2f333a; --grid:rgba(255,255,255,.035);
+  --bonds:#5cc6c9; --bonds-soft:#15302f; --stoich:#f0a35a; --stoich-soft:#36240f;
+  --hl:#f2d33a; --hl-ink:#1b1600; --trap:#ff7a73; --trap-bg:#3a1a19; --ok:#62d29a; --ok-bg:#14301f; color-scheme:dark;}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:4.2rem}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:1.08rem;line-height:1.75;
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:22px 22px;
+  -webkit-font-smoothing:antialiased}
+[data-part="bonds"]{--accent:var(--bonds);--accent-soft:var(--bonds-soft)}
+[data-part="stoich"]{--accent:var(--stoich);--accent-soft:var(--stoich-soft)}
+a{color:inherit;text-decoration-color:var(--accent);text-underline-offset:3px}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:4px}
+sub,sup{font-size:.72em;line-height:0}
+.page{padding-inline:max(16px,env(safe-area-inset-left,0px))}
+.flow{max-width:var(--col);margin-inline:auto}
+.flow>*+*{margin-block-start:1em}
+.flow>.wide{--bw:min(var(--wide),calc(100vw - 32px));width:var(--bw);max-width:none;margin-inline:calc((100% - var(--bw))/2)}
+
+/* top bar */
+.topbar{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
+.topbar .in{max-width:var(--wide);margin:auto;display:flex;align-items:center;gap:10px;padding:8px 16px;overflow-x:auto;scrollbar-width:none}
+.topbar .in::-webkit-scrollbar{display:none}
+.topbar b{font-family:var(--serif);font-weight:900;white-space:nowrap;margin-inline-end:6px}
+.pill{white-space:nowrap;text-decoration:none;font-weight:700;font-size:.88rem;padding:5px 12px;border-radius:99px;border:1.5px solid var(--rule);background:var(--card);color:var(--ink-2)}
+.pill.b{border-color:var(--bonds);color:var(--bonds)} .pill.s{border-color:var(--stoich);color:var(--stoich)}
+.pill.go{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.pill.btn{cursor:pointer;font-family:inherit}
+
+/* hero */
+.hero{max-width:var(--wide);margin:auto;padding:34px 16px 10px}
+.kicker{font-size:.78rem;font-weight:800;letter-spacing:.14em;color:var(--ink-3)}
+h1{font-family:var(--serif);font-weight:900;font-size:clamp(2.2rem,6vw,3.6rem);line-height:1.05;margin:.2em 0 .25em}
+.lede{font-size:1.15rem;color:var(--ink-2);max-width:40rem;margin:0}
+.days{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:14px;margin-top:22px}
+.day{background:var(--card);border:1px solid var(--rule);border-top:6px solid var(--accent);border-radius:var(--r);padding:16px 18px;text-decoration:none;display:block}
+.day .d{font-size:.8rem;font-weight:800;letter-spacing:.08em;color:var(--accent)}
+.day h2{font-family:var(--serif);font-size:1.6rem;margin:.1em 0 .2em;line-height:1.2}
+.day p{margin:0;color:var(--ink-2);font-size:.95rem;line-height:1.55}
+.legend{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:18px;font-size:.88rem;color:var(--ink-2)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:14px;height:14px;border-radius:3px;display:inline-block}
+
+/* part header */
+.part-head{max-width:var(--wide);margin:56px auto 8px;padding:26px 16px 8px;border-top:3px solid var(--accent)}
+.part-head .d{font-weight:800;letter-spacing:.1em;font-size:.82rem;color:var(--accent)}
+.part-head h2{font-family:var(--serif);font-weight:900;font-size:clamp(2rem,5vw,3rem);margin:.1em 0 .3em;line-height:1.1}
+.part-head p{margin:0;color:var(--ink-2);max-width:42rem}
+.toc{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.toc a{font-size:.85rem;font-weight:700;text-decoration:none;padding:4px 10px;border-radius:8px;background:var(--accent-soft);color:var(--accent)}
+
+/* sections */
+section.topic{padding-top:8px}
+h3{font-family:var(--serif);font-weight:900;font-size:1.75rem;line-height:1.2;margin:2.2em 0 .2em;display:flex;gap:.5em;align-items:baseline}
+h3 .n{font-family:var(--sans);font-size:.85rem;font-weight:800;color:var(--accent);background:var(--accent-soft);padding:2px 9px;border-radius:99px;flex:0 0 auto;transform:translateY(-3px)}
+h4{font-size:1.15rem;font-weight:800;margin:1.6em 0 .2em}
+p,li{text-wrap:pretty}
+ul,ol{padding-inline-start:1.3em}
+li+li{margin-top:.3em}
+.src{font-size:.8rem;color:var(--ink-3);font-weight:600}
+mark{background:linear-gradient(transparent 14%,var(--hl) 14%,var(--hl) 88%,transparent 88%);color:var(--hl-ink);padding-inline:.12em;font-weight:700;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.f{font-family:"Segoe UI",Arial,sans-serif;direction:ltr;unicode-bidi:isolate;white-space:nowrap;font-weight:600}
+.en{direction:ltr;unicode-bidi:isolate}
+
+.callout{border-radius:var(--r);padding:14px 16px}
+.callout>.tag{display:inline-block;font-size:.74rem;font-weight:800;letter-spacing:.08em;padding:2px 10px;border-radius:99px;margin-bottom:6px}
+.callout p{margin:.35em 0}.callout ul,.callout ol{margin:.35em 0}
+.must{background:var(--hl);color:var(--hl-ink)} .must>.tag{background:var(--hl-ink);color:var(--hl)}
+.must .f{color:var(--hl-ink)}
+.trap{background:var(--trap-bg);border:2px solid var(--trap)} .trap>.tag{background:var(--trap);color:#fff}
+.tip{background:var(--card);border:1px solid var(--rule);border-inline-start:5px solid var(--accent)} .tip>.tag{background:var(--accent);color:var(--card)}
+.note{border:1px dashed var(--ink-3);font-size:.93rem;color:var(--ink-2)} .note>.tag{background:var(--ink-2);color:var(--paper)}
+
+/* equation */
+.eq{direction:ltr;text-align:center;font-family:"Segoe UI",Arial,sans-serif;font-size:1.15rem;font-weight:600;background:var(--card);border:1px solid var(--rule);border-radius:var(--r);padding:12px 14px;overflow-x:auto;line-height:1.9}
+.eq small{font-weight:500;color:var(--ink-2);font-size:.85rem}
+.frac{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 .2em;line-height:1.25}
+.frac>span:first-child{border-bottom:1.6px solid currentColor;padding:0 .3em}
+.frac>span:last-child{padding:0 .3em}
+
+/* worked example */
+.ex{background:var(--card);border:1px solid var(--rule);border-radius:var(--r);overflow:hidden}
+.ex>header{background:var(--accent-soft);padding:9px 16px;font-weight:800;color:var(--accent);display:flow-root}
+.ex>header small{font-weight:600;color:var(--ink-3);float:left;margin-inline-start:10px}
+.ex>.body{padding:12px 16px}
+.ex .q{font-weight:700}
+.ex ol.steps{margin:.4em 0}
+ol.steps{list-style:none;padding:0;counter-reset:s;display:grid;gap:.5rem}
+ol.steps>li{counter-increment:s;display:grid;grid-template-columns:1.9rem 1fr;gap:.6rem;margin:0;align-items:start}
+ol.steps>li::before{content:counter(s);width:1.9rem;height:1.9rem;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:var(--card);font-weight:800;font-size:.9rem}
+ol.steps>li>*{min-width:0}
+.ans{margin-top:.6em;padding:8px 12px;border-radius:8px;background:var(--ok-bg);color:var(--ok);font-weight:800}
+
+/* tables */
+.tbl{overflow-x:auto;border:1px solid var(--rule);border-radius:var(--r);background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.96rem;line-height:1.5;font-variant-numeric:tabular-nums}
+caption{caption-side:top;text-align:start;padding:10px 14px 4px;font-weight:800;font-size:.9rem;color:var(--ink-2)}
+th,td{padding:8px 12px;text-align:start;vertical-align:top;border-bottom:1px solid var(--rule)}
+thead th{background:var(--accent-soft);font-weight:800;white-space:nowrap}
+tbody th{font-weight:700}
+tbody tr:last-child>*{border-bottom:0}
+td.hl{background:var(--hl);color:var(--hl-ink);font-weight:800}
+td.ltr,th.ltr{direction:ltr;text-align:right}
+
+.compare{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:12px}
+.compare>div{background:var(--card);border:1px solid var(--rule);border-radius:var(--r);padding:12px 14px;min-width:0}
+.compare h5{margin:0 0 .4em;font-size:1.1rem;font-weight:800;border-bottom:3px solid var(--accent);padding-bottom:4px}
+.compare ul{margin:0;font-size:.97rem}
+
+figure{margin:1.6rem 0;background:var(--card);border:1px solid var(--rule);border-radius:var(--r);padding:14px}
+figure svg{display:block;width:100%;height:auto;max-width:100%}
+figcaption{font-size:.9rem;color:var(--ink-2);margin-top:8px;line-height:1.55}
+figcaption b{color:var(--ink)}
+svg text{font-family:var(--sans);fill:var(--ink);font-size:15px}
+svg .sm{font-size:13px;fill:var(--ink-2)} svg .b{font-weight:800} svg .ac{fill:var(--accent);font-weight:800} svg .tr{fill:var(--trap);font-weight:800}
+svg .ln{stroke:var(--ink);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+svg .ln-ac{stroke:var(--accent);stroke-width:3;fill:none;stroke-linecap:round}
+svg .ln-d{stroke:var(--ink-3);stroke-width:1.5;fill:none;stroke-dasharray:5 5}
+svg .bx{fill:var(--card);stroke:var(--ink-3);stroke-width:1.5}
+svg .bx-ac{fill:var(--accent-soft);stroke:var(--accent);stroke-width:2}
+svg .fa{fill:var(--accent)} svg .fs{fill:var(--accent-soft)} svg .fi{fill:var(--ink)} svg .ft{fill:var(--trap)}
+svg .z1{fill:color-mix(in srgb,var(--accent) 12%,var(--card))} svg .z2{fill:color-mix(in srgb,var(--accent) 32%,var(--card))} svg .z3{fill:color-mix(in srgb,var(--accent) 60%,var(--card))}
+
+details.sol{background:var(--card);border:1px solid var(--rule);border-radius:var(--r);padding:0}
+details.sol>summary{cursor:pointer;padding:12px 16px;font-weight:800;list-style:none;display:flex;justify-content:space-between;gap:8px}
+details.sol>summary::-webkit-details-marker{display:none}
+details.sol>summary::after{content:"＋";color:var(--accent);font-weight:900}
+details.sol[open]>summary::after{content:"－"}
+details.sol>.body{padding:0 16px 14px;border-top:1px dashed var(--rule)}
+details.sol h5{font-size:1rem;margin:1em 0 .2em;color:var(--accent)}
+details.sol p{margin:.3em 0}
+
+.recap{background:var(--card);border:1px solid var(--rule);border-top:6px solid var(--accent);border-radius:var(--r);padding:14px 18px}
+.recap>.tag{display:inline-block;background:var(--ink);color:var(--paper);font-size:.74rem;font-weight:800;letter-spacing:.08em;padding:2px 10px;border-radius:99px}
+.recap ol{margin:.5em 0 0}
+
+.cta{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:26px 0}
+.cta a{text-decoration:none;font-weight:800;padding:12px 20px;border-radius:12px;background:var(--accent);color:var(--card)}
+footer{max-width:var(--col);margin:60px auto 40px;padding:0 16px;color:var(--ink-3);font-size:.85rem;text-align:center}
+@media (max-width:560px){body{font-size:1.02rem}h3{font-size:1.45rem}.eq{font-size:1rem}th,td{padding:7px 9px}}
+@media print{.topbar,.cta{display:none}body{background:#fff}details.sol{break-inside:avoid}}
+</style>
+<script data-goatcounter="https://zivgabel.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</head>
+<body>
+<nav class="topbar" aria-label="ניווט">
+  <div class="in">
+    <b>כימיה · בחנים</b>
+    <a class="pill b" href="#bonds">יום ג' · קשרים כימיים</a>
+    <a class="pill s" href="#stoich">יום ד' · סטויכיומטריה</a>
+    <a class="pill go" href="practice.html">לשאלות תרגול ←</a>
+    <a class="pill" href="index.html">דף הבית</a>
+    <button class="pill btn" id="themeBtn" type="button">מצב תצוגה</button>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="kicker">כימיה כללית ואנאורגנית · תל-חי · ביוטכנולוגיה שנה א'</div>
+  <h1>כל מה שצריך לשני הבחנים</h1>
+  <p class="lede">סיכום מסודר של המצגות והתרגולים, עם דוגמאות פתורות שלב אחרי שלב ופתרונות לתרגולים. קוראים פרק, ואז עוברים לשאלות התרגול של אותו נושא.</p>
+  <div class="days">
+    <a class="day" href="#bonds" data-part="bonds"><div class="d">יום שלישי · בוחן 1</div><h2>קשרים כימיים</h2><p>קשר יוני וקוולנטי, אלקטרושליליות, מבנה לואיס, מטען פורמלי, רזוננס, אנתלפיית קשר, VSEPR, הכלאה וכוחות בין-מולקולריים.</p></a>
+    <a class="day" href="#stoich" data-part="stoich"><div class="d">יום רביעי · בוחן 2</div><h2>סטויכיומטריה</h2><p>איזוטופים, מול ומספר אבוגדרו, מסה מולרית, אחוז מסה, נוסחה אמפירית, איזון משוואות, מגיב מגביל, אנליזת שריפה וריכוז מולרי.</p></a>
+  </div>
+  <div class="legend">
+    <span><i class="sw" style="background:var(--hl)"></i>חובה לזכור</span>
+    <span><i class="sw" style="background:var(--trap)"></i>מלכודת נפוצה</span>
+    <span><i class="sw" style="background:var(--bonds)"></i>טיפ / דרך עבודה</span>
+    <span><i class="sw" style="border:1px dashed var(--ink-3)"></i>הערה על המקור</span>
+  </div>
+</header>
+
+<!-- ============================ PART A: BONDS ============================ -->
+<div data-part="bonds" id="bonds">
+<div class="part-head">
+  <div class="d">יום שלישי · בוחן 1</div>
+  <h2>קשרים כימיים</h2>
+  <p>מבוסס על הרצאות 5–6 ותרגולים 5–9. הנושאים VSEPR, הכלאה וכוחות בין-מולקולריים מופיעים בתרגולים 7–9, אבל המצגות שלהם (הרצאות 7–9) לא היו בתיקייה, ולכן ההסבר בחלקים האלה מבוסס על החומר הסטנדרטי של כימיה כללית.</p>
+  <nav class="toc" aria-label="תוכן החלק">
+    <a href="#b1">למה נוצר קשר</a><a href="#b2">יוני / קוולנטי / ΔEN</a><a href="#b3">מבנה לואיס</a><a href="#b4">מטען פורמלי</a>
+    <a href="#b5">חריגות מאוקטט</a><a href="#b6">אנתלפיית קשר</a><a href="#b7">רזוננס</a><a href="#b8">VSEPR</a>
+    <a href="#b9">קוטביות</a><a href="#b10">הכלאה ו-σ/π</a><a href="#b11">כוחות בין-מולקולריים</a><a href="#bsol">פתרונות תרגולים</a>
+  </nav>
+</div>
+
+<div class="page"><div class="flow">
+
+<section class="topic" id="b1">
+<h3><span class="n">1</span>למה אטומים נקשרים בכלל?</h3>
+<p>מולקולה יציבה רק אם האנרגיה שלה <b>נמוכה</b> מהאנרגיה של האטומים הנפרדים. הקשר הוא "רווח אנרגטי".</p>
+<div class="eq">A + B → AB &nbsp;&nbsp;&nbsp; E<sub>AB</sub> &lt; E<sub>A</sub> + E<sub>B</sub></div>
+<p>בקשר פועלים בבת אחת כוחות <b>משיכה</b> (בין האלקטרונים של אטום אחד לגרעין של השני) וכוחות <b>דחייה</b> (גרעין-גרעין, אלקטרון-אלקטרון). אורך הקשר הוא המרחק שבו המשיכה והדחייה מתאזנות – והאנרגיה הכי נמוכה.</p>
+<figure>
+<svg viewBox="0 0 660 330" role="img" aria-label="עקומת אנרגיה פוטנציאלית של שני אטומי מימן כפונקציה של המרחק ביניהם">
+  <line class="ln" x1="70" y1="20" x2="70" y2="290"/><line class="ln" x1="70" y1="290" x2="630" y2="290"/>
+  <line class="ln-d" x1="70" y1="70" x2="630" y2="70"/>
+  <text x="62" y="75" text-anchor="end" class="sm">0</text>
+  <path class="ln-ac" d="M104,24 C128,190 150,250 180,250 C240,250 300,120 380,90 C450,74 540,71 620,70"/>
+  <line class="ln-d" x1="180" y1="250" x2="180" y2="290"/><line class="ln-d" x1="70" y1="250" x2="180" y2="250"/>
+  <text x="62" y="255" text-anchor="end" class="ac">−436</text>
+  <text x="180" y="310" text-anchor="middle" class="ac">74 pm</text>
+  <line class="ln" x1="200" y1="74" x2="200" y2="244"/><path class="fi" d="M200,250 l-6,-12 h12 z"/>
+  <text x="212" y="165" class="b" direction="rtl" text-anchor="end" dx="150">אנרגיית הקשר</text>
+  <text x="212" y="186" class="sm" direction="rtl" text-anchor="end" dx="150">436 kJ/mol</text>
+  <text x="545" y="56" text-anchor="middle" class="sm" direction="rtl">אטומים רחוקים – כמעט אין משיכה</text>
+  <text x="128" y="40" class="tr" direction="rtl" text-anchor="start" dx="-20">דחייה</text>
+  <text x="350" y="324" text-anchor="middle" class="sm" direction="rtl">המרחק בין הגרעינים (pm)</text>
+  <text x="26" y="160" text-anchor="middle" class="sm" direction="rtl" transform="rotate(-90 26 160)">אנרגיה פוטנציאלית (kJ/mol)</text>
+</svg>
+<figcaption><b>עקומת האנרגיה של H<sub>2</sub>.</b> מימין: אטומים רחוקים (אנרגיה 0). כשהם מתקרבים המשיכה מורידה את האנרגיה עד המינימום – זה אורך הקשר (74 pm) ועומק הבור הוא אנרגיית הקשר (436 kJ/mol). קרוב מדי – הדחייה בין הגרעינים מקפיצה את האנרגיה למעלה. <span class="src">הרצאה 5 שקף 3</span></figcaption>
+</figure>
+<h4>כלל האוקטט ואלקטרוני ערכיות</h4>
+<p><b>אלקטרוני ערכיות</b> הם האלקטרונים ברמה החיצונית – רק הם משתתפים בקשר. דוגמה: חנקן <span class="f">1s²2s²2p³</span> → רמת הערכיות n=2, יש לו <span class="f">5</span> אלקטרוני ערכיות (2 של s ו-3 של p).</p>
+<p><b>כלל האוקטט:</b> אטום "שואף" ל-8 אלקטרונים ברמה החיצונית (<span class="f">s²p⁶</span>) כמו הגז האציל הקרוב אליו. במימן – 2 בלבד.</p>
+<div class="callout tip"><span class="tag">קיצור דרך</span><p>מספר אלקטרוני הערכיות של יסוד ראשי = מספר הקבוצה (הספרה האחרונה): H 1, Be 2, B/Al 3, C/Si 4, N/P 5, O/S 6, F/Cl/Br/I 7, גזים אצילים 8.</p></div>
+</section>
+
+<section class="topic" id="b2">
+<h3><span class="n">2</span>קשר יוני, קוולנטי וקוולנטי קוטבי</h3>
+<div class="compare">
+  <div><h5>קשר יוני</h5><ul>
+    <li>אלקטרון <b>עובר</b> מאטום לאטום → קטיון (+) ואניון (−).</li>
+    <li>בדרך כלל <b>מתכת</b> (אנרגיית יינון נמוכה) + <b>אל-מתכת</b> (זיקה אלקטרונית גבוהה).</li>
+    <li>היונים יוצרים <b>סריג יוני</b> (NaCl – מבנה קובייתי); הנוסחה מבטאת את היחס הנמוך ביותר בין היונים.</li></ul></div>
+  <div><h5>קוולנטי טהור</h5><ul>
+    <li>שני אטומים <b>חולקים באופן שווה</b> זוג אלקטרונים.</li>
+    <li>ΔEN = 0, למשל H–H, Cl–Cl.</li></ul></div>
+  <div><h5>קוולנטי קוטבי</h5><ul>
+    <li>חלוקה <b>לא שווה</b> – הענן נמשך לאטום האלקטרושלילי יותר.</li>
+    <li>מטענים חלקיים δ+ ו-δ−; נוצר <b>דו-קוטב</b> (dipole).</li>
+    <li>למשל H–F, H–Cl, O–H במים.</li></ul></div>
+</div>
+<h4>אלקטרושליליות (EN)</h4>
+<p>היכולת היחסית של אטום <b>למשוך אליו את אלקטרוני הקשר</b>. בסולם פאולינג: <mark>EN עולה משמאל לימין בשורה ומלמטה למעלה בטור</mark> – הכי גבוה ב-F (4.0), הכי נמוך ב-Cs/Fr.</p>
+<div class="tbl"><table>
+<caption>ערכי EN שכדאי להכיר (סולם פאולינג, מהמצגת)</caption>
+<thead><tr><th>H</th><th>C</th><th>N</th><th>O</th><th>F</th><th>Cl</th><th>Br</th><th>I</th><th>S</th><th>P</th><th>Na</th><th>Mg</th><th>Ca</th><th>Al</th><th>Si</th><th>B</th></tr></thead>
+<tbody><tr><td>2.1</td><td>2.5</td><td>3.0</td><td>3.5</td><td>4.0</td><td>3.0</td><td>2.8</td><td>2.5</td><td>2.5</td><td>2.1</td><td>0.9</td><td>1.2</td><td>1.0</td><td>1.5</td><td>1.8</td><td>2.0</td></tr></tbody>
+</table></div>
+<p>ככל שההפרש <span class="f">ΔEN</span> גדול יותר – הקשר קוטבי יותר, עד שהוא נעשה "יוני בעיקר". אלה ערכי הסף <b>שהמרצה ביקשה להשתמש בהם בקורס</b>:</p>
+<figure>
+<svg viewBox="0 0 660 200" role="img" aria-label="סרגל הפרש אלקטרושליליות עם ערכי סף 0.4 ו-1.7">
+  <rect class="z1" x="40" y="60" width="68" height="44" rx="4"/>
+  <rect class="z2" x="108" y="60" width="221" height="44"/>
+  <rect class="z3" x="329" y="60" width="271" height="44" rx="4"/>
+  <text x="74" y="50" text-anchor="middle" class="b" direction="rtl">לא קוטבי</text>
+  <text x="218" y="50" text-anchor="middle" class="b" direction="rtl">קוולנטי קוטבי</text>
+  <text x="464" y="50" text-anchor="middle" class="b" direction="rtl">יוני בעיקר</text>
+  <g class="sm"><text x="40" y="124" text-anchor="middle">0</text><text x="108" y="124" text-anchor="middle">0.4</text><text x="329" y="124" text-anchor="middle">1.7</text><text x="600" y="124" text-anchor="middle">3.3</text></g>
+  <text x="320" y="20" text-anchor="middle" class="sm" direction="rtl">ΔEN = הפרש האלקטרושליליות בין שני האטומים</text>
+  <g>
+    <circle class="fi" cx="40" cy="150" r="5"/><text x="40" y="172" text-anchor="middle" class="sm">Cl–Cl 0</text>
+    <circle class="fi" cx="193" cy="150" r="5"/><text x="193" y="172" text-anchor="middle" class="sm">H–Cl 0.9</text>
+    <circle class="fi" cx="277" cy="150" r="5"/><text x="277" y="190" text-anchor="middle" class="sm">O–H 1.4</text>
+    <circle class="fi" cx="397" cy="150" r="5"/><text x="397" y="172" text-anchor="middle" class="sm">Na–Cl 2.1</text>
+    <circle class="fi" cx="549" cy="150" r="5"/><text x="549" y="172" text-anchor="middle" class="sm">Ca–F 3.0</text>
+  </g>
+</svg>
+<figcaption><b>ΔEN &lt; 0.4</b> קוולנטי (כמעט) לא קוטבי · <b>0.4–1.7</b> קוולנטי קוטבי · <b>&gt; 1.7</b> יוני בעיקר. המעבר בפועל הדרגתי, וספרים שונים משתמשים בספים קצת שונים – בבוחן לפי הערכים האלה. <span class="src">הרצאה 5 שקף 13</span></figcaption>
+</figure>
+<div class="ex"><header>דוגמה מהמצגת <small>הרצאה 5 שקף 12</small></header><div class="body">
+<p class="q">באיזו מולקולה הקשר קוטבי יותר: HF או HCl?</p>
+<p><span class="f">ΔEN(HF) = 4.0 − 2.1 = 1.9</span> &nbsp;·&nbsp; <span class="f">ΔEN(HCl) = 3.0 − 2.1 = 0.9</span></p>
+<div class="ans">ל-HF הפרש גדול יותר → הקשר בו קוטבי יותר (בעל אופי יוני חזק יותר).</div></div></div>
+<div class="callout trap"><span class="tag">מלכודת</span><p>ΔEN של H–F הוא 1.9 – כלומר מעל 1.7. אם שואלים "מה <b>אופי הקשר</b> לפי ΔEN" – לפי סף הקורס זה אזור "יוני בעיקר". אבל אם שואלים "האם <b>התרכובת</b> HF יונית או קוולנטית" (כמו בתרגול 5 שאלה 1) – היא קוולנטית: שני אל-מתכות שיוצרים מולקולה. קראו טוב מה בדיוק שואלים.</p></div>
+<div class="callout tip"><span class="tag">איך מזהים מהר</span><p>מתכת + אל-מתכת (Na, K, Ca, Mg, Li עם F, Cl, O…) → יוני. שתי אל-מתכות → קוולנטי (קוטבי אם הן שונות, לא קוטבי אם זהות). בשאלת "לפי המיקום בטבלה בלבד" – הקשר בין האטומים הכי רחוקים זה מזה בטבלה (שמאל-למטה מול ימין-למעלה) הוא היוני ביותר, למשל Ca–F.</p></div>
+</section>
+
+<section class="topic" id="b3">
+<h3><span class="n">3</span>מבנה לואיס</h3>
+<p>מבנה לואיס מראה את <b>כל אלקטרוני הערכיות</b>: זוג אלקטרונים קושר = קו (או שתי נקודות); זוג לא קושר (lone pair) = שתי נקודות על האטום.</p>
+<div class="tbl"><table>
+<thead><tr><th>סוג קשר</th><th>אלקטרונים משותפים</th><th>מורכב מ…</th><th>אנרגיה (C–C)</th><th>אורך (C–C)</th></tr></thead>
+<tbody>
+<tr><th>יחיד <span class="f">C–C</span></th><td>2</td><td>σ</td><td>347 kJ/mol</td><td>154 pm</td></tr>
+<tr><th>כפול <span class="f">C=C</span></th><td>4</td><td>σ + π</td><td>611 kJ/mol</td><td>134 pm</td></tr>
+<tr><th>משולש <span class="f">C≡C</span></th><td>6</td><td>σ + π + π</td><td class="hl">837 kJ/mol</td><td class="hl">120 pm</td></tr>
+</tbody></table></div>
+<div class="callout must"><span class="tag">חובה לזכור</span><p>יותר אלקטרונים משותפים בין שני אטומים → משיכה חזקה יותר לשני הגרעינים → <b>קשר חזק וקצר יותר</b>. משולש &gt; כפול &gt; יחיד באנרגיה, ובאורך הסדר הפוך. (תרגול 5 שאלה 6: אתאן – 2 אלקטרונים, אתן – 4, אתין – 6 → באתין הקשר הכי חזק וקצר.)</p></div>
+<h4>שלבי כתיבת מבנה לואיס</h4>
+<ol class="steps">
+  <li><div><b>סופרים את כל אלקטרוני הערכיות.</b> ביון: <b>מוסיפים</b> אלקטרון לכל מטען שלילי, <b>מחסירים</b> לכל מטען חיובי.</div></li>
+  <li><div><b>שלד:</b> האטום המרכזי הוא בדרך כלל זה בעל ה-<mark>EN הנמוכה ביותר</mark> (לא H). פחמן תמיד מרכזי, מימן תמיד בקצה. מעדיפים מבנה סימטרי וקומפקטי.</div></li>
+  <li><div>מחברים כל אטום קצה לאטום המרכזי בקשר יחיד.</div></li>
+  <li><div>משלימים אוקטט לאטומים <b>החיצוניים</b> בזוגות לא קושרים.</div></li>
+  <li><div>אלקטרונים שנשארו → על האטום המרכזי.</div></li>
+  <li><div>אם לאטום המרכזי חסר אוקטט – הופכים זוג לא קושר של אטום שכן ל<b>קשר כפול/משולש</b> (נפוץ ב-C, N, O, P, S).</div></li>
+  <li><div>בודקים מטענים פורמליים (פרק הבא) כדי לבחור את המבנה הטוב ביותר.</div></li>
+</ol>
+<div class="ex"><header>דוגמה פתורה: C<sub>2</sub>N<sub>2</sub> <small>הרצאה 5 שקף 21</small></header><div class="body">
+<ol class="steps">
+<li><div>ערכיות: <span class="f">4+4+5+5 = 18</span>.</div></li>
+<li><div>EN של C (2.5) נמוכה משל N (3.0) → הפחמנים במרכז: <span class="f">N–C–C–N</span> (3 קשרים = 6 אלקטרונים).</div></li>
+<li><div>משלימים אוקטט לחנקנים: 6 נקודות לכל N → השתמשנו בכל 18 האלקטרונים, אבל לכל C יש רק 4.</div></li>
+<li><div>מזיזים שני זוגות מכל N לקשרים עם C.</div></li>
+</ol>
+<div class="ans"><span class="f">:N≡C–C≡N:</span> – לכל אטום אוקטט, זוג לא קושר אחד על כל N.</div></div></div>
+<div class="ex"><header>דוגמאות מתרגול 5 שאלה 5</header><div class="body">
+<p><b>NH<sub>3</sub>:</b> <span class="f">5 + 3×1 = 8</span> אלקטרונים. 3 קשרי N–H (6 אלקטרונים) + <b>זוג לא קושר אחד</b> על N.</p>
+<p><b>OF<sub>2</sub>:</b> <span class="f">6 + 2×7 = 20</span>. שלד <span class="f">F–O–F</span> (O מרכזי כי EN שלו נמוכה משל F). 2 קשרים = 4 אלקטרונים, נשארו 16 = 8 זוגות: 3 על כל F ו-2 על O. <b>סה"כ 8 זוגות לא קושרים.</b></p>
+<p><b>NOF</b> (שאלה 4): האטום המרכזי – <b>N</b>, בעל ה-EN הנמוכה (3.0 לעומת 3.5 ו-4.0).</p></div></div>
+<div class="callout trap"><span class="tag">מלכודת</span><p>בספירת "זוגות לא קושרים בסך הכל" סופרים את <b>כל</b> האטומים, לא רק את המרכזי. וביונים אל תשכחו את המטען: <span class="f">NO₂⁻</span> = 5+6+6+<b>1</b> = 18.</p></div>
+</section>
+
+<section class="topic" id="b4">
+<h3><span class="n">4</span>מטען פורמלי (FC)</h3>
+<p>המטען הפורמלי משווה בין מספר האלקטרונים שיש לאטום כשהוא חופשי, לבין מה ש"שייך" לו במבנה לואיס (כל הזוגות הלא-קושרים שלו + חצי מאלקטרוני הקשרים). הוא כלי לבדוק איזה מבנה לואיס סביר יותר.</p>
+<div class="eq">FC = (ערכיות) − (אלקטרונים לא-קושרים) − <span class="frac"><span>1</span><span>2</span></span>(אלקטרונים קושרים)</div>
+<p class="src" style="text-align:center">½ × אלקטרונים קושרים = <b>מספר הקשרים</b> סביב האטום · הרצאה 6 שקף 3</p>
+<div class="ex"><header>דוגמה: NO<sub>2</sub><sup>+</sup> <small>הרצאה 6 שקפים 4–5</small></header><div class="body">
+<p>מבנה: <span class="f">[O=N=O]⁺</span> עם 2 זוגות לא קושרים על כל O.</p>
+<p><span class="f">FC(N) = 5 − 0 − ½(8) = +1</span> &nbsp;·&nbsp; <span class="f">FC(O) = 6 − 4 − ½(4) = 0</span></p>
+<div class="ans">סכום: 0 + 1 + 0 = +1 = מטען היון ✓</div></div></div>
+<div class="callout must"><span class="tag">ארבעת הכללים לבחירת מבנה לואיס</span>
+<ol>
+  <li>סכום המטענים הפורמליים = <b>0</b> במולקולה ניטרלית, ו<b>מטען היון</b> ביון.</li>
+  <li>מבנה עם מטענים פורמליים <b>קטנים</b> (קרובים ל-0) סביר יותר.</li>
+  <li>מטען פורמלי <b>שלילי</b> צריך לשבת על האטום <b>האלקטרושלילי יותר</b>; חיובי – על הפחות אלקטרושלילי.</li>
+  <li>מטענים <b>באותו סימן על אטומים שכנים</b> – לא סביר.</li>
+</ol></div>
+<div class="tbl"><table>
+<caption>OCN⁻ (יון הציאנט) – שלושה מבנים אפשריים · הרצאה 6 שקף 8</caption>
+<thead><tr><th>מבנה</th><th>FC על O</th><th>FC על C</th><th>FC על N</th><th>מסקנה</th></tr></thead>
+<tbody>
+<tr><td class="ltr f">[O=C=N]⁻</td><td>0</td><td>0</td><td>−1</td><td>סביר, אבל ה-(−) על N</td></tr>
+<tr><td class="ltr f">[O≡C–N]⁻</td><td>+1</td><td>0</td><td>−2</td><td>גרוע – מטענים גדולים</td></tr>
+<tr><td class="ltr f">[O–C≡N]⁻</td><td>−1</td><td>0</td><td>0</td><td class="hl">המועדף – ה-(−) על O, האלקטרושלילי ביותר</td></tr>
+</tbody></table></div>
+<div class="callout tip"><span class="tag">טריק לחישוב מהיר</span><p>FC = ערכיות − (נקודות על האטום) − (מספר קווים שיוצאים ממנו). למשל O עם קשר יחיד ושלושה זוגות: 6 − 6 − 1 = <b>−1</b>; O עם קשר כפול ושני זוגות: 6 − 4 − 2 = <b>0</b>; N עם 4 קשרים ובלי זוגות: 5 − 0 − 4 = <b>+1</b>.</p></div>
+</section>
+
+<section class="topic" id="b5">
+<h3><span class="n">5</span>חריגות מכלל האוקטט</h3>
+<div class="compare">
+  <div><h5>אוקטט לא מלא</h5><ul>
+    <li>לאטום המרכזי <b>פחות מ-8</b> אלקטרונים.</li>
+    <li>אופייני ל-<b>Be, B, Al</b> (רק 2–3 אלקטרוני ערכיות).</li>
+    <li><span class="f">BeCl₂</span> – 4 אלקטרונים סביב Be; <span class="f">BF₃</span> – 6 סביב B.</li>
+    <li>השלמת אוקטט הייתה דורשת קשר כפול שיוצר הפרדת מטענים לא מועדפת – לכן המבנה עם האוקטט הלא מלא מועדף.</li></ul></div>
+  <div><h5>אוקטט מורחב</h5><ul>
+    <li>לאטום המרכזי <b>יותר מ-8</b> אלקטרונים.</li>
+    <li>רק <b>ממחזור 3 ומטה</b> (P, S, Cl, Br, I, Xe) – בזכות הגודל הגדול שלהם.</li>
+    <li><span class="f">PCl₅</span> (10), <span class="f">SF₆</span> (12), <span class="f">XeF₄</span> (12: 4 קשרים + 2 זוגות).</li>
+    <li><span class="f">NCl₅</span> <b>לא קיים</b> – N במחזור 2.</li></ul></div>
+</div>
+<div class="callout note"><span class="tag">מהמצגת</span><p>בשקף 10 מוזכר שכימיה קוונטית מודרנית הראתה שאורביטלי d הריקים <b>אינם</b> משתתפים בקשרים של אוקטט מורחב (הם גבוהים מדי באנרגיה). כלומר ההסבר הוא הגודל של האטום, לא "שימוש ב-d".</p></div>
+</section>
+
+<section class="topic" id="b6">
+<h3><span class="n">6</span>אנתלפיית קשר וחישוב ΔH של תגובה</h3>
+<div class="callout must"><span class="tag">חובה לזכור</span><p><b>שבירת קשר = אנדותרמי</b> (צורך אנרגיה, ΔH &gt; 0). <b>יצירת קשר = אקסותרמי</b> (משחרר אנרגיה, ΔH &lt; 0), באותה כמות בדיוק. למשל <span class="f">H₂(g) → 2H(g)  ΔH = +435.93 kJ/mol</span> והתהליך ההפוך −435.93.</p></div>
+<p>לכל קשר במולקולה אנרגיה קצת שונה לפי הסביבה, ולכן משתמשים ב<b>אנרגיות קשר ממוצעות</b> (BE) – החישוב הוא הערכה.</p>
+<div class="eq">ΔH<sub>rxn</sub> ≈ Σ BE(<b>מגיבים</b>, קשרים שנשברים) − Σ BE(<b>תוצרים</b>, קשרים שנוצרים)</div>
+<div class="tbl"><table>
+<caption>אנרגיות קשר ממוצעות (kJ/mol) – מתוך הטבלה במצגת</caption>
+<thead><tr><th>קשר</th><th>BE</th><th>קשר</th><th>BE</th><th>קשר</th><th>BE</th></tr></thead>
+<tbody>
+<tr><td class="f">H–H</td><td>436</td><td class="f">C–C</td><td>347</td><td class="f">N≡N</td><td>946</td></tr>
+<tr><td class="f">C–H</td><td>414</td><td class="f">C=C</td><td>611</td><td class="f">O=O</td><td>498</td></tr>
+<tr><td class="f">N–H</td><td>389</td><td class="f">C≡C</td><td>837</td><td class="f">F–F</td><td>159</td></tr>
+<tr><td class="f">O–H</td><td>464</td><td class="f">C–O</td><td>360</td><td class="f">Cl–Cl</td><td>243</td></tr>
+<tr><td class="f">H–F</td><td>565</td><td class="f">C=O</td><td>736*</td><td class="f">Br–Br</td><td>193</td></tr>
+<tr><td class="f">H–Cl</td><td>431</td><td class="f">C≡N</td><td>891</td><td class="f">N=N</td><td>418</td></tr>
+</tbody></table></div>
+<div class="ex"><header>דוגמה 1: H<sub>2</sub> + Cl<sub>2</sub> → 2HCl</header><div class="body">
+<ol class="steps">
+<li><div>נשברים: H–H אחד + Cl–Cl אחד → <span class="f">436 + 243 = 679</span></div></li>
+<li><div>נוצרים: 2 קשרי H–Cl → <span class="f">2 × 431 = 862</span></div></li>
+<li><div><span class="f">ΔH ≈ 679 − 862 = −183 kJ</span></div></li>
+</ol>
+<div class="ans">ΔH שלילי → התגובה אקסותרמית (הקשרים שנוצרו חזקים יותר מאלה שנשברו).</div></div></div>
+<div class="ex"><header>דוגמה 2: שריפת מתאן <small>הרצאה 6 שקף 14</small></header><div class="body">
+<p class="f" style="text-align:center">CH₄ + 2O₂ → CO₂ + 2H₂O</p>
+<p>נשברים <b>4 קשרי C–H</b> ו-<b>2 קשרי O=O</b>; נוצרים <b>2 קשרי C=O</b> (ב-CO₂) ו-<b>4 קשרי O–H</b> (2 בכל מים).</p>
+<div class="eq">ΔH = 4·BE(C–H) + 2·BE(O=O) − 2·BE(C=O) − 4·BE(O–H)</div>
+<p>עם ערכי הטבלה: <span class="f">4(414) + 2(498) − 2(736) − 4(464) = 2652 − 3328 = −676 kJ</span>.</p>
+<p class="src">* ליד C=O בטבלה יש הערה: בספרים רבים לקשר C=O <b>בתוך CO₂</b> משתמשים ב-799 kJ/mol, ואז יוצא −802 kJ. בבוחן – השתמשו בערכים שנותנים לכם בשאלה.</p></div></div>
+<div class="callout trap"><span class="tag">מלכודות</span><ul>
+<li>הסדר הוא <b>מגיבים פחות תוצרים</b> (הפוך מ"תוצרים פחות מגיבים" שאולי מוכר לכן מאנתלפיות יצירה).</li>
+<li>להכפיל במקדמים <b>ובמספר הקשרים בכל מולקולה</b>: 2H₂O = 4 קשרי O–H.</li>
+<li>CO₂ הוא <span class="f">O=C=O</span> – שני קשרים <b>כפולים</b>, לא יחידים.</li></ul></div>
+</section>
+
+<section class="topic" id="b7">
+<h3><span class="n">7</span>רזוננס</h3>
+<p>לפעמים אפשר לכתוב <b>כמה מבני לואיס</b> נכונים לאותה מולקולה, שההבדל ביניהם רק <b>במיקום האלקטרונים</b> (קשרים כפולים וזוגות), לא במיקום האטומים. המולקולה האמיתית היא <b>ממוצע משוקלל</b> שלהם ("היבריד רזוננס"). כותבים חץ דו-ראשי ↔ בין המבנים.</p>
+<div class="callout must"><span class="tag">חובה לזכור</span><ul>
+<li>רזוננס הוא <b>טכניקה לתיאור</b> – המולקולה לא "קופצת" בין המבנים. מבנה לואיס יודע לצייר רק קשרים ומטענים שלמים, והמציאות באמצע.</li>
+<li><b>אוזון O₃:</b> שני הקשרים <b>זהים</b> באורכם (127.8 pm) – בין יחיד (145) לכפול (121).</li>
+<li><b>CO₃²⁻:</b> שלושה מבנים; על כל O מטען ממוצע של <span class="f">−2/3</span>.</li>
+<li>כל המבנים חייבים <b>אותו שלד</b>; פילוג האלקטרונים והמטענים הפורמליים יכולים להשתנות.</li>
+<li>מולקולה עם רזוננס <b>יציבה יותר</b> (אנרגיה נמוכה יותר). יותר מבני רזוננס → אנרגיית רזוננס גדולה יותר.</li>
+<li>לא כל המבנים תורמים שווה: <b>המבנה היציב יותר (לפי כללי המטען הפורמלי) תורם יותר</b>.</li>
+</ul></div>
+<div class="ex"><header>N<sub>3</sub><sup>−</sup> – מי התורם העיקרי? <small>הרצאה 6 שקף 18</small></header><div class="body">
+<div class="tbl"><table><thead><tr><th>מבנה</th><th>מטענים פורמליים</th></tr></thead><tbody>
+<tr><td class="ltr f">[N–N≡N]⁻</td><td>−2, +1, 0</td></tr>
+<tr><td class="ltr f">[N=N=N]⁻</td><td class="hl">−1, +1, −1</td></tr>
+<tr><td class="ltr f">[N≡N–N]⁻</td><td>0, +1, −2</td></tr></tbody></table></div>
+<div class="ans">המבנה האמצעי (הסימטרי) – בלי מטען −2, ולכן תורם הכי הרבה.</div></div></div>
+</section>
+
+<section class="topic" id="b8">
+<h3><span class="n">8</span>VSEPR – הצורה המרחבית</h3>
+<div class="callout note"><span class="tag">מקור</span><p>נושא זה מתורגל בתרגול 7; המצגת שלו לא הייתה בתיקייה, וההסבר כאן הוא החומר הסטנדרטי.</p></div>
+<p>הרעיון: <b>קבוצות האלקטרונים</b> סביב האטום המרכזי דוחות זו את זו ומתרחקות כמה שאפשר. "קבוצה" = קשר (יחיד, כפול או משולש – כל אחד נחשב <b>אחת</b>) או זוג לא קושר.</p>
+<div class="eq">AX<sub>n</sub>E<sub>m</sub> &nbsp;&nbsp; <small>A = אטום מרכזי · n = אטומים קשורים · m = זוגות לא קושרים · n+m = מספר הקבוצות</small></div>
+<div class="callout must"><span class="tag">ההבדל החשוב</span><p><b>הגאומטריה האלקטרונית</b> נקבעת לפי n+m (כל הקבוצות). <b>הצורה המולקולרית</b> (מה ש"רואים") מתארת רק את מיקום <b>האטומים</b> – הזוגות הלא קושרים "בלתי נראים" אבל דוחפים.</p></div>
+<div class="tbl wide"><table>
+<thead><tr><th>קבוצות</th><th>גאומטריה אלקטרונית</th><th>AXₙEₘ</th><th>צורה מולקולרית</th><th>זווית</th><th>דוגמה</th></tr></thead>
+<tbody>
+<tr><th>2</th><td>קווית</td><td class="f">AX₂</td><td>קווית</td><td>180°</td><td class="f">CO₂, BeCl₂, CS₂</td></tr>
+<tr><th rowspan="2">3</th><td rowspan="2">משולש מישורי</td><td class="f">AX₃</td><td>משולש מישורי</td><td>120°</td><td class="f">BF₃, CO₃²⁻</td></tr>
+<tr><td class="f">AX₂E</td><td>כפופה</td><td>&lt;120°</td><td class="f">SO₂, O₃</td></tr>
+<tr><th rowspan="3">4</th><td rowspan="3">טטרהדר</td><td class="f">AX₄</td><td>טטרהדר</td><td>109.5°</td><td class="f">CH₄, NH₄⁺</td></tr>
+<tr><td class="f">AX₃E</td><td>פירמידה משולשת</td><td>~107°</td><td class="f">NH₃, SO₃²⁻</td></tr>
+<tr><td class="f">AX₂E₂</td><td>כפופה</td><td>~104.5°</td><td class="f">H₂O, OF₂</td></tr>
+<tr><th rowspan="4">5</th><td rowspan="4">דו-פירמידה משולשת</td><td class="f">AX₅</td><td>דו-פירמידה משולשת</td><td>90°, 120°</td><td class="f">PCl₅</td></tr>
+<tr><td class="f">AX₄E</td><td>נדנדה (seesaw)</td><td></td><td class="f">SF₄</td></tr>
+<tr><td class="f">AX₃E₂</td><td>צורת T</td><td></td><td class="f">ICl₃, ClF₃</td></tr>
+<tr><td class="f">AX₂E₃</td><td>קווית</td><td>180°</td><td class="f">XeF₂, I₃⁻</td></tr>
+<tr><th rowspan="3">6</th><td rowspan="3">אוקטהדר</td><td class="f">AX₆</td><td>אוקטהדר</td><td>90°</td><td class="f">SF₆</td></tr>
+<tr><td class="f">AX₅E</td><td>פירמידה מרובעת</td><td></td><td class="f">BrF₅</td></tr>
+<tr><td class="f">AX₄E₂</td><td>ריבוע מישורי</td><td>90°</td><td class="f">XeF₄</td></tr>
+</tbody></table></div>
+<div class="ex"><header>איך פותרים: ICl<sub>3</sub> <small>תרגול 7 שאלה 3</small></header><div class="body">
+<ol class="steps">
+<li><div>ל-I יש 7 אלקטרוני ערכיות. 3 מהם הולכים ל-3 קשרים עם Cl.</div></li>
+<li><div>נשארו <span class="f">7 − 3 = 4</span> אלקטרונים = 2 זוגות לא קושרים.</div></li>
+<li><div><span class="f">AX₃E₂</span> → 5 קבוצות → גאומטריה אלקטרונית דו-פירמידה משולשת.</div></li>
+</ol>
+<div class="ans">צורה מולקולרית: T (T-shaped).</div>
+<p class="src">נוסחה מהירה למספר הזוגות על האטום המרכזי: (ערכיות של A − מספר הקשרים היחידים לאטומי הקצה + מספר המטענים השליליים − מספר המטענים החיוביים) ÷ 2. עובד כשכל אטומי הקצה הם הלוגנים או H בקשר יחיד. למשל I₃⁻: (7 − 2 + 1) ÷ 2 = 3 זוגות.</p></div></div>
+</section>
+
+<section class="topic" id="b9">
+<h3><span class="n">9</span>קוטביות של מולקולה ומומנט דיפול</h3>
+<p>קשר קוטבי ≠ מולקולה קוטבית. כל קשר קוטבי הוא "חץ" (וקטור) מ-δ+ ל-δ−. <b>המולקולה קוטבית רק אם סכום החצים לא מתאפס.</b></p>
+<div class="compare">
+  <div><h5>לא קוטבית (μ = 0)</h5><ul><li><span class="f">CO₂, CS₂</span> – קוויות, שני קשרים זהים בכיוונים מנוגדים.</li><li><span class="f">BF₃, CH₄, CCl₄, SF₆</span> – סימטריות לגמרי.</li><li><span class="f">BeCl₂, XeF₄</span>.</li></ul></div>
+  <div><h5>קוטבית (μ ≠ 0)</h5><ul><li><span class="f">COS</span> – קווית אבל הקשרים <b>שונים</b> (C=O לעומת C=S).</li><li><span class="f">H₂O, NH₃</span> – זוגות לא קושרים הופכים את הצורה ללא סימטרית.</li><li><span class="f">CHCl₃, HCl, SO₂</span>.</li></ul></div>
+</div>
+<h4>אחוז אופי יוני</h4>
+<p>משווים את מומנט הדיפול שנמדד לזה שהיה אילו הקשר היה יוני לגמרי (מטען שלם e במרחק d):</p>
+<div class="eq">% יוני = <span class="frac"><span>μ<sub>נמדד</sub></span><span>μ<sub>יוני</sub></span></span> × 100 &nbsp;&nbsp; μ<sub>יוני</sub>(D) = 4.8 × d(Å)</div>
+<div class="ex"><header>HI <small>תרגול 7 שאלה 1</small></header><div class="body">
+<p><span class="f">μ(ionic) = 4.8 × 1.61 = 7.73 D</span> &nbsp;→&nbsp; <span class="f">0.44 / 7.73 × 100 ≈ 5.7%</span></p>
+<div class="ans">כ-5.7% אופי יוני – קשר כמעט קוולנטי (ΔEN של H–I = 0.4 בלבד).</div>
+<p class="src">4.8 מגיע מ: מטען האלקטרון 1.602×10⁻¹⁹ C × 1 Å = 4.8 D (1 D = 3.336×10⁻³⁰ C·m).</p></div></div>
+</section>
+
+<section class="topic" id="b10">
+<h3><span class="n">10</span>הכלאה (היברידיזציה) וקשרי σ ו-π</h3>
+<div class="callout note"><span class="tag">מקור</span><p>נושא זה מתורגל בתרגול 8; ההסבר כאן הוא החומר הסטנדרטי.</p></div>
+<div class="callout must"><span class="tag">הכלל היחיד שצריך</span><p>סופרים <b>קבוצות אלקטרונים</b> סביב האטום (בדיוק כמו ב-VSEPR): <b>2 → sp</b> · <b>3 → sp²</b> · <b>4 → sp³</b> · 5 → sp³d · 6 → sp³d².</p></div>
+<div class="tbl"><table>
+<caption>ספירת קשרים</caption>
+<thead><tr><th>קשר</th><th>σ</th><th>π</th></tr></thead>
+<tbody><tr><td>יחיד</td><td>1</td><td>0</td></tr><tr><td>כפול</td><td>1</td><td>1</td></tr><tr><td>משולש</td><td>1</td><td>2</td></tr></tbody></table></div>
+<div class="tbl"><table>
+<caption>תרגול 8 שאלה 1 – פתור</caption>
+<thead><tr><th>חלקיק</th><th>הכלאה במרכז</th><th>גאומטריה</th><th>קשרי π</th></tr></thead>
+<tbody>
+<tr><td class="f">BF₃</td><td>sp²</td><td>משולש מישורי</td><td>0</td></tr>
+<tr><td class="f">HCN</td><td>sp</td><td>קווית</td><td>2</td></tr>
+<tr><td class="f">NH₄⁺</td><td>sp³</td><td>טטרהדר</td><td>0</td></tr>
+<tr><td class="f">CO₂</td><td>sp</td><td>קווית</td><td>2</td></tr>
+</tbody></table></div>
+<div class="ex"><header>אקרילוניטריל H<sub>2</sub>C=CH–C≡N: <small>תרגול 8 שאלה 2</small></header><div class="body">
+<p><b>σ:</b> 3 קשרי C–H + C=C (1) + C–C (1) + C≡N (1) = <b>6σ</b>. &nbsp; <b>π:</b> C=C (1) + C≡N (2) = <b>3π</b>.</p>
+<p>הכלאות: שני הפחמנים של C=C – <b>sp²</b> (3 קבוצות כל אחד); הפחמן של C≡N – <b>sp</b> (2 קבוצות); החנקן – <b>sp</b> (קשר משולש + זוג לא קושר = 2 קבוצות).</p></div></div>
+<div class="callout trap"><span class="tag">מלכודת</span><p>זוג לא קושר <b>נספר</b> כקבוצה בקביעת ההכלאה: ב-NH₃ ובמים – sp³. וקשר כפול/משולש נספר כקבוצה <b>אחת</b> בלבד.</p></div>
+</section>
+
+<section class="topic" id="b11">
+<h3><span class="n">11</span>כוחות בין-מולקולריים</h3>
+<div class="callout note"><span class="tag">מקור</span><p>נושא זה מתורגל בתרגול 9; ההסבר כאן הוא החומר הסטנדרטי.</p></div>
+<p>אלה כוחות <b>בין</b> מולקולות (לא הקשרים שבתוכן). הם קובעים נקודת רתיחה והתכה: <b>כוחות חזקים יותר → נקודת רתיחה גבוהה יותר</b>.</p>
+<div class="tbl"><table>
+<thead><tr><th>כוח</th><th>מתי קיים</th><th>חוזק יחסי</th></tr></thead>
+<tbody>
+<tr><th>יון–דיפול</th><td>יון + מולקולה קוטבית (מלח במים, RbCl + Cl₂O)</td><td>הכי חזק ברשימה</td></tr>
+<tr><th>קשר מימן</th><td>H קשור ישירות ל-<b>N, O או F</b>, ובמולקולה השכנה יש N/O/F עם זוג לא קושר</td><td>חזק</td></tr>
+<tr><th>דיפול–דיפול</th><td>בין מולקולות קוטביות</td><td>בינוני</td></tr>
+<tr><th>דיפול–דיפול מושרה</th><td>מולקולה קוטבית + לא קוטבית</td><td>חלש</td></tr>
+<tr><th>לונדון (פיזור)</th><td><b>בכל</b> המולקולות. גדל עם גודל ענן האלקטרונים (מסה מולרית)</td><td>חלש, אבל היחיד בלא-קוטביות</td></tr>
+</tbody></table></div>
+<div class="callout tip"><span class="tag">סדר החשיבה</span><ol>
+<li>יש יון? → יון–דיפול (או סריג יוני).</li>
+<li>יש H קשור ל-N/O/F? → קשרי מימן.</li>
+<li>המולקולה קוטבית (לפי צורה)? → דיפול–דיפול.</li>
+<li>אחרת → רק לונדון; אז המולקולה הגדולה/הכבדה רותחת גבוה יותר.</li></ol></div>
+<div class="callout trap"><span class="tag">מלכודת</span><p><span class="f">CH₃F</span> ו-<span class="f">CH₃OCH₃</span> (דימתיל אתר) <b>לא</b> יוצרים קשרי מימן בינם לבין עצמם – אין בהם H שקשור ל-F או ל-O (כל ה-H קשורים לפחמן). לעומת זאת <span class="f">CH₃NH₂, H₂O₂, CH₃OH</span> – כן.</p></div>
+</section>
+
+<section class="topic" id="bsol">
+<h3><span class="n">✓</span>פתרונות לתרגולים 5–9</h3>
+<p>נסו קודם לפתור לבד – ורק אחר כך לפתוח.</p>
+<details class="sol"><summary>תרגול 5 – תרכובות כימיות</summary><div class="body">
+<h5>שאלה 1</h5><p>Cl₂ – קוולנטי (לא קוטבי) · HF – קוולנטי (קוטבי מאוד) · <b>LiF – יוני</b> (מתכת + אל-מתכת, ΔEN = 3.0) · CBr₄ – קוולנטי.</p>
+<h5>שאלה 2</h5><p><b>ג. Ca–F</b> – Ca בשמאל הטבלה ו-F בפינה הימנית העליונה, ההפרש הכי גדול.</p>
+<h5>שאלה 3</h5><p>P–H: 2.1 ו-2.1 → ΔEN = 0 → קוולנטי לא קוטבי. <span class="src">(בטבלה שבדף התרגול P = 2.2, ואז ΔEN = 0.1 – עדיין לא קוטבי. במצגת P = 2.1.)</span> · H–F: 2.1 ו-4.0 → 1.9 → לפי ספי הקורס "יוני בעיקר" (קוטבי מאוד). · Na–Cl: 0.9 ו-3.0 → 2.1 → יוני.</p>
+<h5>שאלה 4</h5><p><b>ג. חנקן</b> – EN הנמוכה ביותר מבין השלושה.</p>
+<h5>שאלה 5</h5><p>NH₃: 8 אלקטרונים, זוג לא קושר 1. · OF₂: 20 אלקטרונים, 8 זוגות לא קושרים (2 על O, 3 על כל F).</p>
+<h5>שאלה 6</h5><p>אתאן 2, אתן 4, אתין 6 אלקטרונים משותפים בין הפחמנים. באתין הקשר הכי חזק והכי קצר – יותר אלקטרונים בין הגרעינים מושכים אותם חזק יותר.</p>
+</div></details>
+<details class="sol"><summary>תרגול 6 – מטען פורמלי ורזוננס</summary><div class="body">
+<h5>שאלה 1 – NO₂⁻</h5><p>5 + 6 + 6 + 1 = <b>18</b> אלקטרונים. מבנה: <span class="f">O=N–O⁻</span> (זוג לא קושר על N). FC: N = 5−2−3 = <b>0</b>; O בכפול = 6−4−2 = <b>0</b>; O ביחיד = 6−6−1 = <b>−1</b>. סכום = −1 ✓. יש שני מבני רזוננס שקולים (הכפול על כל אחד מה-O).</p>
+<h5>שאלה 2 – SF₆</h5><p><b>ב. אוקטט מורחב</b> – S במחזור 3, 12 אלקטרונים סביבו.</p>
+<h5>שאלה 3 – XeF₄</h5><p>4 קשרים (8) + 2 זוגות (4) = 12 → אוקטט מורחב. FC(Xe) = 8 − 4 − 4 = 0. <b>תשובה ב.</b></p>
+<h5>שאלה 4 – NCS⁻</h5><p>5 + 4 + 6 + 1 = <b>16</b>. שלושה מבנים: <span class="f">[N≡C–S]⁻</span> → (0, 0, −1); <span class="f">[N=C=S]⁻</span> → (−1, 0, 0); <span class="f">[N–C≡S]⁻</span> → (−2, 0, +1). השלישי גרוע (מטענים גדולים). בין שני הראשונים – לפי כלל 3 המטען השלילי צריך להיות על האטום האלקטרושלילי יותר: N (3.0) &gt; S (2.5), ולכן <b>[N=C=S]⁻ עם −1 על N הוא התורם הדומיננטי</b>.</p>
+</div></details>
+<details class="sol"><summary>תרגול 7 – VSEPR ודיפול</summary><div class="body">
+<h5>שאלה 1 – HI</h5><p>≈ 5.7% יוני (חישוב למעלה בפרק 9).</p>
+<h5>שאלה 2 – SO₃²⁻</h5><p>6 + 3×6 + 2 = 26 אלקטרונים. S קשור ל-3 חמצנים + זוג לא קושר אחד → <span class="f">AX₃E</span> → <b>פירמידה משולשת</b> (גאומטריה אלקטרונית טטרהדר).</p>
+<h5>שאלה 3 – ICl₃</h5><p><b>א.</b> AX₃E₂, צורת T.</p>
+<h5>שאלה 4</h5><p>SF₄: AX₄E → נדנדה. BrF₅: AX₅E → פירמידה מרובעת.</p>
+<h5>שאלה 5</h5><p>ב-CS₂ שני קשרי C=S זהים ומנוגדים → מתקזזים, μ = 0. ב-COS הקשרים שונים (C=O קוטבי יותר מ-C=S) → לא מתקזזים, μ ≠ 0.</p>
+</div></details>
+<details class="sol"><summary>תרגול 8 – הכלאה</summary><div class="body">
+<h5>שאלות 1–2</h5><p>בטבלה ובדוגמה בפרק 10.</p>
+<h5>שאלה 3</h5><p>C₂FBr (<span class="f">F–C≡C–Br</span>): 3σ, 2π, שני הפחמנים sp. · H₂CO (<span class="f">H₂C=O</span>): 3σ, 1π, הפחמן sp².</p>
+<h5>שאלה 5 – [(CH₃)₂NH(C₂H₃)]⁺</h5><p>שני פחמני המתיל – sp³; N עם 4 קשרים (אמוניום) – sp³; שני הפחמנים של הוויניל (CH=CH₂, קשר כפול) – sp². <b>תשובה ג.</b></p>
+<h5>שאלה 4 – BeBOH₃</h5><p>הנוסחה כתובה בצורה לא חד-משמעית ולא ברור מה השלד; כדאי לשאול את המתרגלת. לפי ספירת קבוצות: Be עם 2 קשרים → sp; O עם 2 קשרים ו-2 זוגות → sp³; B עם 3 קבוצות → sp², ועם 4 → sp³.</p>
+</div></details>
+<details class="sol"><summary>תרגול 9 – כוחות בין-מולקולריים</summary><div class="body">
+<h5>שאלה 1</h5><p>BeCl₂ + SiSe₂ – שתיהן קוויות ולא קוטביות → <b>לונדון</b>. · BeCl₂ + Cl₂NI (קוטבית) → <b>דיפול–דיפול מושרה</b> + לונדון. · H₂O + F₂NH → <b>קשרי מימן</b> (+ דיפול–דיפול, לונדון). · RbCl + Cl₂O → <b>יון–דיפול</b>. · HCl + F₂NH → <b>דיפול–דיפול</b> (+ לונדון).</p>
+<h5>שאלה 2</h5><p>SiH₄ – לונדון · CH₂F₂ – דיפול–דיפול · N₂H₄ – קשרי מימן · PCl₃ – דיפול–דיפול (פירמידה משולשת, קוטבית).</p>
+<h5>שאלה 3</h5><p>יכולות: <b>א. CH₃NH₂</b>, <b>ג. H₂O₂</b>. לא: CH₃F, CH₃OCH₃.</p>
+<h5>שאלה 4</h5><p>GeH₄ &gt; SiH₄ (שתיהן לא קוטביות, ל-GeH₄ ענן אלקטרונים גדול יותר → לונדון חזק יותר). · פרופנול &gt; אתיל מתיל אתר (לפרופנול O–H → קשרי מימן).</p>
+<h5>שאלה 5</h5><p>פרופאן – לונדון בלבד; פלואורואתאן – דיפול–דיפול; אתנול – קשרי מימן. סדר עולה: <b>פרופאן &lt; פלואורואתאן &lt; אתנול</b> (המסות כמעט שוות, ולכן סוג הכוח קובע).</p>
+</div></details>
+</section>
+
+<div class="recap"><span class="tag">בשורה התחתונה – בוחן יום שלישי</span><ol>
+<li>קשר נוצר כי <span class="f">E<sub>AB</sub> &lt; E<sub>A</sub>+E<sub>B</sub></span>; שבירת קשר אנדותרמית, יצירה אקסותרמית.</li>
+<li>ΔEN: &lt;0.4 לא קוטבי · 0.4–1.7 קוטבי · &gt;1.7 יוני.</li>
+<li>לואיס: סופרים ערכיות (כולל מטען), EN נמוכה במרכז, אוקטט לקצוות, ואז קשרים כפולים.</li>
+<li>FC = ערכיות − נקודות − קווים. מבנה טוב: מטענים קטנים, (−) על האלקטרושלילי.</li>
+<li>Be, B, Al – אוקטט לא מלא; מחזור 3 ומטה – יכול אוקטט מורחב.</li>
+<li><span class="f">ΔH ≈ ΣBE(מגיבים) − ΣBE(תוצרים)</span>; משולש &gt; כפול &gt; יחיד בחוזק.</li>
+<li>רזוננס = אותו שלד, ממוצע של מבנים; המבנה היציב תורם יותר.</li>
+<li>VSEPR: n+m קבוצות → גאומטריה; הצורה רק לפי האטומים.</li>
+<li>הכלאה: 2/3/4 קבוצות → sp/sp²/sp³. כפול = σ+π, משולש = σ+2π.</li>
+<li>קשר מימן רק כש-H קשור ישירות ל-N/O/F.</li>
+</ol></div>
+<div class="cta"><a href="practice.html#bonds">לתרגל שאלות על קשרים כימיים ←</a></div>
+</div></div>
+</div>
+
+<!-- ============================ PART B: STOICHIOMETRY ============================ -->
+<div data-part="stoich" id="stoich">
+<div class="part-head">
+  <div class="d">יום רביעי · בוחן 2</div>
+  <h2>סטויכיומטריה</h2>
+  <p>"סטויכיון" = יסוד, "מטרון" = מידה: התחום שעוסק <b>בכמויות</b> החומרים בתגובה. מבוסס על הרצאות 10–11 ותרגולים 10–11. המורה כתבה שזה הנושא האחרון שיילמד השבוע – אם יתווסף חומר בשיעור הבא (למשל מיהול תמיסות או נצילות), כדאי לעדכן.</p>
+  <nav class="toc" aria-label="תוכן החלק">
+    <a href="#s1">איזוטופים ו-amu</a><a href="#s2">מול ואבוגדרו</a><a href="#s3">מסה מולרית</a><a href="#s4">אחוז מסה</a>
+    <a href="#s5">נוסחה אמפירית</a><a href="#s6">איזון משוואות</a><a href="#s7">יחסי מולים</a><a href="#s8">מגיב מגביל</a>
+    <a href="#s9">אנליזת שריפה</a><a href="#s10">ריכוז מולרי</a><a href="#ssol">פתרונות תרגולים</a>
+  </nav>
+</div>
+
+<div class="page"><div class="flow">
+
+<section class="topic" id="s1">
+<h3><span class="n">1</span>אטום, איזוטופים ויחידת מסה אטומית</h3>
+<dl>
+<p><b>מספר אטומי (Z)</b> = מספר הפרוטונים (באטום ניטרלי גם מספר האלקטרונים). <b>מספר מסה (A)</b> = פרוטונים + נויטרונים. ולכן <mark>נויטרונים = A − Z</mark>.</p>
+</dl>
+<div class="compare">
+<div><h5>איזוטופים</h5><ul><li>אותו יסוד = אותו מספר <b>פרוטונים</b>.</li><li>מספר <b>נויטרונים</b> שונה → מסה שונה.</li><li>¹²C (6 נויטרונים), ¹³C (7), ¹⁴C (8) – כולם פחמן.</li></ul></div>
+<div><h5>יונים</h5><ul><li>אותו מספר פרוטונים.</li><li>מספר <b>אלקטרונים</b> שונה → נושאים מטען.</li><li>Na⁺ – 11 פרוטונים, 10 אלקטרונים.</li></ul></div>
+</div>
+<h4>יחידת מסה אטומית (amu / Da)</h4>
+<div class="callout must"><span class="tag">חובה לזכור</span><p><b>1 amu = 1/12 ממסת אטום פחמן-12.</b> מסת אטום ¹²C היא <span class="f">1.99×10⁻²⁶ kg</span>, ולכן <span class="f">1 amu = 1.66×10⁻²⁴ g = 1.66×10⁻²⁷ kg</span>.</p></div>
+<h4>מסה אטומית ממוצעת</h4>
+<p>המסה בטבלה המחזורית (למשל 12.01 לפחמן, לא 12 בדיוק) היא <b>ממוצע משוקלל</b> של האיזוטופים לפי השכיחות שלהם בטבע.</p>
+<div class="eq">M̄ = Σ (מסת האיזוטופ × שכיחות כשבר עשרוני)</div>
+<div class="ex"><header>כלור <small>תרגול 10 שאלה 3</small></header><div class="body">
+<p><span class="f">34.969 × 0.7578 + 36.966 × 0.2422 = 26.50 + 8.95 = 35.45 amu</span></p>
+<div class="ans">35.45 amu – בדיוק הערך בטבלה. הממוצע קרוב ל-35 כי ³⁵Cl שכיח יותר.</div></div></div>
+<div class="ex"><header>נחושת – מציאת השכיחות <small>תרגול 10 שאלה 2</small></header><div class="body">
+<p>מסמנים את שכיחות ⁶³Cu ב-x, אז של ⁶⁵Cu היא <span class="f">1 − x</span>. ממסת הנחושת בטבלה (63.55):</p>
+<p class="f" style="text-align:center">62.930x + 64.928(1 − x) = 63.55 → x = (64.928 − 63.55) / (64.928 − 62.930) = 0.69</p>
+<div class="ans">⁶³Cu ≈ 69%, ⁶⁵Cu ≈ 31%.</div></div></div>
+<div class="callout trap"><span class="tag">מלכודת</span><p>שכיחות באחוזים – מחלקים ב-100 לפני ההכפלה. והשכיחויות של כל האיזוטופים חייבות להסתכם ל-1 (100%).</p></div>
+</section>
+
+<section class="topic" id="s2">
+<h3><span class="n">2</span>מול ומספר אבוגדרו</h3>
+<p>אטומים קטנים מכדי לספור אותם, אז סופרים ב"חבילות" שנקראות <b>מול</b> – כמו "תריסר", רק ענק.</p>
+<div class="callout must"><span class="tag">חובה לזכור</span><p><b>מול</b> = כמות חומר שיש בה אותו מספר חלקיקים כמו אטומי הפחמן ב-12 g של ¹²C טהור. <span class="f">N<sub>A</sub> = 6.022×10²³</span> חלקיקים למול (אטומים, מולקולות, יונים, אלקטרונים…).</p>
+<div class="eq" style="background:transparent;border:0">N = n × N<sub>A</sub></div></div>
+<p>מול של כל חומר מכיל <b>אותו מספר</b> חלקיקים, אבל <b>המסה</b> שלו תלויה בסוג החלקיק. (וכדי לקבל תחושה: מול דפי A4 בערימה מגיע לגובה 3×10¹⁹ m – הרבה יותר מהמרחק לשמש.)</p>
+<div class="callout trap"><span class="tag">מלכודת קלאסית – מולקולות מול אטומים</span><p>במול <span class="f">H₂O</span> יש <span class="f">6.022×10²³</span> <b>מולקולות</b>, אבל <b>פי 2</b> אטומי מימן ו<b>פי 3</b> אטומים בסך הכל. במול <span class="f">Al₂(SO₄)₃</span> יש 12 מול אטומי O ו-17 מול אטומים בסך הכל (2+3+12). קודם מוצאים מולקולות – ואז מכפילים במספר האטומים בנוסחה.</p></div>
+</section>
+
+<section class="topic" id="s3">
+<h3><span class="n">3</span>מסה מולרית – הגשר בין גרמים למולים</h3>
+<p><b>מסה מולרית (M)</b> = המסה של מול אחד, ביחידות <span class="f">g/mol</span>. מספרית היא שווה למסה האטומית ב-amu (חמצן: 16.00 amu לאטום → 16.00 g/mol). של תרכובת = <b>סכום</b> המסות האטומיות של כל האטומים בנוסחה (נקרא גם "משקל מולקולרי").</p>
+<figure>
+<svg viewBox="0 0 720 270" role="img" aria-label="מפת המרות בין מסה, מולים ומספר חלקיקים">
+  <defs><marker id="s-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="fi" d="M0,0 L10,5 L0,10 z"/></marker></defs>
+  <rect class="bx" x="560" y="40" width="140" height="62" rx="10"/>
+  <text x="630" y="68" text-anchor="middle" class="b" direction="rtl">מסה של A</text><text x="630" y="90" text-anchor="middle" class="sm">m (g)</text>
+  <rect class="bx-ac" x="380" y="40" width="130" height="62" rx="10"/>
+  <text x="445" y="68" text-anchor="middle" class="b" direction="rtl">מולים של A</text><text x="445" y="90" text-anchor="middle" class="sm">n (mol)</text>
+  <rect class="bx-ac" x="190" y="40" width="130" height="62" rx="10"/>
+  <text x="255" y="68" text-anchor="middle" class="b" direction="rtl">מולים של B</text><text x="255" y="90" text-anchor="middle" class="sm">n (mol)</text>
+  <rect class="bx" x="20" y="40" width="130" height="62" rx="10"/>
+  <text x="85" y="68" text-anchor="middle" class="b" direction="rtl">מסה של B</text><text x="85" y="90" text-anchor="middle" class="sm">m (g)</text>
+  <line class="ln" x1="556" y1="71" x2="516" y2="71" marker-end="url(#s-arr)"/><text x="536" y="62" text-anchor="middle" class="ac">÷ M</text>
+  <line class="ln" x1="376" y1="71" x2="326" y2="71" marker-end="url(#s-arr)"/><text x="351" y="30" text-anchor="middle" class="ac" direction="rtl">× יחס</text><text x="351" y="128" text-anchor="middle" class="sm" direction="rtl">מקדמים</text>
+  <line class="ln" x1="186" y1="71" x2="156" y2="71" marker-end="url(#s-arr)"/><text x="171" y="62" text-anchor="middle" class="ac">× M</text>
+  <rect class="bx" x="380" y="180" width="130" height="62" rx="10"/>
+  <text x="445" y="208" text-anchor="middle" class="b" direction="rtl">מספר חלקיקים</text><text x="445" y="230" text-anchor="middle" class="sm">N</text>
+  <line class="ln" x1="430" y1="106" x2="430" y2="176" marker-end="url(#s-arr)"/><line class="ln" x1="460" y1="176" x2="460" y2="106" marker-end="url(#s-arr)"/>
+  <text x="420" y="146" text-anchor="end" class="ac">× N<tspan dy="4" font-size="11">A</tspan></text><text x="470" y="146" text-anchor="start" class="ac">÷ N<tspan dy="4" font-size="11">A</tspan></text>
+  <rect class="bx" x="560" y="180" width="140" height="62" rx="10"/>
+  <text x="630" y="206" text-anchor="middle" class="b" direction="rtl">מספר אטומים</text><text x="630" y="228" text-anchor="middle" class="sm" direction="rtl">× אטומים בנוסחה</text>
+  <line class="ln" x1="514" y1="211" x2="556" y2="211" marker-end="url(#s-arr)"/>
+</svg>
+<figcaption><b>מפת הדרכים של כל שאלה בסטויכיומטריה.</b> תמיד עוברים דרך <b>מולים</b>: גרמים → מולים (÷M) → יחס המקדמים במשוואה המאוזנת → מולים של החומר השני → גרמים (×M) או מספר חלקיקים (×N<sub>A</sub>).</figcaption>
+</figure>
+<div class="eq">n = <span class="frac"><span>m</span><span>M</span></span> &nbsp;&nbsp;&nbsp; m = n × M &nbsp;&nbsp;&nbsp; M = <span class="frac"><span>m</span><span>n</span></span></div>
+<div class="ex"><header>NaCl <small>הרצאה 10 שקף 26</small></header><div class="body">
+<p><span class="f">M(NaCl) = 22.99 + 35.45 = 58.44 g/mol</span> → ב-129.34 g יש <span class="f">129.34 / 58.44 = 2.21 mol</span>.</p></div></div>
+<div class="ex"><header>טיפת מים של 0.05 g <small>תרגול 10 שאלה 5</small></header><div class="body">
+<ol class="steps">
+<li><div>M(H₂O) = 2(1.008) + 16.00 = 18.02 g/mol → <span class="f">n = 0.05 / 18.02 = 2.77×10⁻³ mol</span></div></li>
+<li><div>מולקולות: <span class="f">2.77×10⁻³ × 6.022×10²³ = 1.67×10²¹</span></div></li>
+<li><div>אטומי H: פי 2 → <span class="f">3.34×10²¹</span></div></li>
+</ol></div></div>
+</section>
+
+<section class="topic" id="s4">
+<h3><span class="n">4</span>אחוז מסה של יסוד בתרכובת</h3>
+<div class="eq">% X = <span class="frac"><span>(מספר אטומי X בנוסחה) × M(X)</span><span>M(התרכובת)</span></span> × 100%</div>
+<div class="ex"><header>מים <small>הרצאה 11 שקף 3</small></header><div class="body">
+<p><span class="f">%H = 2(1.01) / 18.02 × 100 = 11.21%</span> &nbsp;·&nbsp; <span class="f">%O = 16.00 / 18.02 × 100 = 88.79%</span></p>
+<div class="ans">בדיקה: 11.21 + 88.79 = 100 ✓</div></div></div>
+<div class="callout trap"><span class="tag">מלכודת</span><p>לא לשכוח להכפיל במספר האטומים: ב-H₂O יש <b>2</b> מימנים. הטעות "1.01/18.02 = 5.6%" נפוצה מאוד.</p></div>
+</section>
+
+<section class="topic" id="s5">
+<h3><span class="n">5</span>נוסחה אמפירית ונוסחה מולקולרית</h3>
+<div class="compare">
+<div><h5>אמפירית</h5><ul><li>היחס <b>הפשוט ביותר</b> (במספרים שלמים) בין האטומים.</li><li>בנזן C₆H₆ ואצטילן C₂H₂ – לשניהם <b>CH</b>.</li></ul></div>
+<div><h5>מולקולרית</h5><ul><li>המספר <b>האמיתי</b> של כל אטום במולקולה.</li><li>תמיד כפולה שלמה של האמפירית.</li></ul></div>
+</div>
+<div class="callout note"><span class="tag">שימו לב למקור</span><p>בשקף 24 בהרצאה 10 כתוב שהנוסחה האמפירית של בנזן ואצטילן היא "C₂H₂" – זו טעות הקלדה. בהרצאה 11 (שקף 2) זה תוקן ל-<b>CH</b>, וזה הנכון.</p></div>
+<h4>שלבי הפתרון מאחוזי מסה</h4>
+<ol class="steps">
+<li><div>מניחים <b>100 g</b> של חומר → האחוזים הופכים לגרמים. (אם אחד חסר – הוא 100 פחות השאר.)</div></li>
+<li><div>ממירים כל יסוד למולים: <span class="f">n = m / M</span>.</div></li>
+<li><div>מחלקים את כולם ב<b>מספר המולים הקטן ביותר</b>.</div></li>
+<li><div>אם יצא שבר – מכפילים את כולם: <b>.5 → ×2</b>, <b>.33 / .67 → ×3</b>, <b>.25 / .75 → ×4</b>.</div></li>
+<li><div>למולקולרית: <span class="f">k = M(מולקולרית) / M(אמפירית)</span> ומכפילים כל אינדקס ב-k.</div></li>
+</ol>
+<div class="ex"><header>חומצה אסקורבית (ויטמין C) <small>הרצאה 11 שקפים 4–5 · תרגול 11 שאלה 1</small></header><div class="body">
+<p class="q">40.92% C, 4.58% H, השאר O; M = 176.12 g/mol.</p>
+<div class="tbl"><table><thead><tr><th></th><th>C</th><th>H</th><th>O</th></tr></thead><tbody>
+<tr><th>גרמים ב-100 g</th><td>40.92</td><td>4.58</td><td>100 − 40.92 − 4.58 = 54.50</td></tr>
+<tr><th>מולים</th><td>40.92/12.01 = 3.41</td><td>4.58/1.008 = 4.54</td><td>54.50/16.00 = 3.41</td></tr>
+<tr><th>÷ 3.41</th><td>1</td><td>1.33</td><td>1</td></tr>
+<tr><th>× 3</th><td class="hl">3</td><td class="hl">4</td><td class="hl">3</td></tr>
+</tbody></table></div>
+<p>אמפירית <b>C₃H₄O₃</b>, <span class="f">M = 3(12.01) + 4(1.008) + 3(16.00) = 88.06</span> → <span class="f">k = 176.12 / 88.06 = 2</span>.</p>
+<div class="ans">נוסחה מולקולרית: C₆H₈O₆</div></div></div>
+<div class="callout trap"><span class="tag">מלכודת</span><p>לא לעגל 1.33 ל-1! עיגול כזה הורס את התשובה. רק ערכים קרובים מאוד לשלם (כמו 1.98 או 2.03) מעגלים.</p></div>
+</section>
+
+<section class="topic" id="s6">
+<h3><span class="n">6</span>איזון משוואות כימיות</h3>
+<p><b>חוק שימור החומר:</b> אטומים לא נעלמים ולא נוצרים בתגובה, ולכן מספר האטומים מכל סוג חייב להיות זהה בשני הצדדים.</p>
+<div class="eq">4Al<sub>(s)</sub> + 3O<sub>2(g)</sub> → 2Al<sub>2</sub>O<sub>3(s)</sub> &nbsp;&nbsp; <small>(s) מוצק · (l) נוזל · (g) גז · (aq) מומס במים</small></div>
+<div class="callout must"><span class="tag">חובה לזכור</span><p>מאזנים <b>רק בעזרת המקדמים</b> (המספרים הגדולים לפני הנוסחה). <b>לעולם לא</b> משנים את האינדקסים הקטנים בתוך הנוסחה – זה כבר חומר אחר. ב-<span class="f">2Na + Cl₂ → 2NaCl</span> – ה-2 של Cl₂ <b>אינו</b> מקדם סטויכיומטרי.</p></div>
+<ol class="steps">
+<li><div>כותבים נוסחאות נכונות למגיבים ולתוצרים.</div></li>
+<li><div>סופרים אטומים מכל יסוד בכל צד.</div></li>
+<li><div>מתחילים מיסוד שמופיע <b>בחומר אחד בכל צד</b> (בשריפה: C, אחר כך H, ו-O בסוף).</div></li>
+<li><div>מוסיפים מקדמים. לא מוסיפים חומרים ולא משנים נוסחאות.</div></li>
+<li><div>סופרים מחדש ומאזנים את השאר – כולל בדיקה של מה שכבר איזנו.</div></li>
+<li><div>יצא שבר (למשל 7/2 O₂)? מכפילים <b>הכל</b> במכנה, ומצמצמים ליחס השלם הקטן ביותר.</div></li>
+<li><div>בדיקה סופית: כל יסוד שווה בשני הצדדים.</div></li>
+</ol>
+<div class="ex"><header>שריפת אתאן C<sub>2</sub>H<sub>6</sub> <small>תרגול 11 שאלה 2ד</small></header><div class="body">
+<p><span class="f">C₂H₆ + O₂ → 2CO₂ + 3H₂O</span> (C ואז H). חמצן מימין: 4 + 3 = 7 → צריך <span class="f">7/2 O₂</span>.</p>
+<div class="ans">× 2: 2C₂H₆ + 7O₂ → 4CO₂ + 6H₂O</div></div></div>
+<div class="tbl"><table><caption>דוגמאות מהמצגת – כדאי לנסות לאזן לבד ולבדוק</caption>
+<tbody>
+<tr><td class="ltr f">2Na + Cl₂ → 2NaCl</td><td class="ltr f">2Mg + O₂ → 2MgO</td></tr>
+<tr><td class="ltr f">2H₂O₂ → 2H₂O + O₂</td><td class="ltr f">N₂ + 3H₂ → 2NH₃</td></tr>
+<tr><td class="ltr f">4Fe + 3O₂ → 2Fe₂O₃</td><td class="ltr f">CH₄ + 2O₂ → CO₂ + 2H₂O</td></tr>
+<tr><td class="ltr f">C₃H₈ + 5O₂ → 3CO₂ + 4H₂O</td><td class="ltr f">C₂H₅OH + 3O₂ → 2CO₂ + 3H₂O</td></tr>
+</tbody></table></div>
+<div class="callout tip"><span class="tag">טריק לשריפה מלאה</span><p>ב-<span class="f">CₓHᵧ + O₂ → CO₂ + H₂O</span>: מקדם CO₂ = x, מקדם H₂O = y/2, ומקדם O₂ = x + y/4. אם יש גם חמצן בדלק (אתנול) – מחסירים את החמצן שלו.</p></div>
+</section>
+
+<section class="topic" id="s7">
+<h3><span class="n">7</span>יחסים סטויכיומטריים – מה המקדמים אומרים</h3>
+<p>המקדמים במשוואה מאוזנת הם <b>יחס מולים</b> (ובאותה מידה – יחס מולקולות). הם <b>לא</b> יחס גרמים.</p>
+<div class="eq">C<sub>5</sub>H<sub>12</sub> + 8O<sub>2</sub> → 5CO<sub>2</sub> + 6H<sub>2</sub>O &nbsp;&nbsp; <small>1 mol : 8 mol : 5 mol : 6 mol</small></div>
+<p>מותר גם מקדם שבר, כשמדברים ברמת מולים: <span class="f">2NH₃ + 3/2 O₂ → N₂ + 3H₂O</span> שקול ל-<span class="f">4NH₃ + 3O₂ → 2N₂ + 6H₂O</span>.</p>
+<div class="ex"><header>32 g חמצן מגיבים עם מימן בעודף <small>הרצאה 11 שקף 15</small></header><div class="body">
+<ol class="steps">
+<li><div>קודם כל – איזון! <span class="f">2H₂ + O₂ → 2H₂O</span></div></li>
+<li><div><span class="f">n(O₂) = 32 / 32 = 1 mol</span></div></li>
+<li><div>יחס מים : חמצן = 2 : 1</div></li>
+</ol>
+<div class="ans">נוצרים 2 mol מים.</div></div></div>
+<div class="ex"><header>15.0 g אלומיניום + HCl בעודף <small>תרגול 11 שאלה 3</small></header><div class="body">
+<ol class="steps">
+<li><div>משוואה: <span class="f">2Al + 6HCl → 2AlCl₃ + 3H₂</span></div></li>
+<li><div><span class="f">n(Al) = 15.0 / 26.98 = 0.556 mol</span></div></li>
+<li><div>H₂ : Al = 3 : 2 → <span class="f">n(H₂) = 0.556 × 3/2 = 0.834 mol</span></div></li>
+<li><div><span class="f">m(H₂) = 0.834 × 2.016 = 1.68 g</span></div></li>
+</ol></div></div>
+<div class="callout trap"><span class="tag">מלכודת</span><p>היחס "הפוך": כשהולכים מ-Al ל-H₂, מכפילים ב-<b>(מקדם של מה שמחפשים) / (מקדם של מה שיש)</b> = 3/2. טעות נפוצה היא להכפיל ב-2/3.</p></div>
+</section>
+
+<section class="topic" id="s8">
+<h3><span class="n">8</span>המגיב המגביל (הגורם המגביל)</h3>
+<p><b>המגיב המגביל</b> הוא זה שנגמר ראשון – הוא קובע כמה תוצר ייווצר. מהמגיב השני נשאר <b>עודף</b>. כמו כריכים: עם 10 פרוסות לחם ו-3 פרוסות גבינה אפשר להכין רק 3 כריכים – הגבינה מגבילה.</p>
+<div class="callout must"><span class="tag">השיטה</span><p>לכל מגיב: <b>מולים ÷ המקדם שלו במשוואה</b>. <mark>הערך הקטן ביותר = המגיב המגביל.</mark> משם ממשיכים את כל החישוב <b>רק</b> לפי המגביל.</p></div>
+<figure>
+<svg viewBox="0 0 640 220" role="img" aria-label="השוואת מולים חלקי מקדם עבור פנטאן וחמצן">
+  <text x="600" y="30" text-anchor="end" class="b" direction="rtl">מולים ÷ מקדם</text>
+  <text x="600" y="78" text-anchor="end" direction="rtl">C₅H₁₂: 1 ÷ 1</text>
+  <rect class="z2" x="60" y="60" width="380" height="28" rx="5"/><text x="50" y="80" text-anchor="end" class="b">1</text>
+  <text x="600" y="138" text-anchor="end" direction="rtl">O₂: 4 ÷ 8</text>
+  <rect class="fa" x="250" y="120" width="190" height="28" rx="5"/><text x="240" y="140" text-anchor="end" class="b">0.5</text>
+  <text x="345" y="188" text-anchor="middle" class="ac" direction="rtl">הקצר ביותר → O₂ הוא המגביל</text>
+  <line class="ln-d" x1="440" y1="50" x2="440" y2="160"/>
+</svg>
+<figcaption><b>שריפת 72 g פנטאן עם 128 g חמצן</b> (הרצאה 11 שקפים 18–21). הפוטנציאל של החמצן (0.5) קטן מזה של הפנטאן (1), ולכן החמצן ייגמר ראשון.</figcaption>
+</figure>
+<div class="ex"><header>הפתרון המלא <small>הרצאה 11 שקפים 19–21</small></header><div class="body">
+<p class="f" style="text-align:center">C₅H₁₂ + 8O₂ → 5CO₂ + 6H₂O</p>
+<div class="tbl"><table>
+<thead><tr><th></th><th class="f">C₅H₁₂</th><th class="f">O₂</th><th class="f">CO₂</th><th class="f">H₂O</th></tr></thead>
+<tbody>
+<tr><th>מסה מולרית</th><td>72</td><td>32</td><td></td><td></td></tr>
+<tr><th>מולים בהתחלה</th><td>72/72 = 1</td><td>128/32 = 4</td><td>0</td><td>0</td></tr>
+<tr><th>שינוי</th><td>−4/8 = −0.5</td><td>−4</td><td>+4×5/8 = +2.5</td><td>+4×6/8 = +3</td></tr>
+<tr><th>בסוף</th><td class="hl">0.5 (עודף)</td><td>0</td><td>2.5</td><td>3</td></tr>
+</tbody></table></div>
+<div class="ans">נוצרים 2.5 mol CO₂ ו-3 mol מים; נשארים 0.5 mol פנטאן = 36 g בעודף.</div></div></div>
+<div class="ex"><header>H<sub>3</sub>PO<sub>4</sub> + NaOH <small>תרגול 11 שאלה 4</small></header><div class="body">
+<p>קודם מאזנים: <span class="f">H₃PO₄ + 3NaOH → Na₃PO₄ + 3H₂O</span>.</p>
+<ol class="steps">
+<li><div><span class="f">n(NaOH) = 1 / 40.00 = 0.0250 mol</span> &nbsp; <span class="f">n(H₃PO₄) = 0.49 / 97.99 = 0.0050 mol</span></div></li>
+<li><div>÷ מקדם: NaOH → 0.0250/3 = 0.0083; H₃PO₄ → 0.0050/1 = 0.0050 → <b>H₃PO₄ מגביל</b>.</div></li>
+<li><div>NaOH שהגיב: <span class="f">3 × 0.0050 = 0.0150 mol</span>; עודף: <span class="f">0.0250 − 0.0150 = 0.0100 mol = 0.40 g</span>.</div></li>
+<li><div>Na₃PO₄: <span class="f">0.0050 mol × 163.94 = 0.82 g</span>.</div></li>
+</ol>
+<div class="ans">NaOH בעודף – 0.40 g (0.010 mol). נוצרים 0.82 g Na₃PO₄.</div></div></div>
+<div class="callout trap"><span class="tag">שתי מלכודות</span><ul><li>לא קובעים מגביל לפי <b>גרמים</b> ולא לפי מולים בלבד – תמיד מולים ÷ מקדם. (128 g חמצן "נראה יותר" מ-72 g פנטאן – ובכל זאת החמצן מגביל.)</li><li>במשוואה הלא מאוזנת בתרגול חסר מקדם 3 ל-NaOH – חייבים לאזן קודם.</li></ul></div>
+</section>
+
+<section class="topic" id="s9">
+<h3><span class="n">9</span>תגובות שריפה ואנליזת שריפה</h3>
+<p><b>שריפה</b> = תגובה עם O₂, לרוב משחררת הרבה חום. <b>שריפה מלאה</b> של חומר אורגני (C, H, אולי O) נותנת <b>CO₂ + H₂O</b>. כשהחמצן מוגבל – <b>שריפה חלקית</b> (נוצרים גם CO או פחמן) והסטויכיומטריה משתנה.</p>
+<p><b>אנליזת שריפה</b> – שורפים דגימה ושוקלים את ה-CO₂ והמים שנוצרו, וכך מוצאים את הנוסחה האמפירית.</p>
+<ol class="steps">
+<li><div><b>כל הפחמן הולך ל-CO₂:</b> <span class="f">n(C) = n(CO₂) = m(CO₂)/44</span></div></li>
+<li><div><b>כל המימן הולך למים:</b> <span class="f">n(H) = <mark>2</mark> × n(H₂O) = 2 × m(H₂O)/18</span></div></li>
+<li><div><b>חמצן – לפי הפרש!</b> החמצן בתוצרים בא גם מהאוויר, ולכן: <span class="f">m(O) = m(דגימה) − m(C) − m(H)</span></div></li>
+<li><div>מחלקים במספר המולים הקטן ביותר → נוסחה אמפירית.</div></li>
+</ol>
+<div class="ex"><header>4.60 g דגימה → 8.80 g CO<sub>2</sub> + 5.40 g H<sub>2</sub>O <small>הרצאה 11 שקפים 24–27</small></header><div class="body">
+<div class="tbl"><table><thead><tr><th></th><th>C</th><th>H</th><th>O</th></tr></thead><tbody>
+<tr><th>מולים</th><td>8.80/44 = 0.200</td><td>2 × 5.40/18 = 0.600</td><td>1.60/16 = 0.100</td></tr>
+<tr><th>גרמים</th><td>0.200 × 12 = 2.40</td><td>0.600 × 1 = 0.60</td><td>4.60 − 2.40 − 0.60 = 1.60</td></tr>
+<tr><th>÷ 0.100</th><td class="hl">2</td><td class="hl">6</td><td class="hl">1</td></tr>
+</tbody></table></div>
+<div class="ans">C₂H₆O</div></div></div>
+<div class="callout trap"><span class="tag">מלכודות</span><ul><li>לשכוח את ה-×2 של המימן במים (יוצא C₂H₃O – שגוי).</li><li>לחשב את החמצן מה-CO₂ והמים – הוא בא גם מהאוויר. רק בהפרש מהדגימה.</li></ul></div>
+</section>
+
+<section class="topic" id="s10">
+<h3><span class="n">10</span>תמיסות וריכוז מולרי</h3>
+<dl>
+<p><b>ממס (solvent)</b> – המרכיב שיש ממנו הכי הרבה (בדרך כלל מים). <b>מומס (solute)</b> – מה שמומס בו. <b>מסיסות</b> – הכמות המרבית שמתמוססת בכמות נתונה של ממס בטמפרטורה נתונה; תמיסה שמכילה בדיוק את המקסימום היא <b>תמיסה רוויה</b>.</p>
+</dl>
+<div class="eq">M = <span class="frac"><span>n (מולים של מומס)</span><span>V (ליטרים של <b>תמיסה</b>)</span></span> &nbsp;&nbsp; <small>יחידות: mol/L = M</small></div>
+<div class="ex"><header>58.5 g NaCl בתמיסה של 0.25 L <small>הרצאה 11 שקף 29</small></header><div class="body">
+<p><span class="f">n = 58.5 / 58.5 = 1 mol</span> → <span class="f">M = 1 / 0.25 = 4 M</span></p>
+<div class="ans">4 M (מולר)</div></div></div>
+<div class="callout trap"><span class="tag">מלכודות</span><ul><li>V הוא נפח <b>התמיסה כולה</b>, לא נפח המים שהוסיפו.</li><li>מ"ל → ליטר: מחלקים ב-1000 (250 mL = 0.25 L).</li><li>הפוך: כמה גרם צריך? <span class="f">m = M × V × M<sub>molar</sub></span>.</li></ul></div>
+</section>
+
+<section class="topic" id="ssol">
+<h3><span class="n">✓</span>פתרונות לתרגולים 10–11</h3>
+<details class="sol"><summary>תרגול 10</summary><div class="body">
+<h5>שאלה 1</h5><p>א. <span class="f">1 amu = 1.9926×10⁻²⁶ / 12 = 1.6605×10⁻²⁷ kg</span>. ב. <span class="f">18.998 × 1.6605×10⁻²⁴ g = 3.155×10⁻²³ g</span>.</p>
+<h5>שאלה 2</h5><p>⁶³Cu ≈ 69%, ⁶⁵Cu ≈ 31% (פתרון בפרק 1).</p>
+<h5>שאלה 3</h5><p>35.45 amu.</p>
+<h5>שאלה 4</h5><p><span class="f">C₂H₄O₂: 2(12.01) + 4(1.008) + 2(16.00) = 60.05 g/mol</span>.</p>
+<h5>שאלה 5</h5><p>2.77×10⁻³ mol · 1.67×10²¹ מולקולות · 3.34×10²¹ אטומי H.</p>
+<h5>שאלה 6 – Al₂(SO₄)₃</h5><p>א. <span class="f">1.2044×10²² / 6.022×10²³ = 0.0200 mol</span>. ב. <span class="f">M = 2(26.98) + 3(32.07) + 12(16.00) = 342.17</span> → <span class="f">0.0200 × 342.17 = 6.84 g</span>. ג. 12 אטומי O למולקולה → <span class="f">12 × 1.2044×10²² = 1.445×10²³</span>. ד. 17 אטומים למולקולה → <span class="f">2.047×10²³</span>.</p>
+</div></details>
+<details class="sol"><summary>תרגול 11</summary><div class="body">
+<h5>שאלה 1</h5><p>אמפירית C₃H₄O₃, מולקולרית C₆H₈O₆ (פרק 5).</p>
+<h5>שאלה 2</h5>
+<p class="f">א. CaH₂ + 2H₂O → Ca(OH)₂ + 2H₂</p>
+<p class="f">ב. 6Ba(OH)₂ + P₄O₁₀ → 2Ba₃(PO₄)₂ + 6H₂O</p>
+<p class="f">ג. 2KClO₃ + H₂SO₄ → 2HClO₃ + K₂SO₄</p>
+<p class="f">ד. 2C₂H₆ + 7O₂ → 4CO₂ + 6H₂O</p>
+<p class="src">בדיקה של ב: Ba 6=6 · P 4=4 · H 12=12 · O: 12+10 = 22 = 16+6 ✓</p>
+<h5>שאלה 3</h5><p>0.556 mol Al → 0.834 mol H₂ → 1.68 g (פרק 7).</p>
+<h5>שאלה 4</h5><p>H₃PO₄ מגביל, NaOH בעודף 0.40 g; נוצרים 0.82 g Na₃PO₄ (פרק 8).</p>
+<h5>שאלה 5 – אנליזת שריפה</h5>
+<p><span class="f">n(CO₂) = 3.095/44.01 = 0.0703</span> → C: 0.0703 mol = 0.845 g</p>
+<p><span class="f">n(H₂O) = 1.902/18.02 = 0.1056</span> → H: 0.2111 mol = 0.213 g</p>
+<p><span class="f">m(O) = 1.621 − 0.845 − 0.213 = 0.564 g</span> → 0.0352 mol</p>
+<p>÷ 0.0352: C 2.0 · H 6.0 · O 1 → <b>C₂H₆O</b></p>
+<p class="src">שימו לב לסדר בשאלה: "מסת המים והפחמן הדו-חמצני … 1.902 ו-3.095 בהתאמה" – כלומר המים 1.902 g וה-CO₂ 3.095 g.</p>
+</div></details>
+</section>
+
+<div class="recap"><span class="tag">בשורה התחתונה – בוחן יום רביעי</span><ol>
+<li>נויטרונים = A − Z. איזוטופים – אותם פרוטונים, נויטרונים שונים.</li>
+<li>מסה אטומית ממוצעת = Σ(מסה × שכיחות כשבר).</li>
+<li><span class="f">N = n·N<sub>A</sub></span>, <span class="f">n = m/M</span>. אטומים = מולקולות × אטומים בנוסחה.</li>
+<li>אחוז מסה: לא לשכוח את מספר האטומים.</li>
+<li>אמפירית: 100 g → מולים → ÷הקטן → להכפיל שברים. מולקולרית: × M/M<sub>אמפ</sub>.</li>
+<li>מאזנים רק במקדמים. מקדמים = יחס <b>מולים</b>.</li>
+<li>תמיד: גרמים → מולים → יחס → מולים → גרמים.</li>
+<li>מגביל = הקטן ביותר של מולים÷מקדם; החישוב ממשיך ממנו.</li>
+<li>שריפה: C מ-CO₂, H = 2×מים, O בהפרש.</li>
+<li>מולריות = מול מומס / ליטר <b>תמיסה</b>.</li>
+</ol></div>
+<div class="cta"><a href="practice.html#stoich">לתרגל שאלות על סטויכיומטריה ←</a></div>
+</div></div>
+</div>
+
+<footer>נבנה מתוך המצגות והתרגולים של הקורס. בהצלחה בבחנים!</footer>
+
+<script>
+(function(){
+  const r=document.documentElement, b=document.getElementById("themeBtn");
+  try{ const t=localStorage.getItem("chem_theme"); if(t) r.dataset.theme=t; }catch(e){}
+  b.onclick=()=>{ const dark = r.dataset.theme ? r.dataset.theme==="dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+    r.dataset.theme = dark ? "light" : "dark"; try{ localStorage.setItem("chem_theme", r.dataset.theme); }catch(e){} };
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>כימיה – הכנה לבחנים</title>
+<meta name="description" content="חומר מוסבר ושאלות תרגול לבוחן קשרים כימיים ולבוחן סטויכיומטריה">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700;800&family=Frank+Ruhl+Libre:wght@700;900&display=swap">
+<style>
+:root{--paper:#f6f4ee;--card:#fff;--ink:#1b1d22;--ink-2:#4a4f59;--ink-3:#7b808a;--rule:#dfdbd0;--grid:rgba(27,29,34,.045);
+  --bonds:#0d6b74;--bonds-soft:#dff0ef;--stoich:#b3530b;--stoich-soft:#fbeadb;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#121417;--card:#1b1e23;--ink:#ebe8e1;--ink-2:#b4b0a7;--ink-3:#8a867e;--rule:#2f333a;--grid:rgba(255,255,255,.035);
+  --bonds:#5cc6c9;--bonds-soft:#15302f;--stoich:#f0a35a;--stoich-soft:#36240f;color-scheme:dark}}
+:root[data-theme="dark"]{--paper:#121417;--card:#1b1e23;--ink:#ebe8e1;--ink-2:#b4b0a7;--ink-3:#8a867e;--rule:#2f333a;--grid:rgba(255,255,255,.035);
+  --bonds:#5cc6c9;--bonds-soft:#15302f;--stoich:#f0a35a;--stoich-soft:#36240f;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Assistant","Segoe UI",system-ui,sans-serif;line-height:1.6;
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:22px 22px}
+.wrap{max-width:860px;margin:auto;padding:40px 16px 60px}
+.kicker{font-size:.78rem;font-weight:800;letter-spacing:.14em;color:var(--ink-3)}
+h1{font-family:"Frank Ruhl Libre",Georgia,serif;font-weight:900;font-size:clamp(2.3rem,7vw,3.8rem);line-height:1.05;margin:.15em 0 .3em}
+.lede{color:var(--ink-2);font-size:1.12rem;margin:0 0 28px;max-width:38rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(18rem,1fr));gap:16px}
+.day{background:var(--card);border:1px solid var(--rule);border-top:7px solid var(--c);border-radius:14px;padding:18px 20px;display:flex;flex-direction:column;gap:10px}
+.day .d{font-weight:800;font-size:.82rem;letter-spacing:.08em;color:var(--c)}
+.day h2{font-family:"Frank Ruhl Libre",Georgia,serif;font-size:1.9rem;margin:0;line-height:1.15}
+.day p{margin:0;color:var(--ink-2);font-size:.96rem}
+.btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:6px}
+.btns a{flex:1;text-align:center;text-decoration:none;font-weight:800;padding:11px 14px;border-radius:11px;border:2px solid var(--c);color:var(--c)}
+.btns a.main{background:var(--c);color:var(--card)}
+.b{--c:var(--bonds)} .s{--c:var(--stoich)}
+.how{margin-top:30px;background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:16px 20px}
+.how h3{margin:0 0 6px;font-size:1.1rem}
+.how ol{margin:0;padding-inline-start:1.3em;color:var(--ink-2)}
+footer{margin-top:34px;text-align:center;color:var(--ink-3);font-size:.9rem}
+:focus-visible{outline:3px solid var(--bonds);outline-offset:2px}
+</style>
+<script data-goatcounter="https://zivgabel.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <div class="kicker">כימיה כללית ואנאורגנית · ביוטכנולוגיה שנה א'</div>
+  <h1>הכנה לבחנים</h1>
+  <p class="lede">שני בחנים גדולים השבוע. לכל אחד יש חומר מוסבר עם דוגמאות פתורות ופתרונות לתרגולים, ומאגר שאלות אמריקאיות עם הסבר לכל תשובה.</p>
+  <div class="grid">
+    <section class="day b">
+      <div class="d">יום שלישי · בוחן 1</div>
+      <h2>קשרים כימיים</h2>
+      <p>יוני וקוולנטי, ΔEN, מבנה לואיס, מטען פורמלי, חריגות מאוקטט, אנתלפיית קשר, רזוננס, VSEPR, קוטביות, הכלאה, כוחות בין-מולקולריים.</p>
+      <div class="btns"><a class="main" href="guide.html#bonds">החומר המוסבר</a><a href="practice.html#bonds">שאלות תרגול</a></div>
+    </section>
+    <section class="day s">
+      <div class="d">יום רביעי · בוחן 2</div>
+      <h2>סטויכיומטריה</h2>
+      <p>איזוטופים, מול ואבוגדרו, מסה מולרית, אחוז מסה, נוסחה אמפירית ומולקולרית, איזון, יחסי מולים, מגיב מגביל, אנליזת שריפה, מולריות.</p>
+      <div class="btns"><a class="main" href="guide.html#stoich">החומר המוסבר</a><a href="practice.html#stoich">שאלות תרגול</a></div>
+    </section>
+  </div>
+  <div class="how">
+    <h3>איך כדאי לעבוד</h3>
+    <ol>
+      <li>קוראות פרק בחומר המוסבר ומנסות לפתור את התרגול של אותו נושא לבד.</li>
+      <li>במצב <b>תרגול</b> – משוב והסבר אחרי כל שאלה, עם קישור חזרה לפרק הרלוונטי.</li>
+      <li>בסוף – מצב <b>מבחן</b> על כל החומר, ואז "תרגול הטעויות".</li>
+    </ol>
+  </div>
+  <footer>בהצלחה בבחנים!</footer>
+</div>
+</body>
+</html>
