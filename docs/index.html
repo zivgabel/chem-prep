@@ -10,11 +10,11 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700;800&family=Frank+Ruhl+Libre:wght@700;900&display=swap">
 <style>
 :root{--paper:#f6f4ee;--card:#fff;--ink:#1b1d22;--ink-2:#4a4f59;--ink-3:#7b808a;--rule:#dfdbd0;--grid:rgba(27,29,34,.045);
-  --bonds:#0d6b74;--bonds-soft:#dff0ef;--stoich:#b3530b;--stoich-soft:#fbeadb;color-scheme:light}
+  --bonds:#0d6b74;--bonds-soft:#dff0ef;--stoich:#b3530b;--stoich-soft:#fbeadb;--intro:#5b3fa0;color-scheme:light}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#121417;--card:#1b1e23;--ink:#ebe8e1;--ink-2:#b4b0a7;--ink-3:#8a867e;--rule:#2f333a;--grid:rgba(255,255,255,.035);
-  --bonds:#5cc6c9;--bonds-soft:#15302f;--stoich:#f0a35a;--stoich-soft:#36240f;color-scheme:dark}}
+  --bonds:#5cc6c9;--bonds-soft:#15302f;--stoich:#f0a35a;--stoich-soft:#36240f;--intro:#b8a1f2;color-scheme:dark}}
 :root[data-theme="dark"]{--paper:#121417;--card:#1b1e23;--ink:#ebe8e1;--ink-2:#b4b0a7;--ink-3:#8a867e;--rule:#2f333a;--grid:rgba(255,255,255,.035);
-  --bonds:#5cc6c9;--bonds-soft:#15302f;--stoich:#f0a35a;--stoich-soft:#36240f;color-scheme:dark}
+  --bonds:#5cc6c9;--bonds-soft:#15302f;--stoich:#f0a35a;--stoich-soft:#36240f;--intro:#b8a1f2;color-scheme:dark}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:"Assistant","Segoe UI",system-ui,sans-serif;line-height:1.6;
   background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:22px 22px}
@@ -30,6 +30,10 @@ h1{font-family:"Frank Ruhl Libre",Georgia,serif;font-weight:900;font-size:clamp(
 .btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:6px}
 .btns a{flex:1;text-align:center;text-decoration:none;font-weight:800;padding:11px 14px;border-radius:11px;border:2px solid var(--c);color:var(--c)}
 .btns a.main{background:var(--c);color:var(--card)}
+.intro{display:flex;flex-direction:column;gap:4px;margin-bottom:16px;text-decoration:none;color:inherit;background:var(--card);border:1px solid var(--rule);border-inline-start:7px solid var(--intro);border-radius:14px;padding:14px 18px}
+.intro .d{font-weight:800;font-size:.82rem;letter-spacing:.08em;color:var(--intro)}
+.intro b{font-family:"Frank Ruhl Libre",Georgia,serif;font-size:1.5rem}
+.intro span:last-child{color:var(--ink-2);font-size:.96rem}
 .b{--c:var(--bonds)} .s{--c:var(--stoich)}
 .how{margin-top:30px;background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:16px 20px}
 .how h3{margin:0 0 6px;font-size:1.1rem}
@@ -44,6 +48,7 @@ footer{margin-top:34px;text-align:center;color:var(--ink-3);font-size:.9rem}
   <div class="kicker">כימיה כללית ואנאורגנית · ביוטכנולוגיה שנה א'</div>
   <h1>הכנה לבחנים</h1>
   <p class="lede">שני בחנים גדולים השבוע. לכל אחד יש חומר מוסבר עם דוגמאות פתורות ופתרונות לתרגולים, ומאגר שאלות אמריקאיות עם הסבר לכל תשובה.</p>
+  <a class="intro" href="guide.html#intro"><span class="d">פרק 0 · מתחילים כאן</span><b>הקדמה: השפה של הכימיה</b><span>אטום, טבלה מחזורית, אורביטלים, ואיך קוראים 1s²2s²2p³, E<sub>AB</sub> &lt; E<sub>A</sub> + E<sub>B</sub>, ΔH ו-10²³ – עם איורים.</span></a>
   <div class="grid">
     <section class="day b">
       <div class="d">יום שלישי · בוחן 1</div>

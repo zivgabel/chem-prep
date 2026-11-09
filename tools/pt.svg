@@ -1,0 +1,172 @@
+<svg viewBox="0 0 700 360" role="img" aria-label="מפה של הטבלה המחזורית: מחזורים, קבוצות, מתכות ואל-מתכות" class="pt">
+<text x="79.0" y="44" text-anchor="middle" class="sm">1</text>
+<text x="112.0" y="44" text-anchor="middle" class="sm">2</text>
+<text x="145.0" y="44" text-anchor="middle" class="sm">3</text>
+<text x="178.0" y="44" text-anchor="middle" class="sm">4</text>
+<text x="211.0" y="44" text-anchor="middle" class="sm">5</text>
+<text x="244.0" y="44" text-anchor="middle" class="sm">6</text>
+<text x="277.0" y="44" text-anchor="middle" class="sm">7</text>
+<text x="310.0" y="44" text-anchor="middle" class="sm">8</text>
+<text x="343.0" y="44" text-anchor="middle" class="sm">9</text>
+<text x="376.0" y="44" text-anchor="middle" class="sm">10</text>
+<text x="409.0" y="44" text-anchor="middle" class="sm">11</text>
+<text x="442.0" y="44" text-anchor="middle" class="sm">12</text>
+<text x="475.0" y="44" text-anchor="middle" class="sm">13</text>
+<text x="508.0" y="44" text-anchor="middle" class="sm">14</text>
+<text x="541.0" y="44" text-anchor="middle" class="sm">15</text>
+<text x="574.0" y="44" text-anchor="middle" class="sm">16</text>
+<text x="607.0" y="44" text-anchor="middle" class="sm">17</text>
+<text x="640.0" y="44" text-anchor="middle" class="sm">18</text>
+<text x="52" y="71.0" text-anchor="middle" class="sm">1</text>
+<rect class="pt-nm" x="64" y="52" width="30" height="27" rx="3"/>
+<text x="79.0" y="69.0" text-anchor="middle" class="pt-t">H</text>
+<rect class="pt-ng" x="625" y="52" width="30" height="27" rx="3"/>
+<text x="640.0" y="69.0" text-anchor="middle" class="pt-t">He</text>
+<text x="52" y="101.0" text-anchor="middle" class="sm">2</text>
+<rect class="pt-m" x="64" y="82" width="30" height="27" rx="3"/>
+<text x="79.0" y="99.0" text-anchor="middle" class="pt-t">Li</text>
+<rect class="pt-m" x="97" y="82" width="30" height="27" rx="3"/>
+<text x="112.0" y="99.0" text-anchor="middle" class="pt-t">Be</text>
+<rect class="pt-md" x="460" y="82" width="30" height="27" rx="3"/>
+<text x="475.0" y="99.0" text-anchor="middle" class="pt-t">B</text>
+<rect class="pt-nm" x="493" y="82" width="30" height="27" rx="3"/>
+<text x="508.0" y="99.0" text-anchor="middle" class="pt-t">C</text>
+<rect class="pt-nm" x="526" y="82" width="30" height="27" rx="3"/>
+<text x="541.0" y="99.0" text-anchor="middle" class="pt-t">N</text>
+<rect class="pt-nm" x="559" y="82" width="30" height="27" rx="3"/>
+<text x="574.0" y="99.0" text-anchor="middle" class="pt-t">O</text>
+<rect class="pt-nm" x="592" y="82" width="30" height="27" rx="3"/>
+<text x="607.0" y="99.0" text-anchor="middle" class="pt-t">F</text>
+<rect class="pt-ng" x="625" y="82" width="30" height="27" rx="3"/>
+<text x="640.0" y="99.0" text-anchor="middle" class="pt-t">Ne</text>
+<text x="52" y="131.0" text-anchor="middle" class="sm">3</text>
+<rect class="pt-m" x="64" y="112" width="30" height="27" rx="3"/>
+<text x="79.0" y="129.0" text-anchor="middle" class="pt-t">Na</text>
+<rect class="pt-m" x="97" y="112" width="30" height="27" rx="3"/>
+<text x="112.0" y="129.0" text-anchor="middle" class="pt-t">Mg</text>
+<rect class="pt-m" x="460" y="112" width="30" height="27" rx="3"/>
+<text x="475.0" y="129.0" text-anchor="middle" class="pt-t">Al</text>
+<rect class="pt-md" x="493" y="112" width="30" height="27" rx="3"/>
+<text x="508.0" y="129.0" text-anchor="middle" class="pt-t">Si</text>
+<rect class="pt-nm" x="526" y="112" width="30" height="27" rx="3"/>
+<text x="541.0" y="129.0" text-anchor="middle" class="pt-t">P</text>
+<rect class="pt-nm" x="559" y="112" width="30" height="27" rx="3"/>
+<text x="574.0" y="129.0" text-anchor="middle" class="pt-t">S</text>
+<rect class="pt-nm" x="592" y="112" width="30" height="27" rx="3"/>
+<text x="607.0" y="129.0" text-anchor="middle" class="pt-t">Cl</text>
+<rect class="pt-ng" x="625" y="112" width="30" height="27" rx="3"/>
+<text x="640.0" y="129.0" text-anchor="middle" class="pt-t">Ar</text>
+<text x="52" y="161.0" text-anchor="middle" class="sm">4</text>
+<rect class="pt-m" x="64" y="142" width="30" height="27" rx="3"/>
+<text x="79.0" y="159.0" text-anchor="middle" class="pt-t">K</text>
+<rect class="pt-m" x="97" y="142" width="30" height="27" rx="3"/>
+<text x="112.0" y="159.0" text-anchor="middle" class="pt-t">Ca</text>
+<rect class="pt-m" x="130" y="142" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="163" y="142" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="196" y="142" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="229" y="142" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="262" y="142" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="295" y="142" width="30" height="27" rx="3"/>
+<text x="310.0" y="159.0" text-anchor="middle" class="pt-t">Fe</text>
+<rect class="pt-m" x="328" y="142" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="361" y="142" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="394" y="142" width="30" height="27" rx="3"/>
+<text x="409.0" y="159.0" text-anchor="middle" class="pt-t">Cu</text>
+<rect class="pt-m" x="427" y="142" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="460" y="142" width="30" height="27" rx="3"/>
+<text x="475.0" y="159.0" text-anchor="middle" class="pt-t">Ga</text>
+<rect class="pt-md" x="493" y="142" width="30" height="27" rx="3"/>
+<text x="508.0" y="159.0" text-anchor="middle" class="pt-t">Ge</text>
+<rect class="pt-md" x="526" y="142" width="30" height="27" rx="3"/>
+<text x="541.0" y="159.0" text-anchor="middle" class="pt-t">As</text>
+<rect class="pt-nm" x="559" y="142" width="30" height="27" rx="3"/>
+<text x="574.0" y="159.0" text-anchor="middle" class="pt-t">Se</text>
+<rect class="pt-nm" x="592" y="142" width="30" height="27" rx="3"/>
+<text x="607.0" y="159.0" text-anchor="middle" class="pt-t">Br</text>
+<rect class="pt-ng" x="625" y="142" width="30" height="27" rx="3"/>
+<text x="640.0" y="159.0" text-anchor="middle" class="pt-t">Kr</text>
+<text x="52" y="191.0" text-anchor="middle" class="sm">5</text>
+<rect class="pt-m" x="64" y="172" width="30" height="27" rx="3"/>
+<text x="79.0" y="189.0" text-anchor="middle" class="pt-t">Rb</text>
+<rect class="pt-m" x="97" y="172" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="130" y="172" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="163" y="172" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="196" y="172" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="229" y="172" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="262" y="172" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="295" y="172" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="328" y="172" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="361" y="172" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="394" y="172" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="427" y="172" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="460" y="172" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="493" y="172" width="30" height="27" rx="3"/>
+<text x="508.0" y="189.0" text-anchor="middle" class="pt-t">Sn</text>
+<rect class="pt-md" x="526" y="172" width="30" height="27" rx="3"/>
+<text x="541.0" y="189.0" text-anchor="middle" class="pt-t">Sb</text>
+<rect class="pt-md" x="559" y="172" width="30" height="27" rx="3"/>
+<text x="574.0" y="189.0" text-anchor="middle" class="pt-t">Te</text>
+<rect class="pt-nm" x="592" y="172" width="30" height="27" rx="3"/>
+<text x="607.0" y="189.0" text-anchor="middle" class="pt-t">I</text>
+<rect class="pt-ng" x="625" y="172" width="30" height="27" rx="3"/>
+<text x="640.0" y="189.0" text-anchor="middle" class="pt-t">Xe</text>
+<text x="52" y="221.0" text-anchor="middle" class="sm">6</text>
+<rect class="pt-m" x="64" y="202" width="30" height="27" rx="3"/>
+<text x="79.0" y="219.0" text-anchor="middle" class="pt-t">Cs</text>
+<rect class="pt-m" x="97" y="202" width="30" height="27" rx="3"/>
+<text x="112.0" y="219.0" text-anchor="middle" class="pt-t">Ba</text>
+<rect class="pt-m" x="130" y="202" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="163" y="202" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="196" y="202" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="229" y="202" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="262" y="202" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="295" y="202" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="328" y="202" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="361" y="202" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="394" y="202" width="30" height="27" rx="3"/>
+<text x="409.0" y="219.0" text-anchor="middle" class="pt-t">Au</text>
+<rect class="pt-m" x="427" y="202" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="460" y="202" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="493" y="202" width="30" height="27" rx="3"/>
+<text x="508.0" y="219.0" text-anchor="middle" class="pt-t">Pb</text>
+<rect class="pt-m" x="526" y="202" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="559" y="202" width="30" height="27" rx="3"/>
+<text x="574.0" y="219.0" text-anchor="middle" class="pt-t">Po</text>
+<rect class="pt-md" x="592" y="202" width="30" height="27" rx="3"/>
+<text x="607.0" y="219.0" text-anchor="middle" class="pt-t">At</text>
+<rect class="pt-ng" x="625" y="202" width="30" height="27" rx="3"/>
+<text x="640.0" y="219.0" text-anchor="middle" class="pt-t">Rn</text>
+<text x="52" y="251.0" text-anchor="middle" class="sm">7</text>
+<rect class="pt-m" x="64" y="232" width="30" height="27" rx="3"/>
+<text x="79.0" y="249.0" text-anchor="middle" class="pt-t">Fr</text>
+<rect class="pt-m" x="97" y="232" width="30" height="27" rx="3"/>
+<text x="112.0" y="249.0" text-anchor="middle" class="pt-t">Ra</text>
+<rect class="pt-m" x="130" y="232" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="163" y="232" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="196" y="232" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="229" y="232" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="262" y="232" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="295" y="232" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="328" y="232" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="361" y="232" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="394" y="232" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="427" y="232" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="460" y="232" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="493" y="232" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="526" y="232" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="559" y="232" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="592" y="232" width="30" height="27" rx="3"/>
+<rect class="pt-ng" x="625" y="232" width="30" height="27" rx="3"/>
+<text x="359.5" y="24" text-anchor="middle" class="b" direction="rtl">קבוצה (טור) – תכונות כימיות דומות</text>
+<text x="22" y="157.0" text-anchor="middle" class="b" direction="rtl" transform="rotate(-90 22 157.0)">מחזור (שורה)</text>
+<path class="ln-d" d="M64,272 V276 H127 V272"/>
+<text x="95.5" y="292" text-anchor="middle" class="sm" direction="rtl">גוש s</text>
+<path class="ln-d" d="M130,272 V276 H457 V272"/>
+<text x="293.5" y="292" text-anchor="middle" class="sm" direction="rtl">גוש d – מתכות מעבר</text>
+<path class="ln-d" d="M460,272 V276 H655 V272"/>
+<text x="557.5" y="292" text-anchor="middle" class="sm" direction="rtl">גוש p</text>
+<rect class="pt-m" x="600" y="307" width="16" height="16" rx="3"/><text x="592" y="320" text-anchor="end" direction="rtl">מתכות</text>
+<rect class="pt-md" x="450" y="307" width="16" height="16" rx="3"/><text x="442" y="320" text-anchor="end" direction="rtl">מטלואידים</text>
+<rect class="pt-nm" x="300" y="307" width="16" height="16" rx="3"/><text x="292" y="320" text-anchor="end" direction="rtl">אל-מתכות</text>
+<rect class="pt-ng" x="150" y="307" width="16" height="16" rx="3"/><text x="142" y="320" text-anchor="end" direction="rtl">גזים אצילים</text>
+</svg>

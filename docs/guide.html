@@ -13,6 +13,7 @@
   --paper:#f6f4ee; --card:#ffffff; --ink:#1b1d22; --ink-2:#4a4f59; --ink-3:#7b808a; --rule:#dfdbd0;
   --grid:rgba(27,29,34,.045);
   --bonds:#0d6b74; --bonds-soft:#dff0ef; --stoich:#b3530b; --stoich-soft:#fbeadb;
+  --intro:#5b3fa0; --intro-soft:#ece6f7;
   --accent:var(--bonds); --accent-soft:var(--bonds-soft);
   --hl:#ffe45c; --hl-ink:#1f1a00;
   --trap:#c0262d; --trap-bg:#fde8e7;
@@ -23,11 +24,11 @@
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --paper:#121417; --card:#1b1e23; --ink:#ebe8e1; --ink-2:#b4b0a7; --ink-3:#8a867e; --rule:#2f333a; --grid:rgba(255,255,255,.035);
-  --bonds:#5cc6c9; --bonds-soft:#15302f; --stoich:#f0a35a; --stoich-soft:#36240f;
+  --bonds:#5cc6c9; --bonds-soft:#15302f; --intro:#b8a1f2; --intro-soft:#261d3a; --stoich:#f0a35a; --stoich-soft:#36240f;
   --hl:#f2d33a; --hl-ink:#1b1600; --trap:#ff7a73; --trap-bg:#3a1a19; --ok:#62d29a; --ok-bg:#14301f; color-scheme:dark;}}
 :root[data-theme="dark"]{
   --paper:#121417; --card:#1b1e23; --ink:#ebe8e1; --ink-2:#b4b0a7; --ink-3:#8a867e; --rule:#2f333a; --grid:rgba(255,255,255,.035);
-  --bonds:#5cc6c9; --bonds-soft:#15302f; --stoich:#f0a35a; --stoich-soft:#36240f;
+  --bonds:#5cc6c9; --bonds-soft:#15302f; --intro:#b8a1f2; --intro-soft:#261d3a; --stoich:#f0a35a; --stoich-soft:#36240f;
   --hl:#f2d33a; --hl-ink:#1b1600; --trap:#ff7a73; --trap-bg:#3a1a19; --ok:#62d29a; --ok-bg:#14301f; color-scheme:dark;}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:4.2rem}
@@ -51,7 +52,7 @@ sub,sup{font-size:.72em;line-height:0}
 .topbar .in::-webkit-scrollbar{display:none}
 .topbar b{font-family:var(--serif);font-weight:900;white-space:nowrap;margin-inline-end:6px}
 .pill{white-space:nowrap;text-decoration:none;font-weight:700;font-size:.88rem;padding:5px 12px;border-radius:99px;border:1.5px solid var(--rule);background:var(--card);color:var(--ink-2)}
-.pill.b{border-color:var(--bonds);color:var(--bonds)} .pill.s{border-color:var(--stoich);color:var(--stoich)}
+.pill.i{border-color:var(--intro);color:var(--intro)} .pill.b{border-color:var(--bonds);color:var(--bonds)} .pill.s{border-color:var(--stoich);color:var(--stoich)}
 .pill.go{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 .pill.btn{cursor:pointer;font-family:inherit}
 
@@ -129,6 +130,7 @@ tbody th{font-weight:700}
 tbody tr:last-child>*{border-bottom:0}
 td.hl{background:var(--hl);color:var(--hl-ink);font-weight:800}
 td.ltr,th.ltr{direction:ltr;text-align:right}
+td.f{text-align:right}
 
 .compare{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:12px}
 .compare>div{background:var(--card);border:1px solid var(--rule);border-radius:var(--r);padding:12px 14px;min-width:0}
@@ -136,7 +138,7 @@ td.ltr,th.ltr{direction:ltr;text-align:right}
 .compare ul{margin:0;font-size:.97rem}
 
 figure{margin:1.6rem 0;background:var(--card);border:1px solid var(--rule);border-radius:var(--r);padding:14px}
-figure svg{display:block;width:100%;height:auto;max-width:100%}
+figure svg{direction:ltr;display:block;width:100%;height:auto;max-width:100%}
 figcaption{font-size:.9rem;color:var(--ink-2);margin-top:8px;line-height:1.55}
 figcaption b{color:var(--ink)}
 svg text{font-family:var(--sans);fill:var(--ink);font-size:15px}
@@ -165,6 +167,19 @@ details.sol p{margin:.3em 0}
 .cta{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:26px 0}
 .cta a{text-decoration:none;font-weight:800;padding:12px 20px;border-radius:12px;background:var(--accent);color:var(--card)}
 footer{max-width:var(--col);margin:60px auto 40px;padding:0 16px;color:var(--ink-3);font-size:.85rem;text-align:center}
+
+[data-part="intro"]{--accent:var(--intro);--accent-soft:var(--intro-soft)}
+dl.kv{display:grid;grid-template-columns:minmax(6.5rem,max-content) 1fr;gap:.5rem 1.1rem;margin:0}
+dl.kv dt{font-weight:800}
+dl.kv dd{margin:0;min-width:0}
+@media (max-width:520px){dl.kv{grid-template-columns:1fr}dl.kv dd{margin-bottom:.5rem}}
+figure.narrow svg{max-width:26rem;margin-inline:auto}
+svg .on-ac{fill:var(--card)}
+svg .pt-m{fill:color-mix(in srgb,var(--accent) 14%,var(--card));stroke:var(--rule)}
+svg .pt-md{fill:color-mix(in srgb,var(--stoich) 35%,var(--card));stroke:var(--rule)}
+svg .pt-nm{fill:color-mix(in srgb,var(--bonds) 40%,var(--card));stroke:var(--rule)}
+svg .pt-ng{fill:color-mix(in srgb,var(--accent) 60%,var(--card));stroke:var(--rule)}
+svg .pt-t{font-size:12px;font-weight:700}
 @media (max-width:560px){body{font-size:1.02rem}h3{font-size:1.45rem}.eq{font-size:1rem}th,td{padding:7px 9px}}
 @media print{.topbar,.cta{display:none}body{background:#fff}details.sol{break-inside:avoid}}
 </style>
@@ -174,6 +189,7 @@ footer{max-width:var(--col);margin:60px auto 40px;padding:0 16px;color:var(--ink
 <nav class="topbar" aria-label="ניווט">
   <div class="in">
     <b>כימיה · בחנים</b>
+    <a class="pill i" href="#intro">פרק 0 · הקדמה</a>
     <a class="pill b" href="#bonds">יום ג' · קשרים כימיים</a>
     <a class="pill s" href="#stoich">יום ד' · סטויכיומטריה</a>
     <a class="pill go" href="practice.html">לשאלות תרגול ←</a>
@@ -187,6 +203,7 @@ footer{max-width:var(--col);margin:60px auto 40px;padding:0 16px;color:var(--ink
   <h1>כל מה שצריך לשני הבחנים</h1>
   <p class="lede">סיכום מסודר של המצגות והתרגולים, עם דוגמאות פתורות שלב אחרי שלב ופתרונות לתרגולים. קוראים פרק, ואז עוברים לשאלות התרגול של אותו נושא.</p>
   <div class="days">
+    <a class="day" href="#intro" data-part="intro"><div class="d">פרק 0 · מתחילים כאן</div><h2>הקדמה: השפה של הכימיה</h2><p>אטום, יסוד ויון, הטבלה המחזורית, אורביטלים, ואיך קוראים סימונים כמו 1s²2s²2p³, E<sub>AB</sub> &lt; E<sub>A</sub> + E<sub>B</sub>, ΔH ו-10²³.</p></a>
     <a class="day" href="#bonds" data-part="bonds"><div class="d">יום שלישי · בוחן 1</div><h2>קשרים כימיים</h2><p>קשר יוני וקוולנטי, אלקטרושליליות, מבנה לואיס, מטען פורמלי, רזוננס, אנתלפיית קשר, VSEPR, הכלאה וכוחות בין-מולקולריים.</p></a>
     <a class="day" href="#stoich" data-part="stoich"><div class="d">יום רביעי · בוחן 2</div><h2>סטויכיומטריה</h2><p>איזוטופים, מול ומספר אבוגדרו, מסה מולרית, אחוז מסה, נוסחה אמפירית, איזון משוואות, מגיב מגביל, אנליזת שריפה וריכוז מולרי.</p></a>
   </div>
@@ -197,6 +214,646 @@ footer{max-width:var(--col);margin:60px auto 40px;padding:0 16px;color:var(--ink
     <span><i class="sw" style="border:1px dashed var(--ink-3)"></i>הערה על המקור</span>
   </div>
 </header>
+
+<!-- ============================ PART 0: INTRO ============================ -->
+<div data-part="intro" id="intro">
+<div class="part-head">
+  <div class="d">פרק 0 · מתחילים מכאן</div>
+  <h2>הקדמה: השפה של הכימיה</h2>
+  <p>הפרק הזה לא מחומר הקורס – הוא הבסיס שהקורס מניח שכבר יודעים. מסבירים כאן מההתחלה מה זה אטום, יסוד ומולקולה, איפה נמצאים האלקטרונים, ובעיקר <b>איך קוראים</b> את כל הסימונים: <span class="f">1s²2s²2p³</span>, <span class="f">E<sub>AB</sub> &lt; E<sub>A</sub> + E<sub>B</sub></span>, <span class="f">3H₂SO₄</span>, <span class="f">ΔH</span>, <span class="f">6.022×10²³</span> ועוד. ההסברים מבוססים על ספר הלימוד האוניברסיטאי OpenStax Chemistry 2e ועל הגדרות היחידות הרשמיות (NIST, BIPM) – רשימת המקורות בסוף הפרק.</p>
+  <nav class="toc" aria-label="תוכן ההקדמה">
+    <a href="#i1">אטום וחלקיקיו</a><a href="#i2">איך קוראים סמל של יסוד</a><a href="#i3">יסוד, מולקולה, תרכובת, יון</a><a href="#i4">הטבלה המחזורית</a>
+    <a href="#i5">איפה האלקטרונים</a><a href="#i6">איך קוראים 1s²2s²2p³</a><a href="#i7">איך קוראים נוסחה כימית</a><a href="#i8">איך קוראים משוואה</a>
+    <a href="#i9">סימנים: &lt;, Δ, Σ, δ</a><a href="#i10">חזקות של 10</a><a href="#i11">יחידות</a><a href="#i12">אותה אות – משמעות אחרת</a><a href="#isrc">מקורות</a>
+  </nav>
+</div>
+
+<div class="page"><div class="flow">
+
+<section class="topic" id="i1">
+<h3><span class="n">0.1</span>האטום וחלקיקיו</h3>
+<p>כל חומר בנוי מ<b>אטומים</b>. לאטום שני חלקים: <b>גרעין</b> קטנטן במרכז, ו<b>ענן אלקטרונים</b> סביבו. הגרעין בנוי מ<b>פרוטונים</b> (מטען חיובי) ו<b>נויטרונים</b> (בלי מטען), ומסביב נמצאים ה<b>אלקטרונים</b> (מטען שלילי).</p>
+<figure>
+<svg viewBox="0 0 660 320" role="img" aria-label="סכמה של אטום פחמן-12: גרעין עם 6 פרוטונים ו-6 נויטרונים, ו-6 אלקטרונים סביבו">
+  <circle class="fs" cx="180" cy="150" r="125"/>
+  <circle class="ln-d" cx="180" cy="150" r="55"/><circle class="ln-d" cx="180" cy="150" r="100"/>
+  <g>
+    <circle class="fa" cx="174" cy="136" r="8"/><circle class="bx" cx="186" cy="136" r="8"/>
+    <circle class="bx" cx="168" cy="147" r="8"/><circle class="fa" cx="180" cy="147" r="8"/><circle class="bx" cx="192" cy="147" r="8"/>
+    <circle class="fa" cx="162" cy="155" r="8"/><circle class="fa" cx="198" cy="155" r="8"/>
+    <circle class="fa" cx="168" cy="159" r="8"/><circle class="bx" cx="180" cy="159" r="8"/><circle class="fa" cx="192" cy="159" r="8"/>
+    <circle class="bx" cx="174" cy="169" r="8"/><circle class="bx" cx="186" cy="169" r="8"/>
+  </g>
+  <g><circle class="ft" cx="125" cy="150" r="6"/><circle class="ft" cx="235" cy="150" r="6"/>
+     <circle class="ft" cx="180" cy="50" r="6"/><circle class="ft" cx="180" cy="250" r="6"/><circle class="ft" cx="80" cy="150" r="6"/><circle class="ft" cx="280" cy="150" r="6"/></g>
+  <text x="180" y="304" text-anchor="middle" class="b" direction="rtl">פחמן-12: ‏6 פרוטונים, 6 נויטרונים, 6 אלקטרונים</text>
+  <circle class="fa" cx="630" cy="56" r="8"/><text x="612" y="61" text-anchor="start" direction="rtl"><tspan class="b">פרוטון</tspan> – מטען חיובי (+1), מסה ≈ 1 amu</text>
+  <circle class="bx" cx="630" cy="96" r="8"/><text x="612" y="101" text-anchor="start" direction="rtl"><tspan class="b">נויטרון</tspan> – בלי מטען (0), מסה ≈ 1 amu</text>
+  <circle class="ft" cx="630" cy="136" r="6"/><text x="612" y="141" text-anchor="start" direction="rtl"><tspan class="b">אלקטרון</tspan> – מטען שלילי (−1), מסה זניחה</text>
+  <text x="612" y="200" text-anchor="start" direction="rtl" class="sm">הגרעין: כמעט כל המסה, אבל נפח זעיר.</text>
+  <text x="612" y="224" text-anchor="start" direction="rtl" class="sm">ענן האלקטרונים: כמעט כל הנפח של האטום.</text>
+  <text x="612" y="248" text-anchor="start" direction="rtl" class="sm">העיגולים המקווקווים הם רק סכמה – ראו 0.5.</text>
+</svg>
+<figcaption><b>אטום פחמן-12 (לא בקנה מידה).</b> בפועל הגרעין קטן בערך פי 100,000 מהאטום: אם הגרעין היה בגודל אוכמנית, האטום היה בגודל אצטדיון כדורגל (OpenStax 2.3). המסה של אלקטרון קטנה בערך פי 1,836 מזו של פרוטון.</figcaption>
+</figure>
+<div class="tbl"><table>
+<caption>שלושת החלקיקים (OpenStax 2.3, טבלה 2.2)</caption>
+<thead><tr><th>חלקיק</th><th>סימון</th><th>מטען</th><th>מסה (amu)</th><th>איפה</th></tr></thead>
+<tbody>
+<tr><th>פרוטון</th><td class="f">p⁺</td><td class="f">+1</td><td class="f">1.0073</td><td>בגרעין</td></tr>
+<tr><th>נויטרון</th><td class="f">n⁰</td><td class="f">0</td><td class="f">1.0087</td><td>בגרעין</td></tr>
+<tr><th>אלקטרון</th><td class="f">e⁻</td><td class="f">−1</td><td class="f">0.00055</td><td>מחוץ לגרעין</td></tr>
+</tbody></table></div>
+<div class="callout must"><span class="tag">שלושה רעיונות שכל הקורס נשען עליהם</span><ul>
+<li><b>מספר הפרוטונים קובע איזה יסוד זה.</b> 6 פרוטונים = תמיד פחמן, 8 = תמיד חמצן.</li>
+<li><b>אטום ניטרלי</b>: מספר האלקטרונים = מספר הפרוטונים, ולכן המטען הכולל 0.</li>
+<li><b>הכימיה מתרחשת באלקטרונים</b>, ובעיקר בחיצוניים שבהם (אלקטרוני הערכיות). קשרים כימיים נוצרים מהם, והגרעין לא משתנה בתגובה כימית.</li>
+</ul></div>
+</section>
+
+<section class="topic" id="i2">
+<h3><span class="n">0.2</span>איך קוראים סמל של יסוד</h3>
+<p>לכל יסוד יש <b>סמל</b> של אות אחת או שתיים (האות הראשונה גדולה): C פחמן, O חמצן, Na נתרן (מלטינית natrium), Cl כלור. סביב הסמל אפשר לכתוב מספרים קטנים בארבע פינות, ולכל פינה משמעות קבועה:</p>
+<figure>
+<svg viewBox="0 0 660 250" role="img" aria-label="פירוק הסימון 12 6 C: מספר מסה למעלה משמאל, מספר אטומי למטה משמאל, מטען למעלה מימין">
+  <text x="330" y="150" text-anchor="middle" style="font-size:96px" class="b">C</text>
+  <text x="282" y="86" text-anchor="end" style="font-size:36px" class="ac">12</text>
+  <text x="282" y="160" text-anchor="end" style="font-size:36px" class="ac">6</text>
+  <rect class="ln-d" x="372" y="56" width="46" height="34" rx="6"/>
+  <text x="395" y="80" text-anchor="middle" class="sm">?</text>
+  <line class="ln" x1="194" y1="62" x2="238" y2="72"/>
+  <text x="120" y="42" text-anchor="middle" class="b" direction="rtl">מספר מסה (A)</text>
+  <text x="120" y="62" text-anchor="middle" class="sm" direction="rtl">פרוטונים + נויטרונים</text>
+  <line class="ln" x1="186" y1="182" x2="248" y2="152"/>
+  <text x="120" y="196" text-anchor="middle" class="b" direction="rtl">מספר אטומי (Z)</text>
+  <text x="120" y="216" text-anchor="middle" class="sm" direction="rtl">מספר הפרוטונים</text>
+  <line class="ln" x1="498" y1="170" x2="372" y2="128"/>
+  <text x="540" y="186" text-anchor="middle" class="b" direction="rtl">סמל היסוד</text>
+  <line class="ln" x1="498" y1="58" x2="422" y2="70"/>
+  <text x="560" y="44" text-anchor="middle" class="b" direction="rtl">מטען (רק ביון)</text>
+  <text x="560" y="64" text-anchor="middle" class="sm">Na⁺   O²⁻</text>
+  <text x="330" y="238" text-anchor="middle" class="ac" direction="rtl">נויטרונים = A − Z = 12 − 6 = 6</text>
+</svg>
+<figcaption><b>הפינות סביב הסמל.</b> למעלה משמאל – מספר מסה; למטה משמאל – מספר אטומי; למעלה מימין – מטען. (למטה מימין כותבים את מספר האטומים במולקולה, כמו ב-O₂ – ראו 0.7.) קוראים <span class="f">¹²C</span> "פחמן-12". את ה-Z בדרך כלל משמיטים, כי הסמל C כבר אומר ש-Z = 6.</figcaption>
+</figure>
+<div class="ex"><header>תרגול קריאה</header><div class="body">
+<div class="tbl"><table>
+<thead><tr><th>סימון</th><th>נקרא</th><th>p</th><th>n</th><th>e</th></tr></thead>
+<tbody>
+<tr><td class="f">¹⁶O</td><td>חמצן-16</td><td class="f">8</td><td class="f">16 − 8 = 8</td><td class="f">8</td></tr>
+<tr><td class="f">³⁷Cl</td><td>כלור-37</td><td class="f">17</td><td class="f">37 − 17 = 20</td><td class="f">17</td></tr>
+<tr><td class="f">²³Na⁺</td><td>יון נתרן</td><td class="f">11</td><td class="f">12</td><td class="hl">10 (איבד 1)</td></tr>
+<tr><td class="f">¹⁶O²⁻</td><td>יון אוקסיד</td><td class="f">8</td><td class="f">8</td><td class="hl">10 (קיבל 2)</td></tr>
+</tbody></table></div>
+<p class="src">מטען חיובי = <b>חסרים</b> אלקטרונים; מטען שלילי = <b>עודף</b> אלקטרונים. פרוטונים לא משתנים לעולם בתגובה כימית.</p></div></div>
+</section>
+
+<section class="topic" id="i3">
+<h3><span class="n">0.3</span>יסוד, מולקולה, תרכובת ויון</h3>
+<dl class="kv">
+<dt>יסוד</dt><dd>חומר שכל האטומים בו מאותו סוג (אותו מספר פרוטונים). למשל ברזל Fe, או גז חמצן O₂.</dd>
+<dt>מולקולה</dt><dd>שני אטומים או יותר שקשורים יחד בקשרים קוולנטיים ומתנהגים כיחידה אחת: H₂O, O₂, CH₄.</dd>
+<dt>תרכובת</dt><dd>חומר שבנוי משני יסודות <b>שונים</b> או יותר ביחס קבוע: H₂O, NaCl, CO₂. (O₂ היא מולקולה אבל לא תרכובת.)</dd>
+<dt>יון</dt><dd>אטום (או קבוצת אטומים) שאיבד או קיבל אלקטרונים ולכן טעון. <b>קטיון</b> – חיובי (Na⁺); <b>אניון</b> – שלילי (Cl⁻). <b>יון רב-אטומי</b> – קבוצה קשורה שכולה טעונה: SO₄²⁻, NH₄⁺, NO₂⁻.</dd>
+<dt>תרכובת יונית</dt><dd>קטיונים ואניונים שמחזיקים זה בזה במשיכה חשמלית בסריג (NaCl). אין בה "מולקולות" נפרדות; הנוסחה מתארת רק את היחס.</dd>
+<dt>איזוטופים</dt><dd>אטומים של אותו יסוד עם מספר נויטרונים שונה: ¹²C, ¹³C, ¹⁴C.</dd>
+</dl>
+<div class="callout tip"><span class="tag">איך לזכור</span><p>באנגלית: ca<b>t</b>ion – ה-t נראה כמו סימן <b>+</b>. <b>an</b>ion – <b>a n</b>egative ion, יון שלילי.</p></div>
+</section>
+
+<section class="topic" id="i4">
+<h3><span class="n">0.4</span>הטבלה המחזורית – המפה של היסודות</h3>
+<p>היסודות מסודרים לפי <b>מספר אטומי עולה</b> (משמאל לימין, ושורה אחרי שורה). הסידור לא שרירותי: יסודות באותו <b>טור</b> מתנהגים כימית באופן דומה, כי יש להם אותו מספר אלקטרונים חיצוניים.</p>
+<figure>
+<svg viewBox="0 0 700 360" role="img" aria-label="מפה של הטבלה המחזורית: מחזורים, קבוצות, מתכות ואל-מתכות" class="pt">
+<text x="79.0" y="44" text-anchor="middle" class="sm">1</text>
+<text x="112.0" y="44" text-anchor="middle" class="sm">2</text>
+<text x="145.0" y="44" text-anchor="middle" class="sm">3</text>
+<text x="178.0" y="44" text-anchor="middle" class="sm">4</text>
+<text x="211.0" y="44" text-anchor="middle" class="sm">5</text>
+<text x="244.0" y="44" text-anchor="middle" class="sm">6</text>
+<text x="277.0" y="44" text-anchor="middle" class="sm">7</text>
+<text x="310.0" y="44" text-anchor="middle" class="sm">8</text>
+<text x="343.0" y="44" text-anchor="middle" class="sm">9</text>
+<text x="376.0" y="44" text-anchor="middle" class="sm">10</text>
+<text x="409.0" y="44" text-anchor="middle" class="sm">11</text>
+<text x="442.0" y="44" text-anchor="middle" class="sm">12</text>
+<text x="475.0" y="44" text-anchor="middle" class="sm">13</text>
+<text x="508.0" y="44" text-anchor="middle" class="sm">14</text>
+<text x="541.0" y="44" text-anchor="middle" class="sm">15</text>
+<text x="574.0" y="44" text-anchor="middle" class="sm">16</text>
+<text x="607.0" y="44" text-anchor="middle" class="sm">17</text>
+<text x="640.0" y="44" text-anchor="middle" class="sm">18</text>
+<text x="52" y="71.0" text-anchor="middle" class="sm">1</text>
+<rect class="pt-nm" x="64" y="52" width="30" height="27" rx="3"/>
+<text x="79.0" y="69.0" text-anchor="middle" class="pt-t">H</text>
+<rect class="pt-ng" x="625" y="52" width="30" height="27" rx="3"/>
+<text x="640.0" y="69.0" text-anchor="middle" class="pt-t">He</text>
+<text x="52" y="101.0" text-anchor="middle" class="sm">2</text>
+<rect class="pt-m" x="64" y="82" width="30" height="27" rx="3"/>
+<text x="79.0" y="99.0" text-anchor="middle" class="pt-t">Li</text>
+<rect class="pt-m" x="97" y="82" width="30" height="27" rx="3"/>
+<text x="112.0" y="99.0" text-anchor="middle" class="pt-t">Be</text>
+<rect class="pt-md" x="460" y="82" width="30" height="27" rx="3"/>
+<text x="475.0" y="99.0" text-anchor="middle" class="pt-t">B</text>
+<rect class="pt-nm" x="493" y="82" width="30" height="27" rx="3"/>
+<text x="508.0" y="99.0" text-anchor="middle" class="pt-t">C</text>
+<rect class="pt-nm" x="526" y="82" width="30" height="27" rx="3"/>
+<text x="541.0" y="99.0" text-anchor="middle" class="pt-t">N</text>
+<rect class="pt-nm" x="559" y="82" width="30" height="27" rx="3"/>
+<text x="574.0" y="99.0" text-anchor="middle" class="pt-t">O</text>
+<rect class="pt-nm" x="592" y="82" width="30" height="27" rx="3"/>
+<text x="607.0" y="99.0" text-anchor="middle" class="pt-t">F</text>
+<rect class="pt-ng" x="625" y="82" width="30" height="27" rx="3"/>
+<text x="640.0" y="99.0" text-anchor="middle" class="pt-t">Ne</text>
+<text x="52" y="131.0" text-anchor="middle" class="sm">3</text>
+<rect class="pt-m" x="64" y="112" width="30" height="27" rx="3"/>
+<text x="79.0" y="129.0" text-anchor="middle" class="pt-t">Na</text>
+<rect class="pt-m" x="97" y="112" width="30" height="27" rx="3"/>
+<text x="112.0" y="129.0" text-anchor="middle" class="pt-t">Mg</text>
+<rect class="pt-m" x="460" y="112" width="30" height="27" rx="3"/>
+<text x="475.0" y="129.0" text-anchor="middle" class="pt-t">Al</text>
+<rect class="pt-md" x="493" y="112" width="30" height="27" rx="3"/>
+<text x="508.0" y="129.0" text-anchor="middle" class="pt-t">Si</text>
+<rect class="pt-nm" x="526" y="112" width="30" height="27" rx="3"/>
+<text x="541.0" y="129.0" text-anchor="middle" class="pt-t">P</text>
+<rect class="pt-nm" x="559" y="112" width="30" height="27" rx="3"/>
+<text x="574.0" y="129.0" text-anchor="middle" class="pt-t">S</text>
+<rect class="pt-nm" x="592" y="112" width="30" height="27" rx="3"/>
+<text x="607.0" y="129.0" text-anchor="middle" class="pt-t">Cl</text>
+<rect class="pt-ng" x="625" y="112" width="30" height="27" rx="3"/>
+<text x="640.0" y="129.0" text-anchor="middle" class="pt-t">Ar</text>
+<text x="52" y="161.0" text-anchor="middle" class="sm">4</text>
+<rect class="pt-m" x="64" y="142" width="30" height="27" rx="3"/>
+<text x="79.0" y="159.0" text-anchor="middle" class="pt-t">K</text>
+<rect class="pt-m" x="97" y="142" width="30" height="27" rx="3"/>
+<text x="112.0" y="159.0" text-anchor="middle" class="pt-t">Ca</text>
+<rect class="pt-m" x="130" y="142" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="163" y="142" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="196" y="142" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="229" y="142" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="262" y="142" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="295" y="142" width="30" height="27" rx="3"/>
+<text x="310.0" y="159.0" text-anchor="middle" class="pt-t">Fe</text>
+<rect class="pt-m" x="328" y="142" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="361" y="142" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="394" y="142" width="30" height="27" rx="3"/>
+<text x="409.0" y="159.0" text-anchor="middle" class="pt-t">Cu</text>
+<rect class="pt-m" x="427" y="142" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="460" y="142" width="30" height="27" rx="3"/>
+<text x="475.0" y="159.0" text-anchor="middle" class="pt-t">Ga</text>
+<rect class="pt-md" x="493" y="142" width="30" height="27" rx="3"/>
+<text x="508.0" y="159.0" text-anchor="middle" class="pt-t">Ge</text>
+<rect class="pt-md" x="526" y="142" width="30" height="27" rx="3"/>
+<text x="541.0" y="159.0" text-anchor="middle" class="pt-t">As</text>
+<rect class="pt-nm" x="559" y="142" width="30" height="27" rx="3"/>
+<text x="574.0" y="159.0" text-anchor="middle" class="pt-t">Se</text>
+<rect class="pt-nm" x="592" y="142" width="30" height="27" rx="3"/>
+<text x="607.0" y="159.0" text-anchor="middle" class="pt-t">Br</text>
+<rect class="pt-ng" x="625" y="142" width="30" height="27" rx="3"/>
+<text x="640.0" y="159.0" text-anchor="middle" class="pt-t">Kr</text>
+<text x="52" y="191.0" text-anchor="middle" class="sm">5</text>
+<rect class="pt-m" x="64" y="172" width="30" height="27" rx="3"/>
+<text x="79.0" y="189.0" text-anchor="middle" class="pt-t">Rb</text>
+<rect class="pt-m" x="97" y="172" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="130" y="172" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="163" y="172" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="196" y="172" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="229" y="172" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="262" y="172" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="295" y="172" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="328" y="172" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="361" y="172" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="394" y="172" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="427" y="172" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="460" y="172" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="493" y="172" width="30" height="27" rx="3"/>
+<text x="508.0" y="189.0" text-anchor="middle" class="pt-t">Sn</text>
+<rect class="pt-md" x="526" y="172" width="30" height="27" rx="3"/>
+<text x="541.0" y="189.0" text-anchor="middle" class="pt-t">Sb</text>
+<rect class="pt-md" x="559" y="172" width="30" height="27" rx="3"/>
+<text x="574.0" y="189.0" text-anchor="middle" class="pt-t">Te</text>
+<rect class="pt-nm" x="592" y="172" width="30" height="27" rx="3"/>
+<text x="607.0" y="189.0" text-anchor="middle" class="pt-t">I</text>
+<rect class="pt-ng" x="625" y="172" width="30" height="27" rx="3"/>
+<text x="640.0" y="189.0" text-anchor="middle" class="pt-t">Xe</text>
+<text x="52" y="221.0" text-anchor="middle" class="sm">6</text>
+<rect class="pt-m" x="64" y="202" width="30" height="27" rx="3"/>
+<text x="79.0" y="219.0" text-anchor="middle" class="pt-t">Cs</text>
+<rect class="pt-m" x="97" y="202" width="30" height="27" rx="3"/>
+<text x="112.0" y="219.0" text-anchor="middle" class="pt-t">Ba</text>
+<rect class="pt-m" x="130" y="202" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="163" y="202" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="196" y="202" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="229" y="202" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="262" y="202" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="295" y="202" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="328" y="202" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="361" y="202" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="394" y="202" width="30" height="27" rx="3"/>
+<text x="409.0" y="219.0" text-anchor="middle" class="pt-t">Au</text>
+<rect class="pt-m" x="427" y="202" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="460" y="202" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="493" y="202" width="30" height="27" rx="3"/>
+<text x="508.0" y="219.0" text-anchor="middle" class="pt-t">Pb</text>
+<rect class="pt-m" x="526" y="202" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="559" y="202" width="30" height="27" rx="3"/>
+<text x="574.0" y="219.0" text-anchor="middle" class="pt-t">Po</text>
+<rect class="pt-md" x="592" y="202" width="30" height="27" rx="3"/>
+<text x="607.0" y="219.0" text-anchor="middle" class="pt-t">At</text>
+<rect class="pt-ng" x="625" y="202" width="30" height="27" rx="3"/>
+<text x="640.0" y="219.0" text-anchor="middle" class="pt-t">Rn</text>
+<text x="52" y="251.0" text-anchor="middle" class="sm">7</text>
+<rect class="pt-m" x="64" y="232" width="30" height="27" rx="3"/>
+<text x="79.0" y="249.0" text-anchor="middle" class="pt-t">Fr</text>
+<rect class="pt-m" x="97" y="232" width="30" height="27" rx="3"/>
+<text x="112.0" y="249.0" text-anchor="middle" class="pt-t">Ra</text>
+<rect class="pt-m" x="130" y="232" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="163" y="232" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="196" y="232" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="229" y="232" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="262" y="232" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="295" y="232" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="328" y="232" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="361" y="232" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="394" y="232" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="427" y="232" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="460" y="232" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="493" y="232" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="526" y="232" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="559" y="232" width="30" height="27" rx="3"/>
+<rect class="pt-m" x="592" y="232" width="30" height="27" rx="3"/>
+<rect class="pt-ng" x="625" y="232" width="30" height="27" rx="3"/>
+<text x="359.5" y="24" text-anchor="middle" class="b" direction="rtl">קבוצה (טור) – תכונות כימיות דומות</text>
+<text x="22" y="157.0" text-anchor="middle" class="b" direction="rtl" transform="rotate(-90 22 157.0)">מחזור (שורה)</text>
+<path class="ln-d" d="M64,272 V276 H127 V272"/>
+<text x="95.5" y="292" text-anchor="middle" class="sm" direction="rtl">גוש s</text>
+<path class="ln-d" d="M130,272 V276 H457 V272"/>
+<text x="293.5" y="292" text-anchor="middle" class="sm" direction="rtl">גוש d – מתכות מעבר</text>
+<path class="ln-d" d="M460,272 V276 H655 V272"/>
+<text x="557.5" y="292" text-anchor="middle" class="sm" direction="rtl">גוש p</text>
+<rect class="pt-m" x="600" y="307" width="16" height="16" rx="3"/><text x="592" y="320" text-anchor="start" direction="rtl">מתכות</text>
+<rect class="pt-md" x="450" y="307" width="16" height="16" rx="3"/><text x="442" y="320" text-anchor="start" direction="rtl">מטלואידים</text>
+<rect class="pt-nm" x="300" y="307" width="16" height="16" rx="3"/><text x="292" y="320" text-anchor="start" direction="rtl">אל-מתכות</text>
+<rect class="pt-ng" x="150" y="307" width="16" height="16" rx="3"/><text x="142" y="320" text-anchor="start" direction="rtl">גזים אצילים</text>
+</svg>
+<figcaption><b>מבנה הטבלה.</b> <b>מחזור</b> = שורה (7 מחזורים); מספר המחזור = מספר הקליפה החיצונית שבה נמצאים האלקטרונים. <b>קבוצה</b> = טור (18 קבוצות). מתכות בצד שמאל ובמרכז, אל-מתכות בצד ימין למעלה, ומטלואידים ("חצי מתכות") על קו המדרגות ביניהן. הלנתנידים והאקטינידים (שתי השורות שנכתבות בנפרד מתחת לטבלה) הושמטו כאן.</figcaption>
+</figure>
+<div class="tbl"><table>
+<caption>שמות של קבוצות שחוזרים כל הזמן</caption>
+<thead><tr><th>קבוצה</th><th>שם</th><th>אלקטרוני ערכיות</th><th>נוטים…</th></tr></thead>
+<tbody>
+<tr><td class="f">1</td><td>מתכות אלקליות (Li, Na, K)</td><td class="f">1</td><td>לאבד 1 → יון <span class="f">+1</span></td></tr>
+<tr><td class="f">2</td><td>מתכות אלקליות-עפרוריות (Mg, Ca)</td><td class="f">2</td><td>לאבד 2 → יון <span class="f">+2</span></td></tr>
+<tr><td>3 עד 12</td><td>מתכות מעבר (Fe, Cu)</td><td>–</td><td>–</td></tr>
+<tr><td class="f">16</td><td>קבוצת החמצן (O, S)</td><td class="f">6</td><td>לקבל 2 → יון <span class="f">−2</span></td></tr>
+<tr><td class="f">17</td><td>הלוגנים (F, Cl, Br, I)</td><td class="f">7</td><td>לקבל 1 → יון <span class="f">−1</span></td></tr>
+<tr><td class="f">18</td><td>גזים אצילים (He, Ne, Ar)</td><td class="f">8 (He: 2)</td><td>כמעט לא מגיבים – קליפה מלאה</td></tr>
+</tbody></table></div>
+<div class="callout note"><span class="tag">שני מספורים</span><p>בהרצאות מופיע גם המספור הישן של הקבוצות הראשיות: IA–VIIIA (למשל "טור VII" להלוגנים). קבוצה 17 = VIIA, קבוצה 13 = IIIA וכן הלאה – בקבוצות 13–18 ה-1 מתווסף לפני הספרה (בקבוצות 1–2 המספר זהה: IA, IIA).</p></div>
+<p><b>מה כתוב בכל משבצת?</b> בדרך כלל: המספר האטומי (שלם, למשל 6), הסמל (C), והמסה האטומית הממוצעת (12.01, עם נקודה עשרונית). אם יש בלבול – <b>המספר השלם והקטן</b> הוא המספר האטומי.</p>
+</section>
+
+<section class="topic" id="i5">
+<h3><span class="n">0.5</span>איפה נמצאים האלקטרונים: רמות, תת-רמות ואורביטלים</h3>
+<p>האלקטרונים לא מסתובבים במסלולים כמו כוכבי לכת (זה היה מודל בוהר הישן). לפי מכניקת הקוונטים, לכל אלקטרון יש <b>אורביטל</b> – אזור במרחב שבו יש סיכוי גבוה למצוא אותו, מעין "ענן". האורביטלים מאורגנים בשלוש רמות, כמו כתובת: עיר → רחוב → דירה.</p>
+<div class="tbl"><table>
+<thead><tr><th>רמת הארגון</th><th>מסומנת ב…</th><th>אנלוגיה</th><th>מה היא קובעת</th></tr></thead>
+<tbody>
+<tr><th>רמה (קליפה)</th><td>מספר: n = 1, 2, 3…</td><td>קומה בבניין</td><td>גודל ואנרגיה. n גדול = רחוק מהגרעין, אנרגיה גבוהה</td></tr>
+<tr><th>תת-רמה</th><td>אות: s, p, d, f</td><td>סוג הדירה בקומה</td><td>צורת האורביטל</td></tr>
+<tr><th>אורביטל</th><td>מספר האורביטלים: s=1, p=3, d=5, f=7</td><td>חדר</td><td>מכיל <b>לכל היותר 2</b> אלקטרונים</td></tr>
+</tbody></table></div>
+<div class="tbl"><table>
+<caption>כמה אלקטרונים נכנסים לכל תת-רמה (OpenStax 6.4)</caption>
+<thead><tr><th>תת-רמה</th><th>מספר אורביטלים</th><th>מקסימום אלקטרונים</th><th>מופיעה מרמה</th></tr></thead>
+<tbody>
+<tr><th class="f">s</th><td class="f">1</td><td class="hl">2</td><td class="f">n = 1</td></tr>
+<tr><th class="f">p</th><td class="f">3</td><td class="hl">6</td><td class="f">n = 2</td></tr>
+<tr><th class="f">d</th><td class="f">5</td><td class="hl">10</td><td class="f">n = 3</td></tr>
+<tr><th class="f">f</th><td class="f">7</td><td class="hl">14</td><td class="f">n = 4</td></tr>
+</tbody></table></div>
+<p>ברמה n יש <span class="f">n²</span> אורביטלים ולכן לכל היותר <span class="f">2n²</span> אלקטרונים: ברמה 1 – 2, ברמה 2 – 8, ברמה 3 – 18. ברמה 2 יש רק s ו-p (אין "2d"), ברמה 1 רק s.</p>
+<div class="callout note"><span class="tag">ארבעת המספרים הקוונטיים (לתרגול 3)</span><p>כל אלקטרון מתואר ב-4 מספרים: <b>n</b> (הרמה), <b>l</b> (תת-הרמה: 0=s, 1=p, 2=d, 3=f; ברמה n הערכים האפשריים הם 0 עד n−1), <b>m<sub>l</sub></b> (איזה אורביטל בתת-הרמה: מ-−l עד +l, למשל ב-p: ‎−1, 0, +1), ו-<b>m<sub>s</sub></b> (ספין: +½ או −½, מצויר כחץ ↑ או ↓).</p></div>
+<h4>שלושה כללים למילוי</h4>
+<figure>
+<svg viewBox="0 0 660 230" role="img" aria-label="דיאגרמת תאים של חנקן: 1s ו-2s מלאים בזוג, ובכל אחד משלושת תאי 2p אלקטרון אחד">
+  <line class="ln" x1="54" y1="200" x2="54" y2="26" marker-end="url(#i0-arr2)"/>
+  <defs><marker id="i0-arr2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="fi" d="M0,0 L10,5 L0,10 z"/></marker></defs>
+  <text x="34" y="115" text-anchor="middle" class="sm" direction="rtl" transform="rotate(-90 34 115)">אנרגיה עולה</text>
+  <text x="150" y="182" text-anchor="end" class="b">1s</text>
+  <rect class="bx" x="166" y="158" width="44" height="36" rx="4"/><text x="188" y="185" text-anchor="middle" style="font-size:24px" class="ac">↑↓</text>
+  <text x="150" y="122" text-anchor="end" class="b">2s</text>
+  <rect class="bx" x="166" y="98" width="44" height="36" rx="4"/><text x="188" y="125" text-anchor="middle" style="font-size:24px" class="ac">↑↓</text>
+  <text x="250" y="62" text-anchor="end" class="b">2p</text>
+  <rect class="bx" x="266" y="38" width="44" height="36" rx="4"/><text x="288" y="65" text-anchor="middle" style="font-size:24px" class="ac">↑</text>
+  <rect class="bx" x="310" y="38" width="44" height="36" rx="4"/><text x="332" y="65" text-anchor="middle" style="font-size:24px" class="ac">↑</text>
+  <rect class="bx" x="354" y="38" width="44" height="36" rx="4"/><text x="376" y="65" text-anchor="middle" style="font-size:24px" class="ac">↑</text>
+  <text x="640" y="50" text-anchor="start" direction="rtl"><tspan class="b">כלל הונד:</tspan> בתת-רמה עם כמה תאים –</text>
+  <text x="640" y="72" text-anchor="start" direction="rtl">קודם אלקטרון אחד בכל תא, ורק אז זוגות.</text>
+  <text x="640" y="160" text-anchor="start" direction="rtl"><tspan class="b">עקרון פאולי:</tspan> בכל תא (אורביטל) לכל היותר</text>
+  <text x="640" y="182" text-anchor="start" direction="rtl">2 אלקטרונים, ובספינים הפוכים ↑↓.</text>
+  <text x="640" y="116" text-anchor="start" direction="rtl"><tspan class="b">אופבאו:</tspan> ממלאים מהאנרגיה הנמוכה למעלה.</text>
+</svg>
+<figcaption><b>דיאגרמת תאים של חנקן (7 אלקטרונים).</b> כל ריבוע הוא אורביטל, כל חץ הוא אלקטרון. ל-2p יש שלושה אורביטלים (p<sub>x</sub>, p<sub>y</sub>, p<sub>z</sub>), ולכן בהרצאה 5 החנקן נכתב <span class="f">1s²2s²2p<sub>x</sub>¹2p<sub>y</sub>¹2p<sub>z</sub>¹</span> – זה בדיוק הציור הזה במילים. לחנקן 3 אלקטרונים לא מזווגים, ולכן הוא יוצר 3 קשרים (NH₃).</figcaption>
+</figure>
+<p><b>סדר המילוי</b> לא תמיד לפי מספר הרמה: 4s מתמלא <b>לפני</b> 3d, כי האנרגיה שלו נמוכה יותר. את הסדר זוכרים בעזרת "כלל האלכסונים":</p>
+<figure class="narrow">
+<svg viewBox="0 0 400 320" role="img" aria-label="סדר מילוי תת-הרמות לפי כלל האלכסונים" class="auf">
+<defs><marker id="i0-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path class="fa" d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<line class="ln-ac" x1="100" y1="28" x2="40" y2="60" marker-end="url(#i0-arr)" opacity=".75"/>
+<line class="ln-ac" x1="100" y1="66" x2="40" y2="98" marker-end="url(#i0-arr)" opacity=".75"/>
+<line class="ln-ac" x1="178" y1="66" x2="40" y2="136" marker-end="url(#i0-arr)" opacity=".75"/>
+<line class="ln-ac" x1="178" y1="104" x2="40" y2="174" marker-end="url(#i0-arr)" opacity=".75"/>
+<line class="ln-ac" x1="256" y1="104" x2="40" y2="212" marker-end="url(#i0-arr)" opacity=".75"/>
+<line class="ln-ac" x1="256" y1="142" x2="40" y2="250" marker-end="url(#i0-arr)" opacity=".75"/>
+<line class="ln-ac" x1="334" y1="142" x2="40" y2="288" marker-end="url(#i0-arr)" opacity=".75"/>
+<line class="ln-ac" x1="334" y1="180" x2="118" y2="288" marker-end="url(#i0-arr)" opacity=".75"/>
+<rect class="bx" x="48" y="31" width="44" height="26" rx="6"/><text x="70" y="49" text-anchor="middle" class="b">1s</text>
+<rect class="bx" x="48" y="69" width="44" height="26" rx="6"/><text x="70" y="87" text-anchor="middle" class="b">2s</text>
+<rect class="bx" x="126" y="69" width="44" height="26" rx="6"/><text x="148" y="87" text-anchor="middle" class="b">2p</text>
+<rect class="bx" x="48" y="107" width="44" height="26" rx="6"/><text x="70" y="125" text-anchor="middle" class="b">3s</text>
+<rect class="bx" x="126" y="107" width="44" height="26" rx="6"/><text x="148" y="125" text-anchor="middle" class="b">3p</text>
+<rect class="bx" x="204" y="107" width="44" height="26" rx="6"/><text x="226" y="125" text-anchor="middle" class="b">3d</text>
+<rect class="bx" x="48" y="145" width="44" height="26" rx="6"/><text x="70" y="163" text-anchor="middle" class="b">4s</text>
+<rect class="bx" x="126" y="145" width="44" height="26" rx="6"/><text x="148" y="163" text-anchor="middle" class="b">4p</text>
+<rect class="bx" x="204" y="145" width="44" height="26" rx="6"/><text x="226" y="163" text-anchor="middle" class="b">4d</text>
+<rect class="bx" x="282" y="145" width="44" height="26" rx="6"/><text x="304" y="163" text-anchor="middle" class="b">4f</text>
+<rect class="bx" x="48" y="183" width="44" height="26" rx="6"/><text x="70" y="201" text-anchor="middle" class="b">5s</text>
+<rect class="bx" x="126" y="183" width="44" height="26" rx="6"/><text x="148" y="201" text-anchor="middle" class="b">5p</text>
+<rect class="bx" x="204" y="183" width="44" height="26" rx="6"/><text x="226" y="201" text-anchor="middle" class="b">5d</text>
+<rect class="bx" x="282" y="183" width="44" height="26" rx="6"/><text x="304" y="201" text-anchor="middle" class="b">5f</text>
+<rect class="bx" x="48" y="221" width="44" height="26" rx="6"/><text x="70" y="239" text-anchor="middle" class="b">6s</text>
+<rect class="bx" x="126" y="221" width="44" height="26" rx="6"/><text x="148" y="239" text-anchor="middle" class="b">6p</text>
+<rect class="bx" x="204" y="221" width="44" height="26" rx="6"/><text x="226" y="239" text-anchor="middle" class="b">6d</text>
+<rect class="bx" x="48" y="259" width="44" height="26" rx="6"/><text x="70" y="277" text-anchor="middle" class="b">7s</text>
+<rect class="bx" x="126" y="259" width="44" height="26" rx="6"/><text x="148" y="277" text-anchor="middle" class="b">7p</text>
+</svg>
+<figcaption><b>כלל האלכסונים.</b> עוברים לפי החצים, מלמעלה למטה: <span class="f">1s → 2s → 2p → 3s → 3p → 4s → 3d → 4p → 5s → 4d → 5p → 6s → 4f → 5d → 6p → 7s</span>. יש כמה יוצאי דופן בגוש d (למשל Cr ו-Cu), אבל לא נצטרך אותם בבחנים האלה.</figcaption>
+</figure>
+</section>
+
+<section class="topic" id="i6">
+<h3><span class="n">0.6</span>איך קוראים קונפיגורציה אלקטרונית: 1s²2s²2p³</h3>
+<p>הקונפיגורציה היא "רשימת המלאי" של האלקטרונים: באיזו תת-רמה יש כמה. כל חלק בנוי משלושה סימנים:</p>
+<figure>
+<svg viewBox="0 0 660 240" role="img" aria-label="פירוק הסימון 2p3: 2 הוא מספר הרמה, p סוג תת-הרמה, 3 מספר האלקטרונים">
+  <text x="282" y="150" text-anchor="end" style="font-size:104px" class="ac">2</text>
+  <text x="290" y="150" text-anchor="start" style="font-size:104px" class="b">p</text>
+  <text x="358" y="86" text-anchor="start" style="font-size:56px" class="tr">3</text>
+  <line class="ln" x1="150" y1="78" x2="226" y2="96"/>
+  <text x="110" y="52" text-anchor="middle" class="b" direction="rtl">מספר הרמה (n)</text>
+  <text x="110" y="72" text-anchor="middle" class="sm" direction="rtl">"הקומה" – 1, 2, 3…</text>
+  <line class="ln" x1="318" y1="196" x2="320" y2="160"/>
+  <text x="318" y="216" text-anchor="middle" class="b" direction="rtl">סוג תת-הרמה – s, p, d או f</text>
+  <line class="ln" x1="470" y1="70" x2="392" y2="66"/>
+  <text x="550" y="52" text-anchor="middle" class="b" direction="rtl">כמה אלקטרונים יש בה</text>
+  <text x="550" y="72" text-anchor="middle" class="sm" direction="rtl">(זו לא חזקה! רק ספירה)</text>
+</svg>
+<figcaption><b>קוראים בקול: "שתיים פּי שלוש"</b> = ברמה 2, בתת-רמה p, יש 3 אלקטרונים.</figcaption>
+</figure>
+<div class="ex"><header>כל הקונפיגורציה של חנקן (Z = 7)</header><div class="body">
+<p class="f" style="text-align:center;font-size:1.4rem">1s² 2s² 2p³</p>
+<ul>
+<li><span class="f">1s²</span> – ברמה 1, תת-רמה s: 2 אלקטרונים (מלאה).</li>
+<li><span class="f">2s²</span> – ברמה 2, תת-רמה s: 2 אלקטרונים (מלאה).</li>
+<li><span class="f">2p³</span> – ברמה 2, תת-רמה p: 3 מתוך 6 אפשריים.</li>
+</ul>
+<div class="ans">בדיקה: 2 + 2 + 3 = 7 = המספר האטומי של N. הרמה החיצונית היא n = 2, ובה 2 + 3 = 5 אלקטרוני ערכיות.</div></div></div>
+<div class="callout must"><span class="tag">איך כותבים קונפיגורציה בעצמכן</span>
+<ol class="steps">
+<li><div>מוצאים את מספר האלקטרונים (= Z באטום ניטרלי; ביון מוסיפים/מחסירים לפי המטען).</div></li>
+<li><div>ממלאים לפי כלל האלכסונים: s לוקחת עד 2, p עד 6, d עד 10.</div></li>
+<li><div>עוצרים כשמגיעים לסכום. בודקים שסכום המספרים הקטנים למעלה = מספר האלקטרונים.</div></li>
+</ol></div>
+<div class="tbl"><table>
+<caption>דוגמאות</caption>
+<thead><tr><th>אטום</th><th>Z</th><th>קונפיגורציה</th><th>מקוצר</th><th>ערכיות</th></tr></thead>
+<tbody>
+<tr><td>H</td><td class="f">1</td><td class="ltr f">1s¹</td><td></td><td class="f">1</td></tr>
+<tr><td>C</td><td class="f">6</td><td class="ltr f">1s² 2s² 2p²</td><td class="ltr f">[He] 2s² 2p²</td><td class="f">4</td></tr>
+<tr><td>O</td><td class="f">8</td><td class="ltr f">1s² 2s² 2p⁴</td><td class="ltr f">[He] 2s² 2p⁴</td><td class="f">6</td></tr>
+<tr><td>Ne</td><td class="f">10</td><td class="ltr f">1s² 2s² 2p⁶</td><td></td><td>8 (מלאה)</td></tr>
+<tr><td>Na</td><td class="f">11</td><td class="ltr f">1s² 2s² 2p⁶ 3s¹</td><td class="ltr f">[Ne] 3s¹</td><td class="f">1</td></tr>
+<tr><td>Cl</td><td class="f">17</td><td class="ltr f">1s² 2s² 2p⁶ 3s² 3p⁵</td><td class="ltr f">[Ne] 3s² 3p⁵</td><td class="f">7</td></tr>
+<tr><td>K</td><td class="f">19</td><td class="ltr f">1s² 2s² 2p⁶ 3s² 3p⁶ 4s¹</td><td class="ltr f">[Ar] 4s¹</td><td class="f">1</td></tr>
+</tbody></table></div>
+<p><b>הכתיב המקוצר</b> <span class="f">[Ne] 3s¹</span> (מופיע בהרצאה 4) פירושו: "כמו הגז האציל ניאון, ועוד 3s¹". החלק שבסוגריים הוא אלקטרוני הליבה הפנימיים, ומה שאחריו – אלקטרוני הערכיות. זה בדיוק למה <b>כלל האוקטט</b> אומר "8": תת-רמות s² + p⁶ מלאות = הקונפיגורציה היציבה של גז אציל.</p>
+<div class="callout trap"><span class="tag">מלכודת</span><p>המספר הקטן למעלה ב-<span class="f">2p³</span> <b>אינו חזקה</b> (לא "2p בשלישית"). זה פשוט מונה אלקטרונים. לעומת זאת ב-<span class="f">10²³</span> זו כן חזקה – ההקשר קובע.</p></div>
+</section>
+
+<section class="topic" id="i7">
+<h3><span class="n">0.7</span>איך קוראים נוסחה כימית</h3>
+<figure>
+<svg viewBox="0 0 660 230" role="img" aria-label="פירוק 3H2SO4: 3 מקדם, 2 ו-4 אינדקסים">
+  <text x="196" y="132" text-anchor="middle" style="font-size:84px" class="tr">3</text>
+  <text x="262" y="132" text-anchor="middle" style="font-size:84px" class="b">H</text>
+  <text x="306" y="152" text-anchor="middle" style="font-size:40px" class="ac">2</text>
+  <text x="358" y="132" text-anchor="middle" style="font-size:84px" class="b">S</text>
+  <text x="428" y="132" text-anchor="middle" style="font-size:84px" class="b">O</text>
+  <text x="476" y="152" text-anchor="middle" style="font-size:40px" class="ac">4</text>
+  <line class="ln" x1="140" y1="54" x2="182" y2="70"/>
+  <text x="96" y="40" text-anchor="middle" class="tr" direction="rtl">מקדם</text>
+  <text x="96" y="60" text-anchor="middle" class="sm" direction="rtl">כמה מולקולות</text>
+  <line class="ln" x1="306" y1="186" x2="306" y2="160"/>
+  <line class="ln" x1="476" y1="186" x2="476" y2="160"/>
+  <text x="391" y="206" text-anchor="middle" class="ac" direction="rtl">אינדקס – כמה אטומים מהיסוד שלפניו, בכל מולקולה</text>
+  <text x="560" y="64" text-anchor="middle" class="sm" direction="rtl">אין מספר = 1</text>
+  <line class="ln-d" x1="520" y1="70" x2="372" y2="78"/>
+</svg>
+<figcaption><b>3H₂SO₄ = שלוש מולקולות של חומצה גופרתית.</b> בכל מולקולה: 2 H, 1 S, 4 O. בסך הכל: <span class="f">H = 3×2 = 6</span>, <span class="f">S = 3×1 = 3</span>, <span class="f">O = 3×4 = 12</span>. המקדם מכפיל את <b>כל</b> המולקולה; האינדקס רק את היסוד שמשמאל לו.</figcaption>
+</figure>
+<div class="tbl"><table>
+<caption>עוד סימונים בתוך נוסחה</caption>
+<thead><tr><th>סימון</th><th>פירוש</th><th>ספירה</th></tr></thead>
+<tbody>
+<tr><td class="ltr f">Al₂(SO₄)₃</td><td>הסוגריים הם יחידה (יון סולפט); האינדקס אחרי הסוגריים מכפיל את כל מה שבתוכם</td><td><span class="f">Al 2 · S 3 · O 3×4 = 12</span><br>סה"כ 17 אטומים</td></tr>
+<tr><td class="ltr f">Ca(OH)₂</td><td>שתי קבוצות OH</td><td class="f">Ca 1 · O 2 · H 2</td></tr>
+<tr><td class="ltr f">NO₂⁻</td><td>יון: מספר עליון עם סימן = מטען של כל החלקיק</td><td><span class="f">N 1 · O 2</span> · מטען <span class="f">−1</span></td></tr>
+<tr><td class="ltr f">SO₄²⁻</td><td>"שתיים מינוס" – מטען <span class="f">−2</span> (המספר לפני הסימן)</td><td><span class="f">S 1 · O 4</span> · מטען <span class="f">−2</span></td></tr>
+<tr><td class="ltr f">CH₃OH</td><td>כתיבה "מבנית": האטומים כתובים לפי סדר החיבור</td><td class="f">C 1 · H 4 · O 1</td></tr>
+<tr><td class="ltr f">[Na]⁺[:Cl:]⁻</td><td>סוגריים מרובעים במבנה לואיס – המטען שייך לכל מה שבפנים (במבנה המלא מצוירות סביב Cl⁻ שמונה נקודות; כאן בקיצור)</td><td></td></tr>
+</tbody></table></div>
+<div class="callout trap"><span class="tag">ההבדל הכי חשוב</span><p><span class="f">2H</span> = שני אטומי מימן נפרדים. <span class="f">H₂</span> = מולקולה אחת שבנויה משני אטומי מימן קשורים. <span class="f">2H₂</span> = שתי מולקולות כאלה (4 אטומים). כשמאזנים משוואה משנים <b>רק מקדמים</b> – שינוי אינדקס הופך את החומר לחומר אחר (H₂O מים, H₂O₂ מי חמצן).</p></div>
+<h4>איך קוראים מבנה לואיס</h4>
+<div class="tbl"><table>
+<thead><tr><th>מה רואים</th><th>פירוש</th></tr></thead>
+<tbody>
+<tr><td class="f">H–H &nbsp;או&nbsp; H:H</td><td>קו אחד (או שתי נקודות בין האטומים) = זוג אלקטרונים משותף = קשר יחיד</td></tr>
+<tr><td class="f">O=O &nbsp;/&nbsp; N≡N</td><td>שני קווים = קשר כפול (4 אלקטרונים); שלושה = משולש (6)</td></tr>
+<tr><td>נקודות צמודות לאטום</td><td>אלקטרונים שלא משתתפים בקשר. זוג נקודות = "זוג לא קושר" (lone pair)</td></tr>
+<tr><td class="f">δ+ &nbsp; δ−</td><td>"דלתא פלוס / דלתא מינוס" – מטען <b>חלקי</b> (פחות משלם) בקשר קוטבי</td></tr>
+<tr><td>מספר בעיגול ליד אטום</td><td>מטען פורמלי (הרצאה 6)</td></tr>
+</tbody></table></div>
+</section>
+
+<section class="topic" id="i8">
+<h3><span class="n">0.8</span>איך קוראים משוואה כימית</h3>
+<div class="eq">2H<sub>2(g)</sub> + O<sub>2(g)</sub> → 2H<sub>2</sub>O<sub>(l)</sub></div>
+<p>קוראים: "<b>שתי</b> מולקולות (או שני מול) מימן <b>גזי</b> <b>ועוד</b> מולקולה אחת של חמצן גזי <b>מגיבים ונותנים</b> שתי מולקולות של מים <b>נוזליים</b>". משמאל לחץ – <b>מגיבים</b>; מימין – <b>תוצרים</b>.</p>
+<div class="tbl"><table>
+<thead><tr><th>סימן</th><th>נקרא</th><th>פירוש</th></tr></thead>
+<tbody>
+<tr><td class="f">→</td><td>"נותן" / "הופך ל"</td><td>כיוון התגובה</td></tr>
+<tr><td class="f">⇌</td><td>"בשיווי משקל"</td><td>התגובה מתרחשת בשני הכיוונים (נלמד בהמשך)</td></tr>
+<tr><td class="f">↔</td><td>חץ דו-ראשי</td><td><b>רזוננס</b> – לא תגובה! שני ציורים של אותה מולקולה (הרצאה 6)</td></tr>
+<tr><td class="f">(s) (l) (g) (aq)</td><td>מוצק, נוזל, גז, מימי</td><td>מצב הצבירה. aq = aqueous, מומס במים</td></tr>
+<tr><td class="f">ΔH = −183 kJ</td><td>"דלתא H"</td><td>שינוי האנתלפיה (החום) בתגובה – ראו 0.9. (הערך −183 kJ הוא של תגובה אחרת, H₂ + Cl₂ → 2HCl, שמחושבת בחלק א'; לתגובת המים שלמעלה ΔH ≈ −572 kJ)</td></tr>
+</tbody></table></div>
+<div class="callout must"><span class="tag">חוק שימור המסה</span><p>בתגובה כימית אטומים לא נוצרים ולא נעלמים – רק מתחברים מחדש. לכן מכל יסוד חייב להיות <b>אותו מספר אטומים בשני הצדדים</b>. בדוגמה: H – 2×2 = 4 משמאל ו-2×2 = 4 מימין; O – 2 משמאל ו-2×1 = 2 מימין ✓. (OpenStax 4.1)</p></div>
+</section>
+
+<section class="topic" id="i9">
+<h3><span class="n">0.9</span>איך קוראים את הסימנים: E<sub>AB</sub> &lt; E<sub>A</sub> + E<sub>B</sub>, Δ, Σ</h3>
+<p>הנוסחה מהשקף הראשון של הרצאה 5 נראית מפחידה, אבל היא משפט פשוט. מפרקים אותה לחלקים:</p>
+<div class="tbl"><table>
+<thead><tr><th>חלק</th><th>שם</th><th>פירוש</th></tr></thead>
+<tbody>
+<tr><td class="f">E</td><td>האות הגדולה</td><td><b>מה</b> מודדים – כאן אנרגיה (Energy)</td></tr>
+<tr><td class="f">E<sub>AB</sub> – ה-AB הקטן למטה</td><td>אינדקס תחתון</td><td><b>של מי</b> – תווית, לא מספר שמכפילים. E<sub>AB</sub> = "האנרגיה של המולקולה AB"</td></tr>
+<tr><td class="f">E<sub>A</sub> , E<sub>B</sub></td><td></td><td>האנרגיה של אטום A לבד, ושל אטום B לבד</td></tr>
+<tr><td class="f">&lt;</td><td>"קטן מ"</td><td>הצד הפתוח של הסימן פונה לגדול. (<span class="f">&gt;</span> "גדול מ", <span class="f">≤</span> "קטן או שווה")</td></tr>
+<tr><td class="f">+</td><td>ועוד</td><td>E<sub>A</sub> + E<sub>B</sub> = האנרגיה של שני האטומים יחד כשהם עדיין נפרדים</td></tr>
+</tbody></table></div>
+<div class="callout must"><span class="tag">קוראים את זה כך</span><p>"<b>האנרגיה של המולקולה AB קטנה מסכום האנרגיות של האטומים A ו-B כשהם נפרדים.</b>" כלומר: כשהאטומים התחברו, האנרגיה ירדה – ולכן הם "מעדיפים" להישאר מחוברים. ההפרש הוא האנרגיה שמשתחררת כשהקשר נוצר, והיא בדיוק האנרגיה שצריך להשקיע כדי לשבור אותו.</p></div>
+<figure>
+<svg viewBox="0 0 660 250" role="img" aria-label="דיאגרמת רמות אנרגיה: אטומים נפרדים למעלה, מולקולה למטה, ההפרש הוא אנרגיית הקשר">
+  <defs><marker id="i0-arr3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="fi" d="M0,0 L10,5 L0,10 z"/></marker></defs>
+  <line class="ln" x1="60" y1="220" x2="60" y2="24" marker-end="url(#i0-arr3)"/>
+  <text x="40" y="122" text-anchor="middle" class="sm" direction="rtl" transform="rotate(-90 40 122)">אנרגיה</text>
+  <line class="ln-ac" x1="110" y1="60" x2="330" y2="60"/>
+  <circle class="fa" cx="190" cy="40" r="11"/><circle class="fa" cx="250" cy="40" r="11"/>
+  <text x="190" y="45" text-anchor="middle" style="font-size:12px" class="on-ac">A</text><text x="250" y="45" text-anchor="middle" style="font-size:12px" class="on-ac">B</text>
+  <text x="220" y="84" text-anchor="middle" class="b">E<tspan dy="5" style="font-size:11px">A</tspan><tspan dy="-5"> + E</tspan><tspan dy="5" style="font-size:11px">B</tspan></text>
+  <line class="ln-ac" x1="110" y1="190" x2="330" y2="190"/>
+  <circle class="fa" cx="210" cy="170" r="11"/><circle class="fa" cx="230" cy="170" r="11"/>
+  <text x="220" y="214" text-anchor="middle" class="b">E<tspan dy="5" style="font-size:11px">AB</tspan></text>
+  <line class="ln" x1="370" y1="64" x2="370" y2="186" marker-start="url(#i0-arr3)" marker-end="url(#i0-arr3)"/>
+  <text x="630" y="52" text-anchor="start" direction="rtl" class="b">למעלה: אטומים נפרדים – אנרגיה גבוהה</text>
+  <text x="630" y="200" text-anchor="start" direction="rtl" class="b">למטה: מולקולה – אנרגיה נמוכה, יציב</text>
+  <text x="630" y="118" text-anchor="start" direction="rtl" class="ac">ההפרש = אנרגיית הקשר</text>
+  <text x="630" y="140" text-anchor="start" direction="rtl" class="sm">יצירת קשר משחררת אותה; שבירה דורשת אותה</text>
+</svg>
+<figcaption><b>E<sub>AB</sub> &lt; E<sub>A</sub> + E<sub>B</sub> בציור.</b> בדיוק כמו כדור שמתגלגל לתחתית בור: למטה יציב יותר. זה גם הבור שבעקומת האנרגיה של H₂ בחלק א'.</figcaption>
+</figure>
+<div class="tbl"><table>
+<caption>אותיות יווניות וסימנים שחוזרים בקורס</caption>
+<thead><tr><th>סימן</th><th>שם</th><th>פירוש</th><th>דוגמה</th></tr></thead>
+<tbody>
+<tr><td class="f">Δ</td><td>דלתא (גדולה)</td><td><b>הפרש / שינוי</b>: סופי פחות התחלתי, או הפרש בין שניים</td><td class="f">ΔEN = 4.0 − 2.1 = 1.9</td></tr>
+<tr><td class="f">δ</td><td>דלתא (קטנה)</td><td>"קצת" – מטען חלקי</td><td class="f">H<sup>δ+</sup>–F<sup>δ−</sup></td></tr>
+<tr><td class="f">Σ</td><td>סיגמא (גדולה)</td><td><b>סכום</b> של כל הפריטים</td><td>ΣBE(מגיבים) = סכום אנרגיות כל הקשרים שנשברים</td></tr>
+<tr><td class="f">σ , π</td><td>סיגמא, פאי (קטנות)</td><td>סוגי קשרים קוולנטיים</td><td>קשר כפול = σ + π</td></tr>
+<tr><td class="f">μ</td><td>מיו</td><td>מומנט דיפול</td><td class="f">μ = 0.44 D</td></tr>
+<tr><td class="f">λ , ν</td><td>למדא, נו</td><td>אורך גל, תדירות</td><td class="f">c = λν</td></tr>
+<tr><td class="f">≈</td><td>"בערך שווה"</td><td>הערכה, לא ערך מדויק</td><td>ΔH ≈ ΣBE(מגיבים) − ΣBE(תוצרים)</td></tr>
+<tr><td class="f">ΔH<sub>rxn</sub></td><td>דלתא H ריאקציה</td><td>שינוי האנתלפיה (החום) בתגובה (reaction)</td><td></td></tr>
+<tr><td class="f">Z<sub>eff</sub></td><td>Z אפקטיבי</td><td>המטען שאלקטרון חיצוני "מרגיש" אחרי מיסוך</td><td>הרצאה 4</td></tr>
+</tbody></table></div>
+<div class="callout must"><span class="tag">הסימן של ΔH (OpenStax 5.3)</span><p><b>ΔH &lt; 0 (שלילי)</b> – המערכת <b>מאבדת</b> אנרגיה לסביבה, חום יוצא: תהליך <b>אקסותרמי</b> (שריפה, יצירת קשר). <b>ΔH &gt; 0 (חיובי)</b> – המערכת <b>קולטת</b> אנרגיה: <b>אנדותרמי</b> (שבירת קשר, המסת קרח). הסימן נקבע מנקודת המבט של המערכת (החומרים המגיבים), לא של הסביבה.</p></div>
+</section>
+
+<section class="topic" id="i10">
+<h3><span class="n">0.10</span>חזקות של 10 – כתיב מדעי</h3>
+<p>אטומים קטנים מאוד ויש מהם המון, ולכן כותבים מספרים בצורה <span class="f">a × 10ⁿ</span>: מספר בין 1 ל-10, כפול 10 בחזקה.</p>
+<div class="tbl"><table>
+<thead><tr><th>כתיב מדעי</th><th>נקרא</th><th>כמספר רגיל</th></tr></thead>
+<tbody>
+<tr><td class="ltr f">6.022 × 10²³</td><td>"שש נקודה אפס עשרים ושתיים כפול עשר בעשרים ושלוש"</td><td class="ltr f">602,200,000,000,000,000,000,000</td></tr>
+<tr><td class="ltr f">1.66 × 10⁻²⁴</td><td>"... כפול עשר במינוס עשרים וארבע"</td><td class="ltr f">0.00000000000000000000000166</td></tr>
+<tr><td class="ltr f">10³ = 1000</td><td colspan="2">חזקה חיובית = מזיזים את הנקודה <b>ימינה</b> (מספר גדול)</td></tr>
+<tr><td class="ltr f">10⁻³ = 0.001</td><td colspan="2">חזקה שלילית = מזיזים את הנקודה <b>שמאלה</b> (מספר קטן, <b>לא</b> שלילי!)</td></tr>
+</tbody></table></div>
+<div class="callout tip"><span class="tag">חשבון עם חזקות</span><ul>
+<li>כפל: מכפילים את המספרים <b>ומחברים</b> חזקות: <span class="f">(2×10³)(3×10⁴) = 6×10⁷</span>.</li>
+<li>חילוק: מחלקים <b>ומחסירים</b> חזקות: <span class="f">(6×10²³)/(2×10²¹) = 3×10²</span>.</li>
+<li>במחשבון: מקלידים 6.022, אחר כך את המקש <b>EXP</b> או <b>×10ˣ</b> (בחלק מהמחשבונים <b>EE</b>), ואז 23. לא להקליד "×10^23" ידנית – זה מוביל לטעויות סוגריים.</li>
+</ul></div>
+<div class="callout note"><span class="tag">ערך מדויק</span><p>קבוע אבוגדרו (N<sub>A</sub>) מוגדר מאז 2019 כ-<b>בדיוק</b> <span class="f">6.022 140 76 × 10²³ mol⁻¹</span> (NIST, BIPM). ההגדרה הישנה – "מספר האטומים ב-12 g של פחמן-12", שמופיעה בהרצאה 10 – נותנת כמעט בדיוק את אותו מספר; בקורס משתמשים ב-6.022×10²³.</p></div>
+</section>
+
+<section class="topic" id="i11">
+<h3><span class="n">0.11</span>יחידות</h3>
+<div class="tbl"><table>
+<caption>יחידות שמופיעות בקורס</caption>
+<thead><tr><th>יחידה</th><th>נקראת</th><th>מודדת</th><th>כמה זה</th></tr></thead>
+<tbody>
+<tr><td class="f">g , kg</td><td>גרם, קילוגרם</td><td>מסה</td><td class="f">1 kg = 1000 g</td></tr>
+<tr><td class="f">mol</td><td>מול</td><td>כמות חומר (מספר חלקיקים)</td><td><span class="f">6.022×10²³</span> חלקיקים</td></tr>
+<tr><td class="f">g/mol</td><td>גרם למול</td><td>מסה מולרית – כמה שוקל מול אחד</td><td class="f">H₂O: 18.02 g/mol</td></tr>
+<tr><td class="f">amu (u, Da)</td><td>יחידת מסה אטומית / דלטון</td><td>מסה של אטום בודד</td><td>1/12 ממסת אטום <span class="f">¹²C</span> ≈ <span class="f">1.66×10⁻²⁴ g</span></td></tr>
+<tr><td class="f">kJ/mol</td><td>קילו-ג'אול למול</td><td>אנרגיה למול (של קשרים, של תגובה)</td><td class="f">1 kJ = 1000 J</td></tr>
+<tr><td class="f">pm , Å , nm</td><td>פיקומטר, אנגסטרום, ננומטר</td><td>אורכים זעירים (קשרים, רדיוסים)</td><td class="f">1 Å = 100 pm = 10⁻¹⁰ m; 1 nm = 10 Å</td></tr>
+<tr><td class="f">D</td><td>דֶבַּאי</td><td>מומנט דיפול</td><td class="f">1 D = 3.336×10⁻³⁰ C·m</td></tr>
+<tr><td class="f">M = mol/L</td><td>מולר</td><td>ריכוז מולרי</td><td>מול מומס בליטר תמיסה</td></tr>
+<tr><td class="f">L , mL</td><td>ליטר, מיליליטר</td><td>נפח</td><td class="f">1 L = 1000 mL</td></tr>
+</tbody></table></div>
+<div class="tbl"><table>
+<caption>תחיליות (קידומות) – תקפות לכל יחידה</caption>
+<thead><tr><th>תחילית</th><th>סימן</th><th>פי</th><th>דוגמה</th></tr></thead>
+<tbody>
+<tr><td>קילו</td><td class="f">k</td><td class="f">10³</td><td class="f">1 kJ = 1000 J</td></tr>
+<tr><td>מילי</td><td class="f">m</td><td class="f">10⁻³</td><td class="f">1 mL = 0.001 L</td></tr>
+<tr><td>מיקרו</td><td class="f">µ</td><td class="f">10⁻⁶</td><td class="f">1 µg = 10⁻⁶ g</td></tr>
+<tr><td>ננו</td><td class="f">n</td><td class="f">10⁻⁹</td><td class="f">1 nm = 10⁻⁹ m</td></tr>
+<tr><td>פיקו</td><td class="f">p</td><td class="f">10⁻¹²</td><td class="f">74 pm = 7.4×10⁻¹¹ m</td></tr>
+</tbody></table></div>
+<div class="callout tip"><span class="tag">יחידות הן הבדיקה הכי טובה</span><p>כותבים יחידות ליד כל מספר ומצמצמים כמו שברים: <span class="f">g ÷ (g/mol) = mol</span> ✓. אם יצאה יחידה מוזרה (למשל g²/mol) – החישוב הפוך. כך <span class="f">n = m/M</span> "מוכיח את עצמו".</p></div>
+</section>
+
+<section class="topic" id="i12">
+<h3><span class="n">0.12</span>אותה אות – משמעות אחרת</h3>
+<p>זה אחד המקורות הכי גדולים לבלבול. ההקשר תמיד מכריע:</p>
+<div class="tbl"><table>
+<thead><tr><th>אות</th><th>משמעויות בקורס</th></tr></thead>
+<tbody>
+<tr><td class="f">n</td><td>מספר קוונטי ראשי (רמה) · <b>מספר מולים</b> (n = m/M) · נויטרון · ב-AXₙ: מספר אטומים קשורים · תחילית ננו</td></tr>
+<tr><td class="f">M</td><td><b>מסה מולרית</b> (g/mol) · <b>מולריות</b> (mol/L, "4 M") · מתכת כללית בנוסחה</td></tr>
+<tr><td class="f">m</td><td>מסה (גרם) · מטר · תחילית מילי · m<sub>l</sub> מספר קוונטי</td></tr>
+<tr><td class="f">E</td><td>אנרגיה · ב-AXₙEₘ: <b>זוג לא קושר</b> · E<sub>A</sub>/EA זיקה אלקטרונית · E<sub>I</sub> אנרגיית יינון · EN אלקטרושליליות</td></tr>
+<tr><td class="f">A</td><td>מספר מסה · אטום כללי (A + B → AB) · האטום המרכזי ב-AXₙEₘ · Å אנגסטרום</td></tr>
+<tr><td class="f">p</td><td>פרוטון · תת-רמה p · תחילית פיקו (pm)</td></tr>
+<tr><td class="f">d</td><td>תת-רמה d · אורך הקשר (d = 1.61 Å) · D (גדולה) = דבאי</td></tr>
+<tr><td class="f">N</td><td>חנקן · <b>מספר חלקיקים</b> (N = n·N<sub>A</sub>) · N<sub>A</sub> מספר אבוגדרו</td></tr>
+</tbody></table></div>
+</section>
+
+<section class="topic" id="isrc">
+<h3><span class="n">✓</span>מקורות להקדמה</h3>
+<p>כל הפרק מבוסס על מקורות מוסמכים ופתוחים – אפשר להמשיך לקרוא שם (באנגלית):</p>
+<ul>
+<li>OpenStax, <b>Chemistry 2e</b> (Rice University, 2019; ספר לימוד אוניברסיטאי שעבר ביקורת עמיתים, רישיון CC BY 4.0):
+<a href="https://openstax.org/books/chemistry-2e/pages/2-3-atomic-structure-and-symbolism" target="_blank" rel="noopener">2.3 מבנה האטום וסימונים</a> ·
+<a href="https://openstax.org/books/chemistry-2e/pages/2-4-chemical-formulas" target="_blank" rel="noopener">2.4 נוסחאות כימיות</a> ·
+<a href="https://openstax.org/books/chemistry-2e/pages/2-5-the-periodic-table" target="_blank" rel="noopener">2.5 הטבלה המחזורית</a> ·
+<a href="https://openstax.org/books/chemistry-2e/pages/2-6-ionic-and-molecular-compounds" target="_blank" rel="noopener">2.6 תרכובות יוניות ומולקולריות</a> ·
+<a href="https://openstax.org/books/chemistry-2e/pages/6-3-development-of-quantum-theory" target="_blank" rel="noopener">6.3 תורת הקוונטים ומספרים קוונטיים</a> ·
+<a href="https://openstax.org/books/chemistry-2e/pages/6-4-electronic-structure-of-atoms-electron-configurations" target="_blank" rel="noopener">6.4 קונפיגורציה אלקטרונית</a> ·
+<a href="https://openstax.org/books/chemistry-2e/pages/3-1-formula-mass-and-the-mole-concept" target="_blank" rel="noopener">3.1 מסה ומול</a> ·
+<a href="https://openstax.org/books/chemistry-2e/pages/4-1-writing-and-balancing-chemical-equations" target="_blank" rel="noopener">4.1 כתיבה ואיזון משוואות</a> ·
+<a href="https://openstax.org/books/chemistry-2e/pages/5-3-enthalpy" target="_blank" rel="noopener">5.3 אנתלפיה</a> ·
+<a href="https://openstax.org/books/chemistry-2e/pages/1-4-measurements" target="_blank" rel="noopener">1.4 מדידות ויחידות</a></li>
+<li>NIST – <a href="https://physics.nist.gov/cgi-bin/cuu/Value?na" target="_blank" rel="noopener">ערך קבוע אבוגדרו</a> (CODATA).</li>
+<li>BIPM – <a href="https://www.bipm.org/en/measurement-units" target="_blank" rel="noopener">מערכת היחידות הבינלאומית SI</a> (הגדרות המול והתחיליות).</li>
+</ul>
+</section>
+
+<div class="recap"><span class="tag">בשורה התחתונה – ההקדמה</span><ol>
+<li>אטום = גרעין (פרוטונים + נויטרונים) + אלקטרונים. מספר הפרוטונים = זהות היסוד.</li>
+<li>סביב סמל היסוד: מספר מסה למעלה-שמאל, מספר אטומי למטה-שמאל, מטען למעלה-ימין, אינדקס למטה-ימין.</li>
+<li>שורה = מחזור (מספר הקליפה החיצונית); טור = קבוצה (בקבוצות הראשיות – אותו מספר אלקטרוני ערכיות: קבוצה 1 → 1, קבוצה 17 → 7).</li>
+<li>רמה (1, 2, 3) → תת-רמה (s, p, d, f) → אורביטל (עד 2 אלקטרונים). s=2, p=6, d=10.</li>
+<li><span class="f">2p³</span> = "ברמה 2, ב-p, 3 אלקטרונים". המספר העליון סופר, הוא לא חזקה.</li>
+<li>מקדם (לפני) מכפיל את כל המולקולה; אינדקס (אחרי, למטה) – רק את היסוד שלפניו.</li>
+<li><span class="f">E<sub>AB</sub> &lt; E<sub>A</sub>+E<sub>B</sub></span>: למולקולה אנרגיה נמוכה מלאטומים הנפרדים – לכן הקשר יציב.</li>
+<li>Δ = הפרש, Σ = סכום, δ = מטען חלקי. ΔH שלילי = אקסותרמי.</li>
+<li>10⁻ⁿ = מספר קטן (לא שלילי). בכפל מחברים חזקות.</li>
+<li>תמיד לכתוב יחידות – הן בודקות את החישוב.</li>
+</ol></div>
+<div class="cta"><a href="#bonds">ממשיכים לחלק א' – קשרים כימיים ←</a></div>
+</div></div>
+</div>
+
 
 <!-- ============================ PART A: BONDS ============================ -->
 <div data-part="bonds" id="bonds">
@@ -644,7 +1301,7 @@ footer{max-width:var(--col);margin:60px auto 40px;padding:0 16px;color:var(--ink
   <rect class="bx" x="380" y="180" width="130" height="62" rx="10"/>
   <text x="445" y="208" text-anchor="middle" class="b" direction="rtl">מספר חלקיקים</text><text x="445" y="230" text-anchor="middle" class="sm">N</text>
   <line class="ln" x1="430" y1="106" x2="430" y2="176" marker-end="url(#s-arr)"/><line class="ln" x1="460" y1="176" x2="460" y2="106" marker-end="url(#s-arr)"/>
-  <text x="420" y="146" text-anchor="end" class="ac">× N<tspan dy="4" font-size="11">A</tspan></text><text x="470" y="146" text-anchor="start" class="ac">÷ N<tspan dy="4" font-size="11">A</tspan></text>
+  <text x="420" y="146" text-anchor="end" class="ac">× N<tspan dy="4" style="font-size:11px">A</tspan></text><text x="470" y="146" text-anchor="start" class="ac">÷ N<tspan dy="4" style="font-size:11px">A</tspan></text>
   <rect class="bx" x="560" y="180" width="140" height="62" rx="10"/>
   <text x="630" y="206" text-anchor="middle" class="b" direction="rtl">מספר אטומים</text><text x="630" y="228" text-anchor="middle" class="sm" direction="rtl">× אטומים בנוסחה</text>
   <line class="ln" x1="514" y1="211" x2="556" y2="211" marker-end="url(#s-arr)"/>
@@ -754,10 +1411,10 @@ footer{max-width:var(--col);margin:60px auto 40px;padding:0 16px;color:var(--ink
 <div class="callout must"><span class="tag">השיטה</span><p>לכל מגיב: <b>מולים ÷ המקדם שלו במשוואה</b>. <mark>הערך הקטן ביותר = המגיב המגביל.</mark> משם ממשיכים את כל החישוב <b>רק</b> לפי המגביל.</p></div>
 <figure>
 <svg viewBox="0 0 640 220" role="img" aria-label="השוואת מולים חלקי מקדם עבור פנטאן וחמצן">
-  <text x="600" y="30" text-anchor="end" class="b" direction="rtl">מולים ÷ מקדם</text>
-  <text x="600" y="78" text-anchor="end" direction="rtl">C₅H₁₂: 1 ÷ 1</text>
+  <text x="600" y="30" text-anchor="start" class="b" direction="rtl">מולים ÷ מקדם</text>
+  <text x="600" y="78" text-anchor="start" direction="rtl">C₅H₁₂: 1 ÷ 1</text>
   <rect class="z2" x="60" y="60" width="380" height="28" rx="5"/><text x="50" y="80" text-anchor="end" class="b">1</text>
-  <text x="600" y="138" text-anchor="end" direction="rtl">O₂: 4 ÷ 8</text>
+  <text x="600" y="138" text-anchor="start" direction="rtl">O₂: 4 ÷ 8</text>
   <rect class="fa" x="250" y="120" width="190" height="28" rx="5"/><text x="240" y="140" text-anchor="end" class="b">0.5</text>
   <text x="345" y="188" text-anchor="middle" class="ac" direction="rtl">הקצר ביותר → O₂ הוא המגביל</text>
   <line class="ln-d" x1="440" y1="50" x2="440" y2="160"/>
