@@ -6,8 +6,10 @@ HEB = r"\u0590-\u05FF"
 OP = re.compile(r"(=|→|×|÷|\+|−|≈|≤|≥|/|&lt;|&gt;|≠)")
 SKIP = re.compile(r"(<head.*?</head>|<svg.*?</svg>|<script.*?</script>|<style.*?</style>|<span class=\"li\">.*?</span>|<(td|span|div|p)\b[^>]*class=\"(?:[^\"]* )?(?:f|ltr|eq)(?: [^\"]*)?\"[^>]*>.*?</\2>)", re.S)
 # small LTR tokens that break in RTL even without an operator: ions (Na⁺, SO₄²⁻, 2e⁻), δ+/δ−, signed numbers (−183 kJ)
-TOKEN = re.compile(r"(?<![\w⁰-⁹¹²³₀-₉=≡–])(?:(?:[0-9]+|[⁰-⁹¹²³]+)?[A-Za-z\[][A-Za-z0-9₀-₉⁰-⁹¹²³()\[\]]*[⁺⁻](?![A-Za-z0-9₀-₉⁰-⁹¹²³])"
+TOKEN = re.compile(r"(?:\[(?:He|Ne|Ar|Kr|Xe|Rn)\](?: ?[1-7][spdf][⁰-⁹¹²³]+)+|(?<![0-9A-Za-z])(?:[1-7][spdf][⁰-⁹¹²³]+){2,})|(?<![\w⁰-⁹¹²³₀-₉=≡–])(?:(?:[0-9]+|[⁰-⁹¹²³]+)?[A-Za-z\[][A-Za-z0-9₀-₉⁰-⁹¹²³()\[\]]*[⁺⁻](?![A-Za-z0-9₀-₉⁰-⁹¹²³])"
                    r"|δ[+−⁺⁻]"
+                   r"|(?<![0-9A-Za-z.,])[−+]?[0-9]+(?:[.,][0-9]+)? ?°C?(?![A-Za-z])"
+                   r"|(?<![0-9A-Za-z.,])[0-9]+(?:[.,][0-9]+)?[–-][0-9]+(?:[.,][0-9]+)?(?![0-9A-Za-z])"
                    r"|(?<![0-9A-Za-z.,×⁰-⁹¹²³])[0-9]+(?:[.,][0-9]+)*(?:×10[⁰-⁹¹²³⁻]+)? (?:kJ/mol|kJ|g/mol|mol/L|mol|amu|kg|mg|mL|mm|g|L|D|M|Å|pm|nm|cm|m|K|°C)(?![A-Za-z0-9/])"
                    r"|(?<![0-9A-Za-z)\]] )(?<![0-9A-Za-z])[−+][0-9]+(?:[.,][0-9]+)*(?: ?(?:kJ/mol|kJ|g/mol|mol|amu|g|D|M|Å|pm|nm))?(?![\w]))")
 def tok(t):

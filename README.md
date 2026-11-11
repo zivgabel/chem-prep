@@ -7,3 +7,7 @@
 - `validate.py` – בדיקת מבנה המאגר; `SPEC.md` – הנחיות לכתיבת שאלות
 - `checks/*.json` – שאלות "בדקו את עצמכן" בסוף כל פרק בחומר המוסבר (sec/q/a); `python tools/inject_checks.py` מכניס אותן ל-`guide.html`
 - `tools/isolate_ltr.py` – עוטף נוסחאות, יונים ומספרים עם יחידות בתוך טקסט עברי כדי שיוצגו בסדר הנכון (אחרי כל עריכה של `guide.html`: `python tools/isolate_ltr.py docs/guide.html`)
+- `parts/*.html` – פרקים שנכתבו בנפרד (אטום, טבלה מחזורית, עדכון קשרים); `python tools/integrate_parts.py` מכניס אותם ל-`guide.html`
+- `exams/*.json` – מבחנים לדוגמא (`EXAM_SPEC.md`); `python tools/build_exams.py` בונה את `docs/exam-*.html` ו-`docs/exams.html`
+- `python tools/build_formulas.py` – אוסף את כל תיבות הנוסחאות לדף `docs/formulas.html`
+- `docs/site.css`, `docs/site.js` – עיצוב וסקריפטים משותפים; `GUIDE_SPEC.md` – הנחיות לכתיבת פרקים

@@ -9,7 +9,7 @@ Language: **Hebrew**, the way the course writes it (terms like ΔEN, VSEPR, sp²
 Write chemical formulas with Unicode sub/superscripts: H₂O, CO₂, NO₂⁻, NH₄⁺, SO₃²⁻, sp³, 6.022×10²³.
 Plain text only — no HTML, no Markdown, no LaTeX.
 
-## Sources (all in `C:/Users/ziv/liel_libi_study/chem_site/sources/`)
+## Sources (all in `sources/`)
 - Lectures as PDF (one slide per page): `Lecture5.pdf` (bond energetics, ionic/covalent, EN, Lewis),
   `Lecture6.pdf` (formal charge, octet exceptions, bond enthalpy, resonance),
   `Lecture10.pdf` (isotopes, amu, Avogadro, mole, molar mass, empirical/molecular formula, mass %),
@@ -75,7 +75,7 @@ One UTF-8 JSON array file at the path you're given. Each item:
 }
 ```
 `answer` is 0-based; options get shuffled later, so don't worry about position balance.
-Validate: `python "C:/Users/ziv/liel_libi_study/chem_site/validate.py" <your file>` and fix every error.
+Validate: `python "validate.py" <your file>` and fix every error.
 
 ## Final reply
 Short: file path, total count, count per topic, anything in the sources that looked wrong or

@@ -15,7 +15,7 @@ for i, q in enumerate(data):
     if errs and errs[-1].startswith(where): continue
     if q["id"] in ids: errs.append(f"{where}: duplicate id")
     ids.add(q["id"])
-    if q["quiz"] not in ("bonds","stoich"): errs.append(f"{where}: quiz must be bonds|stoich")
+    if q["quiz"] not in ("bonds","stoich","atom","periodic"): errs.append(f"{where}: quiz must be bonds|stoich|atom|periodic")
     if q["difficulty"] not in ("easy","medium","hard"): errs.append(f"{where}: bad difficulty")
     s = q["source"]
     if not isinstance(s, dict) or s.get("file") not in SRC: errs.append(f"{where}: source.file must be one of {sorted(SRC)}")

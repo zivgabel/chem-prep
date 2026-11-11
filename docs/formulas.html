@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>דף נוסחאות – כימיה</title>
+<meta name="description" content="כל הנוסחאות של הקורס במקום אחד, בתיבות ברורות עם הסבר לכל סימן">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700;800&family=Frank+Ruhl+Libre:wght@400;500;700;900&display=swap">
+<link rel="stylesheet" href="site.css">
+<style>
+.fwrap{max-width:var(--wide);margin:0 auto;padding:0 16px 40px}
+.fgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,28rem),1fr));gap:0 18px}
+.fpart{margin-top:2rem;padding-top:.6rem;border-top:3px solid var(--accent)}
+.fpart>h2{font-family:var(--serif);margin:.2em 0 .4em}
+.fsec{font-size:.85rem;font-weight:800;color:var(--accent);margin:0 0 -.9rem;text-decoration:none;display:block}
+.ftoc{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+@media print{.topbar,.ftoc,footer{display:none} body{background:#fff} .fsec{margin-bottom:-.6rem}}
+</style>
+<script data-goatcounter="https://zivgabel.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</head>
+<body>
+<nav class="topbar" aria-label="ניווט"><div class="in">
+  <b>כימיה · דף נוסחאות</b>
+  <a class="pill go" href="guide.html">חומר מוסבר</a>
+  <a class="pill" href="exams.html">מבחנים לדוגמא</a>
+  <a class="pill" href="practice.html">תרגול לפי נושא</a>
+  <a class="pill" href="index.html">דף הבית</a>
+  <button class="pill btn" id="themeBtn" type="button">מצב תצוגה</button>
+</div></nav>
+<header class="hero">
+  <div class="kicker">כימיה כללית ואנאורגנית · בלוק 1</div>
+  <h1>דף נוסחאות</h1>
+  <p class="lede">כל 50 הנוסחאות מהחומר המוסבר, מסודרות לפי פרקים. לוחצים על תיבה כדי להגדיל אותה, ועל שם הסעיף כדי לחזור להסבר המלא. אפשר גם להדפיס את הדף.</p>
+  <div class="ftoc"><a class="pill" href="#f-intro" data-part="intro" style="border-color:var(--accent);color:var(--accent)">הקדמה: השפה של הכימיה</a><a class="pill" href="#f-atom" data-part="atom" style="border-color:var(--accent);color:var(--accent)">מבנה האטום ותורת הקוונטים</a><a class="pill" href="#f-periodic" data-part="periodic" style="border-color:var(--accent);color:var(--accent)">הטבלה המחזורית ותכונות מחזוריות</a><a class="pill" href="#f-bonds" data-part="bonds" style="border-color:var(--accent);color:var(--accent)">קשרים כימיים</a><a class="pill" href="#f-stoich" data-part="stoich" style="border-color:var(--accent);color:var(--accent)">סטויכיומטריה</a></div>
+</header>
+<main class="fwrap">
+<section class="fpart" id="f-intro" data-part="intro"><h2>הקדמה: השפה של הכימיה</h2><div class="fgrid">
+<div><a class="fsec" href="guide.html#i2">0.2 · איך קוראים סמל של יסוד ←</a><div class="fcard"><span class="fname">מספר מסה ונויטרונים</span>
+<div class="fx">A = Z + N<span class="sep"></span>N = A − Z</div>
+<dl class="fvars"><div><dt>A</dt><dd>מספר מסה – פרוטונים + נויטרונים <span class="u">(מספר שלם, בלי יחידות)</span></dd></div><div><dt>Z</dt><dd>מספר אטומי – מספר הפרוטונים</dd></div><div><dt>N</dt><dd>מספר הנויטרונים</dd></div></dl>
+<p class="fnote">כאן N הוא מספר הנויטרונים – לא לבלבל עם <span class="f">N = n·N<sub>A</sub></span> (מספר חלקיקים, בסטויכיומטריה).</p>
+</div></div>
+<div><a class="fsec" href="guide.html#i5">0.5 · איפה נמצאים האלקטרונים: רמות, תת-רמות ואורביטלים ←</a><div class="fcard"><span class="fname">כמה אלקטרונים נכנסים לרמה n</span>
+<div class="fx">e<sub>max</sub> = 2 · n<sup>2</sup></div>
+<dl class="fvars"><div><dt>e<sub>max</sub></dt><dd>מספר האלקטרונים המרבי ברמה <span class="u">(אלקטרונים)</span></dd></div><div><dt>n</dt><dd>מספר הרמה (הקליפה): <span class="f">1, 2, 3…</span></dd></div><div><dt>n²</dt><dd>מספר האורביטלים ברמה</dd></div><div><dt>2</dt><dd>לכל היותר 2 אלקטרונים בכל אורביטל (פאולי)</dd></div></dl>
+<p class="fnote">ברמה 1 – 2, ברמה 2 – 8, ברמה 3 – 18. ברמה 2 יש רק s ו-p (אין "2d"), ברמה 1 רק s.</p>
+</div></div>
+<div><a class="fsec" href="guide.html#i10">0.10 · חזקות של 10 – כתיב מדעי ←</a><div class="fcard"><span class="fname">כתיב מדעי</span>
+<div class="fx">a × 10<sup>n</sup><span class="sep"></span><small>1 ≤ a &lt; 10</small></div>
+<dl class="fvars"><div><dt>a</dt><dd>מספר בין 1 ל-10 (למשל 6.022)</dd></div><div><dt>n</dt><dd>החזקה, מספר שלם: חיובית = מספר גדול, שלילית = מספר קטן (<b>לא</b> שלילי)</dd></div></dl>
+</div></div>
+</div></section>
+<section class="fpart" id="f-atom" data-part="atom"><h2>מבנה האטום ותורת הקוונטים</h2><div class="fgrid">
+<div><a class="fsec" href="guide.html#q2">2 · גלים: אורך גל, תדירות ומהירות האור ←</a><div class="fcard"><span class="fname">מהירות האור – הקשר בין λ ל-ν</span>
+<div class="fx">c = λ · ν<span class="sep"></span>ν = <span class="frac"><span>c</span><span>λ</span></span><span class="sep"></span>λ = <span class="frac"><span>c</span><span>ν</span></span></div>
+<dl class="fvars">
+  <div><dt>c</dt><dd>מהירות האור בריק, <span class="u">3.00×10⁸ m/s</span> (במצגת <span class="u">2.997925×10⁸</span>)</dd></div>
+  <div><dt>λ</dt><dd>אורך הגל <span class="u">(m)</span></dd></div>
+  <div><dt>ν</dt><dd>התדירות <span class="u">(Hz = 1/s = s⁻¹)</span></dd></div>
+</dl>
+<p class="fnote">λ ו-ν <b>הפוכים</b>: אם λ גדל פי 3, ν קטנה פי 3. בנוסחה מציבים λ במטרים!</p>
+</div></div>
+<div><a class="fsec" href="guide.html#q5">5 · פלנק: אנרגיה במנות בדידות (קוונטים) ←</a><div class="fcard"><span class="fname">משוואת פלנק – אנרגיה מקוונטטת</span>
+<div class="fx">E = n · h · ν<span class="sep"></span><small>n = 0, 1, 2, 3…</small></div>
+<dl class="fvars">
+  <div><dt>E</dt><dd>האנרגיה שאפשר לפלוט או לבלוע <span class="u">(J)</span></dd></div>
+  <div><dt>n</dt><dd>מספר שלם (כמה מנות)</dd></div>
+  <div><dt>h</dt><dd>קבוע פלנק, <span class="u">6.626×10⁻³⁴ J·s</span> (במצגת <span class="u">6.62607×10⁻³⁴</span>)</dd></div>
+  <div><dt>ν</dt><dd>תדירות המתנד/הקרינה <span class="u">(s⁻¹)</span></dd></div>
+</dl>
+<p class="fnote">כאן n הוא סתם מספר שלם – <b>לא</b> המספר הקוונטי הראשי של בוהר. אותה אות, משמעות אחרת.</p>
+</div></div>
+<div><a class="fsec" href="guide.html#q6">6 · הפוטון: <span class="li">E = hν = hc/λ</span> ←</a><div class="fcard"><span class="fname">אנרגיה של פוטון</span>
+<div class="fx">E = h · ν = <span class="frac"><span>h · c</span><span>λ</span></span><span class="sep"></span>λ = <span class="frac"><span>h · c</span><span>E</span></span></div>
+<dl class="fvars">
+  <div><dt>E</dt><dd>אנרגיה של <b>פוטון אחד</b> <span class="u">(J)</span></dd></div>
+  <div><dt>h</dt><dd>קבוע פלנק, <span class="u">6.626×10⁻³⁴ J·s</span></dd></div>
+  <div><dt>ν</dt><dd>תדירות <span class="u">(s⁻¹)</span></dd></div>
+  <div><dt>c</dt><dd>מהירות האור, <span class="u">3.00×10⁸ m/s</span></dd></div>
+  <div><dt>λ</dt><dd>אורך גל <span class="u">(m)</span></dd></div>
+</dl>
+<p class="fnote">שימושי לזכור: <span class="f">h·c = 1.988×10⁻²⁵ J·m</span>. אנרגיה הפוכה ל-λ: אור כחול אנרגטי יותר מאדום.</p>
+</div></div>
+<div><a class="fsec" href="guide.html#q7">7 · האפקט הפוטואלקטרי ←</a><div class="fcard"><span class="fname">האפקט הפוטואלקטרי – מאזן אנרגיה</span>
+<div class="fx">E<sub>photon</sub> = E<sub>kin</sub> + E<sub>0</sub><span class="sep"></span>E<sub>kin</sub> = hν − hν<sub>0</sub></div>
+<dl class="fvars">
+  <div><dt>E<sub>photon</sub></dt><dd>אנרגיית הפוטון, <span class="u">hν = hc/λ</span></dd></div>
+  <div><dt>E<sub>kin</sub></dt><dd>האנרגיה הקינטית (המקסימלית) של האלקטרון שנפלט <span class="u">(J)</span></dd></div>
+  <div><dt>E<sub>0</sub></dt><dd>אנרגיית הסף (פונקציית העבודה) – תכונה של המתכת <span class="u">(J)</span></dd></div>
+  <div><dt>ν<sub>0</sub></dt><dd>תדירות הסף של המתכת <span class="u">(s⁻¹)</span></dd></div>
+</dl>
+<p class="fnote">אם <span class="f">hν &lt; E₀</span> – אין פליטה (לא מקבלים <span class="f">E<sub>kin</sub></span> שלילית!).</p>
+</div></div>
+<div><a class="fsec" href="guide.html#q7">7 · האפקט הפוטואלקטרי ←</a><div class="fcard"><span class="fname">אנרגיית הסף ואנרגיה קינטית</span>
+<div class="fx">E<sub>0</sub> = hν<sub>0</sub> = <span class="frac"><span>h · c</span><span>λ<sub>0</sub></span></span><span class="sep"></span>E<sub>kin</sub> = <span class="frac"><span>1</span><span>2</span></span> m<sub>e</sub>v²</div>
+<dl class="fvars">
+  <div><dt>λ<sub>0</sub></dt><dd>אורך גל הסף – <b>המקסימלי</b> שעוד גורם לפליטה <span class="u">(m)</span></dd></div>
+  <div><dt>m<sub>e</sub></dt><dd>מסת האלקטרון, <span class="u"><span class="li">9.109×10⁻³¹ kg</span></span></dd></div>
+  <div><dt>v</dt><dd>מהירות האלקטרון שנפלט <span class="u">(m/s)</span></dd></div>
+</dl>
+<p class="fnote">שימו לב לכיוון: פליטה מתרחשת כש-<span class="f">ν &gt; ν₀</span>, כלומר כש-<span class="f">λ &lt; λ₀</span>.</p>
+</div></div>
+<div><a class="fsec" href="guide.html#q8">8 · מודל בוהר: רמות האנרגיה של המימן ←</a><div class="fcard"><span class="fname">אנרגיית רמה n במודל בוהר</span>
+<div class="fx">E<sub>n</sub> = −R<sub>H</sub> · Z² · <span class="frac"><span>1</span><span>n²</span></span></div>
+<dl class="fvars">
+  <div><dt>E<sub>n</sub></dt><dd>אנרגיית האלקטרון ברמה n <span class="u">(J)</span></dd></div>
+  <div><dt>R<sub>H</sub></dt><dd>קבוע רידברג (באנרגיה), <span class="u">2.179×10⁻¹⁸ J</span> (≈ <span class="u">2.18×10⁻¹⁸</span>)</dd></div>
+  <div><dt>Z</dt><dd>המספר האטומי (מטען הגרעין)</dd></div>
+  <div><dt>n</dt><dd>מספר הרמה: <span class="u">1, 2, 3, …</span></dd></div>
+</dl>
+<p class="fnote">תקף רק ל<b>חלקיק עם אלקטרון אחד</b>: <span class="f">H (Z = 1)</span>, <span class="f">He⁺ (Z = 2)</span>, <span class="f">Li²⁺ (Z = 3)</span>…</p>
+</div></div>
+<div><a class="fsec" href="guide.html#q8">8 · מודל בוהר: רמות האנרגיה של המימן ←</a><div class="fcard"><span class="fname">אנרגיית יינון מרמה n<sub>i</sub></span>
+<div class="fx">E<sub>I</sub> = E<sub>∞</sub> − E<sub>i</sub> = R<sub>H</sub> · Z² · <span class="frac"><span>1</span><span>n<sub>i</sub>²</span></span></div>
+<dl class="fvars">
+  <div><dt>E<sub>I</sub></dt><dd>האנרגיה שצריך להשקיע (חיובית) <span class="u">(J)</span></dd></div>
+  <div><dt>n<sub>i</sub></dt><dd>הרמה שבה נמצא האלקטרון לפני היינון</dd></div>
+</dl>
+<p class="fnote">ממצב היסוד של מימן: <span class="f">E<sub>I</sub> = 2.18×10⁻¹⁸ J</span> לאטום. מרמה 2 צריך רק רבע מזה.</p>
+</div></div>
+<div><a class="fsec" href="guide.html#q9">9 · מעברים בין רמות: בליעה, פליטה ואורך הגל ←</a><div class="fcard"><span class="fname">הפרש האנרגיה במעבר</span>
+<div class="fx">ΔE = E<sub>f</sub> − E<sub>i</sub> = R<sub>H</sub> · Z² · <span class="hl">(</span><span class="frac"><span>1</span><span>n<sub>i</sub>²</span></span> − <span class="frac"><span>1</span><span>n<sub>f</sub>²</span></span><span class="hl">)</span></div>
+<dl class="fvars">
+  <div><dt>n<sub>i</sub></dt><dd>הרמה ההתחלתית</dd></div>
+  <div><dt>n<sub>f</sub></dt><dd>הרמה הסופית</dd></div>
+  <div><dt>ΔE &gt; 0</dt><dd>בליעה (האלקטרון עולה)</dd></div>
+  <div><dt>ΔE &lt; 0</dt><dd>פליטה (האלקטרון יורד)</dd></div>
+</dl>
+<p class="fnote">הסימון של המרצה: קליטת אנרגיה בסימן <b>+</b>, פליטה בסימן <b>−</b>.</p>
+</div></div>
+<div><a class="fsec" href="guide.html#q9">9 · מעברים בין רמות: בליעה, פליטה ואורך הגל ←</a><div class="fcard"><span class="fname">אורך הגל של הפוטון במעבר</span>
+<div class="fx">|ΔE| = h · ν = <span class="frac"><span>h · c</span><span>λ</span></span><span class="sep"></span>λ = <span class="frac"><span>h · c</span><span>|ΔE|</span></span></div>
+<dl class="fvars">
+  <div><dt>|ΔE|</dt><dd>הערך המוחלט של הפרש האנרגיה <span class="u">(J)</span></dd></div>
+  <div><dt>λ</dt><dd>אורך הגל של הפוטון שנבלע/נפלט <span class="u">(m)</span></dd></div>
+</dl>
+<p class="fnote">אורך גל תמיד חיובי – מציבים את <span class="f">|ΔE|</span>, בלי הסימן.</p>
+</div></div>
+<div><a class="fsec" href="guide.html#q11">11 · דה-ברויי: גם לחלקיקים יש אורך גל ←</a><div class="fcard"><span class="fname">אורך גל דה-ברויי</span>
+<div class="fx">λ<sub>DB</sub> = <span class="frac"><span>h</span><span>P</span></span> = <span class="frac"><span>h</span><span>m · v</span></span></div>
+<dl class="fvars">
+  <div><dt>λ<sub>DB</sub></dt><dd>אורך הגל של החלקיק <span class="u">(m)</span></dd></div>
+  <div><dt>h</dt><dd>קבוע פלנק, <span class="u">6.626×10⁻³⁴ J·s = kg·m²/s</span></dd></div>
+  <div><dt>P</dt><dd>התנע, <span class="u">P = m·v (kg·m/s)</span></dd></div>
+  <div><dt>m</dt><dd>מסה – <b>בקילוגרמים</b> <span class="u">(kg)</span></dd></div>
+  <div><dt>v</dt><dd>מהירות <span class="u">(m/s)</span></dd></div>
+</dl>
+<p class="fnote">מסה גדולה או מהירות גדולה ⇒ λ קטן. לגופים יומיומיים λ זעיר מכדי להבחין בו.</p>
+</div></div>
+<div><a class="fsec" href="guide.html#q12">12 · עקרון אי-הוודאות של הייזנברג ←</a><div class="fcard"><span class="fname">עקרון אי-הוודאות</span>
+<div class="fx">Δx · ΔP ≥ <span class="frac"><span>h</span><span>4π</span></span><span class="sep"></span>ΔP = m · Δv</div>
+<dl class="fvars">
+  <div><dt>Δx</dt><dd>אי-הוודאות במיקום <span class="u">(m)</span></dd></div>
+  <div><dt>ΔP</dt><dd>אי-הוודאות בתנע <span class="u">(kg·m/s)</span></dd></div>
+  <div><dt>Δv</dt><dd>אי-הוודאות במהירות <span class="u">(m/s)</span></dd></div>
+  <div><dt>h</dt><dd>קבוע פלנק <span class="u">(J·s)</span></dd></div>
+</dl>
+<p class="fnote">המכפלה יכולה להיות שווה לגבול או גדולה ממנו – אף פעם לא קטנה ממנו. כדי למצוא את Δx המינימלי: <span class="f">Δx = h / (4π·m·Δv)</span>.</p>
+</div></div>
+<div><a class="fsec" href="guide.html#q14">14 · ארבעת המספרים הקוונטיים ←</a><div class="fcard"><span class="fname">ספירת תת-רמות, אורביטלים ואלקטרונים</span>
+<div class="fx">l = 0 … (n−1)<span class="sep"></span>2l + 1<span class="sep"></span>n²<span class="sep"></span>2n²</div>
+<dl class="fvars">
+  <div><dt>n</dt><dd>מספר תתי-הקליפות ברמה n</dd></div>
+  <div><dt>2l+1</dt><dd>מספר האורביטלים בתת-קליפה <span class="u">(s=1, p=3, d=5, f=7)</span></dd></div>
+  <div><dt>n²</dt><dd>מספר האורביטלים ברמה n</dd></div>
+  <div><dt>2n²</dt><dd>מספר האלקטרונים המרבי ברמה n</dd></div>
+</dl>
+<p class="fnote">בדיקה לרמה 3: תת-קליפות s, p, d, ובהן <span class="f">1 + 3 + 5 = 9 = 3²</span> אורביטלים ועד <span class="f">18</span> אלקטרונים.</p>
+</div></div>
+</div></section>
+<section class="fpart" id="f-periodic" data-part="periodic"><h2>הטבלה המחזורית ותכונות מחזוריות</h2><div class="fgrid">
+<div><a class="fsec" href="guide.html#p1">1 · מבנה הטבלה: מחזורים, קבוצות וגושים ←</a><div class="fcard"><span class="fname">מהמיקום בטבלה לאלקטרוני הערכיות (יסודות ראשיים)</span>
+<div class="fx">n = P<span class="sep"></span>v = G<span class="sep"></span>v = G − 10</div>
+<dl class="fvars">
+  <div><dt>P</dt><dd>מספר המחזור (השורה)</dd></div>
+  <div><dt>G</dt><dd>מספר הקבוצה (הטור, <span class="li">1–18</span>)</dd></div>
+  <div><dt>n</dt><dd>המספר הקוונטי הראשי של קליפת הערכיות</dd></div>
+  <div><dt>v</dt><dd>מספר אלקטרוני הערכיות: <span class="f">v = G</span> בקבוצות <span class="li">1–2</span>, ו-<span class="f">v = G − 10</span> בקבוצות <span class="li">13–18</span></dd></div>
+</dl>
+<p class="fnote">במספור הישן (IA–VIIIA) מספר הקבוצה הוא ישר מספר אלקטרוני הערכיות: קבוצה <span class="li">VIA = 6</span> אלקטרוני ערכיות.</p>
+</div></div>
+<div><a class="fsec" href="guide.html#p2">2 · מטען גרעין אפקטיבי ומיסוך ←</a><div class="fcard"><span class="fname">מטען גרעין אפקטיבי ואחוז מיסוך</span>
+<div class="fx">Z<sub>eff</sub> = Z − S<span class="sep"></span>%<sub>screening</sub> = <span class="frac"><span>Z − Z<sub>eff</sub></span><span>Z</span></span> × 100</div>
+<dl class="fvars">
+  <div><dt>Z<sub>eff</sub></dt><dd>המטען שאלקטרון הערכיות מרגיש בפועל</dd></div>
+  <div><dt>Z</dt><dd>המספר האטומי (מספר הפרוטונים)</dd></div>
+  <div><dt>S</dt><dd>קבוע המיסוך – כמה מטען "מוסתר". הערכה גסה: מספר האלקטרונים הפנימיים</dd></div>
+</dl>
+<p class="fnote">הנוסחה של אחוז המיסוך מופיעה בהרצאה (שקף 13). תמיד <span class="f">Z<sub>eff</sub> &lt; Z</span>, חוץ ממימן – שם יש אלקטרון אחד ואין מי שימסך.</p>
+</div></div>
+<div><a class="fsec" href="guide.html#p3">3 · רדיוס אטומי ←</a><div class="fcard"><span class="fname">רדיוס אטומי</span>
+<div class="fx">r = <span class="frac"><span>d</span><span>2</span></span></div>
+<dl class="fvars">
+  <div><dt>r</dt><dd>הרדיוס האטומי <span class="u">(pm או Å)</span></dd></div>
+  <div><dt>d</dt><dd>המרחק בין הגרעינים של שני אטומים זהים צמודים (אורך הקשר)</dd></div>
+</dl>
+<p class="fnote">יחידות: <span class="f">1 Å = 10⁻¹⁰ m = 100 pm</span>. למשל <span class="f">1.43 Å = 143 pm</span>.</p>
+</div></div>
+<div><a class="fsec" href="guide.html#p4">4 · רדיוס יוני וסדרות איזואלקטרוניות ←</a><div class="fcard"><span class="fname">יון מול אטום</span>
+<div class="fx">r(A<sup>+</sup>) &lt; r(A) &lt; r(A<sup>−</sup>)</div>
+<p class="fnote">כלל מההרצאה (שקף 18). ככל שהמטען החיובי גדול יותר הקטיון קטן יותר, וככל שהמטען השלילי גדול יותר האניון גדול יותר.</p>
+</div></div>
+<div><a class="fsec" href="guide.html#p4">4 · רדיוס יוני וסדרות איזואלקטרוניות ←</a><div class="fcard"><span class="fname">סדרה איזואלקטרונית (אותו מספר אלקטרונים)</span>
+<div class="fx"><span class="hl">Z ↑</span> ⇒ Z<sub>eff</sub> ↑ ⇒ <span class="hl">r ↓</span> , EI ↑</div>
+<dl class="fvars">
+  <div><dt>Z</dt><dd>מספר הפרוטונים בגרעין</dd></div>
+  <div><dt>r</dt><dd>רדיוס היון</dd></div>
+  <div><dt>EI</dt><dd>אנרגיית היינון של היון (<a href="#p7">פרק 7</a>)</dd></div>
+</dl>
+<p class="fnote">בסדרה איזואלקטרונית סופרים רק פרוטונים: הכי הרבה פרוטונים = הכי קטן. האניון עם המטען השלילי הגדול ביותר הוא הגדול ביותר, והקטיון עם המטען החיובי הגדול ביותר הוא הקטן ביותר.</p>
+</div></div>
+<div><a class="fsec" href="guide.html#p5">5 · אנרגיית יינון ראשונה – המגמה והחריגים ←</a><div class="fcard"><span class="fname">אנרגיית יינון ראשונה ושנייה</span>
+<div class="fx">X<sub>(g)</sub> → X<sup>+</sup><sub>(g)</sub> + <span class="li">e⁻</span> &nbsp; I<sub>1</sub><span class="sep"></span>X<sup>+</sup><sub>(g)</sub> → X<sup>2+</sup><sub>(g)</sub> + <span class="li">e⁻</span> &nbsp; I<sub>2</sub></div>
+<dl class="fvars">
+  <div><dt>I<sub>1</sub></dt><dd>אנרגיית היינון הראשונה <span class="u">(kJ/mol)</span>, תמיד חיובית</dd></div>
+  <div><dt>(g)</dt><dd>מצב גזי – אטום בודד, בלי שכנים</dd></div>
+</dl>
+<p class="fnote">דוגמה מההרצאה: <span class="f">Mg(g) → Mg⁺(g) + e⁻</span>, ו-<span class="f">I₁ = 738 kJ/mol</span>. "mol" כאן מייצג מספר אבוגדרו של אטומים.</p>
+</div></div>
+<div><a class="fsec" href="guide.html#p6">6 · אנרגיות יינון עוקבות – הקפיצה אחרי הערכיות ←</a><div class="fcard"><span class="fname">יינון עוקב</span>
+<div class="fx">I<sub>1</sub> &lt; I<sub>2</sub> &lt; I<sub>3</sub> &lt; …<span class="sep"></span>I<sub>v+1</sub> <span class="hl">≫</span> I<sub>v</sub></div>
+<dl class="fvars">
+  <div><dt>v</dt><dd>מספר אלקטרוני הערכיות (במתכות של קבוצות 1, 2, 13: מספר הקבוצה הראשית)</dd></div>
+  <div><dt>I<sub>v+1</sub></dt><dd>האנרגיה להוצאת האלקטרון הראשון מהליבה – הקפיצה הגדולה</dd></div>
+</dl>
+<p class="fnote">איפה שהקפיצה – שם נגמרים אלקטרוני הערכיות. לכן Na יוצר רק <span class="f">Na⁺</span>, Mg יוצר <span class="f">Mg²⁺</span> ו-Al יוצר <span class="f">Al³⁺</span>.</p>
+</div></div>
+<div><a class="fsec" href="guide.html#p7">7 · אנרגיית יינון של יונים – השאלה מהמבחן לדוגמה ←</a><div class="fcard"><span class="fname">יינון של יון</span>
+<div class="fx">EI(X<sup>n+</sup>) = I<sub>n+1</sub>(X)<span class="sep"></span>EI(X<sup>−</sup>) = −EA(X)</div>
+<dl class="fvars">
+  <div><dt>EI</dt><dd>אנרגיית היינון של היון, כפי שכתוב במבחן</dd></div>
+  <div><dt>I<sub>n+1</sub></dt><dd>אנרגיית היינון העוקבת של האטום. למשל <span class="f">EI(Mg²⁺) = I₃(Mg)</span></dd></div>
+  <div><dt>EA</dt><dd>הזיקה האלקטרונית של האטום <span class="u">(kJ/mol)</span></dd></div>
+</dl>
+<p class="fnote">בסדרה איזואלקטרונית: יותר פרוטונים → היון קטן יותר → האלקטרונים מוחזקים חזק יותר → <b>EI גבוהה יותר</b>.</p>
+</div></div>
+<div><a class="fsec" href="guide.html#p8">8 · זיקה אלקטרונית (EA) ←</a><div class="fcard"><span class="fname">זיקה אלקטרונית</span>
+<div class="fx">X<sub>(g)</sub> + <span class="li">e⁻</span> → X<sup>−</sup><sub>(g)</sub> &nbsp;&nbsp; EA = ΔE</div>
+<dl class="fvars">
+  <div><dt>EA &lt; 0</dt><dd>אנרגיה <b>משתחררת</b>: האניון יציב יותר מהאטום (אקסותרמי)</dd></div>
+  <div><dt>EA &gt; 0</dt><dd>צריך <b>להשקיע</b> אנרגיה: האניון פחות יציב (אנדותרמי)</dd></div>
+</dl>
+<p class="fnote">דוגמה מההרצאה: <span class="f">F(g) + e⁻ → F⁻(g)</span>, עם <span class="f">EA = −328 kJ/mol</span>.</p>
+</div></div>
+</div></section>
+<section class="fpart" id="f-bonds" data-part="bonds"><h2>קשרים כימיים</h2><div class="fgrid">
+<div><a class="fsec" href="guide.html#b1">1 · למה אטומים נקשרים בכלל? ←</a><div class="fcard"><span class="fname">למה נוצר קשר</span>
+<div class="fx">A + B → AB<span class="sep"></span>E<sub>AB</sub> &lt; E<sub>A</sub> + E<sub>B</sub></div>
+<dl class="fvars"><div><dt>E<sub>AB</sub></dt><dd>האנרגיה של המולקולה AB <span class="u">(kJ/mol)</span></dd></div><div><dt>E<sub>A</sub>, E<sub>B</sub></dt><dd>האנרגיה של כל אטום לבד, כשהם נפרדים <span class="u">(kJ/mol)</span></dd></div><div><dt>&lt;</dt><dd>"קטן מ" – למולקולה אנרגיה נמוכה יותר</dd></div></dl>
+<p class="fnote">ההפרש בין שני הצדדים = אנרגיית הקשר: משתחררת כשהקשר נוצר, ונדרשת כדי לשבור אותו (ראו 0.9).</p>
+</div></div>
+<div><a class="fsec" href="guide.html#b2">2 · קשר יוני, קוולנטי וקוולנטי קוטבי ←</a><div class="fcard"><span class="fname">סוג הקשר לפי ΔEN</span>
+<div class="fx">ΔEN = EN<sub>גבוה</sub> − EN<sub>נמוך</sub></div>
+<dl class="fvars"><div><dt>ΔEN</dt><dd>הפרש האלקטרושליליות בין שני האטומים <span class="u">(סולם פאולינג, בלי יחידות)</span></dd></div><div><dt>&lt; 0.4</dt><dd>קוולנטי (כמעט) לא קוטבי</dd></div><div><dt><span class="li">0.4–1.7</span></dt><dd>קוולנטי קוטבי</dd></div><div><dt>&gt; 1.7</dt><dd>יוני בעיקר</dd></div></dl>
+<p class="fnote">אלה ספי הקורס (הרצאה 5 שקף 13) – במבחן לפי הערכים האלה.</p>
+</div></div>
+<div><a class="fsec" href="guide.html#b3">3 · מבנה לואיס ←</a><div class="fcard"><span class="fname">כמה אלקטרונים במבנה לואיס</span>
+<div class="fx">e<sub>total</sub> = Σ V − q</div>
+<dl class="fvars"><div><dt>e<sub>total</sub></dt><dd>מספר האלקטרונים שמציירים במבנה <span class="u">(אלקטרונים)</span></dd></div><div><dt>Σ V</dt><dd>סכום אלקטרוני הערכיות של כל האטומים</dd></div><div><dt>q</dt><dd>מטען היון, עם הסימן (במולקולה ניטרלית 0)</dd></div></dl>
+<p class="fnote">מטען שלילי מוסיף אלקטרונים: <span class="f">NO₂⁻ = 5 + 6 + 6 + 1 = 18</span>; מטען חיובי מחסיר: <span class="f">H₃O⁺ = 6 + 3 − 1 = 8</span>.</p>
+</div></div>
+<div><a class="fsec" href="guide.html#b4">4 · מטען פורמלי (FC) ←</a><div class="fcard"><span class="fname">מטען פורמלי</span>
+<div class="fx">FC = V − N − <span class="frac"><span>B</span><span>2</span></span></div>
+<dl class="fvars"><div><dt>FC</dt><dd>המטען הפורמלי של האטום <span class="u">(מספר שלם, בלי יחידות)</span></dd></div><div><dt>V</dt><dd>אלקטרוני הערכיות של האטום החופשי (ערכיות)</dd></div><div><dt>N</dt><dd>אלקטרונים לא-קושרים – כל הנקודות על האטום</dd></div><div><dt>B</dt><dd>אלקטרונים קושרים – בכל הקשרים סביב האטום</dd></div></dl>
+<p class="fnote">½ × אלקטרונים קושרים = <b>מספר הקשרים</b> סביב האטום · הרצאה 6 שקף 3</p>
+</div></div>
+<div><a class="fsec" href="guide.html#b6">6 · אנתלפיית קשר וחישוב ΔH של תגובה ←</a><div class="fcard"><span class="fname">ΔH מאנרגיות קשר</span>
+<div class="fx">ΔH<sub>rxn</sub> ≈ Σ BE<small>(מגיבים)</small> − Σ BE<small>(תוצרים)</small></div>
+<dl class="fvars"><div><dt>ΔH<sub>rxn</sub></dt><dd>שינוי האנתלפיה (החום) בתגובה <span class="u">(kJ)</span></dd></div><div><dt>BE</dt><dd>אנרגיית קשר ממוצעת <span class="u">(kJ/mol)</span></dd></div><div><dt>Σ BE<small>(מגיבים)</small></dt><dd>סכום הקשרים <b>שנשברים</b> – כל הקשרים במגיבים</dd></div><div><dt>Σ BE<small>(תוצרים)</small></dt><dd>סכום הקשרים <b>שנוצרים</b> – כל הקשרים בתוצרים</dd></div></dl>
+<p class="fnote"><b>מגיבים פחות תוצרים.</b> כל קשר נספר כפול המקדם וכפול מספר הקשרים במולקולה. תוצאה שלילית = אקסותרמי.</p>
+</div></div>
+<div><a class="fsec" href="guide.html#b8">8 · VSEPR – המבנה המרחבי של מולקולות ←</a><div class="fcard"><span class="fname">הסימון של המרצה ומספר הקבוצות</span>
+<div class="fx">A X<sub>m</sub> E<sub>n</sub><span class="sep"></span>SN = <span class="hl">m + n</span></div>
+<dl class="fvars">
+  <div><dt>A</dt><dd>האטום המרכזי</dd></div>
+  <div><dt>X</dt><dd>מתמיר – אטום שקשור לאטום המרכזי</dd></div>
+  <div><dt>m</dt><dd>מספר המתמירים (אטומים, לא קשרים)</dd></div>
+  <div><dt>E</dt><dd>זוג בודד (לא קושר) על האטום המרכזי</dd></div>
+  <div><dt>n</dt><dd>מספר הזוגות הבודדים על האטום המרכזי</dd></div>
+  <div><dt>SN</dt><dd>מספר קבוצות האלקטרונים (האות שלנו, לא של המרצה) – הוא קובע את הגאומטריה</dd></div>
+</dl>
+<p class="fnote">בתרגול 7 (שאלה 4) כתוב <span class="f">AXₙEₘ</span>, עם האותיות m ו-n מוחלפות. זה לא משנה: המספר שליד X סופר אטומים, והמספר שליד E סופר זוגות בודדים.</p>
+</div></div>
+<div><a class="fsec" href="guide.html#b8">8 · VSEPR – המבנה המרחבי של מולקולות ←</a><div class="fcard"><span class="fname">קיצור דרך: כמה זוגות בודדים יש על האטום המרכזי</span>
+<div class="fx">n = <span class="frac"><span>V<sub>A</sub> − q − Σ k<sub>X</sub></span><span>2</span></span></div>
+<dl class="fvars">
+  <div><dt>V<sub>A</sub></dt><dd>מספר אלקטרוני הערכיות של האטום המרכזי</dd></div>
+  <div><dt>q</dt><dd>מטען היון כולל הסימן. ביון סולפיט, שמטענו מינוס 2, מחסירים מינוס 2 – כלומר מוסיפים 2</dd></div>
+  <div><dt>k<sub>X</sub></dt><dd>כמה אלקטרונים כל אטום קצה "צריך" לאוקטט: 1 ל-<span class="f">H</span> ולהלוגנים, 2 ל-<span class="f">O</span> ול-<span class="f">S</span>, 3 ל-<span class="f">N</span></dd></div>
+</dl>
+<p class="fnote">קיצור דרך שלנו, לא מהמצגת. הוא נותן את אותה תוצאה כמו מבנה לואיס כשאטומי הקצה משלימים אוקטט דרך הקשרים לאטום המרכזי.</p>
+</div></div>
+<div><a class="fsec" href="guide.html#b9">9 · קוטביות של מולקולה ומומנט דיפול ←</a><div class="fcard"><span class="fname">מומנט דיפול</span>
+<div class="fx">μ = δ × d</div>
+<dl class="fvars">
+  <div><dt>μ</dt><dd>מומנט הדיפול <span class="u">(D, דביי)</span></dd></div>
+  <div><dt>δ</dt><dd>המטען החלקי, "חלוקת המטען" <span class="u">(C)</span></dd></div>
+  <div><dt>d</dt><dd>המרחק בין המטענים = אורך הקשר <span class="u">(m או Å)</span></dd></div>
+</dl>
+<p class="fnote">ביחידות SI התוצאה היא קולון × מטר <span class="f">(C·m)</span>. בהמשך המצגת כתוב <span class="f">μ = q · d</span> – אותה נוסחה.</p>
+</div></div>
+<div><a class="fsec" href="guide.html#b9">9 · קוטביות של מולקולה ומומנט דיפול ←</a><div class="fcard"><span class="fname">יחידת דביי</span>
+<div class="fx"><span class="li">1 D</span> = 3.336×10<sup><span class="li">−30</span></sup> C·m<span class="sep"></span><span class="hl"><span class="li">4.8 D</span> = 1e × <span class="li">1 Å</span></span></div>
+<dl class="fvars">
+  <div><dt>e</dt><dd>מטען האלקטרון, <span class="f">1.602×10⁻¹⁹</span> <span class="u">(C)</span></dd></div>
+  <div><dt>Å</dt><dd>אנגסטרום, <span class="f">10⁻¹⁰</span> <span class="u">(m)</span></dd></div>
+</dl>
+<p class="fnote">מטען שלם של אלקטרון אחד במרחק של אנגסטרום אחד נותן 4.8 דביי. המספר הזה חוסך את כל ההמרות.</p>
+</div></div>
+<div><a class="fsec" href="guide.html#b9">9 · קוטביות של מולקולה ומומנט דיפול ←</a><div class="fcard"><span class="fname">אחוז אופי יוני</span>
+<div class="fx">% ionic char = <span class="frac"><span>μ<sub>exp</sub></span><span>μ<sub>theo</sub></span></span> × 100<span class="sep"></span>μ<sub>theo</sub> = e × d = <span class="hl">4.8 × d(Å)</span> D</div>
+<dl class="fvars">
+  <div><dt>%</dt><dd>אחוז האופי היוני של הקשר</dd></div>
+  <div><dt>μ<sub>exp</sub></dt><dd>מומנט הדיפול שנמדד בניסוי <span class="u">(D)</span></dd></div>
+  <div><dt>μ<sub>theo</sub></dt><dd>מומנט הדיפול המחושב כאילו הקשר 100% יוני <span class="u">(D)</span></dd></div>
+  <div><dt>d</dt><dd>אורך הקשר <span class="u">(Å)</span></dd></div>
+</dl>
+<p class="fnote">בהרצאה 8 שקף 4 המכנה כתוב כ-<span class="f">(4.8 D / 1 Å) × d</span> – זה בדיוק μ<sub>theo</sub>. התוצאה תמיד בין 0 ל-100 אחוז.</p>
+</div></div>
+<div><a class="fsec" href="guide.html#b10">10 · הכלאת אורביטלים (היברידיזציה) וקשרי σ ו-π ←</a><div class="fcard"><span class="fname">מספר הקבוצות קובע את ההכלאה</span>
+<div class="fx">2 → sp<span class="sep"></span>3 → sp<sup>2</sup><span class="sep"></span>4 → sp<sup>3</sup></div>
+<dl class="fvars">
+  <div><dt>2, 3, 4</dt><dd>מספר קבוצות האלקטרונים סביב האטום: אטומים קשורים + זוגות בודדים (בדיוק <span class="f">m + n</span> של VSEPR)</dd></div>
+  <div><dt>sp<sup>x</sup></dt><dd>אורביטל s אחד (ה-1 לא נכתב) ועוד x אורביטלי p. למשל <span class="f">sp³ = s + 3p</span></dd></div>
+  <div><dt>N</dt><dd>מספר האורביטלים המוכלאים = מספר האורביטלים שהתערבבו: 4 ב-<span class="f">sp³</span>, 3 ב-<span class="f">sp²</span>, 2 ב-<span class="f">sp</span></dd></div>
+</dl>
+<p class="fnote">קשר יחיד, כפול או משולש נחשב קבוצה אחת. זוג בודד נחשב קבוצה.</p>
+</div></div>
+<div><a class="fsec" href="guide.html#b10">10 · הכלאת אורביטלים (היברידיזציה) וקשרי σ ו-π ←</a><div class="fcard"><span class="fname">ספירת קשרי σ ו-π</span>
+<div class="fx">A–B = 1σ<span class="sep"></span>A=B = 1σ + 1π<span class="sep"></span>A≡B = 1σ + 2π</div>
+<dl class="fvars">
+  <div><dt>A–B</dt><dd>קשר יחיד; <span class="f">A=B</span> כפול; <span class="f">A≡B</span> משולש</dd></div>
+  <div><dt>σ</dt><dd>אחד לכל זוג אטומים קשורים – כלומר מספר הקשרים בלי להתחשב בסוג</dd></div>
+  <div><dt>π</dt><dd>כל "קו" נוסף מעבר לראשון: 1 בקשר כפול, 2 במשולש</dd></div>
+</dl>
+<p class="fnote">בכל קשר יש בדיוק σ אחד – גם בכפול ובמשולש. המלכודת היא לספור קשר משולש כשלושה קשרי π.</p>
+</div></div>
+<div><a class="fsec" href="guide.html#b11">11 · כוחות בין-מולקולריים – הסוגים והחוזק ←</a><div class="fcard"><span class="fname">הכוח החשמלי דועך מהר עם המרחק</span>
+<div class="fx">F ∝ <span class="frac"><span>1</span><span>r<sup>4</sup></span></span></div>
+<dl class="fvars">
+  <div><dt>F</dt><dd>כוח המשיכה בין המולקולות</dd></div>
+  <div><dt>r</dt><dd>המרחק בין המולקולות</dd></div>
+  <div><dt>∝</dt><dd>"פרופורציונלי ל-"</dd></div>
+</dl>
+<p class="fnote">אם המרחק גדל פי 2, הכוח קטן פי 16 (כי <span class="f">2⁴ = 16</span>). לכן הכוחות חשובים רק כשהמולקולות צמודות – <b>בפאזות דחוסות</b>, מוצק ונוזל. בגז המולקולות רחוקות והכוחות כמעט זניחים.</p>
+</div></div>
+</div></section>
+<section class="fpart" id="f-stoich" data-part="stoich"><h2>סטויכיומטריה</h2><div class="fgrid">
+<div><a class="fsec" href="guide.html#s1">1 · אטום, איזוטופים ויחידת מסה אטומית ←</a><div class="fcard"><span class="fname">פרוטונים, נויטרונים, אלקטרונים</span>
+<div class="fx">A = Z + N<span class="sep"></span>N = A − Z<span class="sep"></span>e = Z − q</div>
+<dl class="fvars"><div><dt>A</dt><dd>מספר מסה – פרוטונים + נויטרונים</dd></div><div><dt>Z</dt><dd>מספר אטומי – מספר הפרוטונים</dd></div><div><dt>N</dt><dd>מספר הנויטרונים</dd></div><div><dt>e</dt><dd>מספר האלקטרונים</dd></div><div><dt>q</dt><dd>מטען היון עם הסימן (באטום ניטרלי 0)</dd></div></dl>
+<p class="fnote">דוגמה: <span class="f">Na⁺</span> – <span class="f">e = 11 − 1 = 10</span>.</p>
+</div></div>
+<div><a class="fsec" href="guide.html#s1">1 · אטום, איזוטופים ויחידת מסה אטומית ←</a><div class="fcard"><span class="fname">יחידת מסה אטומית</span>
+<div class="fx"><span class="li">1 amu</span> = <span class="frac"><span>m(<sup>12</sup>C)</span><span>12</span></span> = 1.66×10<sup><span class="li">−24</span></sup> g</div>
+<dl class="fvars"><div><dt>amu</dt><dd>יחידת מסה אטומית (נקראת גם Da)</dd></div><div><dt>m(¹²C)</dt><dd>מסת אטום פחמן-12, <span class="f">1.99×10⁻²⁶ kg</span></dd></div></dl>
+<p class="fnote"><b><span class="li">1 amu = 1/12</span> ממסת אטום פחמן-12</b>, ובקילוגרמים <span class="f">1 amu = 1.66×10⁻²⁷ kg</span>.</p>
+</div></div>
+<div><a class="fsec" href="guide.html#s1">1 · אטום, איזוטופים ויחידת מסה אטומית ←</a><div class="fcard"><span class="fname">מסה אטומית ממוצעת</span>
+<div class="fx">M̄ = Σ (m<sub>i</sub> × x<sub>i</sub>) = m<sub>1</sub>x<sub>1</sub> + m<sub>2</sub>x<sub>2</sub> + …</div>
+<dl class="fvars"><div><dt>M̄</dt><dd>המסה האטומית הממוצעת – הערך שבטבלה <span class="u">(amu)</span></dd></div><div><dt>m<sub>i</sub></dt><dd>מסת האיזוטופ <span class="u">(amu)</span></dd></div><div><dt>x<sub>i</sub></dt><dd>שכיחות האיזוטופ <b>כשבר עשרוני</b> (בין 0 ל-1)</dd></div><div><dt>Σ</dt><dd>סכום על כל האיזוטופים</dd></div></dl>
+<p class="fnote">סכום כל השכיחויות = 1 (100%).</p>
+</div></div>
+<div><a class="fsec" href="guide.html#s2">2 · מול ומספר אבוגדרו ←</a><div class="fcard"><span class="fname">מולים ↔ מספר חלקיקים</span>
+<div class="fx">N = n × N<sub>A</sub><span class="sep"></span>n = <span class="frac"><span>N</span><span>N<sub>A</sub></span></span></div>
+<dl class="fvars"><div><dt>N</dt><dd>מספר החלקיקים (אטומים, מולקולות, יונים…) <span class="u">(בלי יחידות)</span></dd></div><div><dt>n</dt><dd>מספר המולים <span class="u">(mol)</span></dd></div><div><dt>N<sub>A</sub></dt><dd>מספר אבוגדרו, <span class="f">6.022×10²³</span> <span class="u">(mol⁻¹)</span></dd></div></dl>
+<p class="fnote">אטומים = מולקולות × מספר האטומים בנוסחה.</p>
+</div></div>
+<div><a class="fsec" href="guide.html#s3">3 · מסה מולרית – הגשר בין גרמים למולים ←</a><div class="fcard"><span class="fname">מסה מולרית של תרכובת</span>
+<div class="fx">M(A<sub>x</sub>B<sub>y</sub>) = x · M(A) + y · M(B)</div>
+<dl class="fvars"><div><dt>M(A<sub>x</sub>B<sub>y</sub>)</dt><dd>המסה המולרית של התרכובת <span class="u">(g/mol)</span></dd></div><div><dt>x, y</dt><dd>האינדקסים בנוסחה – כמה אטומים מכל יסוד</dd></div><div><dt>M(A), M(B)</dt><dd>המסות האטומיות מהטבלה <span class="u">(g/mol)</span></dd></div></dl>
+<p class="fnote">דוגמה: <span class="f">M(H₂O) = 2(1.008) + 16.00 = 18.02 g/mol</span>.</p>
+</div></div>
+<div><a class="fsec" href="guide.html#s3">3 · מסה מולרית – הגשר בין גרמים למולים ←</a><div class="fcard"><span class="fname">גרמים ↔ מולים</span>
+<div class="fx">n = <span class="frac"><span>m</span><span>M</span></span><span class="sep"></span>m = n · M<span class="sep"></span>M = <span class="frac"><span>m</span><span>n</span></span></div>
+<dl class="fvars"><div><dt>n</dt><dd>מספר המולים <span class="u">(mol)</span></dd></div><div><dt>m</dt><dd>המסה <span class="u">(g)</span></dd></div><div><dt>M</dt><dd>מסה מולרית <span class="u">(g/mol)</span></dd></div></dl>
+</div></div>
+<div><a class="fsec" href="guide.html#s4">4 · אחוז מסה של יסוד בתרכובת ←</a><div class="fcard"><span class="fname">אחוז מסה של יסוד</span>
+<div class="fx">% X = <span class="frac"><span>n<sub>X</sub> × M(X)</span><span>M(<small>התרכובת</small>)</span></span> × 100%</div>
+<dl class="fvars"><div><dt>% X</dt><dd>אחוז המסה של היסוד X בתרכובת <span class="u">(%)</span></dd></div><div><dt>n<sub>X</sub></dt><dd>מספר אטומי X בנוסחה (האינדקס)</dd></div><div><dt>M(X)</dt><dd>המסה האטומית של X <span class="u">(g/mol)</span></dd></div><div><dt>M(<small>התרכובת</small>)</dt><dd>המסה המולרית של התרכובת <span class="u">(g/mol)</span></dd></div></dl>
+<p class="fnote">בדיקה: סכום האחוזים של כל היסודות = 100%.</p>
+</div></div>
+<div><a class="fsec" href="guide.html#s5">5 · נוסחה אמפירית ונוסחה מולקולרית ←</a><div class="fcard"><span class="fname">מאמפירית למולקולרית</span>
+<div class="fx">k = <span class="frac"><span>M<sub>מולקולרית</sub></span><span>M<sub>אמפירית</sub></span></span></div>
+<dl class="fvars"><div><dt>k</dt><dd>מספר שלם (<span class="f">1, 2, 3…</span>) – פי כמה המולקולרית גדולה מהאמפירית</dd></div><div><dt>M<sub>מולקולרית</sub></dt><dd>המסה המולרית של החומר (נתונה בשאלה) <span class="u">(g/mol)</span></dd></div><div><dt>M<sub>אמפירית</sub></dt><dd>המסה המולרית של הנוסחה האמפירית <span class="u">(g/mol)</span></dd></div></dl>
+<p class="fnote">מכפילים כל אינדקס באמפירית ב-k: <span class="f">C₃H₄O₃ × 2 = C₆H₈O₆</span>.</p>
+</div></div>
+<div><a class="fsec" href="guide.html#s6">6 · איזון משוואות כימיות ←</a><div class="fcard"><span class="fname">טריק לשריפה מלאה – המקדמים ישר</span>
+<div class="fx">C<sub>x</sub>H<sub>y</sub>O<sub>z</sub> + <span class="hl">(x + <span class="frac"><span>y</span><span>4</span></span> − <span class="frac"><span>z</span><span>2</span></span>)</span> O<sub>2</sub> → x CO<sub>2</sub> + <span class="frac"><span>y</span><span>2</span></span> H<sub>2</sub>O</div>
+<dl class="fvars"><div><dt>x</dt><dd>מספר אטומי הפחמן בדלק = מקדם <span class="f">CO₂</span></dd></div><div><dt>y</dt><dd>מספר אטומי המימן בדלק; <span class="f">y/2</span> = מקדם המים</dd></div><div><dt>z</dt><dd>מספר אטומי החמצן בדלק (בפחמימן <span class="f">CₓHᵧ</span> הוא 0)</dd></div></dl>
+<p class="fnote">בפחמימן מקדם החמצן הוא <span class="li">x + y/4</span>. באתנול <span class="f">C₂H₆O</span> יוצא <span class="li">2 + 1.5 − 0.5 = 3</span>. יצא שבר? מכפילים הכל במכנה.</p>
+</div></div>
+<div><a class="fsec" href="guide.html#s7">7 · יחסים סטויכיומטריים – מה המקדמים אומרים ←</a><div class="fcard"><span class="fname">מעבר בין חומרים לפי המקדמים</span>
+<div class="fx">aA + bB → … <span class="sep"></span>n<sub>B</sub> = n<sub>A</sub> × <span class="frac"><span>b</span><span>a</span></span></div>
+<dl class="fvars"><div><dt>n<sub>A</sub></dt><dd>מולים של החומר <b>שיש</b> <span class="u">(mol)</span></dd></div><div><dt>n<sub>B</sub></dt><dd>מולים של החומר <b>שמחפשים</b> <span class="u">(mol)</span></dd></div><div><dt>a, b</dt><dd>המקדמים שלהם במשוואה <b>המאוזנת</b></dd></div></dl>
+<p class="fnote">המקדם של מה שמחפשים – במונה. עובד רק במולים, לא בגרמים.</p>
+</div></div>
+<div><a class="fsec" href="guide.html#s8">8 · המגיב המגביל (הגורם המגביל) ←</a><div class="fcard"><span class="fname">איך מזהים את המגיב המגביל</span>
+<div class="fx">aA + bB → …<span class="sep"></span>min ( <span class="frac"><span>n<sub>A</sub></span><span>a</span></span> , <span class="frac"><span>n<sub>B</sub></span><span>b</span></span> )</div>
+<dl class="fvars"><div><dt>n<sub>A</sub>, n<sub>B</sub></dt><dd>המולים של כל מגיב בהתחלה <span class="u">(mol)</span></dd></div><div><dt>a, b</dt><dd>המקדמים במשוואה המאוזנת</dd></div><div><dt>min</dt><dd>המגיב עם הערך <b>הקטן ביותר</b> הוא המגביל</dd></div></dl>
+</div></div>
+<div><a class="fsec" href="guide.html#s9">9 · תגובות שריפה ואנליזת שריפה ←</a><div class="fcard"><span class="fname">אנליזת שריפה – שלושת הקשרים</span>
+<div class="fx">n(C) = n(CO<sub>2</sub>) = <span class="frac"><span>m(CO<sub>2</sub>)</span><span>44</span></span><br>n(H) = <span class="hl">2</span> × n(H<sub>2</sub>O) = 2 × <span class="frac"><span>m(H<sub>2</sub>O)</span><span>18</span></span><br>m(O) = m(<small>דגימה</small>) − m(C) − m(H)</div>
+<dl class="fvars"><div><dt>n</dt><dd>מספר המולים <span class="u">(mol)</span></dd></div><div><dt>m</dt><dd>המסה <span class="u">(g)</span></dd></div><div><dt>44, 18</dt><dd>המסות המולריות של <span class="f">CO₂</span> ושל המים <span class="u">(g/mol)</span></dd></div><div><dt>2</dt><dd>בכל מולקולת מים 2 אטומי מימן</dd></div><div><dt>m(<small>דגימה</small>)</dt><dd>מסת הדגימה שנשרפה <span class="u">(g)</span></dd></div></dl>
+<p class="fnote">את הגרמים של C ו-H מקבלים ממולים × מסה אטומית <span class="f">(12, 1)</span>, ורק אז מחסירים.</p>
+</div></div>
+<div><a class="fsec" href="guide.html#s10">10 · תמיסות וריכוז מולרי ←</a><div class="fcard"><span class="fname">ריכוז מולרי (מולריות)</span>
+<div class="fx">M = <span class="frac"><span>n</span><span>V</span></span><span class="sep"></span>n = M · V</div>
+<dl class="fvars"><div><dt>M</dt><dd>ריכוז מולרי <span class="u">(mol/L = M)</span></dd></div><div><dt>n</dt><dd>מולים של <b>המומס</b> <span class="u">(mol)</span></dd></div><div><dt>V</dt><dd>נפח <b>התמיסה כולה</b> <span class="u">(L)</span></dd></div></dl>
+<p class="fnote">כאן M היא מולריות, לא מסה מולרית – היחידה <span class="f">mol/L</span> מסגירה את זה.</p>
+</div></div>
+</div></section>
+</main>
+<footer>הנוסחאות נאספות אוטומטית מתוך החומר המוסבר.</footer>
+<script src="site.js"></script>
+</body>
+</html>

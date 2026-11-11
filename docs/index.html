@@ -3,18 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>כימיה – הכנה לבחנים</title>
-<meta name="description" content="חומר מוסבר ושאלות תרגול לבוחן קשרים כימיים ולבוחן סטויכיומטריה">
+<title>כימיה – הכנה למבחן</title>
+<meta name="description" content="חומר מוסבר, מבחנים לדוגמא, דף נוסחאות ושאלות תרגול למבחן הסיום של בלוק 1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700;800&family=Frank+Ruhl+Libre:wght@700;900&display=swap">
 <style>
 :root{--paper:#f6f4ee;--card:#fff;--ink:#1b1d22;--ink-2:#4a4f59;--ink-3:#7b808a;--rule:#dfdbd0;--grid:rgba(27,29,34,.045);
-  --bonds:#0d6b74;--bonds-soft:#dff0ef;--stoich:#b3530b;--stoich-soft:#fbeadb;--intro:#5b3fa0;color-scheme:light}
+  --bonds:#0d6b74;--bonds-soft:#dff0ef;--stoich:#b3530b;--stoich-soft:#fbeadb;--intro:#5b3fa0;--atom:#1f5fae;--periodic:#a2365d;--exam:#2f6b3a;color-scheme:light}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#121417;--card:#1b1e23;--ink:#ebe8e1;--ink-2:#b4b0a7;--ink-3:#8a867e;--rule:#2f333a;--grid:rgba(255,255,255,.035);
-  --bonds:#5cc6c9;--bonds-soft:#15302f;--stoich:#f0a35a;--stoich-soft:#36240f;--intro:#b8a1f2;color-scheme:dark}}
+  --bonds:#5cc6c9;--bonds-soft:#15302f;--stoich:#f0a35a;--stoich-soft:#36240f;--intro:#b8a1f2;--atom:#8ab8f5;--periodic:#f19bbb;--exam:#8fd39b;color-scheme:dark}}
 :root[data-theme="dark"]{--paper:#121417;--card:#1b1e23;--ink:#ebe8e1;--ink-2:#b4b0a7;--ink-3:#8a867e;--rule:#2f333a;--grid:rgba(255,255,255,.035);
-  --bonds:#5cc6c9;--bonds-soft:#15302f;--stoich:#f0a35a;--stoich-soft:#36240f;--intro:#b8a1f2;color-scheme:dark}
+  --bonds:#5cc6c9;--bonds-soft:#15302f;--stoich:#f0a35a;--stoich-soft:#36240f;--intro:#b8a1f2;--atom:#8ab8f5;--periodic:#f19bbb;--exam:#8fd39b;color-scheme:dark}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:"Assistant","Segoe UI",system-ui,sans-serif;line-height:1.6;
   background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:22px 22px}
@@ -34,7 +34,14 @@ h1{font-family:"Frank Ruhl Libre",Georgia,serif;font-weight:900;font-size:clamp(
 .intro .d{font-weight:800;font-size:.82rem;letter-spacing:.08em;color:var(--intro)}
 .intro b{font-family:"Frank Ruhl Libre",Georgia,serif;font-size:1.5rem}
 .intro span:last-child{color:var(--ink-2);font-size:.96rem}
-.b{--c:var(--bonds)} .s{--c:var(--stoich)}
+.b{--c:var(--bonds)} .s{--c:var(--stoich)} .a{--c:var(--atom)} .p{--c:var(--periodic)} .x{--c:var(--exam)}
+.tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:16px;margin:0 0 22px}
+.tool{display:flex;flex-direction:column;gap:4px;text-decoration:none;color:inherit;background:var(--card);border:2px solid var(--c);border-radius:14px;padding:14px 18px}
+.tool .d{font-weight:800;font-size:.82rem;letter-spacing:.08em;color:var(--c)}
+.tool b{font-family:"Frank Ruhl Libre",Georgia,serif;font-size:1.6rem;line-height:1.15}
+.tool span:last-child{color:var(--ink-2);font-size:.96rem}
+.tool.hot{background:var(--c);color:var(--card)} .tool.hot .d,.tool.hot span:last-child{color:var(--card)}
+h2.sec{font-family:"Frank Ruhl Libre",Georgia,serif;font-size:1.4rem;margin:26px 0 10px}
 .how{margin-top:30px;background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:16px 20px}
 .how h3{margin:0 0 6px;font-size:1.1rem}
 .how ol{margin:0;padding-inline-start:1.3em;color:var(--ink-2)}
@@ -45,19 +52,36 @@ footer{margin-top:34px;text-align:center;color:var(--ink-3);font-size:.9rem}
 </head>
 <body>
 <div class="wrap">
-  <div class="kicker">כימיה כללית ואנאורגנית · ביוטכנולוגיה שנה א'</div>
-  <h1>הכנה לבחנים</h1>
-  <p class="lede">שני בחנים גדולים השבוע. לכל אחד יש חומר מוסבר עם דוגמאות פתורות ופתרונות לתרגולים, ומאגר שאלות אמריקאיות עם הסבר לכל תשובה.</p>
-  <a class="intro" href="guide.html#intro"><span class="d">פרק 0 · מתחילים כאן</span><b>הקדמה: השפה של הכימיה</b><span>אטום, טבלה מחזורית, אורביטלים, ואיך קוראים 1s²2s²2p³, E<sub>AB</sub> &lt; E<sub>A</sub> + E<sub>B</sub>, ΔH ו-10²³ – עם איורים.</span></a>
+  <div class="kicker">כימיה כללית ואנאורגנית · ביוטכנולוגיה שנה א' · בלוק 1</div>
+  <h1>הכנה למבחן הסיום</h1>
+  <p class="lede">כל החומר של בלוק 1 (שיעורים 1–11): הסברים מאוירים עם נוסחאות בתיבות ברורות, מבחנים לדוגמא באותו מבנה כמו המבחן של הקורס עם דפי תשובות מנומקים, ושאלות תרגול לפי נושא.</p>
+  <div class="tools">
+    <a class="tool x hot" href="exams.html"><span class="d">מתאמנים כמו במבחן</span><b>מבחנים לדוגמא</b><span>המבחן של הקורס פתור במלואו, ועוד מבחני תרגול – 12 אמריקאיות ו-3 פתוחות, עם הסבר לכל תשובה.</span></a>
+    <a class="tool x" href="formulas.html"><span class="d">כל הנוסחאות במקום אחד</span><b>דף נוסחאות</b><span>כל נוסחה בתיבה גדולה עם הסבר לכל סימן ויחידה. לוחצים כדי להגדיל.</span></a>
+  </div>
+  <a class="intro" href="guide.html#intro"><span class="d">פרק 0 · מתחילים כאן</span><b>הקדמה: השפה של הכימיה</b><span>אטום, טבלה מחזורית, אורביטלים, ואיך קוראים 1s²2s²2p³, E<sub>AB</sub> &lt; E<sub>A</sub> + E<sub>B</sub>, ΔH ו-10²³.</span></a>
+  <h2 class="sec">החומר לפי פרקים</h2>
   <div class="grid">
+    <section class="day a">
+      <div class="d">שיעורים 1–3</div>
+      <h2>מבנה האטום ותורת הקוונטים</h2>
+      <p>קרינה אלקטרומגנטית, אנרגיית פוטון, האפקט הפוטואלקטרי, מודל בוהר ומעברים, דה-ברויי, מספרים קוונטיים, אורביטלים וקונפיגורציה אלקטרונית.</p>
+      <div class="btns"><a class="main" href="guide.html#atom">החומר המוסבר</a><a href="practice.html#atom">שאלות תרגול</a></div>
+    </section>
+    <section class="day p">
+      <div class="d">שיעור 4</div>
+      <h2>הטבלה המחזורית ותכונות מחזוריות</h2>
+      <p>מבנה הטבלה, מטען גרעין אפקטיבי, רדיוס אטומי ויוני, אנרגיית יינון, זיקה אלקטרונית ואלקטרושליליות.</p>
+      <div class="btns"><a class="main" href="guide.html#periodic">החומר המוסבר</a><a href="practice.html#periodic">שאלות תרגול</a></div>
+    </section>
     <section class="day b">
-      <div class="d">יום שלישי · בוחן 1</div>
+      <div class="d">שיעורים 5–9</div>
       <h2>קשרים כימיים</h2>
-      <p>יוני וקוולנטי, ΔEN, מבנה לואיס, מטען פורמלי, חריגות מאוקטט, אנתלפיית קשר, רזוננס, VSEPR, קוטביות, הכלאה, כוחות בין-מולקולריים.</p>
+      <p>יוני וקוולנטי, ΔEN, מבנה לואיס, מטען פורמלי, חריגות מאוקטט, אנתלפיית קשר, רזוננס, VSEPR, מומנט דיפול, הכלאה, כוחות בין-מולקולריים.</p>
       <div class="btns"><a class="main" href="guide.html#bonds">החומר המוסבר</a><a href="practice.html#bonds">שאלות תרגול</a></div>
     </section>
     <section class="day s">
-      <div class="d">יום רביעי · בוחן 2</div>
+      <div class="d">שיעורים 10–11</div>
       <h2>סטויכיומטריה</h2>
       <p>איזוטופים, מול ואבוגדרו, מסה מולרית, אחוז מסה, נוסחה אמפירית ומולקולרית, איזון, יחסי מולים, מגיב מגביל, אנליזת שריפה, מולריות.</p>
       <div class="btns"><a class="main" href="guide.html#stoich">החומר המוסבר</a><a href="practice.html#stoich">שאלות תרגול</a></div>
@@ -66,12 +90,13 @@ footer{margin-top:34px;text-align:center;color:var(--ink-3);font-size:.9rem}
   <div class="how">
     <h3>איך כדאי לעבוד</h3>
     <ol>
-      <li>קוראות פרק בחומר המוסבר ומנסות לפתור את התרגול של אותו נושא לבד.</li>
-      <li>במצב <b>תרגול</b> – משוב והסבר אחרי כל שאלה, עם קישור חזרה לפרק הרלוונטי.</li>
-      <li>בסוף – מצב <b>מבחן</b> על כל החומר, ואז "תרגול הטעויות".</li>
+      <li>קוראות פרק בחומר המוסבר, ועונות על שאלות "בדקו את עצמכן" בסוף כל נושא.</li>
+      <li>מתרגלות את הפרק בשאלות התרגול (מצב <b>תרגול</b> – משוב והסבר אחרי כל שאלה).</li>
+      <li>כשכל הפרקים מאחוריכן – מבחן לדוגמא בתנאי מבחן, ואז קוראות את הפתרון המנומק של כל שאלה.</li>
+      <li>כל טעות → חזרה לפרק המתאים, ואז "תרגול הטעויות".</li>
     </ol>
   </div>
-  <footer>בהצלחה בבחנים!</footer>
+  <footer>בהצלחה במבחן!</footer>
 </div>
 </body>
 </html>

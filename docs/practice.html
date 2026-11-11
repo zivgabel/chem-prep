@@ -150,6 +150,7 @@
     .row-btns{grid-template-columns:1fr}
   }
   @media (prefers-reduced-motion:reduce){.bar i{transition:none}}
+.li{direction:ltr;unicode-bidi:isolate}
 </style>
 <script data-goatcounter="https://zivgabel.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
@@ -157,7 +158,7 @@
 <div class="wrap">
   <header>
     <div>
-      <div class="kicker">כימיה כללית ואנאורגנית · הכנה לבחנים</div>
+      <div class="kicker">כימיה כללית ואנאורגנית · הכנה למבחן הסיום</div>
       <h1>שאלות תרגול</h1>
       <div class="sub" id="totalLine">טוען שאלות…</div>
     </div>
@@ -241,9 +242,9 @@
 </div>
 
 <script>
-const CAT = { bonds:"יום ג' · קשרים כימיים", stoich:"יום ד' · סטויכיומטריה" };
-const CAT_ORDER = ["bonds","stoich"];
-const GUIDE = {"אנרגיה ויצירת קשר":"b1","קשר יוני וקוולנטי":"b2","אלקטרושליליות ו-ΔEN":"b2","מבנה לואיס":"b3","מטען פורמלי":"b4","חריגות מכלל האוקטט":"b5","אנתלפיית קשר":"b6","רזוננס":"b7","VSEPR וצורה מרחבית":"b8","קוטביות ומומנט דיפול":"b9","הכלאה וקשרי σ/π":"b10","כוחות בין-מולקולריים":"b11","איזוטופים ומסה אטומית":"s1","מול ומספר אבוגדרו":"s2","מסה מולרית והמרות":"s3","אחוז מסה":"s4","נוסחה אמפירית ומולקולרית":"s5","איזון משוואות":"s6","יחסים סטויכיומטריים":"s7","מגיב מגביל ועודף":"s8","אנליזת שריפה":"s9","תמיסות וריכוז מולרי":"s10"};
+const CAT = { atom:"מבנה האטום וקוונטים", periodic:"הטבלה המחזורית", bonds:"קשרים כימיים", stoich:"סטויכיומטריה" };
+const CAT_ORDER = ["atom","periodic","bonds","stoich"];
+const GUIDE = {"אנרגיה ויצירת קשר":"b1","קשר יוני וקוולנטי":"b2","אלקטרושליליות ו-ΔEN":"b2","מבנה לואיס":"b3","מטען פורמלי":"b4","חריגות מכלל האוקטט":"b5","אנתלפיית קשר":"b6","רזוננס":"b7","VSEPR וצורה מרחבית":"b8","קוטביות ומומנט דיפול":"b9","הכלאה וקשרי σ/π":"b10","כוחות בין-מולקולריים":"b11","איזוטופים ומסה אטומית":"s1","מול ומספר אבוגדרו":"s2","מסה מולרית והמרות":"s3","אחוז מסה":"s4","נוסחה אמפירית ומולקולרית":"s5","איזון משוואות":"s6","יחסים סטויכיומטריים":"s7","מגיב מגביל ועודף":"s8","אנליזת שריפה":"s9","תמיסות וריכוז מולרי":"s10","קרינה אלקטרומגנטית":"q2","אנרגיית פוטון":"q6","האפקט הפוטואלקטרי":"q7","מודל בוהר ומעברים":"q8","ספקטרום פליטה ובליעה":"q9","דה-ברויי ועקרון אי-הוודאות":"q11","מספרים קוונטיים ואורביטלים":"q14","קונפיגורציה אלקטרונית":"q18","מבנה הטבלה המחזורית":"p1","מטען גרעין אפקטיבי ומיסוך":"p2","רדיוס אטומי ויוני":"p3","אנרגיית יינון":"p5","זיקה אלקטרונית":"p8","אלקטרושליליות ואופי מתכתי":"p9"};
 const DIFF = { easy:"קלה", medium:"בינונית", hard:"קשה" };
 const KEYS = ["א","ב","ג","ד"];
 const $ = id => document.getElementById(id);
@@ -386,17 +387,17 @@ function renderQ(){
   $("progNum").textContent = (run.i+1)+"/"+n;
   $("progBar").style.width = (100*(run.i+(revealed||a!==null?1:0))/n)+"%";
   $("qmeta").innerHTML = '<span class="tag cat">'+CAT[q.c]+'</span><span class="tag">'+esc(q.t)+'</span><span class="tag">'+DIFF[q.d]+'</span>';
-  $("qtext").textContent = q.q;
+  $("qtext").innerHTML = q.q;
   $("answers").innerHTML = q.o.map((o,k) => {
     let cls = "ans";
     if(revealed){ if(k===q.a) cls+=" right"; else if(k===a) cls+=" wrong"; }
     else if(k===a) cls+=" sel";
-    return '<button type="button" class="'+cls+'" data-k="'+k+'"'+(revealed?" disabled":"")+'><span class="k">'+KEYS[k]+'</span><span>'+esc(o)+'</span></button>';
+    return '<button type="button" class="'+cls+'" data-k="'+k+'"'+(revealed?" disabled":"")+'><span class="k">'+KEYS[k]+'</span><span>'+o+'</span></button>';
   }).join("");
   const ex = $("explain");
   if(revealed){
     const ok = a===q.a;
-    ex.innerHTML = '<div class="v '+(ok?"ok":"no")+'">'+(ok?"נכון":"לא נכון · התשובה הנכונה: "+KEYS[q.a])+'</div><div>'+esc(q.e)+'</div><div class="src">מקור: '+esc(srcLabel(q))+guideLink(q)+'</div>';
+    ex.innerHTML = '<div class="v '+(ok?"ok":"no")+'">'+(ok?"נכון":"לא נכון · התשובה הנכונה: "+KEYS[q.a])+'</div><div>'+q.e+'</div><div class="src">מקור: '+esc(srcLabel(q))+guideLink(q)+'</div>';
     ex.hidden = false;
   } else ex.hidden = true;
   $("prevBtn").hidden = run.mode==="practice" || run.i===0;
@@ -477,9 +478,9 @@ function finish(early){
   }).join("");
   const wrong = items.map((q,k)=>[q,answers[k]]).filter(([q,a])=>a!==q.a);
   const rv = wrong.map(([q,a]) =>
-    '<div class="rv"><div class="q">'+esc(q.q)+'</div>'+
-    (a===null ? '<div class="yours">לא נענתה</div>' : '<div class="yours">ענית: '+esc(q.o[a])+'</div>')+
-    '<div class="right">נכון: '+esc(q.o[q.a])+'</div><div class="e">'+esc(q.e)+'</div><div class="src">מקור: '+esc(srcLabel(q))+guideLink(q)+'</div></div>').join("");
+    '<div class="rv"><div class="q">'+q.q+'</div>'+
+    (a===null ? '<div class="yours">לא נענתה</div>' : '<div class="yours">ענית: '+q.o[a]+'</div>')+
+    '<div class="right">נכון: '+q.o[q.a]+'</div><div class="e">'+q.e+'</div><div class="src">מקור: '+esc(srcLabel(q))+guideLink(q)+'</div></div>').join("");
   $("results").innerHTML =
     '<div class="card score"><span class="sec-title" style="margin:0">'+(run.mode==="exam"?"ציון המבחן":"סיכום תרגול")+'</span>'+
       '<span class="big" style="color:'+color+'">'+pct+'<small>%</small></span>'+

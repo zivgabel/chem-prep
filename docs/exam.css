@@ -1,0 +1,57 @@
+/* practice-exam pages (exam-*.html, exams.html) — builds on site.css */
+.xhero{max-width:var(--col)}
+.xwrap{max-width:var(--col);margin:0 auto;padding:0 16px 40px}
+.xbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.xbtn{font:inherit;font-weight:800;font-size:.92rem;border:1.5px solid var(--accent);background:var(--accent);color:var(--card);border-radius:99px;padding:6px 16px;cursor:pointer}
+.xbtn.ghost{background:transparent;color:var(--accent)}
+.xbtn.big{font-size:1.1rem;padding:10px 28px}
+.xsec{font-family:var(--serif);font-size:1.5rem;margin:2.2rem 0 .6rem;padding-bottom:6px;border-bottom:3px solid var(--accent)}
+.xconst{background:var(--card);border:1px solid var(--rule);border-inline-start:5px solid var(--accent);border-radius:var(--r);padding:10px 16px;margin-top:1rem}
+.xconst .tag{display:inline-block;background:var(--accent);color:var(--card);font-size:.74rem;font-weight:800;padding:2px 10px;border-radius:99px}
+.xconst ul{margin:.4em 0 0;columns:2 16rem}
+.xq{background:var(--card);border:1px solid var(--rule);border-radius:var(--r);padding:14px 16px 10px;margin:14px 0;scroll-margin-top:4.5rem}
+.xq h3{display:flex;align-items:center;gap:10px;margin:0 0 .3em;font-size:1rem}
+.xq h3 small{color:var(--ink-3);font-weight:700;font-size:.8rem}
+.xn{flex:0 0 auto;width:2rem;height:2rem;border-radius:50%;display:inline-grid;place-items:center;background:var(--accent);color:var(--card);font-weight:800;font-size:.95rem}
+.xstem{margin:.3em 0;font-weight:600}
+.xt{margin:.6em auto;max-width:28rem}
+.xopts{list-style:none;margin:.6em 0;padding:0;display:grid;gap:6px}
+.xo{width:100%;display:flex;gap:10px;align-items:baseline;text-align:start;font:inherit;background:var(--paper);color:var(--ink);border:1.5px solid var(--rule);border-radius:10px;padding:7px 12px;cursor:pointer}
+.xo:hover{border-color:var(--accent)}
+.xo .L{flex:0 0 auto;width:1.6rem;height:1.6rem;border-radius:50%;display:inline-grid;place-items:center;border:1.5px solid var(--ink-3);font-weight:800;font-size:.85rem}
+.xo .t{flex:1;min-width:0}
+.xo[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.xo[aria-pressed="true"] .L{background:var(--accent);border-color:var(--accent);color:var(--card)}
+.checked .xo{cursor:default}
+.checked .xo.right{border-color:var(--ok);background:var(--ok-bg)}
+.checked .xo.right .L{background:var(--ok);border-color:var(--ok);color:#fff}
+.checked .xo.wrong{border-color:var(--trap);background:var(--trap-bg)}
+.checked .xo.wrong .L{background:var(--trap);border-color:var(--trap);color:#fff}
+.xq .verdict{font-weight:800;font-size:.9rem;margin:.2em 0}
+.xq .verdict.ok{color:var(--ok)} .xq .verdict.no{color:var(--trap)}
+details.xsol{margin:.5em 0 .2em}
+details.xsol>summary{display:inline-block;cursor:pointer;list-style:none;font-size:.85rem;font-weight:800;color:var(--accent);border:1.5px solid var(--accent);border-radius:99px;padding:3px 14px;background:var(--card)}
+details.xsol>summary::-webkit-details-marker{display:none}
+details.xsol>summary::before{content:"👁 "}
+details.xsol[open]>summary{background:var(--accent);color:var(--card)}
+.xbody{margin-top:8px;background:var(--accent-soft);border-radius:10px;padding:10px 14px;border-inline-start:4px solid var(--accent)}
+.xbody p{margin:.3em 0}
+.xans{font-size:1.05rem}
+.xwhy{margin-top:.6em;padding-top:.5em;border-top:1px dashed color-mix(in srgb,var(--accent) 40%,transparent);font-size:.95rem}
+.xwhy ul{margin:.3em 0 0;padding-inline-start:1.2em}
+.xpart{margin:.6em 0;padding:.4em 0 .2em;border-top:1px dashed var(--rule)}
+.xpq{margin:.2em 0;font-weight:600}
+.xfig{margin:.8rem 0;background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:8px}
+.xfig svg{direction:ltr;width:100%;height:auto;display:block}
+.xdone{text-align:center;margin:2rem 0 1rem}
+.xscore{font-size:1.25rem;font-weight:800;margin-top:12px}
+.xcards{margin-top:1rem}
+.xcard .xtopics{font-size:.85rem;color:var(--ink-3);margin:.4em 0 0;line-height:1.5}
+.xcard .xlast{font-size:.85rem;font-weight:800;color:var(--accent);margin:.3em 0 0}
+@media print{
+  .topbar,.xbar,.xdone,footer{display:none}
+  body{background:#fff}
+  .xq{break-inside:avoid;border-color:#bbb}
+  body.p-exam details.xsol{display:none}
+  body.p-key .xo:not(.right){opacity:.55}
+}

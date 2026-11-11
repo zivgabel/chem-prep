@@ -1,0 +1,883 @@
+<!-- ============================ PART: ATOM & QUANTUM (lectures 1–3) ============================ -->
+<div data-part="atom" id="atom">
+<div class="part-head">
+  <div class="d">הרצאות 1–3 · לבחינת סוף הבלוק</div>
+  <h2>מבנה האטום ותורת הקוונטים</h2>
+  <p>מבוסס על הרצאות 1–3, תרגולים 1 ו-3 ופעילות 2, וברמה של שאלות 2–5 ו-14 במבחן לדוגמה. מתחילים מגלים ואור, עוברים דרך פלאנק, הפוטון והאפקט הפוטואלקטרי אל מודל בוהר, ומשם לתורת הקוונטים: דה-ברויי, אי-הוודאות, המספרים הקוונטיים והקונפיגורציות. את הבסיס (מה זה רמה, תת-רמה ואורביטל, ואיך קוראים <span class="f">2p³</span>) יש ב<a href="#i5">פרק 0.5</a> וב<a href="#i6">פרק 0.6</a> – כאן הולכים לעומק של הבחינה.</p>
+  <nav class="toc" aria-label="תוכן החלק">
+    <a href="#q1">חומר ושימור מסה</a><a href="#q2">גלים: λ, ν, c</a><a href="#q3">הספקטרום האלקטרומגנטי</a><a href="#q4">ספקטרום רציף וקווי</a>
+    <a href="#q5">פלאנק – קוונטים</a><a href="#q6">הפוטון: E = hν</a><a href="#q7">האפקט הפוטואלקטרי</a><a href="#q8">מודל בוהר – רמות</a>
+    <a href="#q9">מעברים ואורך גל</a><a href="#q10">גבולות מודל בוהר</a><a href="#q11">דה-ברויי</a><a href="#q12">אי-הוודאות</a>
+    <a href="#q13">פונקציית גל ואורביטל</a><a href="#q14">המספרים הקוונטיים</a><a href="#q15">צורות אורביטלים</a><a href="#q16">מיסוך וחדירות</a>
+    <a href="#q17">אופבאו, פאולי, הונד</a><a href="#q18">קונפיגורציות ויונים</a><a href="#q19">Cr, Cu ומגנטיות</a><a href="#qsol">פתרונות תרגולים</a>
+  </nav>
+</div>
+
+<div class="page"><div class="flow">
+
+<section class="topic" id="q1">
+<h3><span class="n">1</span>חומר, אנרגיה וחוק שימור המסה</h3>
+<p><b>חומר</b> תופס מקום ויש לו מסה – מים, חמצן, קרח, ברזל. <b>אור וחום אינם חומר</b>, הם צורות של <b>אנרגיה</b> (ושימו לב: חום הוא אנרגיה, טמפרטורה היא מדד – לא אותו דבר). מה בונה את החומר – אטומים ומולקולות – יש ב<a href="#i1">פרק 0.1</a> וב<a href="#i3">פרק 0.3</a>.</p>
+<div class="compare">
+<div><h5>שינוי פיזיקלי</h5><ul><li>המולקולות רק מסתדרות מחדש – <b>אותו חומר</b>.</li><li>דוגמאות: קרח נמס <span class="f">(H₂O(s) → H₂O(l))</span>, אידוי אלכוהול, התכת חמאה.</li></ul></div>
+<div><h5>שינוי כימי (תגובה)</h5><ul><li>קשרים נשברים ונוצרים – <b>נוצר חומר חדש</b>.</li><li>דוגמאות: שריפה (מתאן, נייר), חלודה של ברזל, בישול ביצה.</li></ul></div>
+</div>
+<div class="callout must"><span class="tag">חוק שימור המסה</span><p>בתהליך כימי חומר אינו נוצר ואינו נעלם – הוא רק משנה צורה. במערכת סגורה: <b>המסה הכוללת של המגיבים = המסה הכוללת של התוצרים</b>.</p></div>
+<div class="eq">CH₄ + 2O₂ → CO₂ + 2H₂O<br><small>16 g + 2×32 g = 80 g &nbsp; → &nbsp; 44 g + 2×18 g = 80 g</small></div>
+<figure>
+<svg viewBox="0 0 700 270" role="img" aria-label="אותה תגובה שפולטת גז בכוס פתוחה ובכלי סגור: בכוס הפתוחה המשקל יורד כי הגז בורח, בכלי הסגור המשקל לא משתנה">
+<defs><marker id="q1-k" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="fi" d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<path class="z1" d="M126,150 L132,196 L228,196 L234,150 Z"/>
+<path class="ln" d="M120,112 L132,196 L228,196 L240,112"/>
+<circle class="bx" cx="160" cy="175" r="5"/><circle class="bx" cx="196" cy="166" r="4"/><circle class="bx" cx="180" cy="183" r="3"/>
+<line class="ln-d" x1="160" y1="108" x2="152" y2="62" marker-end="url(#q1-k)"/><line class="ln-d" x1="180" y1="108" x2="180" y2="56" marker-end="url(#q1-k)"/><line class="ln-d" x1="200" y1="108" x2="208" y2="62" marker-end="url(#q1-k)"/>
+<text x="180" y="40" text-anchor="middle" class="tr" direction="rtl">הגז (CO₂) בורח לאוויר</text>
+<rect class="bx" x="90" y="200" width="180" height="32" rx="4"/><rect class="bx-ac" x="140" y="205" width="80" height="22" rx="3"/>
+<text x="180" y="221" text-anchor="middle" class="b">176 g</text>
+<text x="180" y="256" text-anchor="middle" class="b" direction="rtl">כוס פתוחה: הייתה 180 g</text>
+<path class="z1" d="M482,150 L482,196 L558,196 L558,150 Z"/>
+<path class="ln" d="M482,196 L482,130 Q482,114 500,110 L500,94 L540,94 L540,110 Q558,114 558,130 L558,196 Z"/>
+<rect class="fi" x="496" y="84" width="48" height="12" rx="2"/>
+<circle class="bx" cx="505" cy="170" r="5"/><circle class="bx" cx="530" cy="160" r="4"/><circle class="bx" cx="520" cy="125" r="4"/><circle class="bx" cx="540" cy="132" r="3"/>
+<text x="520" y="66" text-anchor="middle" class="ac" direction="rtl">הגז נשאר בפנים</text>
+<rect class="bx" x="430" y="200" width="180" height="32" rx="4"/><rect class="bx-ac" x="480" y="205" width="80" height="22" rx="3"/>
+<text x="520" y="221" text-anchor="middle" class="b">180 g</text>
+<text x="520" y="256" text-anchor="middle" class="b" direction="rtl">כלי סגור: הייתה 180 g</text>
+</svg>
+<figcaption><b>"איבוד מסה" הוא רק גז שיצא מהמערכת.</b> בכוס הפתוחה המשקל ירד בגלל הגז שברח (בדיוק <span class="f">4 g</span> בדוגמה), ובכלי הסגור המשקל לא השתנה. חוק שימור המסה נשמר בשני המקרים – זו בדיוק שאלה 3 בתרגול 1.</figcaption>
+</figure>
+<div class="callout trap"><span class="tag">מלכודת</span><p>"המסה ירדה, אז החוק לא נשמר" – לא נכון. צריך לספור את <b>כל</b> החומרים, כולל גז שיצא לאוויר. החוק מדבר על מערכת סגורה.</p></div>
+<p class="src">הרצאה 1 שקפים 6–14 · תרגול 1 שאלות 1–3</p>
+</section>
+
+<section class="topic" id="q2">
+<h3><span class="n">2</span>גלים: אורך גל, תדירות ומהירות האור</h3>
+<p>כל המידע על מבנה האלקטרונים באטום הגיע מאינטראקציה בין <b>אור</b> לחומר. אור הוא <b>קרינה אלקטרומגנטית</b> – העברת אנרגיה באמצעות גל (שדה חשמלי ושדה מגנטי הניצבים זה לזה). לכל גל שלושה פרמטרים:</p>
+<figure>
+<svg viewBox="0 0 700 330" role="img" aria-label="גל עם סימון אורך הגל בין שני שיאים והמשרעת מהציר לשיא, ומתחת השוואה בין גל ארוך לגל קצר">
+<defs><marker id="q2-a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path class="fa" d="M0,0 L10,5 L0,10 z"/></marker><marker id="q2-k" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path class="fi" d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<line class="ln-d" x1="60" y1="120" x2="440" y2="120"/>
+<path class="ln-ac" d="M70.0,58.0 L73.0,58.4 L76.0,59.7 L79.0,61.8 L82.0,64.8 L85.0,68.4 L88.0,72.9 L91.0,77.9 L94.0,83.6 L97.0,89.7 L100.0,96.3 L103.0,103.2 L106.0,110.3 L109.0,117.6 L112.0,124.9 L115.0,132.1 L118.0,139.2 L121.0,146.0 L124.0,152.4 L127.0,158.4 L130.0,163.8 L133.0,168.7 L136.0,172.9 L139.0,176.3 L142.0,179.0 L145.0,180.8 L148.0,181.8 L151.0,182.0 L154.0,181.2 L157.0,179.7 L160.0,177.3 L163.0,174.1 L166.0,170.2 L169.0,165.5 L172.0,160.3 L175.0,154.4 L178.0,148.1 L181.0,141.5 L184.0,134.5 L187.0,127.3 L190.0,120.0 L193.0,112.7 L196.0,105.5 L199.0,98.5 L202.0,91.9 L205.0,85.6 L208.0,79.7 L211.0,74.5 L214.0,69.8 L217.0,65.9 L220.0,62.7 L223.0,60.3 L226.0,58.8 L229.0,58.0 L232.0,58.2 L235.0,59.2 L238.0,61.0 L241.0,63.7 L244.0,67.1 L247.0,71.3 L250.0,76.2 L253.0,81.6 L256.0,87.6 L259.0,94.0 L262.0,100.8 L265.0,107.9 L268.0,115.1 L271.0,122.4 L274.0,129.7 L277.0,136.8 L280.0,143.7 L283.0,150.3 L286.0,156.4 L289.0,162.1 L292.0,167.1 L295.0,171.6 L298.0,175.2 L301.0,178.2 L304.0,180.3 L307.0,181.6 L310.0,182.0 L313.0,181.6 L316.0,180.3 L319.0,178.2 L322.0,175.2 L325.0,171.6 L328.0,167.1 L331.0,162.1 L334.0,156.4 L337.0,150.3 L340.0,143.7 L343.0,136.8 L346.0,129.7 L349.0,122.4 L352.0,115.1 L355.0,107.9 L358.0,100.8 L361.0,94.0 L364.0,87.6 L367.0,81.6 L370.0,76.2 L373.0,71.3 L376.0,67.1 L379.0,63.7 L382.0,61.0 L385.0,59.2 L388.0,58.2 L391.0,58.0 L394.0,58.8 L397.0,60.3 L400.0,62.7 L403.0,65.9 L406.0,69.8 L409.0,74.5 L412.0,79.7 L415.0,85.6 L418.0,91.9 L421.0,98.5 L424.0,105.5 L427.0,112.7 L430.0,120.0"/>
+<line class="ln-d" x1="230" y1="56" x2="230" y2="30"/><line class="ln-d" x1="390" y1="56" x2="390" y2="30"/>
+<line class="ln" x1="234" y1="38" x2="386" y2="38" marker-start="url(#q2-k)" marker-end="url(#q2-k)"/>
+<text x="310" y="30" text-anchor="middle" class="ac" style="font-size:20px">λ</text>
+<line class="ln" x1="150" y1="120" x2="150" y2="186" marker-end="url(#q2-k)"/>
+<text x="140" y="160" text-anchor="end" class="ac" style="font-size:20px">A</text>
+<text x="690" y="58" text-anchor="start" direction="rtl"><tspan class="b">λ – אורך גל:</tspan> המרחק בין</text>
+<text x="690" y="80" text-anchor="start" direction="rtl">שני שיאים סמוכים (m, nm)</text>
+<text x="690" y="116" text-anchor="start" direction="rtl"><tspan class="b">A – משרעת:</tspan> גובה הגל</text>
+<text x="690" y="138" text-anchor="start" direction="rtl">מהציר (עוצמת האור)</text>
+<text x="690" y="174" text-anchor="start" direction="rtl"><tspan class="b">ν – תדירות:</tspan> כמה גלים</text>
+<text x="690" y="196" text-anchor="start" direction="rtl">עוברים בשנייה (Hz = 1/s)</text>
+<g transform="translate(60,262)"><path class="ln" d="M0.0,-22.0 L3.0,-21.7 L6.0,-21.0 L9.0,-19.8 L12.0,-18.1 L15.1,-16.0 L18.1,-13.5 L21.1,-10.8 L24.1,-7.7 L27.1,-4.5 L30.1,-1.2 L33.1,2.1 L36.1,5.4 L39.2,8.5 L42.2,11.5 L45.2,14.2 L48.2,16.6 L51.2,18.5 L54.2,20.1 L57.2,21.2 L60.2,21.9 L63.3,22.0 L66.3,21.6 L69.3,20.7 L72.3,19.4 L75.3,17.6 L78.3,15.4 L81.3,12.9 L84.3,10.0 L87.3,7.0 L90.4,3.7 L93.4,0.4 L96.4,-2.9 L99.4,-6.2 L102.4,-9.3 L105.4,-12.2 L108.4,-14.8 L111.4,-17.1 L114.5,-19.0 L117.5,-20.4 L120.5,-21.4 L123.5,-21.9 L126.5,-21.9 L129.5,-21.4 L132.5,-20.4 L135.5,-19.0 L138.6,-17.1 L141.6,-14.8 L144.6,-12.2 L147.6,-9.3 L150.6,-6.2 L153.6,-2.9 L156.6,0.4 L159.6,3.7 L162.7,7.0 L165.7,10.0 L168.7,12.9 L171.7,15.4 L174.7,17.6 L177.7,19.4 L180.7,20.7 L183.7,21.6 L186.7,22.0 L189.8,21.9 L192.8,21.2 L195.8,20.1 L198.8,18.5 L201.8,16.6 L204.8,14.2 L207.8,11.5 L210.8,8.5 L213.9,5.4 L216.9,2.1 L219.9,-1.2 L222.9,-4.5 L225.9,-7.7 L228.9,-10.8 L231.9,-13.5 L234.9,-16.0 L238.0,-18.1 L241.0,-19.8 L244.0,-21.0 L247.0,-21.7 L250.0,-22.0"/></g>
+<g transform="translate(390,262)"><path class="ln" d="M0.0,-22.0 L1.5,-21.4 L3.0,-19.8 L4.5,-17.1 L6.0,-13.6 L7.5,-9.4 L9.0,-4.7 L10.5,0.2 L12.0,5.1 L13.5,9.8 L15.0,13.9 L16.5,17.4 L18.0,20.0 L19.5,21.5 L21.0,22.0 L22.5,21.3 L24.0,19.6 L25.4,16.9 L26.9,13.3 L28.4,9.0 L29.9,4.3 L31.4,-0.6 L32.9,-5.5 L34.4,-10.1 L35.9,-14.3 L37.4,-17.6 L38.9,-20.1 L40.4,-21.6 L41.9,-22.0 L43.4,-21.2 L44.9,-19.4 L46.4,-16.6 L47.9,-13.0 L49.4,-8.7 L50.9,-3.9 L52.4,1.0 L53.9,5.9 L55.4,10.5 L56.9,14.6 L58.4,17.9 L59.9,20.3 L61.4,21.7 L62.9,22.0 L64.4,21.1 L65.9,19.2 L67.4,16.4 L68.9,12.6 L70.4,8.3 L71.9,3.5 L73.4,-1.4 L74.9,-6.3 L76.3,-10.9 L77.8,-14.9 L79.3,-18.1 L80.8,-20.5 L82.3,-21.7 L83.8,-21.9 L85.3,-21.0 L86.8,-19.0 L88.3,-16.1 L89.8,-12.3 L91.3,-7.9 L92.8,-3.1 L94.3,1.8 L95.8,6.7 L97.3,11.2 L98.8,15.2 L100.3,18.3 L101.8,20.6 L103.3,21.8 L104.8,21.9 L106.3,20.9 L107.8,18.8 L109.3,15.8 L110.8,12.0 L112.3,7.5 L113.8,2.7 L115.3,-2.2 L116.8,-7.1 L118.3,-11.6 L119.8,-15.5 L121.3,-18.6 L122.8,-20.7 L124.3,-21.9 L125.7,-21.9 L127.2,-20.8 L128.7,-18.6 L130.2,-15.5 L131.7,-11.6 L133.2,-7.1 L134.7,-2.3 L136.2,2.6 L137.7,7.5 L139.2,11.9 L140.7,15.7 L142.2,18.8 L143.7,20.9 L145.2,21.9 L146.7,21.8 L148.2,20.6 L149.7,18.4 L151.2,15.2 L152.7,11.3 L154.2,6.8 L155.7,1.9 L157.2,-3.1 L158.7,-7.9 L160.2,-12.3 L161.7,-16.0 L163.2,-19.0 L164.7,-21.0 L166.2,-21.9 L167.7,-21.8 L169.2,-20.5 L170.7,-18.2 L172.2,-14.9 L173.7,-10.9 L175.1,-6.4 L176.6,-1.5 L178.1,3.5 L179.6,8.2 L181.1,12.6 L182.6,16.3 L184.1,19.2 L185.6,21.1 L187.1,22.0 L188.6,21.7 L190.1,20.3 L191.6,17.9 L193.1,14.6 L194.6,10.6 L196.1,6.0 L197.6,1.1 L199.1,-3.9 L200.6,-8.6 L202.1,-12.9 L203.6,-16.6 L205.1,-19.4 L206.6,-21.2 L208.1,-22.0 L209.6,-21.6 L211.1,-20.2 L212.6,-17.7 L214.1,-14.3 L215.6,-10.2 L217.1,-5.6 L218.6,-0.7 L220.1,4.3 L221.6,9.0 L223.1,13.2 L224.6,16.8 L226.0,19.6 L227.5,21.3 L229.0,22.0 L230.5,21.5 L232.0,20.0 L233.5,17.4 L235.0,14.0 L236.5,9.8 L238.0,5.2 L239.5,0.3 L241.0,-4.7 L242.5,-9.4 L244.0,-13.6 L245.5,-17.1 L247.0,-19.8 L248.5,-21.4 L250.0,-22.0"/></g>
+<text x="185" y="312" text-anchor="middle" direction="rtl">λ ארוך · ν נמוכה · E נמוכה</text>
+<text x="515" y="312" text-anchor="middle" direction="rtl" class="ac">λ קצר · ν גבוהה · E גבוהה</text>
+<text x="350" y="226" text-anchor="middle" class="sm" direction="rtl">שני הגלים נעים באותה מהירות c – מה שמשתנה הוא λ ו-ν</text>
+</svg>
+<figcaption><b>שלושת הפרמטרים של גל.</b> מלמטה: גל ארוך וגל קצר. בגל הקצר עוברים יותר שיאים בכל שנייה – התדירות גבוהה יותר, וכפי שנראה בפרק 6, גם האנרגיה.</figcaption>
+</figure>
+<p>כל הגלים האלקטרומגנטיים נעים בריק <b>באותה מהירות</b> – מהירות האור <span class="f">c</span>. ההבדל ביניהם הוא רק ב-λ וב-ν, והם קשורים זה לזה:</p>
+<div class="fcard"><span class="fname">מהירות האור – הקשר בין λ ל-ν</span>
+<div class="fx">c = λ · ν<span class="sep"></span>ν = <span class="frac"><span>c</span><span>λ</span></span><span class="sep"></span>λ = <span class="frac"><span>c</span><span>ν</span></span></div>
+<dl class="fvars">
+  <div><dt>c</dt><dd>מהירות האור בריק, <span class="u">3.00×10⁸ m/s</span> (במצגת <span class="u">2.997925×10⁸</span>)</dd></div>
+  <div><dt>λ</dt><dd>אורך הגל <span class="u">(m)</span></dd></div>
+  <div><dt>ν</dt><dd>התדירות <span class="u">(Hz = 1/s = s⁻¹)</span></dd></div>
+</dl>
+<p class="fnote">λ ו-ν <b>הפוכים</b>: אם λ גדל פי 3, ν קטנה פי 3. בנוסחה מציבים λ במטרים!</p>
+</div>
+<div class="tbl"><table>
+<caption>המרות אורך שחוזרות בפרק (עוד יחידות ב<a href="#i11">פרק 0.11</a>)</caption>
+<thead><tr><th>יחידה</th><th>במטרים</th><th>איפה פוגשים</th></tr></thead>
+<tbody>
+<tr><td class="f">1 nm</td><td class="f">10⁻⁹ m</td><td>אורכי גל של אור <span class="f">(400–700 nm)</span></td></tr>
+<tr><td class="f">1 Å</td><td class="f">10⁻¹⁰ m</td><td>גודל אטומים וקשרים (1–2 Å), דה-ברויי</td></tr>
+<tr><td class="f">1 pm</td><td class="f">10⁻¹² m</td><td>רדיוסים של אורביטלים</td></tr>
+<tr><td class="f">1 MHz</td><td class="f">10⁶ Hz</td><td>תדירויות רדיו</td></tr>
+</tbody></table></div>
+<div class="ex"><header>דוגמה: מה התדירות של אור ירוק, <span class="li">λ = 530 nm</span>? <small>הרצאה 1 שקף 19</small></header><div class="body">
+<ol class="steps">
+<li><div>ממירים למטרים: <span class="f">530 nm = 530×10⁻⁹ m = 5.30×10⁻⁷ m</span></div></li>
+<li><div><span class="f">ν = c / λ = (3.00×10⁸) / (5.30×10⁻⁷) = 5.66×10¹⁴ s⁻¹</span></div></li>
+</ol>
+<div class="ans">ν = <span class="li">5.66×10¹⁴ Hz</span></div></div></div>
+<div class="ex"><header>דוגמה: תחנת רדיו משדרת ב-<span class="li">98.0 MHz</span>. מה אורך הגל?</header><div class="body">
+<ol class="steps">
+<li><div><span class="f">98.0 MHz = 98.0×10⁶ Hz = 9.80×10⁷ s⁻¹</span></div></li>
+<li><div><span class="f">λ = c / ν = (3.00×10⁸) / (9.80×10⁷) = 3.06 m</span></div></li>
+</ol>
+<div class="ans">λ ≈ <span class="li">3.06 m</span> – גלי רדיו ארוכים בהרבה מגלי אור.</div></div></div>
+<div class="callout trap"><span class="tag">מלכודת: ν או v?</span><p>האות היוונית <b>ν</b> ("נוּ") היא <b>תדירות</b>. האות הלטינית <b>v</b> (או V) היא <b>מהירות</b>. בכתב יד הן כמעט זהות – בשקף 18 של הרצאה 1 כתוב <span class="f">V = λ × ν</span>, כלומר מהירות = אורך גל × תדירות. ראו גם <a href="#i12">פרק 0.12</a>.</p></div>
+<p class="src">הרצאה 1 שקפים 16–19 · תרגול 1 שאלה 4</p>
+</section>
+
+<section class="topic" id="q3">
+<h3><span class="n">3</span>הספקטרום האלקטרומגנטי</h3>
+<p>"אור" הוא רק חלק קטן ממשפחה גדולה של גלים אלקטרומגנטיים. מסדרים אותם לפי אורך הגל – מהקצר (קרני γ) לארוך (רדיו):</p>
+<figure>
+<svg viewBox="0 0 700 310" role="img" aria-label="הספקטרום האלקטרומגנטי: מקרני גמא (אורך גל קצר, תדירות ואנרגיה גבוהות) ועד גלי רדיו (אורך גל ארוך), עם הגדלה של תחום האור הנראה 400 עד 700 ננומטר"><defs><linearGradient id="q3-vis" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#6a2fb8"/><stop offset="0.17" stop-color="#3048e0"/><stop offset="0.3" stop-color="#15a9c9"/><stop offset="0.4" stop-color="#2fbf3a"/><stop offset="0.57" stop-color="#e8e02a"/><stop offset="0.67" stop-color="#f5a020"/><stop offset="0.83" stop-color="#ef3b1f"/><stop offset="1" stop-color="#b31212"/></linearGradient></defs><defs><marker id="q3-k" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="fi" d="M0,0 L10,5 L0,10 z"/></marker><marker id="q3-a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path class="fa" d="M0,0 L10,5 L0,10 z"/></marker><marker id="q3-t" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path class="ft" d="M0,0 L10,5 L0,10 z"/></marker></defs><rect class="z1" x="40.0" y="70" width="72.9" height="50"/><text x="76.5" y="100" text-anchor="middle" class="b" direction="rtl">קרני γ</text><rect class="z2" x="112.9" y="70" width="109.4" height="50"/><text x="167.6" y="100" text-anchor="middle" class="b" direction="rtl">קרני X</text><rect class="z1" x="222.4" y="70" width="58.4" height="50"/><text x="251.6" y="100" text-anchor="middle" class="b">UV</text><rect x="280.8" y="70" width="8.9" height="50" fill="url(#q3-vis)"/><rect class="z1" x="289.6" y="70" width="115.1" height="50"/><text x="347.2" y="100" text-anchor="middle" class="b">IR</text><rect class="z2" x="404.7" y="70" width="109.4" height="50"/><text x="459.4" y="100" text-anchor="middle" class="b" direction="rtl">מיקרוגל</text><rect class="z1" x="514.1" y="70" width="145.9" height="50"/><text x="587.1" y="100" text-anchor="middle" class="b" direction="rtl">רדיו</text><rect x="40" y="70" width="620" height="50" class="ln" style="stroke-width:1"/><line class="ln" style="stroke-width:1" x1="76.5" y1="120" x2="76.5" y2="127"/><text x="76.5" y="143" text-anchor="middle" class="sm">10⁻¹²</text><line class="ln" style="stroke-width:1" x1="185.9" y1="120" x2="185.9" y2="127"/><text x="185.9" y="143" text-anchor="middle" class="sm">10⁻⁹</text><line class="ln" style="stroke-width:1" x1="295.3" y1="120" x2="295.3" y2="127"/><text x="295.3" y="143" text-anchor="middle" class="sm">10⁻⁶</text><line class="ln" style="stroke-width:1" x1="404.7" y1="120" x2="404.7" y2="127"/><text x="404.7" y="143" text-anchor="middle" class="sm">10⁻³</text><line class="ln" style="stroke-width:1" x1="514.1" y1="120" x2="514.1" y2="127"/><text x="514.1" y="143" text-anchor="middle" class="sm">1</text><line class="ln" style="stroke-width:1" x1="623.5" y1="120" x2="623.5" y2="127"/><text x="623.5" y="143" text-anchor="middle" class="sm">10³</text><text x="695" y="143" text-anchor="end" class="sm">λ (m)</text><line class="ln" style="stroke-width:1" x1="93.9" y1="63" x2="93.9" y2="70"/><text x="93.9" y="57" text-anchor="middle" class="sm">10²⁰</text><line class="ln" style="stroke-width:1" x1="239.8" y1="63" x2="239.8" y2="70"/><text x="239.8" y="57" text-anchor="middle" class="sm">10¹⁶</text><line class="ln" style="stroke-width:1" x1="385.6" y1="63" x2="385.6" y2="70"/><text x="385.6" y="57" text-anchor="middle" class="sm">10¹²</text><line class="ln" style="stroke-width:1" x1="531.5" y1="63" x2="531.5" y2="70"/><text x="531.5" y="57" text-anchor="middle" class="sm">10⁸</text><text x="695" y="57" text-anchor="end" class="sm">ν (Hz)</text><line class="ln-ac" x1="330" y1="22" x2="60" y2="22" marker-end="url(#q3-a)"/><text x="560" y="27" text-anchor="start" class="sm" direction="rtl">תדירות ואנרגיה גדלות לכיוון קרני γ</text><line class="ln-d" x1="280.8" y1="122" x2="150" y2="200"/><line class="ln-d" x1="289.6" y1="122" x2="610" y2="200"/><rect x="150" y="200" width="460" height="34" fill="url(#q3-vis)"/><line class="ln" style="stroke-width:1" x1="150.0" y1="234" x2="150.0" y2="241"/><text x="150.0" y="256" text-anchor="middle" class="sm">400</text><line class="ln" style="stroke-width:1" x1="303.3" y1="234" x2="303.3" y2="241"/><text x="303.3" y="256" text-anchor="middle" class="sm">500</text><line class="ln" style="stroke-width:1" x1="456.7" y1="234" x2="456.7" y2="241"/><text x="456.7" y="256" text-anchor="middle" class="sm">600</text><line class="ln" style="stroke-width:1" x1="610.0" y1="234" x2="610.0" y2="241"/><text x="610.0" y="256" text-anchor="middle" class="sm">700</text><text x="640" y="256" text-anchor="start" class="sm">nm</text><text x="165.3" y="278" text-anchor="middle" class="sm" direction="rtl">סגול</text><text x="257.3" y="278" text-anchor="middle" class="sm" direction="rtl">כחול</text><text x="349.3" y="278" text-anchor="middle" class="sm" direction="rtl">ירוק</text><text x="422.9" y="278" text-anchor="middle" class="sm" direction="rtl">צהוב</text><text x="475.1" y="278" text-anchor="middle" class="sm" direction="rtl">כתום</text><text x="571.7" y="278" text-anchor="middle" class="sm" direction="rtl">אדום</text><text x="140" y="222" text-anchor="end" class="b">UV</text><text x="620" y="222" text-anchor="start" class="b">IR</text><text x="380" y="302" text-anchor="middle" class="sm" direction="rtl">האור הנראה הוא פס צר מאוד: בערך 400 עד 700 ננומטר</text></svg>
+<figcaption><b>הספקטרום האלקטרומגנטי.</b> הסרגל התחתון: λ במטרים; העליון: ν בהרץ. שמאלה – גלים קצרים, תדירות גבוהה ואנרגיה גבוהה. האור הנראה הוא פס צר מאוד בין UV ל-IR. <span class="src">הרצאה 1 שקף 20 · הרצאה 2 שקף 5</span></figcaption>
+</figure>
+<div class="tbl"><table>
+<caption>התחומים בסדר עולה של אורך גל (סדר יורד של אנרגיה)</caption>
+<thead><tr><th>תחום</th><th>λ בערך</th><th>מה הוא עושה לחומר</th></tr></thead>
+<tbody>
+<tr><td>קרני γ</td><td class="f">&lt; 10⁻¹¹ m</td><td>אנרגטיות ביותר, מיננות; מתפרקות רדיואקטיביות</td></tr>
+<tr><td>קרני X</td><td class="f">10⁻¹¹–10⁻⁸ m</td><td>עוברות דרך רקמה רכה – צילומי רנטגן</td></tr>
+<tr><td>UV (על-סגול)</td><td class="f">10–400 nm</td><td>מספיק אנרגיה לשבור קשרים – כוויות שמש, נזק ל-DNA</td></tr>
+<tr><td class="hl">אור נראה</td><td class="f">400–700 nm</td><td>סגול (קצר) ← … → אדום (ארוך); מעברים של אלקטרונים</td></tr>
+<tr><td>IR (תת-אדום)</td><td class="f">700 nm – 1 mm</td><td>"קרינת חום"; תנודות של קשרים</td></tr>
+<tr><td>מיקרוגל</td><td class="f">1 mm – 1 m</td><td>מסובב מולקולות מים – מיקרוגל ביתי</td></tr>
+<tr><td>רדיו</td><td class="f">&gt; 1 m</td><td>תקשורת, MRI</td></tr>
+</tbody></table></div>
+<div class="callout must"><span class="tag">חובה לזכור</span><p><b>λ קצר ⇔ ν גבוהה ⇔ E גבוהה.</b> הסדר מהאנרגיה הגבוהה לנמוכה: קרני γ, קרני X, על-סגול, אור נראה, תת-אדום, מיקרוגל, רדיו. בתוך האור הנראה: סגול אנרגטי יותר מאדום.</p></div>
+<div class="callout tip"><span class="tag">טיפ לזכירה</span><p>"על-סגול" (UV) נמצא <b>אחרי הסגול</b> – אורך גל קצר עוד יותר מ-<span class="f">400 nm</span>. "תת-אדום" (IR) נמצא <b>מתחת לאדום</b> – אורך גל ארוך מ-<span class="f">700 nm</span>.</p></div>
+<p class="src">הרצאה 1 שקפים 17, 20 · הרצאה 2 שקף 5</p>
+</section>
+
+<section class="topic" id="q4">
+<h3><span class="n">4</span>ספקטרום רציף וספקטרום פליטה קווי</h3>
+<p>כשאור לבן (אור שמש) עובר דרך מנסרה, הוא מתפצל ל<b>ספקטרום רציף</b> – כל הצבעים, בלי רווחים (כמו בקשת). גם גוף חם מאוד, כמו השמש או חוט של נורת להט, פולט ספקטרום רציף: החלקיקים שבו צפופים ומשפיעים זה על זה, ולכן נפלטים פוטונים בכל טווח האנרגיות.</p>
+<p>אבל כשמחממים <b>גז של יסוד טהור</b> (למשל מימן בשפופרת פריקה) ומעבירים את האור שלו דרך מנסרה, מקבלים רק <b>קווים צבעוניים בודדים</b> על רקע שחור – <b>ספקטרום פליטה אטומי</b>. לכל יסוד יש קווים משלו – "טביעת אצבע". זה גם ההסבר לצבעי הלהבה במבחן להבה: נתרן צהוב, ליתיום אדום, נחושת ירוקה.</p>
+<figure>
+<svg viewBox="0 0 700 270" role="img" aria-label="ספקטרום רציף של גוף חם לעומת ספקטרום הפליטה הקווי של מימן ושל נתרן"><defs><linearGradient id="q4-vis" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#6a2fb8"/><stop offset="0.17" stop-color="#3048e0"/><stop offset="0.3" stop-color="#15a9c9"/><stop offset="0.4" stop-color="#2fbf3a"/><stop offset="0.57" stop-color="#e8e02a"/><stop offset="0.67" stop-color="#f5a020"/><stop offset="0.83" stop-color="#ef3b1f"/><stop offset="1" stop-color="#b31212"/></linearGradient></defs><rect x="150" y="30" width="400" height="40" fill="url(#q4-vis)"/><text x="690" y="48" text-anchor="start" class="b" direction="rtl">ספקטרום רציף</text><text x="690" y="68" text-anchor="start" class="sm" direction="rtl">שמש, נורת להט, גוף חם</text><rect x="150" y="100" width="400" height="40" fill="#0d0d12"/><rect x="161.8" y="100" width="3" height="40" fill="#7a3cc8"/><text x="163.3" y="95" text-anchor="middle" class="sm" style="font-size:11px">410</text><rect x="193.8" y="100" width="3" height="40" fill="#4b4bff"/><text x="195.3" y="95" text-anchor="middle" class="sm" style="font-size:11px">434</text><rect x="263.2" y="100" width="3" height="40" fill="#14a3b8"/><text x="264.7" y="95" text-anchor="middle" class="sm" style="font-size:11px">486</text><rect x="491.2" y="100" width="3" height="40" fill="#e32626"/><text x="492.7" y="95" text-anchor="middle" class="sm" style="font-size:11px">657</text><text x="690" y="118" text-anchor="start" class="b" direction="rtl">ספקטרום פליטה</text><text x="690" y="138" text-anchor="start" class="sm" direction="rtl">מימן – 4 קווים נראים</text><rect x="150" y="170" width="400" height="40" fill="#0d0d12"/><rect x="400.5" y="170" width="3" height="40" fill="#f2c200"/><text x="402.0" y="165" text-anchor="middle" class="sm" style="font-size:11px">589</text><text x="690" y="188" text-anchor="start" class="b" direction="rtl">ספקטרום פליטה</text><text x="690" y="208" text-anchor="start" class="sm" direction="rtl">נתרן – קו צהוב חזק</text><line class="ln" style="stroke-width:1" x1="150" y1="222" x2="550" y2="222"/><line class="ln" style="stroke-width:1" x1="150.0" y1="222" x2="150.0" y2="229"/><text x="150.0" y="244" text-anchor="middle" class="sm">400</text><line class="ln" style="stroke-width:1" x1="283.3" y1="222" x2="283.3" y2="229"/><text x="283.3" y="244" text-anchor="middle" class="sm">500</text><line class="ln" style="stroke-width:1" x1="416.7" y1="222" x2="416.7" y2="229"/><text x="416.7" y="244" text-anchor="middle" class="sm">600</text><line class="ln" style="stroke-width:1" x1="550.0" y1="222" x2="550.0" y2="229"/><text x="550.0" y="244" text-anchor="middle" class="sm">700</text><text x="570" y="244" class="sm">nm</text><text x="75" y="55" text-anchor="middle" class="sm" direction="rtl">כל הצבעים</text><text x="75" y="125" text-anchor="middle" class="sm" direction="rtl">רק קווים</text><text x="75" y="143" text-anchor="middle" class="sm" direction="rtl">בודדים</text><text x="350" y="266" text-anchor="middle" class="sm" direction="rtl">לכל יסוד "טביעת אצבע" משלו – סדרת קווים שאין לאף יסוד אחר</text></svg>
+<figcaption><b>רציף מול קווי.</b> למעלה – כל אורכי הגל. באמצע – ארבעת הקווים הנראים של המימן <span class="f">(410, 434, 486, 657 nm)</span>. למטה – הקו הצהוב של הנתרן. <span class="src">הרצאה 1 שקפים 21–23, 27</span></figcaption>
+</figure>
+<div class="callout must"><span class="tag">השאלה שפתחה את תורת הקוונטים</span><p><b>למה האטום פולט רק אורכי גל מסוימים?</b> כי לאלקטרון באטום מותרות רק <b>רמות אנרגיה מסוימות</b> (בדידות). כל קו בספקטרום הוא פוטון שנפלט כשאלקטרון יורד מרמה לרמה. את החישוב עושים במודל בוהר – <a href="#q8">פרק 8</a> ו<a href="#q9">פרק 9</a>.</p></div>
+<div class="callout note"><span class="tag">הערה על המקור</span><p>בהרצאה הנושא נקרא "ספקטרום פליטה של גוף חם". בספרים הוא נקרא לרוב <b>קרינת גוף שחור</b> – זה אותו רעיון: גוף חם פולט ספקטרום רציף, ופלנק הצליח להסביר את צורתו רק בהנחה שהאנרגיה מגיעה במנות (הפרק הבא).</p></div>
+<p class="src">הרצאה 1 שקפים 21–23, 27</p>
+</section>
+
+<section class="topic" id="q5">
+<h3><span class="n">5</span>פלנק: אנרגיה במנות בדידות (קוונטים)</h3>
+<p>בשנת 1900 הציע מקס פלנק רעיון מהפכני: אנרגיה נפלטת ונבלעת <b>רק במנות בדידות</b> – לא בכל כמות שרוצים. המנה הקטנה ביותר, <span class="f">hν</span>, נקראת <b>קוונטה</b> (quantum = "כמות" בלטינית). ההגבלה לערכים מנותקים ולא רציפים נקראת <b>קוונטיזציה</b>.</p>
+<figure>
+<svg viewBox="0 0 700 290" role="img" aria-label="השוואה בין מדרון רציף, שבו כל גובה אפשרי, לבין מדרגות, שבהן רק כפולות שלמות של h nu אפשריות">
+<text x="175" y="30" text-anchor="middle" class="b" direction="rtl">מודל קלאסי – רציף</text>
+<path class="z1" d="M50,250 L300,250 L300,80 Z"/><path class="ln" d="M50,250 L300,80 L300,250 Z"/>
+<circle class="fa" cx="196" cy="139" r="10"/>
+<text x="175" y="278" text-anchor="middle" direction="rtl">כל ערך אנרגיה אפשרי – גם "באמצע"</text>
+<text x="530" y="30" text-anchor="middle" class="b" direction="rtl">מודל פלנק – בדיד (מקוונטט)</text>
+<path class="z1" d="M390,250 L390,216 L446,216 L446,182 L502,182 L502,148 L558,148 L558,114 L614,114 L614,80 L670,80 L670,250 Z"/>
+<path class="ln" d="M390,250 L390,216 L446,216 L446,182 L502,182 L502,148 L558,148 L558,114 L614,114 L614,80 L670,80 L670,250 Z"/>
+<text x="418" y="240" text-anchor="middle" class="ac">1hν</text><text x="474" y="206" text-anchor="middle" class="ac">2hν</text>
+<text x="530" y="172" text-anchor="middle" class="ac">3hν</text><text x="586" y="138" text-anchor="middle" class="ac">4hν</text><text x="642" y="104" text-anchor="middle" class="ac">5hν</text>
+<circle class="fa" cx="530" cy="137" r="10"/>
+<text x="530" y="278" text-anchor="middle" direction="rtl">רק כפולות שלמות של hν</text>
+</svg>
+<figcaption><b>מדרון מול מדרגות.</b> במדרון הכדור יכול לעצור בכל גובה; במדרגות – רק על מדרגה. כך גם האנרגיה לפי פלנק: <span class="f">hν, 2hν, 3hν…</span> ולעולם לא <span class="f">2.5hν</span>. דוגמאות מחיי היום-יום מהמצגת: מסה של גוש זהב היא כפולה שלמה של מסת אטום זהב אחד, ומטען של גוף הוא כפולה שלמה של מטען האלקטרון <span class="f">e</span> – אף פעם לא <span class="f">0.5e</span>.</figcaption>
+</figure>
+<div class="fcard"><span class="fname">משוואת פלנק – אנרגיה מקוונטטת</span>
+<div class="fx">E = n · h · ν<span class="sep"></span><small>n = 0, 1, 2, 3…</small></div>
+<dl class="fvars">
+  <div><dt>E</dt><dd>האנרגיה שאפשר לפלוט או לבלוע <span class="u">(J)</span></dd></div>
+  <div><dt>n</dt><dd>מספר שלם (כמה מנות)</dd></div>
+  <div><dt>h</dt><dd>קבוע פלנק, <span class="u">6.626×10⁻³⁴ J·s</span> (במצגת <span class="u">6.62607×10⁻³⁴</span>)</dd></div>
+  <div><dt>ν</dt><dd>תדירות המתנד/הקרינה <span class="u">(s⁻¹)</span></dd></div>
+</dl>
+<p class="fnote">כאן n הוא סתם מספר שלם – <b>לא</b> המספר הקוונטי הראשי של בוהר. אותה אות, משמעות אחרת.</p>
+</div>
+<div class="ex"><header>דוגמה: מתנד בתדירות <span class="li">ν = 5.0×10¹³ s⁻¹</span> <small>בסגנון תרגול 1 שאלה 5</small></header><div class="body">
+<p class="q">מהם שלושת ערכי האנרגיה החיוביים הנמוכים ביותר, והאם <span class="f">E = 5.0×10⁻²⁰ J</span> אפשרית?</p>
+<ol class="steps">
+<li><div>המנה הבסיסית: <span class="f">hν = 6.626×10⁻³⁴ × 5.0×10¹³ = 3.31×10⁻²⁰ J</span></div></li>
+<li><div>הערכים המותרים: <span class="f">3.31×10⁻²⁰, 6.63×10⁻²⁰, 9.94×10⁻²⁰ J</span> <span class="f">(n = 1, 2, 3)</span></div></li>
+<li><div>בודקים: <span class="f">5.0×10⁻²⁰ / 3.31×10⁻²⁰ = 1.51</span> – לא מספר שלם.</div></li>
+</ol>
+<div class="ans"><span class="f">5.0×10⁻²⁰ J</span> אינה אפשרית – היא נופלת "בין המדרגות".</div></div></div>
+<p class="src">הרצאה 1 שקפים 24–27 · תרגול 1 שאלה 5</p>
+</section>
+
+<section class="topic" id="q6">
+<h3><span class="n">6</span>הפוטון: <span class="li">E = hν = hc/λ</span></h3>
+<p>ב-1905 הציע איינשטיין שהאור עצמו בנוי מ"חבילות" של אנרגיה – חלקיקים חסרי מסה שנקראים <b>פוטונים</b>. האנרגיה של כל פוטון תלויה רק ב<b>תדירות</b> שלו. אם משלבים את <span class="f">E = hν</span> עם <span class="f">c = λν</span>, מקבלים את הקשר הישיר בין האנרגיה לאורך הגל:</p>
+<div class="fcard"><span class="fname">אנרגיה של פוטון</span>
+<div class="fx">E = h · ν = <span class="frac"><span>h · c</span><span>λ</span></span><span class="sep"></span>λ = <span class="frac"><span>h · c</span><span>E</span></span></div>
+<dl class="fvars">
+  <div><dt>E</dt><dd>אנרגיה של <b>פוטון אחד</b> <span class="u">(J)</span></dd></div>
+  <div><dt>h</dt><dd>קבוע פלנק, <span class="u">6.626×10⁻³⁴ J·s</span></dd></div>
+  <div><dt>ν</dt><dd>תדירות <span class="u">(s⁻¹)</span></dd></div>
+  <div><dt>c</dt><dd>מהירות האור, <span class="u">3.00×10⁸ m/s</span></dd></div>
+  <div><dt>λ</dt><dd>אורך גל <span class="u">(m)</span></dd></div>
+</dl>
+<p class="fnote">שימושי לזכור: <span class="f">h·c = 1.988×10⁻²⁵ J·m</span>. אנרגיה הפוכה ל-λ: אור כחול אנרגטי יותר מאדום.</p>
+</div>
+<figure>
+<svg viewBox="0 0 700 220" role="img" aria-label="מפת המעברים בין אורך גל, תדירות ואנרגיה: c שווה למבדא כפול נו, E שווה h נו, ו-E שווה hc חלקי למבדא">
+<defs><marker id="q6-k" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="fi" d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<rect class="bx" x="40" y="96" width="140" height="64" rx="10"/><text x="110" y="128" text-anchor="middle" class="ac" style="font-size:26px">λ</text><text x="110" y="150" text-anchor="middle" class="sm" direction="rtl">אורך גל (m)</text>
+<rect class="bx" x="280" y="96" width="140" height="64" rx="10"/><text x="350" y="128" text-anchor="middle" class="ac" style="font-size:26px">ν</text><text x="350" y="150" text-anchor="middle" class="sm" direction="rtl">תדירות (s⁻¹)</text>
+<rect class="bx-ac" x="520" y="96" width="140" height="64" rx="10"/><text x="590" y="128" text-anchor="middle" class="ac" style="font-size:26px">E</text><text x="590" y="150" text-anchor="middle" class="sm" direction="rtl">אנרגיה לפוטון (J)</text>
+<line class="ln" x1="186" y1="128" x2="274" y2="128" marker-start="url(#q6-k)" marker-end="url(#q6-k)"/><text x="230" y="118" text-anchor="middle" class="b">c = λν</text>
+<line class="ln" x1="426" y1="128" x2="514" y2="128" marker-start="url(#q6-k)" marker-end="url(#q6-k)"/><text x="470" y="118" text-anchor="middle" class="b">E = hν</text>
+<path class="ln" d="M110,90 C110,30 590,30 590,90" marker-start="url(#q6-k)" marker-end="url(#q6-k)"/><text x="350" y="40" text-anchor="middle" class="b">E = hc / λ</text>
+<text x="110" y="190" text-anchor="middle" class="tr" direction="rtl">להמיר nm למטרים!</text>
+<text x="590" y="190" text-anchor="middle" class="sm" direction="rtl">לפוטון אחד, לא למול</text>
+</svg>
+<figcaption><b>מפת הדרכים.</b> כל שאלה על אור היא מעבר בין שלוש הקופסאות: מ-λ ל-ν דרך c, מ-ν ל-E דרך h, או ישר מ-λ ל-E דרך <span class="f">hc</span>.</figcaption>
+</figure>
+<div class="ex"><header>דוגמה: האנרגיה של פוטון באורך גל <span class="li">500 nm</span> <small>הרצאה 2 שקפים 5, 13</small></header><div class="body">
+<ol class="steps">
+<li><div><span class="f">λ = 500 nm = 5.00×10⁻⁷ m</span></div></li>
+<li><div><span class="f">E = hc/λ = (6.626×10⁻³⁴ × 3.00×10⁸) / (5.00×10⁻⁷)</span></div></li>
+<li><div><span class="f">E = 1.988×10⁻²⁵ / 5.00×10⁻⁷ = 3.98×10⁻¹⁹ J</span></div></li>
+</ol>
+<div class="ans">E = <span class="li">3.98×10⁻¹⁹ J</span> לפוטון אחד</div></div></div>
+<div class="ex"><header>דוגמה הפוכה: פוטון עם <span class="li">E = 3.0×10⁻¹⁹ J</span> – איזה צבע?</header><div class="body">
+<ol class="steps">
+<li><div><span class="f">λ = hc/E = 1.988×10⁻²⁵ / 3.0×10⁻¹⁹ = 6.63×10⁻⁷ m</span></div></li>
+<li><div>ממירים: <span class="f">6.63×10⁻⁷ m = 663 nm</span> – בתחום הנראה, קרוב לקצה הארוך.</div></li>
+</ol>
+<div class="ans">λ ≈ <span class="li">663 nm</span> – אור אדום</div></div></div>
+<div class="callout tip"><span class="tag">למה UV שורף ו-IR רק מחמם?</span><p>כל פוטון פועל לבד. פוטון UV של <span class="f">250 nm</span> נושא <span class="f">7.95×10⁻¹⁹ J</span>; כפול מספר אבוגדרו זה כ-<span class="f">479 kJ/mol</span> – בסדר הגודל של אנרגיות קשר (<a href="#b6">פרק b6</a>), ולכן הוא יכול לשבור קשרים ב-DNA. פוטון IR חלש מדי לזה, לא משנה כמה פוטונים יש.</p></div>
+<div class="callout trap"><span class="tag">מלכודות</span><ul><li>לשכוח להמיר <span class="f">nm → m</span> (טעות של פי <span class="f">10⁹</span>).</li><li>הנוסחה נותנת אנרגיה ל<b>פוטון אחד</b>. אם שואלים על מול פוטונים – כופלים ב-<span class="f">N<sub>A</sub></span>.</li></ul></div>
+<p class="src">הרצאה 2 שקפים 3–5, 13 · הרצאה 1 שקף 16</p>
+</section>
+
+<section class="topic" id="q7">
+<h3><span class="n">7</span>האפקט הפוטואלקטרי</h3>
+<p>מקרינים אור על משטח מתכתי – ולפעמים נפלטים ממנו אלקטרונים. משנים את <b>העוצמה</b> ואת <b>התדירות</b> של האור ומודדים כמה אלקטרונים יוצאים ובאיזו אנרגיה קינטית.</p>
+<figure>
+<svg viewBox="0 0 700 340" role="img" aria-label="מימין גרף של האנרגיה הקינטית של האלקטרונים כפונקציה של התדירות: אפס עד תדירות הסף, ואחריה קו ישר בשיפוע h. משמאל ציור של פוטונים הפוגעים במתכת ואלקטרונים שנפלטים">
+<defs><marker id="q7-k" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="fi" d="M0,0 L10,5 L0,10 z"/></marker><marker id="q7-a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path class="fa" d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<path class="ln-ac" d="M60.0,22.0 L58.1,26.0 L58.6,28.2 L62.1,28.1 L66.8,27.0 L70.1,27.1 L70.3,29.5 L68.2,33.6 L66.5,37.5 L67.3,39.4 L71.0,39.1 L75.7,38.1 L78.7,38.3 L78.6,41.0 L76.5,45.1 L74.9,48.9 L76.0,50.6 L80.0,50.1 L84.6,49.2 L87.3,49.6 L87.0,52.5 L84.7,56.7 L83.3,60.3 L84.8,61.8 L88.9,61.2 L93.5,60.3 L95.9,61.0 L95.3,64.0 L93.0,68.2 L91.8,71.7 L93.6,72.9 L97.8,72.2 L102.3,71.4 L104.4,72.3 L103.6,75.5 L101.3,79.8 L100.3,83.1 L102.4,84.1 L106.8,83.2 L111.1,82.5 L112.9,83.7 L111.8,87.1 L109.6,91.3 L108.9,94.4 L111.2,95.2 L115.7,94.3 L119.9,93.7 L121.4,95.0 L120.1,98.6 L117.9,102.8 L117.4,105.7 L120.1,106.3 L124.7,105.3 L128.7,104.8 L129.9,106.4 L128.3,110.2 L126.2,114.4 L126.0,117.0" transform="translate(-20,-2)" marker-end="url(#q7-a)"/><path class="ln-ac" d="M115.0,22.0 L113.1,26.0 L113.6,28.2 L117.1,28.1 L121.8,27.0 L125.1,27.1 L125.3,29.5 L123.2,33.6 L121.5,37.5 L122.3,39.4 L126.0,39.1 L130.7,38.1 L133.7,38.3 L133.6,41.0 L131.5,45.1 L129.9,48.9 L131.0,50.6 L135.0,50.1 L139.6,49.2 L142.3,49.6 L142.0,52.5 L139.7,56.7 L138.3,60.3 L139.8,61.8 L143.9,61.2 L148.5,60.3 L150.9,61.0 L150.3,64.0 L148.0,68.2 L146.8,71.7 L148.6,72.9 L152.8,72.2 L157.3,71.4 L159.4,72.3 L158.6,75.5 L156.3,79.8 L155.3,83.1 L157.4,84.1 L161.8,83.2 L166.1,82.5 L167.9,83.7 L166.8,87.1 L164.6,91.3 L163.9,94.4 L166.2,95.2 L170.7,94.3 L174.9,93.7 L176.4,95.0 L175.1,98.6 L172.9,102.8 L172.4,105.7 L175.1,106.3 L179.7,105.3 L183.7,104.8 L184.9,106.4 L183.3,110.2 L181.2,114.4 L181.0,117.0" transform="translate(-25,-2)" marker-end="url(#q7-a)"/><path class="ln-ac" d="M170.0,22.0 L168.1,26.0 L168.6,28.2 L172.1,28.1 L176.8,27.0 L180.1,27.1 L180.3,29.5 L178.2,33.6 L176.5,37.5 L177.3,39.4 L181.0,39.1 L185.7,38.1 L188.7,38.3 L188.6,41.0 L186.5,45.1 L184.9,48.9 L186.0,50.6 L190.0,50.1 L194.6,49.2 L197.3,49.6 L197.0,52.5 L194.7,56.7 L193.3,60.3 L194.8,61.8 L198.9,61.2 L203.5,60.3 L205.9,61.0 L205.3,64.0 L203.0,68.2 L201.8,71.7 L203.6,72.9 L207.8,72.2 L212.3,71.4 L214.4,72.3 L213.6,75.5 L211.3,79.8 L210.3,83.1 L212.4,84.1 L216.8,83.2 L221.1,82.5 L222.9,83.7 L221.8,87.1 L219.6,91.3 L218.9,94.4 L221.2,95.2 L225.7,94.3 L229.9,93.7 L231.4,95.0 L230.1,98.6 L227.9,102.8 L227.4,105.7 L230.1,106.3 L234.7,105.3 L238.7,104.8 L239.9,106.4 L238.3,110.2 L236.2,114.4 L236.0,117.0" transform="translate(-30,-2)" marker-end="url(#q7-a)"/>
+<text x="110" y="140" text-anchor="middle" class="ac" direction="rtl">פוטונים (hν)</text>
+<rect class="z2" x="30" y="150" width="290" height="44" rx="4"/>
+<g><circle class="bx" cx="60" cy="172" r="9"/><circle class="bx" cx="110" cy="176" r="9"/><circle class="bx" cx="170" cy="170" r="9"/><circle class="bx" cx="290" cy="174" r="9"/></g>
+<text x="60" y="177" text-anchor="middle" class="b">−</text><text x="110" y="181" text-anchor="middle" class="b">−</text><text x="170" y="175" text-anchor="middle" class="b">−</text><text x="290" y="179" text-anchor="middle" class="b">−</text>
+<line class="ln" x1="226" y1="160" x2="246" y2="98" marker-end="url(#q7-k)"/><line class="ln" x1="252" y1="160" x2="296" y2="82" marker-end="url(#q7-k)"/>
+<circle class="bx-ac" cx="250" cy="84" r="9"/><text x="250" y="89" text-anchor="middle" class="b">−</text>
+<circle class="bx-ac" cx="302" cy="70" r="9"/><text x="302" y="75" text-anchor="middle" class="b">−</text>
+<text x="320" y="40" text-anchor="start" class="b" direction="rtl">אלקטרונים נפלטים</text>
+<text x="320" y="58" text-anchor="start" class="sm" direction="rtl">עם אנרגיה קינטית</text>
+<text x="175" y="220" text-anchor="middle" class="b" direction="rtl">משטח מתכת</text>
+<text x="175" y="240" text-anchor="middle" class="sm" direction="rtl">כדי לשחרר אלקטרון צריך לפחות E₀</text>
+<line class="ln" x1="420" y1="250" x2="680" y2="250" marker-end="url(#q7-k)"/>
+<line class="ln" x1="420" y1="330" x2="420" y2="36" marker-end="url(#q7-k)"/>
+<text x="688" y="255" class="b">ν</text>
+<text x="428" y="40" class="b">E<tspan dy="4" style="font-size:11px">kin</tspan></text>
+<line class="ln" x1="420" y1="250" x2="500" y2="250" style="stroke:var(--trap);stroke-width:5"/>
+<text x="460" y="236" text-anchor="middle" class="tr" direction="rtl" style="font-size:12px">אין פליטה</text>
+<line class="ln-ac" x1="500" y1="250" x2="670" y2="90"/>
+<line class="ln-d" x1="500" y1="250" x2="420" y2="325"/>
+<circle class="fa" cx="500" cy="250" r="5"/><text x="500" y="272" text-anchor="middle" class="ac">ν₀</text>
+<text x="410" y="329" text-anchor="end" class="ac">−E₀</text>
+<text x="610" y="190" text-anchor="middle" class="b" direction="rtl">שיפוע = h</text>
+<text x="550" y="300" text-anchor="middle" class="sm" direction="rtl">ν₀ = תדירות הסף של המתכת</text>
+<text x="550" y="22" text-anchor="middle" class="b" direction="rtl">האנרגיה הקינטית לפי התדירות</text>
+</svg>
+<figcaption><b>משמאל:</b> כל פוטון מוסר את <b>כל</b> האנרגיה שלו לאלקטרון אחד. <b>מימין:</b> מתחת לתדירות הסף <span class="f">ν₀</span> אין פליטה בכלל; מעליה – האנרגיה הקינטית עולה בקו ישר, בשיפוע h. אם ממשיכים את הקו לאחור, הוא חותך את הציר האנכי ב-<span class="f">−E₀</span>. <span class="src">הרצאה 2 שקף 2</span></figcaption>
+</figure>
+<div class="tbl"><table>
+<caption>מה ציפו (גל קלאסי) ומה נמדד בפועל</caption>
+<thead><tr><th>משנים…</th><th>הפיזיקה הקלאסית ציפתה</th><th>בפועל נמדד</th></tr></thead>
+<tbody>
+<tr><td>עוצמת האור ↑</td><td>אלקטרונים מהירים יותר</td><td class="hl">יותר אלקטרונים (זרם גדול יותר), באותה אנרגיה קינטית</td></tr>
+<tr><td>תדירות האור ↑</td><td>אין השפעה מיוחדת</td><td class="hl">אנרגיה קינטית גבוהה יותר לכל אלקטרון</td></tr>
+<tr><td>תדירות נמוכה מ-<span class="f">ν₀</span></td><td>מספיק להאיר חזק וזמן רב</td><td class="hl">אין פליטה בכלל, בשום עוצמה</td></tr>
+</tbody></table></div>
+<p>ההסבר של איינשטיין: האור בנוי מפוטונים, ופוטון אחד פוגע באלקטרון אחד. האנרגיה של הפוטון מתחלקת לשני חלקים – "דמי יציאה" מהמתכת (<span class="f">E₀</span>), והשאר הופך לאנרגיה קינטית:</p>
+<div class="fcard"><span class="fname">האפקט הפוטואלקטרי – מאזן אנרגיה</span>
+<div class="fx">E<sub>photon</sub> = E<sub>kin</sub> + E<sub>0</sub><span class="sep"></span>E<sub>kin</sub> = hν − hν<sub>0</sub></div>
+<dl class="fvars">
+  <div><dt>E<sub>photon</sub></dt><dd>אנרגיית הפוטון, <span class="u">hν = hc/λ</span></dd></div>
+  <div><dt>E<sub>kin</sub></dt><dd>האנרגיה הקינטית (המקסימלית) של האלקטרון שנפלט <span class="u">(J)</span></dd></div>
+  <div><dt>E<sub>0</sub></dt><dd>אנרגיית הסף (פונקציית העבודה) – תכונה של המתכת <span class="u">(J)</span></dd></div>
+  <div><dt>ν<sub>0</sub></dt><dd>תדירות הסף של המתכת <span class="u">(s⁻¹)</span></dd></div>
+</dl>
+<p class="fnote">אם <span class="f">hν &lt; E₀</span> – אין פליטה (לא מקבלים <span class="f">E<sub>kin</sub></span> שלילית!).</p>
+</div>
+<div class="fcard"><span class="fname">אנרגיית הסף ואנרגיה קינטית</span>
+<div class="fx">E<sub>0</sub> = hν<sub>0</sub> = <span class="frac"><span>h · c</span><span>λ<sub>0</sub></span></span><span class="sep"></span>E<sub>kin</sub> = <span class="frac"><span>1</span><span>2</span></span> m<sub>e</sub>v²</div>
+<dl class="fvars">
+  <div><dt>λ<sub>0</sub></dt><dd>אורך גל הסף – <b>המקסימלי</b> שעוד גורם לפליטה <span class="u">(m)</span></dd></div>
+  <div><dt>m<sub>e</sub></dt><dd>מסת האלקטרון, <span class="u">9.109×10⁻³¹ kg</span></dd></div>
+  <div><dt>v</dt><dd>מהירות האלקטרון שנפלט <span class="u">(m/s)</span></dd></div>
+</dl>
+<p class="fnote">שימו לב לכיוון: פליטה מתרחשת כש-<span class="f">ν &gt; ν₀</span>, כלומר כש-<span class="f">λ &lt; λ₀</span>.</p>
+</div>
+<div class="ex"><header>שאלה 3 במבחן לדוגמה <small>מבחן לדוגמה שאלה 3</small></header><div class="body">
+<p class="q">אנרגיית הסף של מתכת היא <span class="f">E₀ = 6.3×10⁻¹⁹ J</span> (בגרסה השנייה של המבחן נתונה תדירות הסף <span class="f">ν₀ = 9.51×10¹⁴ Hz</span>). מקרינים פוטונים באורך גל <span class="f">250 nm</span>. מה יקרה?</p>
+<ol class="steps">
+<li><div>אנרגיית הפוטון: <span class="f">E = hc/λ = 1.988×10⁻²⁵ / 2.50×10⁻⁷ = 7.95×10⁻¹⁹ J</span></div></li>
+<li><div>(בגרסה עם <span class="f">ν₀</span>: <span class="f">E₀ = hν₀ = 6.626×10⁻³⁴ × 9.51×10¹⁴ = 6.30×10⁻¹⁹ J</span> – אותו מספר.)</div></li>
+<li><div>משווים: <span class="f">7.95×10⁻¹⁹ &gt; 6.30×10⁻¹⁹</span>, ולכן תהיה פליטה.</div></li>
+<li><div><span class="f">E<sub>kin</sub> = 7.95×10⁻¹⁹ − 6.30×10⁻¹⁹ = 1.65×10⁻¹⁹ J</span></div></li>
+</ol>
+<div class="ans">יפלטו אלקטרונים עם אנרגיה קינטית מקסימלית של <span class="li">1.65×10⁻¹⁹ J</span>.</div>
+<p>המסיחים: "כמות הפוטונים לא מספיקה" – עוצמה לא קובעת אם תהיה פליטה. <span class="f">1.42×10⁻¹⁸ J</span> – חיברו במקום לחסר <span class="f">(7.95 + 6.3 = 14.2)</span>. "פליטה בלי אנרגיה קינטית" – רק כש-<span class="f">E = E₀</span> בדיוק.</p></div></div>
+<div class="ex"><header>המשך: אותה מתכת, אור כחול של <span class="li">400 nm</span></header><div class="body">
+<ol class="steps">
+<li><div><span class="f">E = 1.988×10⁻²⁵ / 4.00×10⁻⁷ = 4.97×10⁻¹⁹ J</span> – קטן מ-<span class="f">E₀ = 6.30×10⁻¹⁹ J</span>.</div></li>
+<li><div>אורך גל הסף: <span class="f">λ₀ = hc/E₀ = 1.988×10⁻²⁵ / 6.30×10⁻¹⁹ = 3.16×10⁻⁷ m = 316 nm</span></div></li>
+</ol>
+<div class="ans">אין פליטה – גם באור חזק מאוד. כדי לשחרר אלקטרונים צריך <span class="li">λ &lt; 316 nm</span> (תחום ה-UV).</div></div></div>
+<div class="callout trap"><span class="tag">מלכודות</span><ul><li>"יותר אור" = יותר <b>פוטונים</b>, לא פוטונים <b>חזקים</b> יותר. עוצמה משנה רק את <b>מספר</b> האלקטרונים.</li><li>λ ארוך יותר מ-<span class="f">λ₀</span> – אין פליטה. אל תתבלבלו בכיוון: התנאי על λ הפוך מהתנאי על ν.</li></ul></div>
+<p class="src">הרצאה 2 שקפים 2–4 · מבחן לדוגמה שאלה 3</p>
+</section>
+
+<section class="topic" id="q8">
+<h3><span class="n">8</span>מודל בוהר: רמות האנרגיה של המימן</h3>
+<p>ב-1913 הציע נילס בוהר שהאלקטרון במימן נע רק ב<b>מסלולים מסוימים</b> סביב הגרעין, ולכל מסלול <b>אנרגיה קבועה</b>. מסלול קרוב לגרעין = אנרגיה נמוכה; מסלול רחוק = אנרגיה גבוהה. המסלולים ממוספרים <span class="f">n = 1, 2, 3…</span>: הרמה <span class="f">n = 1</span> היא <b>מצב היסוד</b>, והרמות שמעליה הן <b>מצבים מעוררים</b>.</p>
+<figure>
+<svg viewBox="0 0 700 420" role="img" aria-label="רמות האנרגיה של אטום המימן לפי בוהר, בקנה מידה: הרמות מתקרבות זו לזו ככל ש-n עולה, ואנרגיית היינון היא המרחק מ-n=1 עד אינסוף"><defs><marker id="q8-k" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="fi" d="M0,0 L10,5 L0,10 z"/></marker><marker id="q8-a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path class="fa" d="M0,0 L10,5 L0,10 z"/></marker><marker id="q8-t" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path class="ft" d="M0,0 L10,5 L0,10 z"/></marker></defs><line class="ln-d" x1="150" y1="52" x2="470" y2="52"/><text x="140" y="57" text-anchor="end" class="b">n = ∞</text><text x="480" y="57" class="sm">E<tspan dy="4" style="font-size:10px">∞</tspan><tspan dy="-4"> = 0</tspan></text><text x="690" y="57" text-anchor="start" class="sm" direction="rtl">אלקטרון חופשי</text><line class="ln-ac" x1="150" y1="382.0" x2="470" y2="382.0"/><text x="140" y="387.0" text-anchor="end" class="b">n = 1</text><text x="480" y="387.0" class="sm">E<tspan dy="4" style="font-size:10px">1</tspan><tspan dy="-4"> = −2.18×10⁻¹⁸ J</tspan></text><line class="ln" x1="150" y1="134.5" x2="470" y2="134.5"/><text x="140" y="139.5" text-anchor="end" class="b">n = 2</text><text x="480" y="139.5" class="sm">E<tspan dy="4" style="font-size:10px">2</tspan><tspan dy="-4"> = −5.45×10⁻¹⁹ J</tspan></text><line class="ln" x1="150" y1="88.7" x2="470" y2="88.7"/><text x="140" y="93.7" text-anchor="end" class="b">n = 3</text><text x="480" y="93.7" class="sm">E<tspan dy="4" style="font-size:10px">3</tspan><tspan dy="-4"> = −2.42×10⁻¹⁹ J</tspan></text><line class="ln" x1="150" y1="72.6" x2="470" y2="72.6"/><text x="140" y="77.6" text-anchor="end" class="b">n = 4</text><text x="480" y="77.6" class="sm">E<tspan dy="4" style="font-size:10px">4</tspan><tspan dy="-4"> = −1.36×10⁻¹⁹ J</tspan></text><line class="ln" x1="150" y1="65.2" x2="470" y2="65.2"/><line class="ln" x1="150" y1="61.2" x2="470" y2="61.2"/><line class="ln" x1="200" y1="379.0" x2="200" y2="56" marker-end="url(#q8-k)"/><text x="330" y="236" text-anchor="middle" direction="rtl" class="b">אנרגיית יינון מ-n=1</text><text x="330" y="258" text-anchor="middle" class="ac">E<tspan dy="4" style="font-size:10px">I</tspan><tspan dy="-4"> = +2.18×10⁻¹⁸ J</tspan></text><text x="470" y="408.0" text-anchor="start" class="sm" direction="rtl">מצב היסוד – האלקטרון הכי קשור והכי קרוב לגרעין</text><text x="470" y="154.5" text-anchor="start" class="sm" direction="rtl">מצבים מעוררים</text><line class="ln" x1="40" y1="392.0" x2="40" y2="32" marker-end="url(#q8-k)"/><text x="28" y="230" text-anchor="middle" class="sm" direction="rtl" transform="rotate(-90 28 230)">אנרגיה עולה (פחות שלילית)</text></svg>
+<figcaption><b>רמות האנרגיה של המימן, בקנה מידה.</b> ככל ש-n עולה, הרמות מתקרבות זו לזו ונצמדות ל-<span class="f">E = 0</span>. הקווים הצפופים מתחת לאינסוף הם <span class="f">n = 5, 6…</span>. החץ הוא אנרגיית היינון ממצב היסוד. <span class="src">הרצאה 2 שקפים 9–10</span></figcaption>
+</figure>
+<div class="fcard"><span class="fname">אנרגיית רמה n במודל בוהר</span>
+<div class="fx">E<sub>n</sub> = −R<sub>H</sub> · Z² · <span class="frac"><span>1</span><span>n²</span></span></div>
+<dl class="fvars">
+  <div><dt>E<sub>n</sub></dt><dd>אנרגיית האלקטרון ברמה n <span class="u">(J)</span></dd></div>
+  <div><dt>R<sub>H</sub></dt><dd>קבוע רידברג (באנרגיה), <span class="u">2.179×10⁻¹⁸ J</span> (≈ <span class="u">2.18×10⁻¹⁸</span>)</dd></div>
+  <div><dt>Z</dt><dd>המספר האטומי (מטען הגרעין)</dd></div>
+  <div><dt>n</dt><dd>מספר הרמה: <span class="u">1, 2, 3, …</span></dd></div>
+</dl>
+<p class="fnote">תקף רק ל<b>חלקיק עם אלקטרון אחד</b>: <span class="f">H (Z = 1)</span>, <span class="f">He⁺ (Z = 2)</span>, <span class="f">Li²⁺ (Z = 3)</span>…</p>
+</div>
+<div class="callout must"><span class="tag">למה האנרגיה שלילית?</span><p>האפס מוגדר כאלקטרון <b>חופשי</b>, רחוק מאוד מהגרעין <span class="f">(n = ∞)</span>. אלקטרון קשור "חייב" אנרגיה – צריך להשקיע אנרגיה כדי לשחרר אותו. לכן כל הרמות שליליות, והרמה הכי שלילית <span class="f">(n = 1)</span> היא הכי יציבה. הסימן לא אומר "אנרגיה שלילית" במובן מוחלט – הוא נובע מבחירת נקודת האפס.</p></div>
+<div class="tbl"><table>
+<caption>רמות האנרגיה של אטום מימן <span class="li">(Z = 1)</span></caption>
+<thead><tr><th>n</th><th>חישוב</th><th>E<sub>n</sub> (J)</th></tr></thead>
+<tbody>
+<tr><td class="f">1</td><td class="f">−2.179×10⁻¹⁸ / 1</td><td class="hl f">−2.18×10⁻¹⁸</td></tr>
+<tr><td class="f">2</td><td class="f">−2.179×10⁻¹⁸ / 4</td><td class="f">−5.45×10⁻¹⁹</td></tr>
+<tr><td class="f">3</td><td class="f">−2.179×10⁻¹⁸ / 9</td><td class="f">−2.42×10⁻¹⁹</td></tr>
+<tr><td class="f">4</td><td class="f">−2.179×10⁻¹⁸ / 16</td><td class="f">−1.36×10⁻¹⁹</td></tr>
+<tr><td class="f">5</td><td class="f">−2.179×10⁻¹⁸ / 25</td><td class="f">−8.72×10⁻²⁰</td></tr>
+<tr><td class="f">∞</td><td class="f">—</td><td class="f">0</td></tr>
+</tbody></table></div>
+<h4>אנרגיית יינון</h4>
+<p><b>יינון</b> = הוצאת האלקטרון לגמרי מהאטום, כלומר מעבר מהרמה <span class="f">n<sub>i</sub></span> לרמה <span class="f">n = ∞</span>. האנרגיה שצריך להשקיע שווה לערך המוחלט של אנרגיית הרמה:</p>
+<div class="fcard"><span class="fname">אנרגיית יינון מרמה n<sub>i</sub></span>
+<div class="fx">E<sub>I</sub> = E<sub>∞</sub> − E<sub>i</sub> = R<sub>H</sub> · Z² · <span class="frac"><span>1</span><span>n<sub>i</sub>²</span></span></div>
+<dl class="fvars">
+  <div><dt>E<sub>I</sub></dt><dd>האנרגיה שצריך להשקיע (חיובית) <span class="u">(J)</span></dd></div>
+  <div><dt>n<sub>i</sub></dt><dd>הרמה שבה נמצא האלקטרון לפני היינון</dd></div>
+</dl>
+<p class="fnote">ממצב היסוד של מימן: <span class="f">E<sub>I</sub> = 2.18×10⁻¹⁸ J</span> לאטום. מרמה 2 צריך רק רבע מזה.</p>
+</div>
+<div class="ex"><header>דוגמה: היון <span class="f">He⁺</span> <small>הרצאה 2 שקפים 9, 11</small></header><div class="body">
+<p class="q">ל-<span class="f">He⁺</span> יש אלקטרון אחד ו-<span class="f">Z = 2</span>. מה אנרגיית מצב היסוד ומה אנרגיית היינון שלו?</p>
+<ol class="steps">
+<li><div><span class="f">E₁ = −2.179×10⁻¹⁸ × 2² / 1² = −8.72×10⁻¹⁸ J</span></div></li>
+<li><div><span class="f">E<sub>I</sub> = +8.72×10⁻¹⁸ J</span> – פי 4 ממימן.</div></li>
+</ol>
+<div class="ans">מטען גרעין כפול מושך את האלקטרון חזק יותר: כל הרמות עמוקות פי <span class="li">Z² = 4</span>.</div></div></div>
+<div class="callout trap"><span class="tag">מלכודת</span><p>אטום הליום ניטרלי (He, שני אלקטרונים) <b>אינו</b> דמוי מימן – אי אפשר להציב בו <span class="f">Z = 2</span> בנוסחה. הנוסחה של בוהר עובדת רק כשיש אלקטרון אחד.</p></div>
+<p class="src">הרצאה 2 שקפים 6, 9–11</p>
+</section>
+
+<section class="topic" id="q9">
+<h3><span class="n">9</span>מעברים בין רמות: בליעה, פליטה ואורך הגל</h3>
+<p>אלקטרון יכול לעבור רק בין רמות מותרות. כדי לעלות הוא חייב <b>לבלוע</b> פוטון שהאנרגיה שלו שווה <b>בדיוק</b> להפרש בין הרמות; כשהוא יורד, הוא <b>פולט</b> פוטון כזה. זה ההסבר לקווים בספקטרום הפליטה (<a href="#q4">פרק 4</a>): כל קו = מעבר אחד.</p>
+<div class="fcard"><span class="fname">הפרש האנרגיה במעבר</span>
+<div class="fx">ΔE = E<sub>f</sub> − E<sub>i</sub> = R<sub>H</sub> · Z² · <span class="hl">(</span><span class="frac"><span>1</span><span>n<sub>i</sub>²</span></span> − <span class="frac"><span>1</span><span>n<sub>f</sub>²</span></span><span class="hl">)</span></div>
+<dl class="fvars">
+  <div><dt>n<sub>i</sub></dt><dd>הרמה ההתחלתית</dd></div>
+  <div><dt>n<sub>f</sub></dt><dd>הרמה הסופית</dd></div>
+  <div><dt>ΔE &gt; 0</dt><dd>בליעה (האלקטרון עולה)</dd></div>
+  <div><dt>ΔE &lt; 0</dt><dd>פליטה (האלקטרון יורד)</dd></div>
+</dl>
+<p class="fnote">הסימון של המרצה: קליטת אנרגיה בסימן <b>+</b>, פליטה בסימן <b>−</b>.</p>
+</div>
+<div class="fcard"><span class="fname">אורך הגל של הפוטון במעבר</span>
+<div class="fx">|ΔE| = h · ν = <span class="frac"><span>h · c</span><span>λ</span></span><span class="sep"></span>λ = <span class="frac"><span>h · c</span><span>|ΔE|</span></span></div>
+<dl class="fvars">
+  <div><dt>|ΔE|</dt><dd>הערך המוחלט של הפרש האנרגיה <span class="u">(J)</span></dd></div>
+  <div><dt>λ</dt><dd>אורך הגל של הפוטון שנבלע/נפלט <span class="u">(m)</span></dd></div>
+</dl>
+<p class="fnote">אורך גל תמיד חיובי – מציבים את <span class="f">|ΔE|</span>, בלי הסימן.</p>
+</div>
+<figure>
+<svg viewBox="0 0 700 470" role="img" aria-label="מעברים באטום המימן: חצים כלפי מטה לרמה 1 (סדרת לימן, UV), לרמה 2 (סדרת באלמר, אור נראה) ולרמה 3 (סדרת פשן, IR), וחץ כלפי מעלה של בליעה מ-n=2 ל-n=5"><defs><marker id="q9-k" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="fi" d="M0,0 L10,5 L0,10 z"/></marker><marker id="q9-a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path class="fa" d="M0,0 L10,5 L0,10 z"/></marker><marker id="q9-t" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path class="ft" d="M0,0 L10,5 L0,10 z"/></marker></defs><line class="ln-d" x1="70" y1="70" x2="650" y2="70"/><text x="60" y="75" text-anchor="end" class="sm">∞</text><line class="ln" x1="70" y1="400" x2="650" y2="400"/><text x="60" y="405" text-anchor="end" class="b">n=1</text><line class="ln" x1="70" y1="270" x2="650" y2="270"/><text x="60" y="275" text-anchor="end" class="b">n=2</text><line class="ln" x1="70" y1="195" x2="650" y2="195"/><text x="60" y="200" text-anchor="end" class="b">n=3</text><line class="ln" x1="70" y1="152" x2="650" y2="152"/><text x="60" y="157" text-anchor="end" class="b">n=4</text><line class="ln" x1="70" y1="124" x2="650" y2="124"/><text x="60" y="129" text-anchor="end" class="b">n=5</text><line class="ln" x1="70" y1="106" x2="650" y2="106"/><text x="60" y="111" text-anchor="end" class="b">n=6</text><line class="ln" x1="100" y1="270" x2="100" y2="397" marker-end="url(#q9-k)"/><line class="ln" x1="122" y1="195" x2="122" y2="397" marker-end="url(#q9-k)"/><line class="ln" x1="144" y1="152" x2="144" y2="397" marker-end="url(#q9-k)"/><line class="ln" x1="166" y1="124" x2="166" y2="397" marker-end="url(#q9-k)"/><text x="133" y="440" text-anchor="middle" class="b" direction="rtl">לימן (אל n=1)</text><text x="133" y="460" text-anchor="middle" class="sm">UV</text><line x1="250" y1="195" x2="250" y2="266" style="stroke:#e32626;stroke-width:3" marker-end="url(#q9-k)"/><text x="250" y="288" text-anchor="middle" class="sm" style="font-size:11px">657</text><line x1="284" y1="152" x2="284" y2="266" style="stroke:#14a3b8;stroke-width:3" marker-end="url(#q9-k)"/><text x="284" y="288" text-anchor="middle" class="sm" style="font-size:11px">486</text><line x1="318" y1="124" x2="318" y2="266" style="stroke:#4b4bff;stroke-width:3" marker-end="url(#q9-k)"/><text x="318" y="288" text-anchor="middle" class="sm" style="font-size:11px">434</text><line x1="352" y1="106" x2="352" y2="266" style="stroke:#7a3cc8;stroke-width:3" marker-end="url(#q9-k)"/><text x="352" y="288" text-anchor="middle" class="sm" style="font-size:11px">410</text><text x="301" y="304" text-anchor="middle" class="sm">nm</text><text x="301" y="440" text-anchor="middle" class="b" direction="rtl">באלמר (אל n=2)</text><text x="301" y="460" text-anchor="middle" class="sm" direction="rtl">אור נראה</text><line class="ln-d" x1="430" y1="152" x2="430" y2="192" marker-end="url(#q9-k)"/><line class="ln-d" x1="452" y1="124" x2="452" y2="192" marker-end="url(#q9-k)"/><line class="ln-d" x1="474" y1="106" x2="474" y2="192" marker-end="url(#q9-k)"/><text x="452" y="440" text-anchor="middle" class="b" direction="rtl">פשן (אל n=3)</text><text x="452" y="460" text-anchor="middle" class="sm">IR</text><line class="ln-ac" x1="580" y1="270" x2="580" y2="128" marker-end="url(#q9-a)"/><path class="ln-ac" d="M70.0,250.0 L68.6,254.2 L69.4,256.3 L72.8,255.7 L77.4,254.1 L80.6,253.7 L81.2,255.9 L79.8,260.2 L78.5,264.3 L79.5,266.2 L83.0,265.5 L87.6,263.9 L90.7,263.6 L91.1,266.1 L89.6,270.4 L88.4,274.5 L89.6,276.2 L93.3,275.3 L97.7,273.7 L100.7,273.6 L100.9,276.3 L99.3,280.7 L98.3,284.6 L99.6,286.1 L103.5,285.1 L107.9,283.5 L110.7,283.6 L110.7,286.4 L109.1,290.9 L108.2,294.7 L109.8,296.0 L113.7,294.9 L118.1,293.3 L120.7,293.6 L120.5,296.6 L118.9,301.1 L118.1,304.8 L119.9,305.8 L123.9,304.6 L128.3,303.2 L130.6,303.6 L130.3,306.8 L128.7,311.3 L128.0,314.8 L130.0,315.7 L134.1,314.4 L138.4,313.0 L140.6,313.7 L140.1,317.0 L138.5,321.5 L138.0,324.9 L140.1,325.6 L144.4,324.2 L148.6,322.9 L150.6,323.7 L149.9,327.2 L148.3,331.7" transform="translate(425,-62)"/><text x="600" y="215" text-anchor="start" class="ac">434 nm</text><text x="600" y="440" text-anchor="middle" class="ac" direction="rtl">בליעה מ-2 ל-5</text><text x="600" y="460" text-anchor="middle" class="sm" direction="rtl">פוטון נכנס</text><text x="360" y="40" text-anchor="middle" class="sm" direction="rtl">חץ כלפי מטה = פליטה (פוטון יוצא) · חץ כלפי מעלה = בליעה (פוטון נבלע) · הציור לא בקנה מידה</text></svg>
+<figcaption><b>מעברים באטום המימן.</b> כל חץ כלפי מטה הוא קו בספקטרום הפליטה. הסדרה נקבעת לפי <b>הרמה הסופית</b>: ירידה ל-<span class="f">n = 1</span> משחררת הרבה אנרגיה (UV, סדרת לימן); ירידה ל-<span class="f">n = 2</span> נותנת את ארבעת הקווים הנראים (סדרת באלמר); ירידה ל-<span class="f">n = 3</span> – IR (סדרת פשן). החץ מימין הוא בליעה מ-2 ל-5 – שאלה 14 במבחן לדוגמה. <span class="src">הרצאה 2 שקפים 7–10</span></figcaption>
+</figure>
+<div class="compare">
+<div><h5>בליעה (absorption)</h5><ul><li>האלקטרון <b>עולה</b>: <span class="f">n<sub>f</sub> &gt; n<sub>i</sub></span></li><li><span class="f">ΔE &gt; 0</span> – האטום קולט אנרגיה</li><li>פוטון <b>נבלע</b> (נעלם)</li></ul></div>
+<div><h5>פליטה (emission)</h5><ul><li>האלקטרון <b>יורד</b>: <span class="f">n<sub>f</sub> &lt; n<sub>i</sub></span></li><li><span class="f">ΔE &lt; 0</span> – האטום מאבד אנרגיה</li><li>פוטון <b>נפלט</b> – קו בספקטרום</li></ul></div>
+</div>
+<div class="tbl"><table>
+<caption>סדרות הקווים של המימן (חישוב עם הקבועים של הקורס; לימן ובאלמר מופיעות בשקף 9 של הרצאה 2, פשן – השלמה סטנדרטית)</caption>
+<thead><tr><th>סדרה</th><th>רמה סופית</th><th>תחום</th><th>דוגמאות</th></tr></thead>
+<tbody>
+<tr><td>לימן</td><td class="f">n<sub>f</sub> = 1</td><td>UV</td><td><span class="f">2 → 1: 122 nm</span></td></tr>
+<tr><td>באלמר</td><td class="f">n<sub>f</sub> = 2</td><td>אור נראה</td><td><span class="f">3 → 2: 657 nm</span> (אדום) · <span class="f">4 → 2: 486 nm</span> · <span class="f">5 → 2: 434 nm</span> · <span class="f">6 → 2: 410 nm</span></td></tr>
+<tr><td>פשן</td><td class="f">n<sub>f</sub> = 3</td><td>IR</td><td><span class="f">4 → 3: 1877 nm</span></td></tr>
+</tbody></table></div>
+<div class="ex"><header>שאלה 14 במבחן לדוגמה: מימן, <span class="li">n = 2 → n = 5</span> <small>מבחן לדוגמה שאלה 14</small></header><div class="body">
+<p class="q">א. האם נפלט או נבלע פוטון? ב. חשבו את אורך הגל בננומטר.</p>
+<ol class="steps">
+<li><div><b>א.</b> האלקטרון עובר מרמה נמוכה (2) לגבוהה (5) – הוא צריך לקבל אנרגיה, ולכן <b>נבלע</b> פוטון.</div></li>
+<li><div><span class="f">ΔE = 2.179×10⁻¹⁸ × 1² × (1/2² − 1/5²)</span></div></li>
+<li><div><span class="f">ΔE = 2.179×10⁻¹⁸ × (0.2500 − 0.0400) = 2.179×10⁻¹⁸ × 0.2100 = 4.58×10⁻¹⁹ J</span> (חיובי – בליעה ✓)</div></li>
+<li><div><span class="f">λ = hc/ΔE = 1.988×10⁻²⁵ / 4.576×10⁻¹⁹ = 4.34×10⁻⁷ m</span></div></li>
+<li><div>ממירים: <span class="f">4.34×10⁻⁷ m × 10⁹ nm/m = 434 nm</span></div></li>
+</ol>
+<div class="ans">פוטון <b>נבלע</b>, <span class="li">λ = 434 nm</span> (אור כחול-סגול – אחד מקווי באלמר).</div></div></div>
+<div class="ex"><header>שאלה 2 במבחן לדוגמה: איזה מעבר דורש הכי הרבה אנרגיה? <small>מבחן לדוגמה שאלה 2</small></header><div class="body">
+<p class="q">א. H מ-1 ל-2 · ב. <span class="f">He⁺</span> מ-2 ל-3 · ג. H מ-2 ל-3 · ד. <span class="f">He⁺</span> מ-1 ל-2 · ה. כולם שווים</p>
+<ol class="steps">
+<li><div>מחשבים <span class="f">Z² × (1/n<sub>i</sub>² − 1/n<sub>f</sub>²)</span> לכל אחד: א. <span class="f">1 × 0.750 = 0.750</span> · ב. <span class="f">4 × 0.139 = 0.556</span> · ג. <span class="f">1 × 0.139 = 0.139</span> · ד. <span class="f">4 × 0.750 = 3.00</span></div></li>
+<li><div>כופלים ב-<span class="f">R<sub>H</sub></span> רק אם רוצים מספרים – הסדר כבר ברור.</div></li>
+</ol>
+<figure style="margin:.6rem 0">
+<svg viewBox="0 0 700 250" role="img" aria-label="השוואת האנרגיה הדרושה בארבעת המעברים של שאלה 2 במבחן לדוגמה: המעבר 1 ל-2 ביון He+ דורש פי 4 מאותו מעבר במימן"><text x="680" y="52" text-anchor="start" class="b" direction="rtl">א.</text><text x="650" y="52" text-anchor="end">H: 1 → 2</text><rect class="z2" x="430.0" y="34" width="100.0" height="26" rx="4"/><text x="422.0" y="52" text-anchor="end" class="sm">1.63×10⁻¹⁸ J</text><text x="680" y="102" text-anchor="start" class="b" direction="rtl">ב.</text><text x="650" y="102" text-anchor="end">He⁺: 2 → 3</text><rect class="z2" x="455.9" y="84" width="74.1" height="26" rx="4"/><text x="447.9" y="102" text-anchor="end" class="sm">1.21×10⁻¹⁸ J</text><text x="680" y="152" text-anchor="start" class="b" direction="rtl">ג.</text><text x="650" y="152" text-anchor="end">H: 2 → 3</text><rect class="z2" x="511.5" y="134" width="18.5" height="26" rx="4"/><text x="503.5" y="152" text-anchor="end" class="sm">0.30×10⁻¹⁸ J</text><text x="680" y="202" text-anchor="start" class="b" direction="rtl">ד.</text><text x="650" y="202" text-anchor="end">He⁺: 1 → 2</text><rect class="fa" x="130.0" y="184" width="400.0" height="26" rx="4"/><text x="122.0" y="202" text-anchor="end" class="sm">6.54×10⁻¹⁸ J</text><text x="330" y="240" text-anchor="middle" class="sm" direction="rtl">אורך העמודה = ΔE. אותו מעבר ב-He⁺ (Z=2) דורש פי Z² = 4 אנרגיה</text></svg>
+</figure>
+<div class="ans">תשובה ד: <span class="f">He⁺</span> מ-1 ל-2, <span class="li">ΔE = 6.54×10⁻¹⁸ J</span>.</div>
+<p>המלכודת: לשכוח את <span class="f">Z²</span> – ואז נדמה ש-א ו-ד שווים (ותשובה ה מפתה).</p></div></div>
+<div class="ex"><header>דוגמה: פליטה ב-<span class="f">He⁺</span> מ-3 ל-2</header><div class="body">
+<ol class="steps">
+<li><div><span class="f">ΔE = 2.179×10⁻¹⁸ × 2² × (1/3² − 1/2²) = 8.716×10⁻¹⁸ × (−0.1389) = −1.21×10⁻¹⁸ J</span> (שלילי – פליטה)</div></li>
+<li><div><span class="f">λ = hc/|ΔE| = 1.988×10⁻²⁵ / 1.211×10⁻¹⁸ = 1.64×10⁻⁷ m = 164 nm</span></div></li>
+</ol>
+<div class="ans">λ = <span class="li">164 nm</span> (UV). אותו מעבר במימן נותן <span class="li">657 nm</span>: אנרגיה פי 4, ולכן אורך גל קצר פי 4.</div></div></div>
+<div class="callout trap"><span class="tag">מלכודות בחישוב</span><ul><li>לבלבל בין <span class="f">n<sub>i</sub></span> ל-<span class="f">n<sub>f</sub></span> – הסימן של ΔE מתהפך. בדקו: עלייה = בליעה = חיובי.</li><li>לשכוח את <span class="f">Z²</span> ביונים דמויי מימן.</li><li>להציב ΔE שלילי בנוסחה של λ ולקבל אורך גל שלילי.</li><li>לשכוח לעלות בריבוע את n: <span class="f">1/5² = 0.04</span>, לא <span class="f">0.2</span>.</li></ul></div>
+<p class="src">הרצאה 2 שקפים 7–11 · מבחן לדוגמה שאלות 2, 14</p>
+</section>
+
+<section class="topic" id="q10">
+<h3><span class="n">10</span>למה מודל בוהר לא מספיק</h3>
+<p>מודל בוהר הצליח בגדול: הוא הסביר בדיוק רב את הקווים של המימן ושל יונים דמויי מימן, והכניס את הרעיון של <b>רמות אנרגיה בדידות</b>. אבל הוא נכשל כמעט בכל השאר.</p>
+<div class="compare">
+<div><h5>מה בוהר הסביר ✓</h5><ul><li>ספקטרום הפליטה הקווי של H (ושל <span class="f">He⁺</span>, <span class="f">Li²⁺</span>…)</li><li>אנרגיית היינון של המימן</li><li>למה אנרגיה נבלעת ונפלטת במנות</li></ul></div>
+<div><h5>איפה בוהר נכשל ✗</h5><ul><li><b>אטומים עם יותר מאלקטרון אחד</b> – המודל מתעלם מהדחייה בין האלקטרונים</li><li>"מסלול" מדויק סותר את עקרון אי-הוודאות (<a href="#q12">פרק 12</a>)</li><li>מתעלם מהתכונות הגליות של האלקטרון (<a href="#q11">פרק 11</a>)</li><li>לא מסביר תת-רמות (s, p, d) וצורות של אורביטלים</li></ul></div>
+</div>
+<div class="ex"><header>שאלה 4 במבחן לדוגמה <small>מבחן לדוגמה שאלה 4</small></header><div class="body">
+<p class="q">מודל בוהר הסביר בדיוק את ספקטרום המימן (ויונים דמויי מימן) אך נכשל עבור רוב האטומים. מה ההסבר הטוב ביותר?</p>
+<div class="tbl"><table>
+<thead><tr><th>טענה</th><th>נכון?</th><th>למה</th></tr></thead>
+<tbody>
+<tr><td>באטומים שאינם דמויי מימן יש אינטראקציות בין אלקטרונים שלא נלקחות בחשבון</td><td class="hl">✓ התשובה</td><td>הנוסחה של בוהר מתארת אלקטרון אחד מול גרעין; דחייה ומיסוך בין אלקטרונים אינם במודל</td></tr>
+<tr><td>הוא מתאר מסלולים עגולים ולא אליפטיים</td><td>✗</td><td>הבעיה אינה צורת המסלול, אלא הרעיון של מסלול מוגדר בכלל</td></tr>
+<tr><td>מתאים רק לאטומים קלים (עד <span class="li">Z = 10</span>)</td><td>✗</td><td>מומצא – הוא נכשל כבר בהליום <span class="li">(Z = 2)</span> ועובד גם ל-<span class="f">Li²⁺</span></td></tr>
+<tr><td>הוא מניח שהרמות רציפות</td><td>✗</td><td>הפוך – בוהר דווקא הניח רמות <b>בדידות</b></td></tr>
+<tr><td>האלקטרון של מימן קרוב מאוד לגרעין</td><td>✗</td><td>זה לא מה שמבדיל בין מימן לאטומים אחרים</td></tr>
+</tbody></table></div></div></div>
+<div class="callout must"><span class="tag">חובה לזכור</span><p>המימן הוא האטום היחיד שאפשר לפתור עבורו את משוואת שרדינגר <b>במדויק</b>. באטום רב-אלקטרוני הדחייה בין האלקטרונים מסבכת את המצב – ולכן צריך את תורת הקוונטים המלאה (פרקים 11–19).</p></div>
+<p class="src">הרצאה 2 שקפים 6–8 · הרצאה 3 שקף 12 · מבחן לדוגמה שאלה 4</p>
+</section>
+
+<section class="topic" id="q11">
+<h3><span class="n">11</span>דה-ברויי: גם לחלקיקים יש אורך גל</h3>
+<p>איינשטיין הראה ב-1905 שגל (אור) מתנהג גם כמו אוסף של חלקיקים (פוטונים). ב-1924 הציע דה-ברויי את הכיוון ההפוך: <b>כל חלקיק נע מתנהג גם כמו גל</b>, ואורך הגל שלו תלוי ב<b>תנע</b> – מכפלת המסה במהירות.</p>
+<div class="fcard"><span class="fname">אורך גל דה-ברויי</span>
+<div class="fx">λ<sub>DB</sub> = <span class="frac"><span>h</span><span>P</span></span> = <span class="frac"><span>h</span><span>m · v</span></span></div>
+<dl class="fvars">
+  <div><dt>λ<sub>DB</sub></dt><dd>אורך הגל של החלקיק <span class="u">(m)</span></dd></div>
+  <div><dt>h</dt><dd>קבוע פלנק, <span class="u">6.626×10⁻³⁴ J·s = kg·m²/s</span></dd></div>
+  <div><dt>P</dt><dd>התנע, <span class="u">P = m·v (kg·m/s)</span></dd></div>
+  <div><dt>m</dt><dd>מסה – <b>בקילוגרמים</b> <span class="u">(kg)</span></dd></div>
+  <div><dt>v</dt><dd>מהירות <span class="u">(m/s)</span></dd></div>
+</dl>
+<p class="fnote">מסה גדולה או מהירות גדולה ⇒ λ קטן. לגופים יומיומיים λ זעיר מכדי להבחין בו.</p>
+</div>
+<figure>
+<svg viewBox="0 0 700 210" role="img" aria-label="סרגל לוגריתמי של אורכי גל דה-ברויי: לכדור טניס בערך עשר בחזקת מינוס 34 מטר, לאלקטרון בערך עשר בחזקת מינוס 10 מטר, בגודל של אטום ושל קשר כימי"><defs><marker id="q11-k" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="fi" d="M0,0 L10,5 L0,10 z"/></marker><marker id="q11-a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path class="fa" d="M0,0 L10,5 L0,10 z"/></marker><marker id="q11-t" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path class="ft" d="M0,0 L10,5 L0,10 z"/></marker></defs><line class="ln" x1="40" y1="120" x2="670" y2="120" marker-end="url(#q11-k)"/><line class="ln" style="stroke-width:1" x1="40.0" y1="114" x2="40.0" y2="126"/><text x="40.0" y="146" text-anchor="middle" class="sm">10⁻³⁶</text><line class="ln" style="stroke-width:1" x1="125.7" y1="114" x2="125.7" y2="126"/><text x="125.7" y="146" text-anchor="middle" class="sm">10⁻³²</text><line class="ln" style="stroke-width:1" x1="211.4" y1="114" x2="211.4" y2="126"/><text x="211.4" y="146" text-anchor="middle" class="sm">10⁻²⁸</text><line class="ln" style="stroke-width:1" x1="297.1" y1="114" x2="297.1" y2="126"/><text x="297.1" y="146" text-anchor="middle" class="sm">10⁻²⁴</text><line class="ln" style="stroke-width:1" x1="382.9" y1="114" x2="382.9" y2="126"/><text x="382.9" y="146" text-anchor="middle" class="sm">10⁻²⁰</text><line class="ln" style="stroke-width:1" x1="468.6" y1="114" x2="468.6" y2="126"/><text x="468.6" y="146" text-anchor="middle" class="sm">10⁻¹⁶</text><line class="ln" style="stroke-width:1" x1="554.3" y1="114" x2="554.3" y2="126"/><text x="554.3" y="146" text-anchor="middle" class="sm">10⁻¹²</text><line class="ln" style="stroke-width:1" x1="640.0" y1="114" x2="640.0" y2="126"/><text x="640.0" y="146" text-anchor="middle" class="sm">10⁻⁸</text><text x="695" y="146" text-anchor="end" class="sm">λ (m)</text><rect class="z2" x="593.1" y="100" width="14.5" height="40"/><text x="609.6" y="178" text-anchor="start" class="sm" direction="rtl">אורך קשר / גודל אטום</text><text x="609.6" y="196" text-anchor="end" class="sm">1–2 Å</text><line class="ln-d" x1="90.6" y1="110" x2="90.6" y2="62"/><circle class="fa" cx="90.6" cy="120" r="7"/><text x="90.6" y="38" text-anchor="middle" class="b" direction="rtl">כדור טניס</text><text x="90.6" y="56" text-anchor="middle" class="ac">2.3×10⁻³⁴ m</text><line class="ln-d" x1="609.1" y1="110" x2="609.1" y2="62"/><circle class="fa" cx="609.1" cy="120" r="7"/><text x="615.1" y="38" text-anchor="start" class="b" direction="rtl">אלקטרון</text><text x="615.1" y="56" text-anchor="end" class="ac">3.6×10⁻¹⁰ m</text><text x="340.0" y="92" text-anchor="middle" class="sm" direction="rtl">פער של 24 סדרי גודל</text></svg>
+<figcaption><b>מה אורך הגל שווה?</b> סרגל לוגריתמי (כל שנתה = פי <span class="f">10⁴</span>). לכדור טניס אורך גל קטן בעשרות סדרי גודל מכל דבר שאפשר למדוד. לאלקטרון אורך גל בגודל של אטום ושל קשר כימי – ולכן אצלו ההתנהגות הגלית "מורגשת" וקובעת את מבנה האטום. <span class="src">הרצאה 2 שקפים 13–15</span></figcaption>
+</figure>
+<div class="ex"><header>דוגמה: אלקטרון לעומת כדור טניס <small>הרצאה 2 שקפים 14–15</small></header><div class="body">
+<ol class="steps">
+<li><div>אלקטרון, <span class="f">m = 9.109×10⁻³¹ kg</span>, במהירות <span class="f">v = 2.0×10⁶ m/s</span>:<br><span class="f">λ = 6.626×10⁻³⁴ / (9.109×10⁻³¹ × 2.0×10⁶) = 3.6×10⁻¹⁰ m = 3.6 Å</span></div></li>
+<li><div>כדור טניס, <span class="f">57 g = 0.057 kg</span>, במהירות <span class="f">50 m/s</span>:<br><span class="f">λ = 6.626×10⁻³⁴ / (0.057 × 50) = 2.3×10⁻³⁴ m</span></div></li>
+</ol>
+<div class="ans">לאלקטרון – בערך גודל של אטום; לכדור – בלתי ניתן למדידה.</div></div></div>
+<div class="callout tip"><span class="tag">יישום: מיקרוסקופ אלקטרונים</span><p>אורך הגל הקצר של אלקטרונים מהירים מאפשר להבחין בפרטים קטנים בהרבה ממה שרואים במיקרוסקופ אור – למשל חלקיק נגיף SARS-CoV-2, עין של נמלה וגרגר אבקה (השקף של המרצה).</p></div>
+<div class="callout trap"><span class="tag">מלכודות</span><ul><li>מסה בגרמים במקום בקילוגרמים – טעות של פי 1000. ב-<span class="f">h</span> יש <span class="f">kg</span> (כי <span class="f">J = kg·m²/s²</span>).</li><li>בנוסחה של דה-ברויי <b>v היא מהירות החלקיק</b> – לא תדירות ולא מהירות האור.</li></ul></div>
+<p>את הטבלה המלאה של פעילות 2 ("האם גם לסופרמן יש אורך גל?") פתרנו ב<a href="#qsol">פתרונות</a>.</p>
+<p class="src">הרצאה 2 שקפים 13–15 · פעילות 2</p>
+</section>
+
+<section class="topic" id="q12">
+<h3><span class="n">12</span>עקרון אי-הוודאות של הייזנברג</h3>
+<p>אם האלקטרון הוא גם גל, אי אפשר לומר "הוא נמצא בדיוק כאן ונע בדיוק כך". הייזנברג (1926): <b>אי אפשר לדעת בוודאות, באותו זמן, גם את המיקום וגם את התנע של חלקיק</b>. ככל שאחד ידוע בדיוק רב יותר, השני ידוע פחות.</p>
+<figure>
+<svg viewBox="0 0 700 300" role="img" aria-label="גל ארוך עם אורך גל אחד מוגדר מול חבילת גלים קצרה: בגל הארוך התנע מוגדר והמיקום לא; בחבילה המיקום מוגדר והתנע לא">
+<defs><marker id="q12-k" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="fi" d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<text x="350" y="24" text-anchor="middle" class="sm" direction="rtl">גל עם אורך גל אחד: התנע ידוע (Δp קטן), אבל המיקום מפוזר על פני כל הגל</text>
+<g transform="translate(70,72)"><path class="ln-ac" d="M0.0,-22.0 L2.0,-20.9 L4.0,-17.8 L6.0,-12.9 L8.0,-6.8 L10.0,-0.0 L12.0,6.8 L14.0,12.9 L16.0,17.8 L18.0,20.9 L20.0,22.0 L22.0,20.9 L24.0,17.8 L26.0,12.9 L28.0,6.8 L30.0,0.0 L32.0,-6.8 L34.0,-12.9 L36.0,-17.8 L38.0,-20.9 L40.0,-22.0 L42.0,-20.9 L44.0,-17.8 L46.0,-12.9 L48.0,-6.8 L50.0,-0.0 L52.0,6.8 L54.0,12.9 L56.0,17.8 L58.0,20.9 L60.0,22.0 L62.0,20.9 L64.0,17.8 L66.0,12.9 L68.0,6.8 L70.0,0.0 L72.0,-6.8 L74.0,-12.9 L76.0,-17.8 L78.0,-20.9 L80.0,-22.0 L82.0,-20.9 L84.0,-17.8 L86.0,-12.9 L88.0,-6.8 L90.0,-0.0 L92.0,6.8 L94.0,12.9 L96.0,17.8 L98.0,20.9 L100.0,22.0 L102.0,20.9 L104.0,17.8 L106.0,12.9 L108.0,6.8 L110.0,-0.0 L112.0,-6.8 L114.0,-12.9 L116.0,-17.8 L118.0,-20.9 L120.0,-22.0 L122.0,-20.9 L124.0,-17.8 L126.0,-12.9 L128.0,-6.8 L130.0,-0.0 L132.0,6.8 L134.0,12.9 L136.0,17.8 L138.0,20.9 L140.0,22.0 L142.0,20.9 L144.0,17.8 L146.0,12.9 L148.0,6.8 L150.0,0.0 L152.0,-6.8 L154.0,-12.9 L156.0,-17.8 L158.0,-20.9 L160.0,-22.0 L162.0,-20.9 L164.0,-17.8 L166.0,-12.9 L168.0,-6.8 L170.0,0.0 L172.0,6.8 L174.0,12.9 L176.0,17.8 L178.0,20.9 L180.0,22.0 L182.0,20.9 L184.0,17.8 L186.0,12.9 L188.0,6.8 L190.0,-0.0 L192.0,-6.8 L194.0,-12.9 L196.0,-17.8 L198.0,-20.9 L200.0,-22.0 L202.0,-20.9 L204.0,-17.8 L206.0,-12.9 L208.0,-6.8 L210.0,0.0 L212.0,6.8 L214.0,12.9 L216.0,17.8 L218.0,20.9 L220.0,22.0 L222.0,20.9 L224.0,17.8 L226.0,12.9 L228.0,6.8 L230.0,-0.0 L232.0,-6.8 L234.0,-12.9 L236.0,-17.8 L238.0,-20.9 L240.0,-22.0 L242.0,-20.9 L244.0,-17.8 L246.0,-12.9 L248.0,-6.8 L250.0,-0.0 L252.0,6.8 L254.0,12.9 L256.0,17.8 L258.0,20.9 L260.0,22.0 L262.0,20.9 L264.0,17.8 L266.0,12.9 L268.0,6.8 L270.0,0.0 L272.0,-6.8 L274.0,-12.9 L276.0,-17.8 L278.0,-20.9 L280.0,-22.0 L282.0,-20.9 L284.0,-17.8 L286.0,-12.9 L288.0,-6.8 L290.0,0.0 L292.0,6.8 L294.0,12.9 L296.0,17.8 L298.0,20.9 L300.0,22.0 L302.0,20.9 L304.0,17.8 L306.0,12.9 L308.0,6.8 L310.0,0.0 L312.0,-6.8 L314.0,-12.9 L316.0,-17.8 L318.0,-20.9 L320.0,-22.0 L322.0,-20.9 L324.0,-17.8 L326.0,-12.9 L328.0,-6.8 L330.0,-0.0 L332.0,6.8 L334.0,12.9 L336.0,17.8 L338.0,20.9 L340.0,22.0 L342.0,20.9 L344.0,17.8 L346.0,12.9 L348.0,6.8 L350.0,0.0 L352.0,-6.8 L354.0,-12.9 L356.0,-17.8 L358.0,-20.9 L360.0,-22.0 L362.0,-20.9 L364.0,-17.8 L366.0,-12.9 L368.0,-6.8 L370.0,-0.0 L372.0,6.8 L374.0,12.9 L376.0,17.8 L378.0,20.9 L380.0,22.0 L382.0,20.9 L384.0,17.8 L386.0,12.9 L388.0,6.8 L390.0,0.0 L392.0,-6.8 L394.0,-12.9 L396.0,-17.8 L398.0,-20.9 L400.0,-22.0 L402.0,-20.9 L404.0,-17.8 L406.0,-12.9 L408.0,-6.8 L410.0,-0.0 L412.0,6.8 L414.0,12.9 L416.0,17.8 L418.0,20.9 L420.0,22.0 L422.0,20.9 L424.0,17.8 L426.0,12.9 L428.0,6.8 L430.0,0.0 L432.0,-6.8 L434.0,-12.9 L436.0,-17.8 L438.0,-20.9 L440.0,-22.0 L442.0,-20.9 L444.0,-17.8 L446.0,-12.9 L448.0,-6.8 L450.0,-0.0 L452.0,6.8 L454.0,12.9 L456.0,17.8 L458.0,20.9 L460.0,22.0 L462.0,20.9 L464.0,17.8 L466.0,12.9 L468.0,6.8 L470.0,-0.0 L472.0,-6.8 L474.0,-12.9 L476.0,-17.8 L478.0,-20.9 L480.0,-22.0 L482.0,-20.9 L484.0,-17.8 L486.0,-12.9 L488.0,-6.8 L490.0,-0.0 L492.0,6.8 L494.0,12.9 L496.0,17.8 L498.0,20.9 L500.0,22.0 L502.0,20.9 L504.0,17.8 L506.0,12.9 L508.0,6.8 L510.0,0.0 L512.0,-6.8 L514.0,-12.9 L516.0,-17.8 L518.0,-20.9 L520.0,-22.0 L522.0,-20.9 L524.0,-17.8 L526.0,-12.9 L528.0,-6.8 L530.0,-0.0 L532.0,6.8 L534.0,12.9 L536.0,17.8 L538.0,20.9 L540.0,22.0 L542.0,20.9 L544.0,17.8 L546.0,12.9 L548.0,6.8 L550.0,-0.0 L552.0,-6.8 L554.0,-12.9 L556.0,-17.8 L558.0,-20.9 L560.0,-22.0"/></g>
+<line class="ln" x1="74" y1="116" x2="626" y2="116" marker-start="url(#q12-k)" marker-end="url(#q12-k)"/>
+<text x="350" y="138" text-anchor="middle" class="b" direction="rtl">Δx גדול</text>
+<text x="350" y="172" text-anchor="middle" class="sm" direction="rtl">חבילת גלים: המיקום ממוקד, אבל היא בנויה מהרבה אורכי גל – התנע לא מוגדר (Δp גדול)</text>
+<g transform="translate(70,222)"><path class="ln-ac" d="M0.0,-0.0 L1.5,-0.0 L3.0,-0.0 L4.5,-0.0 L6.0,0.0 L7.5,0.0 L9.0,0.0 L10.5,0.0 L12.0,0.0 L13.5,0.0 L15.0,-0.0 L16.5,-0.0 L18.0,-0.0 L19.5,-0.0 L21.0,-0.0 L22.5,-0.0 L24.0,-0.0 L25.5,0.0 L27.0,0.0 L28.5,0.0 L30.0,0.0 L31.5,0.0 L33.0,0.0 L34.5,0.0 L36.0,-0.0 L37.5,-0.0 L39.0,-0.0 L40.5,-0.0 L42.0,-0.0 L43.5,-0.0 L45.0,0.0 L46.5,0.0 L48.0,0.0 L49.5,0.0 L51.0,0.0 L52.5,0.0 L54.0,0.0 L55.5,-0.0 L57.1,-0.0 L58.6,-0.0 L60.1,-0.0 L61.6,-0.0 L63.1,-0.0 L64.6,-0.0 L66.1,0.0 L67.6,0.0 L69.1,0.0 L70.6,0.0 L72.1,0.0 L73.6,0.0 L75.1,-0.0 L76.6,-0.0 L78.1,-0.0 L79.6,-0.0 L81.1,-0.0 L82.6,-0.0 L84.1,-0.0 L85.6,0.0 L87.1,0.0 L88.6,0.0 L90.1,0.0 L91.6,0.0 L93.1,0.0 L94.6,0.0 L96.1,-0.0 L97.6,-0.0 L99.1,-0.0 L100.6,-0.0 L102.1,-0.0 L103.6,-0.0 L105.1,0.0 L106.6,0.0 L108.1,0.0 L109.6,0.0 L111.1,0.0 L112.6,0.0 L114.1,0.0 L115.6,-0.0 L117.1,-0.0 L118.6,-0.0 L120.1,-0.0 L121.6,-0.0 L123.1,-0.0 L124.6,-0.0 L126.1,0.0 L127.6,0.0 L129.1,0.0 L130.6,0.0 L132.1,0.0 L133.6,0.0 L135.1,-0.0 L136.6,-0.0 L138.1,-0.0 L139.6,-0.0 L141.1,-0.0 L142.6,-0.0 L144.1,-0.0 L145.6,0.0 L147.1,0.0 L148.6,0.0 L150.1,0.0 L151.6,0.0 L153.1,0.0 L154.6,0.0 L156.1,-0.0 L157.6,-0.0 L159.1,-0.0 L160.6,-0.0 L162.1,-0.0 L163.6,-0.0 L165.1,0.0 L166.6,0.0 L168.2,0.0 L169.7,0.0 L171.2,0.0 L172.7,0.0 L174.2,0.0 L175.7,-0.0 L177.2,-0.0 L178.7,-0.0 L180.2,-0.0 L181.7,-0.0 L183.2,-0.0 L184.7,-0.0 L186.2,0.0 L187.7,0.0 L189.2,0.1 L190.7,0.1 L192.2,0.1 L193.7,0.0 L195.2,-0.0 L196.7,-0.1 L198.2,-0.2 L199.7,-0.2 L201.2,-0.3 L202.7,-0.2 L204.2,-0.1 L205.7,0.1 L207.2,0.4 L208.7,0.6 L210.2,0.8 L211.7,0.8 L213.2,0.6 L214.7,0.1 L216.2,-0.5 L217.7,-1.2 L219.2,-1.8 L220.7,-2.0 L222.2,-1.8 L223.7,-1.1 L225.2,0.2 L226.7,1.7 L228.2,3.3 L229.7,4.3 L231.2,4.5 L232.7,3.5 L234.2,1.5 L235.7,-1.5 L237.2,-4.6 L238.7,-7.3 L240.2,-8.7 L241.7,-8.1 L243.2,-5.5 L244.7,-1.0 L246.2,4.5 L247.7,9.8 L249.2,13.5 L250.7,14.5 L252.2,12.1 L253.7,6.5 L255.2,-1.3 L256.7,-9.7 L258.2,-16.8 L259.7,-20.6 L261.2,-20.0 L262.7,-14.7 L264.2,-5.5 L265.7,5.5 L267.2,16.1 L268.7,23.5 L270.2,26.0 L271.7,22.7 L273.2,14.2 L274.7,2.2 L276.2,-10.6 L277.7,-21.2 L279.2,-27.2 L280.8,-27.2 L282.3,-21.2 L283.8,-10.6 L285.3,2.2 L286.8,14.2 L288.3,22.7 L289.8,26.0 L291.3,23.5 L292.8,16.1 L294.3,5.5 L295.8,-5.5 L297.3,-14.7 L298.8,-20.0 L300.3,-20.6 L301.8,-16.8 L303.3,-9.7 L304.8,-1.3 L306.3,6.5 L307.8,12.1 L309.3,14.5 L310.8,13.5 L312.3,9.8 L313.8,4.5 L315.3,-1.0 L316.8,-5.5 L318.3,-8.1 L319.8,-8.7 L321.3,-7.3 L322.8,-4.6 L324.3,-1.5 L325.8,1.5 L327.3,3.5 L328.8,4.5 L330.3,4.3 L331.8,3.3 L333.3,1.7 L334.8,0.2 L336.3,-1.1 L337.8,-1.8 L339.3,-2.0 L340.8,-1.8 L342.3,-1.2 L343.8,-0.5 L345.3,0.1 L346.8,0.6 L348.3,0.8 L349.8,0.8 L351.3,0.6 L352.8,0.4 L354.3,0.1 L355.8,-0.1 L357.3,-0.2 L358.8,-0.3 L360.3,-0.2 L361.8,-0.2 L363.3,-0.1 L364.8,-0.0 L366.3,0.0 L367.8,0.1 L369.3,0.1 L370.8,0.1 L372.3,0.0 L373.8,0.0 L375.3,-0.0 L376.8,-0.0 L378.3,-0.0 L379.8,-0.0 L381.3,-0.0 L382.8,-0.0 L384.3,-0.0 L385.8,0.0 L387.3,0.0 L388.8,0.0 L390.3,0.0 L391.8,0.0 L393.4,0.0 L394.9,0.0 L396.4,-0.0 L397.9,-0.0 L399.4,-0.0 L400.9,-0.0 L402.4,-0.0 L403.9,-0.0 L405.4,0.0 L406.9,0.0 L408.4,0.0 L409.9,0.0 L411.4,0.0 L412.9,0.0 L414.4,0.0 L415.9,-0.0 L417.4,-0.0 L418.9,-0.0 L420.4,-0.0 L421.9,-0.0 L423.4,-0.0 L424.9,-0.0 L426.4,0.0 L427.9,0.0 L429.4,0.0 L430.9,0.0 L432.4,0.0 L433.9,0.0 L435.4,-0.0 L436.9,-0.0 L438.4,-0.0 L439.9,-0.0 L441.4,-0.0 L442.9,-0.0 L444.4,-0.0 L445.9,0.0 L447.4,0.0 L448.9,0.0 L450.4,0.0 L451.9,0.0 L453.4,0.0 L454.9,0.0 L456.4,-0.0 L457.9,-0.0 L459.4,-0.0 L460.9,-0.0 L462.4,-0.0 L463.9,-0.0 L465.4,0.0 L466.9,0.0 L468.4,0.0 L469.9,0.0 L471.4,0.0 L472.9,0.0 L474.4,0.0 L475.9,-0.0 L477.4,-0.0 L478.9,-0.0 L480.4,-0.0 L481.9,-0.0 L483.4,-0.0 L484.9,-0.0 L486.4,0.0 L487.9,0.0 L489.4,0.0 L490.9,0.0 L492.4,0.0 L493.9,0.0 L495.4,-0.0 L496.9,-0.0 L498.4,-0.0 L499.9,-0.0 L501.4,-0.0 L502.9,-0.0 L504.5,-0.0 L506.0,0.0 L507.5,0.0 L509.0,0.0 L510.5,0.0 L512.0,0.0 L513.5,0.0 L515.0,0.0 L516.5,-0.0 L518.0,-0.0 L519.5,-0.0 L521.0,-0.0 L522.5,-0.0 L524.0,-0.0 L525.5,0.0 L527.0,0.0 L528.5,0.0 L530.0,0.0 L531.5,0.0 L533.0,0.0 L534.5,0.0 L536.0,-0.0 L537.5,-0.0 L539.0,-0.0 L540.5,-0.0 L542.0,-0.0 L543.5,-0.0 L545.0,-0.0 L546.5,0.0 L548.0,0.0 L549.5,0.0 L551.0,0.0 L552.5,0.0 L554.0,0.0 L555.5,-0.0 L557.0,-0.0 L558.5,-0.0 L560.0,-0.0"/></g>
+<line class="ln" x1="304" y1="266" x2="396" y2="266" marker-start="url(#q12-k)" marker-end="url(#q12-k)"/>
+<text x="350" y="290" text-anchor="middle" class="b" direction="rtl">Δx קטן</text>
+</svg>
+<figcaption><b>אי אפשר את שניהם.</b> λ קובע את התנע <span class="f">(P = h/λ)</span>. גל "נקי" עם λ אחד – תנע מדויק, אבל הגל בכל מקום. כדי למקם את החלקיק צריך לערבב הרבה אורכי גל – ואז התנע מפוזר. <span class="src">הרצאה 2 שקף 17</span></figcaption>
+</figure>
+<div class="fcard"><span class="fname">עקרון אי-הוודאות</span>
+<div class="fx">Δx · ΔP ≥ <span class="frac"><span>h</span><span>4π</span></span><span class="sep"></span>ΔP = m · Δv</div>
+<dl class="fvars">
+  <div><dt>Δx</dt><dd>אי-הוודאות במיקום <span class="u">(m)</span></dd></div>
+  <div><dt>ΔP</dt><dd>אי-הוודאות בתנע <span class="u">(kg·m/s)</span></dd></div>
+  <div><dt>Δv</dt><dd>אי-הוודאות במהירות <span class="u">(m/s)</span></dd></div>
+  <div><dt>h</dt><dd>קבוע פלנק <span class="u">(J·s)</span></dd></div>
+</dl>
+<p class="fnote">המכפלה יכולה להיות שווה לגבול או גדולה ממנו – אף פעם לא קטנה ממנו. כדי למצוא את Δx המינימלי: <span class="f">Δx = h / (4π·m·Δv)</span>.</p>
+</div>
+<div class="ex"><header>הדוגמה מההרצאה: קרן אלקטרונים <small>הרצאה 2 שקף 18</small></header><div class="body">
+<p class="q">אלקטרונים נעים בעשירית ממהירות האור, והדיוק במהירות הוא <span class="f">1.5%</span>. מה הדיוק המרבי במיקום?</p>
+<ol class="steps">
+<li><div><span class="f">Δv = 0.015 × 0.1 × 3×10⁸ = 4.5×10⁵ m/s</span></div></li>
+<li><div><span class="f">ΔP = m·Δv = 9.1×10⁻³¹ × 4.5×10⁵ = 4.1×10⁻²⁵ kg·m/s</span></div></li>
+<li><div><span class="f">Δx = h / (4π·ΔP) = 6.63×10⁻³⁴ / (4π × 4.1×10⁻²⁵) = 1.3×10⁻¹⁰ m</span></div></li>
+</ol>
+<div class="ans">Δx ≈ <span class="li">1.3×10⁻¹⁰ m = 1.3 Å = 0.13 nm</span> – בגודל של אטום שלם!</div>
+<p>המשמעות: אי אפשר לומר איפה בדיוק האלקטרון נמצא בתוך האטום, ולכן אין משמעות ל"מסלול" של בוהר. במקום מסלול מדברים על <b>הסתברות</b> – ענן, אורביטל.</p></div></div>
+<div class="callout note"><span class="tag">הערה על המקור</span><p>בשקף 18 כתוב שהתוצאה היא "כ-<span class="f">1.3 Å</span> ננומטר". הכוונה ל-<span class="f">1.3 Å</span>, שהם <span class="f">0.13 nm</span> – לא 1.3 ננומטר.</p></div>
+<p class="src">הרצאה 2 שקפים 16–18</p>
+</section>
+
+<section class="topic" id="q13">
+<h3><span class="n">13</span>משוואת שרדינגר, פונקציית הגל והאורביטל</h3>
+<p>ב-1926 ניסח שרדינגר משוואה שמתארת את האלקטרון כגל. בקורס לא פותרים אותה – משתמשים בתוצאות שלה:</p>
+<ul>
+<li>הפתרון הוא <b>פונקציית גל ψ</b> (פְּסִי). ל-ψ עצמה אין משמעות פיזיקלית.</li>
+<li><b>ψ²</b> נותנת את <b>ההסתברות</b> למצוא את האלקטרון בנקודה מסוימת במרחב.</li>
+<li><b>אורביטל</b> = פונקציית גל שמוגדרת ע"י שלושה מספרים קוונטיים <span class="f">(n, l, m<sub>l</sub>)</span>. כשמציירים אורביטל, מציירים את הנפח שבו יש <b>95%</b> סיכוי למצוא את האלקטרון.</li>
+<li>אורביטלים עם אותו l ו-n שונה זהים בצורה ושונים בגודל: <span class="f">1s &lt; 2s &lt; 3s</span>.</li>
+</ul>
+<figure>
+<svg viewBox="0 0 700 290" role="img" aria-label="ההסתברות למצוא את האלקטרון לפי המרחק מהגרעין באורביטלים 1s, 2s ו-3s: ככל ש-n גדל השיא רחוק יותר, ול-2s ול-3s יש צמתים">
+<defs><marker id="q13-k" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="fi" d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<line class="ln" x1="70" y1="250" x2="672" y2="250" marker-end="url(#q13-k)"/>
+<line class="ln" x1="70" y1="250" x2="70" y2="28" marker-end="url(#q13-k)"/>
+<path class="ln" d="M70.0,250.0 L72.9,239.1 L75.8,214.3 L78.7,184.3 L81.6,154.4 L84.5,127.7 L87.4,105.8 L90.3,89.3 L93.2,78.1 L96.1,71.9 L99.0,70.0 L101.9,71.7 L104.8,76.3 L107.7,83.1 L110.6,91.5 L113.5,101.0 L116.4,111.2 L119.3,121.7 L122.2,132.3 L125.1,142.6 L128.0,152.6 L130.9,162.0 L133.8,171.0 L136.7,179.3 L139.6,187.0 L142.5,194.0 L145.4,200.4 L148.3,206.2 L151.2,211.4 L154.1,216.1 L157.0,220.3 L159.9,224.1 L162.8,227.4 L165.7,230.3 L168.6,232.9 L171.5,235.1 L174.4,237.1 L177.3,238.9 L180.2,240.4 L183.1,241.7 L186.0,242.9 L188.9,243.9 L191.8,244.7 L194.7,245.5 L197.6,246.1 L200.5,246.7 L203.4,247.2 L206.3,247.6 L209.2,247.9 L212.1,248.2 L215.0,248.5 L217.9,248.7 L220.8,248.9 L223.7,249.1 L226.6,249.2 L229.5,249.3 L232.4,249.4 L235.3,249.5 L238.2,249.6 L241.1,249.7 L244.0,249.7 L246.9,249.8 L249.8,249.8 L252.7,249.8 L255.6,249.8 L258.5,249.9 L261.4,249.9 L264.3,249.9 L267.2,249.9 L270.1,249.9 L273.0,249.9 L275.9,250.0 L278.8,250.0 L281.7,250.0 L284.6,250.0 L287.5,250.0 L290.4,250.0 L293.3,250.0 L296.2,250.0 L299.1,250.0 L302.0,250.0 L304.9,250.0 L307.8,250.0 L310.7,250.0 L313.6,250.0 L316.5,250.0 L319.4,250.0 L322.3,250.0 L325.2,250.0 L328.1,250.0 L331.0,250.0 L333.9,250.0 L336.8,250.0 L339.7,250.0 L342.6,250.0 L345.5,250.0 L348.4,250.0 L351.3,250.0 L354.2,250.0 L357.1,250.0 L360.0,250.0 L362.9,250.0 L365.8,250.0 L368.7,250.0 L371.6,250.0 L374.5,250.0 L377.4,250.0 L380.3,250.0 L383.2,250.0 L386.1,250.0 L389.0,250.0 L391.9,250.0 L394.8,250.0 L397.7,250.0 L400.6,250.0 L403.5,250.0 L406.4,250.0 L409.3,250.0 L412.2,250.0 L415.1,250.0 L418.0,250.0 L420.9,250.0 L423.8,250.0 L426.7,250.0 L429.6,250.0 L432.5,250.0 L435.4,250.0 L438.3,250.0 L441.2,250.0 L444.1,250.0 L447.0,250.0 L449.9,250.0 L452.8,250.0 L455.7,250.0 L458.6,250.0 L461.5,250.0 L464.4,250.0 L467.3,250.0 L470.2,250.0 L473.1,250.0 L476.0,250.0 L478.9,250.0 L481.8,250.0 L484.7,250.0 L487.6,250.0 L490.5,250.0 L493.4,250.0 L496.3,250.0 L499.2,250.0 L502.1,250.0 L505.0,250.0 L507.9,250.0 L510.8,250.0 L513.7,250.0 L516.6,250.0 L519.5,250.0 L522.4,250.0 L525.3,250.0 L528.2,250.0 L531.1,250.0 L534.0,250.0 L536.9,250.0 L539.8,250.0 L542.7,250.0 L545.6,250.0 L548.5,250.0 L551.4,250.0 L554.3,250.0 L557.2,250.0 L560.1,250.0 L563.0,250.0 L565.9,250.0 L568.8,250.0 L571.7,250.0 L574.6,250.0 L577.5,250.0 L580.4,250.0 L583.3,250.0 L586.2,250.0 L589.1,250.0 L592.0,250.0 L594.9,250.0 L597.8,250.0 L600.7,250.0 L603.6,250.0 L606.5,250.0 L609.4,250.0 L612.3,250.0 L615.2,250.0 L618.1,250.0 L621.0,250.0 L623.9,250.0 L626.8,250.0 L629.7,250.0 L632.6,250.0 L635.5,250.0 L638.4,250.0 L641.3,250.0 L644.2,250.0 L647.1,250.0 L650.0,250.0"/>
+<path class="ln-ac" d="M70.0,250.0 L72.9,246.8 L75.8,239.6 L78.7,231.1 L81.6,223.0 L84.5,216.5 L87.4,212.0 L90.3,209.6 L93.2,209.3 L96.1,210.9 L99.0,213.9 L101.9,218.0 L104.8,222.7 L107.7,227.8 L110.6,232.9 L113.5,237.7 L116.4,241.9 L119.3,245.3 L122.2,247.9 L125.1,249.5 L128.0,250.0 L130.9,249.5 L133.8,247.9 L136.7,245.3 L139.6,241.8 L142.5,237.4 L145.4,232.2 L148.3,226.4 L151.2,220.0 L154.1,213.2 L157.0,206.0 L159.9,198.6 L162.8,191.0 L165.7,183.3 L168.6,175.7 L171.5,168.3 L174.4,161.0 L177.3,153.9 L180.2,147.2 L183.1,140.9 L186.0,134.9 L188.9,129.4 L191.8,124.3 L194.7,119.7 L197.6,115.6 L200.5,111.9 L203.4,108.8 L206.3,106.2 L209.2,104.0 L212.1,102.3 L215.0,101.1 L217.9,100.3 L220.8,100.0 L223.7,100.1 L226.6,100.5 L229.5,101.3 L232.4,102.4 L235.3,103.9 L238.2,105.6 L241.1,107.6 L244.0,109.8 L246.9,112.2 L249.8,114.9 L252.7,117.7 L255.6,120.6 L258.5,123.7 L261.4,126.9 L264.3,130.1 L267.2,133.5 L270.1,136.9 L273.0,140.3 L275.9,143.8 L278.8,147.2 L281.7,150.7 L284.6,154.2 L287.5,157.6 L290.4,161.0 L293.3,164.3 L296.2,167.6 L299.1,170.9 L302.0,174.1 L304.9,177.2 L307.8,180.3 L310.7,183.3 L313.6,186.2 L316.5,189.0 L319.4,191.8 L322.3,194.4 L325.2,197.0 L328.1,199.5 L331.0,201.9 L333.9,204.2 L336.8,206.5 L339.7,208.6 L342.6,210.7 L345.5,212.7 L348.4,214.6 L351.3,216.4 L354.2,218.2 L357.1,219.9 L360.0,221.5 L362.9,223.0 L365.8,224.5 L368.7,225.9 L371.6,227.2 L374.5,228.5 L377.4,229.7 L380.3,230.8 L383.2,231.9 L386.1,232.9 L389.0,233.9 L391.9,234.9 L394.8,235.7 L397.7,236.6 L400.6,237.4 L403.5,238.1 L406.4,238.8 L409.3,239.5 L412.2,240.1 L415.1,240.7 L418.0,241.3 L420.9,241.8 L423.8,242.4 L426.7,242.8 L429.6,243.3 L432.5,243.7 L435.4,244.1 L438.3,244.5 L441.2,244.8 L444.1,245.1 L447.0,245.5 L449.9,245.8 L452.8,246.0 L455.7,246.3 L458.6,246.5 L461.5,246.8 L464.4,247.0 L467.3,247.2 L470.2,247.4 L473.1,247.5 L476.0,247.7 L478.9,247.8 L481.8,248.0 L484.7,248.1 L487.6,248.3 L490.5,248.4 L493.4,248.5 L496.3,248.6 L499.2,248.7 L502.1,248.8 L505.0,248.9 L507.9,248.9 L510.8,249.0 L513.7,249.1 L516.6,249.1 L519.5,249.2 L522.4,249.3 L525.3,249.3 L528.2,249.4 L531.1,249.4 L534.0,249.4 L536.9,249.5 L539.8,249.5 L542.7,249.6 L545.6,249.6 L548.5,249.6 L551.4,249.6 L554.3,249.7 L557.2,249.7 L560.1,249.7 L563.0,249.7 L565.9,249.8 L568.8,249.8 L571.7,249.8 L574.6,249.8 L577.5,249.8 L580.4,249.8 L583.3,249.8 L586.2,249.9 L589.1,249.9 L592.0,249.9 L594.9,249.9 L597.8,249.9 L600.7,249.9 L603.6,249.9 L606.5,249.9 L609.4,249.9 L612.3,249.9 L615.2,249.9 L618.1,249.9 L621.0,249.9 L623.9,249.9 L626.8,250.0 L629.7,250.0 L632.6,250.0 L635.5,250.0 L638.4,250.0 L641.3,250.0 L644.2,250.0 L647.1,250.0 L650.0,250.0"/>
+<path style="stroke:var(--trap);stroke-width:2.5;fill:none" d="M70.0,250.0 L72.9,248.5 L75.8,245.2 L78.7,241.3 L81.6,237.6 L84.5,234.7 L87.4,232.7 L90.3,231.8 L93.2,231.9 L96.1,232.8 L99.0,234.5 L101.9,236.5 L104.8,238.9 L107.7,241.3 L110.6,243.7 L113.5,245.8 L116.4,247.6 L119.3,248.9 L122.2,249.7 L125.1,250.0 L128.0,249.7 L130.9,248.9 L133.8,247.6 L136.7,245.8 L139.6,243.6 L142.5,241.1 L145.4,238.2 L148.3,235.1 L151.2,231.9 L154.1,228.6 L157.0,225.3 L159.9,222.1 L162.8,218.9 L165.7,216.0 L168.6,213.2 L171.5,210.7 L174.4,208.5 L177.3,206.6 L180.2,205.0 L183.1,203.8 L186.0,203.0 L188.9,202.5 L191.8,202.4 L194.7,202.6 L197.6,203.2 L200.5,204.0 L203.4,205.2 L206.3,206.6 L209.2,208.3 L212.1,210.2 L215.0,212.3 L217.9,214.5 L220.8,216.9 L223.7,219.3 L226.6,221.9 L229.5,224.4 L232.4,227.0 L235.3,229.5 L238.2,232.0 L241.1,234.4 L244.0,236.6 L246.9,238.8 L249.8,240.8 L252.7,242.7 L255.6,244.3 L258.5,245.8 L261.4,247.1 L264.3,248.1 L267.2,248.9 L270.1,249.5 L273.0,249.9 L275.9,250.0 L278.8,249.9 L281.7,249.5 L284.6,248.9 L287.5,248.1 L290.4,247.0 L293.3,245.7 L296.2,244.2 L299.1,242.5 L302.0,240.6 L304.9,238.6 L307.8,236.3 L310.7,233.9 L313.6,231.3 L316.5,228.6 L319.4,225.8 L322.3,222.8 L325.2,219.7 L328.1,216.6 L331.0,213.4 L333.9,210.1 L336.8,206.8 L339.7,203.4 L342.6,200.0 L345.5,196.6 L348.4,193.2 L351.3,189.7 L354.2,186.4 L357.1,183.0 L360.0,179.7 L362.9,176.4 L365.8,173.2 L368.7,170.0 L371.6,166.9 L374.5,163.9 L377.4,161.0 L380.3,158.2 L383.2,155.4 L386.1,152.8 L389.0,150.3 L391.9,147.9 L394.8,145.6 L397.7,143.4 L400.6,141.3 L403.5,139.4 L406.4,137.6 L409.3,135.9 L412.2,134.3 L415.1,132.9 L418.0,131.5 L420.9,130.4 L423.8,129.3 L426.7,128.3 L429.6,127.5 L432.5,126.8 L435.4,126.2 L438.3,125.8 L441.2,125.4 L444.1,125.2 L447.0,125.0 L449.9,125.0 L452.8,125.1 L455.7,125.3 L458.6,125.5 L461.5,125.9 L464.4,126.4 L467.3,126.9 L470.2,127.6 L473.1,128.3 L476.0,129.1 L478.9,129.9 L481.8,130.9 L484.7,131.9 L487.6,132.9 L490.5,134.1 L493.4,135.3 L496.3,136.5 L499.2,137.8 L502.1,139.1 L505.0,140.5 L507.9,141.9 L510.8,143.4 L513.7,144.8 L516.6,146.4 L519.5,147.9 L522.4,149.5 L525.3,151.1 L528.2,152.7 L531.1,154.3 L534.0,155.9 L536.9,157.6 L539.8,159.3 L542.7,160.9 L545.6,162.6 L548.5,164.3 L551.4,166.0 L554.3,167.6 L557.2,169.3 L560.1,171.0 L563.0,172.6 L565.9,174.3 L568.8,175.9 L571.7,177.6 L574.6,179.2 L577.5,180.8 L580.4,182.4 L583.3,184.0 L586.2,185.6 L589.1,187.1 L592.0,188.6 L594.9,190.1 L597.8,191.6 L600.7,193.1 L603.6,194.6 L606.5,196.0 L609.4,197.4 L612.3,198.8 L615.2,200.1 L618.1,201.5 L621.0,202.8 L623.9,204.1 L626.8,205.4 L629.7,206.6 L632.6,207.8 L635.5,209.0 L638.4,210.2 L641.3,211.3 L644.2,212.5 L647.1,213.6 L650.0,214.7"/>
+<text x="110" y="66" class="b">1s</text><text x="232" y="96" class="ac">2s</text><text x="462" y="120" class="tr">3s</text>
+<circle class="bx" cx="127" cy="250" r="5"/><circle class="bx" cx="276" cy="250" r="5"/>
+<text x="420" y="48" text-anchor="middle" class="sm" direction="rtl">עיגול על הציר = צומת: שם הסיכוי למצוא את האלקטרון הוא 0</text>
+<text x="668" y="276" text-anchor="start" class="sm" direction="rtl">המרחק מהגרעין (r)</text>
+<text x="44" y="140" text-anchor="middle" class="sm" direction="rtl" transform="rotate(-90 44 140)">הסתברות</text>
+</svg>
+<figcaption><b>איפה האלקטרון "גר"?</b> ככל ש-n גדל, השיא של ההסתברות רחוק יותר מהגרעין – האורביטל גדול יותר והאנרגיה גבוהה יותר. ל-2s יש צומת אחד ול-3s שניים (הצמתים הפנימיים של 2s ו-3s כמעט חופפים בציור). הגבהים לא בקנה מידה. <span class="src">הרצאה 3 שקפים 3–5</span></figcaption>
+</figure>
+<div class="callout must"><span class="tag">חובה לזכור</span><ul><li>ψ – אין משמעות פיזיקלית; <b>ψ²</b> – הסתברות.</li><li>מסלול (בוהר) = מסלול מוגדר. <b>אורביטל</b> (קוונטים) = ענן הסתברות.</li><li>n גדול ⇒ אורביטל גדול יותר, אלקטרון רחוק יותר מהגרעין.</li></ul></div>
+<p class="src">הרצאה 2 שקפים 19–21 · הרצאה 3 שקפים 2–5</p>
+</section>
+
+<section class="topic" id="q14">
+<h3><span class="n">14</span>ארבעת המספרים הקוונטיים</h3>
+<p>פתרון משוואת שרדינגר נותן שלושה מספרים קוונטיים <span class="f">(n, l, m<sub>l</sub>)</span> שמגדירים <b>אורביטל</b>, ומספר רביעי, <span class="f">m<sub>s</sub></span>, שמתאר את <b>הספין</b> של האלקטרון עצמו. כמו כתובת: עיר → רחוב → בית → דירה. ההיכרות הראשונה ב<a href="#i5">פרק 0.5</a>.</p>
+<div class="tbl"><table>
+<caption>המספרים הקוונטיים והערכים המותרים</caption>
+<thead><tr><th>שם</th><th>סמל</th><th>ערכים מותרים</th><th>מה הוא קובע</th></tr></thead>
+<tbody>
+<tr><td>ראשי</td><td class="f">n</td><td class="f">1, 2, 3, …</td><td>הקליפה (רמה): גודל, מרחק מהגרעין ואנרגיה</td></tr>
+<tr><td>משני (זוויתי)</td><td class="f">l</td><td class="f">0, 1, …, n−1</td><td>תת-הקליפה: <b>צורת</b> האורביטל <span class="li">(0 = s, 1 = p, 2 = d, 3 = f)</span></td></tr>
+<tr><td>מגנטי</td><td class="f">m<sub>l</sub></td><td class="f">−l, …, 0, …, +l</td><td><b>הכיוון</b> של האורביטל במרחב</td></tr>
+<tr><td>ספין</td><td class="f">m<sub>s</sub></td><td><span class="f">+½</span> או <span class="f">−½</span></td><td>הספין של האלקטרון (↑ או ↓)</td></tr>
+</tbody></table></div>
+<figure>
+<svg viewBox="0 0 700 370" role="img" aria-label="עץ המספרים הקוונטיים: n קובע אילו ערכי l אפשריים, וכל l קובע את ערכי m_l. ברמה 1 יש אורביטל אחד, ברמה 2 ארבעה, ברמה 3 תשעה">
+<text x="640" y="22" text-anchor="middle" class="b" direction="rtl">רמה</text><text x="505" y="22" text-anchor="middle" class="b" direction="rtl">תת-רמה</text><text x="425" y="22" text-anchor="middle" class="b" direction="rtl">אורביטלים</text><text x="300" y="22" text-anchor="middle" class="b" direction="rtl">המספר המגנטי</text><text x="95" y="22" text-anchor="middle" class="b" direction="rtl">סה"כ ברמה</text>
+<text x="640" y="42" text-anchor="middle" class="ac">n</text><text x="505" y="42" text-anchor="middle" class="ac">l</text><text x="425" y="42" text-anchor="middle" class="ac">2l+1</text><text x="300" y="42" text-anchor="middle" class="ac">m<tspan dy="4" style="font-size:11px">l</tspan></text><text x="95" y="42" text-anchor="middle" class="ac">n² , 2n²</text>
+<line class="ln-d" x1="195" y1="56" x2="195" y2="356"/>
+<rect class="bx-ac" x="610" y="61" width="60" height="30" rx="6"/><text x="640" y="81" text-anchor="middle" class="b">n = 1</text>
+<rect class="bx-ac" x="610" y="121" width="60" height="74" rx="6"/><text x="640" y="163" text-anchor="middle" class="b">n = 2</text>
+<rect class="bx-ac" x="610" y="231" width="60" height="118" rx="6"/><text x="640" y="295" text-anchor="middle" class="b">n = 3</text>
+<line class="ln" x1="610" y1="76" x2="555" y2="76"/>
+<line class="ln" x1="610" y1="158" x2="555" y2="136"/><line class="ln" x1="610" y1="158" x2="555" y2="180"/>
+<line class="ln" x1="610" y1="290" x2="555" y2="246"/><line class="ln" x1="610" y1="290" x2="555" y2="290"/><line class="ln" x1="610" y1="290" x2="555" y2="334"/>
+<rect class="bx" x="455" y="61" width="100" height="30" rx="5"/><text x="505" y="81" text-anchor="middle">l = 0 · <tspan class="b">s</tspan></text><text x="425" y="82" text-anchor="middle" class="ac" style="font-size:18px">1</text><rect class="bx-ac" x="281" y="62" width="38" height="28"/><text x="300" y="81" text-anchor="middle" style="font-size:13px">0</text><rect class="bx" x="455" y="121" width="100" height="30" rx="5"/><text x="505" y="141" text-anchor="middle">l = 0 · <tspan class="b">s</tspan></text><text x="425" y="142" text-anchor="middle" class="ac" style="font-size:18px">1</text><rect class="bx-ac" x="281" y="122" width="38" height="28"/><text x="300" y="141" text-anchor="middle" style="font-size:13px">0</text><rect class="bx" x="455" y="165" width="100" height="30" rx="5"/><text x="505" y="185" text-anchor="middle">l = 1 · <tspan class="b">p</tspan></text><text x="425" y="186" text-anchor="middle" class="ac" style="font-size:18px">3</text><rect class="bx-ac" x="243" y="166" width="38" height="28"/><text x="262" y="185" text-anchor="middle" style="font-size:13px">−1</text><rect class="bx-ac" x="281" y="166" width="38" height="28"/><text x="300" y="185" text-anchor="middle" style="font-size:13px">0</text><rect class="bx-ac" x="319" y="166" width="38" height="28"/><text x="338" y="185" text-anchor="middle" style="font-size:13px">+1</text><rect class="bx" x="455" y="231" width="100" height="30" rx="5"/><text x="505" y="251" text-anchor="middle">l = 0 · <tspan class="b">s</tspan></text><text x="425" y="252" text-anchor="middle" class="ac" style="font-size:18px">1</text><rect class="bx-ac" x="281" y="232" width="38" height="28"/><text x="300" y="251" text-anchor="middle" style="font-size:13px">0</text><rect class="bx" x="455" y="275" width="100" height="30" rx="5"/><text x="505" y="295" text-anchor="middle">l = 1 · <tspan class="b">p</tspan></text><text x="425" y="296" text-anchor="middle" class="ac" style="font-size:18px">3</text><rect class="bx-ac" x="243" y="276" width="38" height="28"/><text x="262" y="295" text-anchor="middle" style="font-size:13px">−1</text><rect class="bx-ac" x="281" y="276" width="38" height="28"/><text x="300" y="295" text-anchor="middle" style="font-size:13px">0</text><rect class="bx-ac" x="319" y="276" width="38" height="28"/><text x="338" y="295" text-anchor="middle" style="font-size:13px">+1</text><rect class="bx" x="455" y="319" width="100" height="30" rx="5"/><text x="505" y="339" text-anchor="middle">l = 2 · <tspan class="b">d</tspan></text><text x="425" y="340" text-anchor="middle" class="ac" style="font-size:18px">5</text><rect class="bx-ac" x="205" y="320" width="38" height="28"/><text x="224" y="339" text-anchor="middle" style="font-size:13px">−2</text><rect class="bx-ac" x="243" y="320" width="38" height="28"/><text x="262" y="339" text-anchor="middle" style="font-size:13px">−1</text><rect class="bx-ac" x="281" y="320" width="38" height="28"/><text x="300" y="339" text-anchor="middle" style="font-size:13px">0</text><rect class="bx-ac" x="319" y="320" width="38" height="28"/><text x="338" y="339" text-anchor="middle" style="font-size:13px">+1</text><rect class="bx-ac" x="357" y="320" width="38" height="28"/><text x="376" y="339" text-anchor="middle" style="font-size:13px">+2</text>
+<text x="185" y="72" text-anchor="start" class="b" direction="rtl">אורביטל אחד</text><text x="185" y="92" text-anchor="start" class="sm" direction="rtl">עד 2 אלקטרונים</text>
+<text x="185" y="154" text-anchor="start" class="b" direction="rtl">4 אורביטלים</text><text x="185" y="174" text-anchor="start" class="sm" direction="rtl">עד 8 אלקטרונים</text>
+<text x="185" y="286" text-anchor="start" class="b" direction="rtl">9 אורביטלים</text><text x="185" y="306" text-anchor="start" class="sm" direction="rtl">עד 18 אלקטרונים</text>
+</svg>
+<figcaption><b>עץ המספרים הקוונטיים.</b> קוראים מימין לשמאל: הרמה n קובעת אילו ערכי l מותרים (מ-0 עד <span class="f">n−1</span>), וכל l קובע כמה אורביטלים יש בתת-הרמה (<span class="f">2l+1</span> ערכים של <span class="f">m<sub>l</sub></span>). כל תא הוא אורביטל, ובכל תא נכנסים עד 2 אלקטרונים (<span class="f">m<sub>s</sub> = +½, −½</span>). <span class="src">הרצאה 3 שקפים 8–9</span></figcaption>
+</figure>
+<div class="fcard"><span class="fname">ספירת תת-רמות, אורביטלים ואלקטרונים</span>
+<div class="fx">l = 0 … (n−1)<span class="sep"></span>2l + 1<span class="sep"></span>n²<span class="sep"></span>2n²</div>
+<dl class="fvars">
+  <div><dt>n</dt><dd>מספר תתי-הקליפות ברמה n</dd></div>
+  <div><dt>2l+1</dt><dd>מספר האורביטלים בתת-קליפה <span class="u">(s=1, p=3, d=5, f=7)</span></dd></div>
+  <div><dt>n²</dt><dd>מספר האורביטלים ברמה n</dd></div>
+  <div><dt>2n²</dt><dd>מספר האלקטרונים המרבי ברמה n</dd></div>
+</dl>
+<p class="fnote">בדיקה לרמה 3: תת-קליפות s, p, d, ובהן <span class="f">1 + 3 + 5 = 9 = 3²</span> אורביטלים ועד <span class="f">18</span> אלקטרונים.</p>
+</div>
+<div class="ex"><header>השאלה מההרצאה: אטום מימן במצב היסוד <small>הרצאה 3 שקף 11</small></header><div class="body">
+<p class="q">א. אילו ארבעה מספרים קוונטיים מתארים אותו? ב. מה קורה לנפח האטום כשהוא מעורר?</p>
+<ol class="steps">
+<li><div><b>א.</b> האלקטרון ב-1s: <span class="f">n = 1, l = 0, m<sub>l</sub> = 0, m<sub>s</sub> = +½</span> (או <span class="f">−½</span>) – כלומר <span class="f">1s¹</span>.</div></li>
+<li><div><b>ב.</b> עירור מעביר את האלקטרון לאורביטל עם n גבוה יותר, שבו הוא נמצא רחוק יותר מהגרעין – נפח האטום גדל.</div></li>
+</ol></div></div>
+<div class="ex"><header>דוגמה: איזו קבוצה של מספרים קוונטיים אפשרית?</header><div class="body">
+<div class="tbl"><table>
+<thead><tr><th class="ltr">(n, l, m<sub>l</sub>, m<sub>s</sub>)</th><th>אפשרי?</th><th>למה</th></tr></thead>
+<tbody>
+<tr><td class="f">(2, 1, −1, +½)</td><td class="hl">✓</td><td>אלקטרון ב-2p</td></tr>
+<tr><td class="f">(2, 2, 0, +½)</td><td>✗</td><td>ב-<span class="li">n = 2</span> הערך המרבי של l הוא 1 – אין "2d"</td></tr>
+<tr><td class="f">(3, 1, +2, −½)</td><td>✗</td><td>כש-<span class="li">l = 1</span>, ערכי <span class="li">m<sub>l</sub></span> הם רק <span class="f">−1, 0, +1</span></td></tr>
+<tr><td class="f">(4, 0, 0, 0)</td><td>✗</td><td><span class="li">m<sub>s</sub></span> חייב להיות +½ או −½</td></tr>
+<tr><td class="f">(3, 2, −2, −½)</td><td class="hl">✓</td><td>אלקטרון ב-3d</td></tr>
+</tbody></table></div></div></div>
+<div class="callout trap"><span class="tag">מלכודות</span><ul><li>l מגיע רק עד <span class="f">n−1</span>, לא עד n. לכן אין 1p, 2d או 3f.</li><li>ערכי <span class="f">m<sub>l</sub></span> כוללים את <b>0</b>: ל-d יש חמישה ערכים, לא ארבעה.</li><li>אורביטל מוגדר ע"י <b>שלושה</b> מספרים <span class="f">(n, l, m<sub>l</sub>)</span>; <span class="f">m<sub>s</sub></span> מתאר את האלקטרון, לא את האורביטל.</li></ul></div>
+<p class="src">הרצאה 2 שקפים 21–22 · הרצאה 3 שקפים 2, 8–11 · תרגול 3 שאלות 4–5</p>
+</section>
+
+<section class="topic" id="q15">
+<h3><span class="n">15</span>צורות האורביטלים</h3>
+<p>המספר l קובע את <b>הצורה</b>, והמספר <span class="f">m<sub>l</sub></span> את <b>הכיוון</b> במרחב. אורביטלים באותה תת-קליפה הם <b>מנוונים</b> (degenerate) – יש להם אותה אנרגיה, והם נבדלים רק בכיוון.</p>
+<figure>
+<svg viewBox="0 0 700 400" role="img" aria-label="צורות האורביטלים: s כדורי שגדל עם n, שלושה אורביטלי p בצורת משקולת לאורך הצירים x, y ו-z, וחמישה אורביטלי d"><text x="110" y="24" text-anchor="middle" class="b" direction="rtl">s – כדור (l = 0)</text><circle class="bx-ac" cx="35" cy="100" r="16"/><circle class="fi" cx="35" cy="100" r="2"/><text x="35" y="165" text-anchor="middle" class="b">1s</text><circle class="bx-ac" cx="95" cy="100" r="26"/><circle class="fi" cx="95" cy="100" r="2"/><text x="95" y="165" text-anchor="middle" class="b">2s</text><circle class="bx-ac" cx="180" cy="100" r="38"/><circle class="fi" cx="180" cy="100" r="2"/><text x="180" y="165" text-anchor="middle" class="b">3s</text><text x="470" y="24" text-anchor="middle" class="b" direction="rtl">p – שתי אונות, שלושה כיוונים (l = 1)</text><line class="ln-d" x1="272" y1="100" x2="388" y2="100"/><line class="ln-d" x1="330" y1="158" x2="330" y2="42"/><text x="392" y="104" class="sm">x</text><text x="335" y="50" class="sm">z</text><line class="ln-d" x1="296" y1="130" x2="364" y2="70"/><text x="367" y="70" class="sm">y</text><path class="z3" style="stroke:var(--accent);stroke-width:1.5" d="M0,0 C17.5,-19.0 50.0,-19.0 50.0,0 C50.0,19.0 17.5,19.0 0,0 Z" transform="translate(330,100) rotate(0)"/><text x="361.0" y="105.0" text-anchor="middle" class="b" style="font-size:13px">+</text><path class="z1" style="stroke:var(--accent);stroke-width:1.5" d="M0,0 C17.5,-19.0 50.0,-19.0 50.0,0 C50.0,19.0 17.5,19.0 0,0 Z" transform="translate(330,100) rotate(180)"/><text x="299.0" y="105.0" text-anchor="middle" class="b" style="font-size:13px">−</text><text x="330" y="182" text-anchor="middle" class="b">p<tspan dy="4" style="font-size:11px">x</tspan></text><line class="ln-d" x1="412" y1="100" x2="528" y2="100"/><line class="ln-d" x1="470" y1="158" x2="470" y2="42"/><text x="532" y="104" class="sm">x</text><text x="475" y="50" class="sm">z</text><line class="ln-d" x1="436" y1="130" x2="504" y2="70"/><text x="507" y="70" class="sm">y</text><path class="z3" style="stroke:var(--accent);stroke-width:1.5" d="M0,0 C14.0,-16.0 40.0,-16.0 40.0,0 C40.0,16.0 14.0,16.0 0,0 Z" transform="translate(470,100) rotate(-41)"/><text x="488.7" y="88.7" text-anchor="middle" class="b" style="font-size:13px">+</text><path class="z1" style="stroke:var(--accent);stroke-width:1.5" d="M0,0 C14.0,-16.0 40.0,-16.0 40.0,0 C40.0,16.0 14.0,16.0 0,0 Z" transform="translate(470,100) rotate(139)"/><text x="451.3" y="121.3" text-anchor="middle" class="b" style="font-size:13px">−</text><text x="470" y="182" text-anchor="middle" class="b">p<tspan dy="4" style="font-size:11px">y</tspan></text><line class="ln-d" x1="552" y1="100" x2="668" y2="100"/><line class="ln-d" x1="610" y1="158" x2="610" y2="42"/><text x="672" y="104" class="sm">x</text><text x="615" y="50" class="sm">z</text><line class="ln-d" x1="576" y1="130" x2="644" y2="70"/><text x="647" y="70" class="sm">y</text><path class="z3" style="stroke:var(--accent);stroke-width:1.5" d="M0,0 C17.5,-19.0 50.0,-19.0 50.0,0 C50.0,19.0 17.5,19.0 0,0 Z" transform="translate(610,100) rotate(-90)"/><text x="610.0" y="74.0" text-anchor="middle" class="b" style="font-size:13px">+</text><path class="z1" style="stroke:var(--accent);stroke-width:1.5" d="M0,0 C17.5,-19.0 50.0,-19.0 50.0,0 C50.0,19.0 17.5,19.0 0,0 Z" transform="translate(610,100) rotate(90)"/><text x="610.0" y="136.0" text-anchor="middle" class="b" style="font-size:13px">−</text><text x="610" y="182" text-anchor="middle" class="b">p<tspan dy="4" style="font-size:11px">z</tspan></text><line class="ln-d" x1="20" y1="200" x2="680" y2="200"/><text x="350" y="226" text-anchor="middle" class="b" direction="rtl">d – חמישה אורביטלים (l = 2)</text><line class="ln-d" x1="20" y1="305" x2="130" y2="305"/><line class="ln-d" x1="75" y1="360" x2="75" y2="250"/><text x="134" y="309" class="sm">x</text><text x="80" y="258" class="sm">y</text><path class="z3" style="stroke:var(--accent);stroke-width:1.5" d="M0,0 C14.7,-15.0 42.0,-15.0 42.0,0 C42.0,15.0 14.7,15.0 0,0 Z" transform="translate(75,305) rotate(45)"/><text x="93.4" y="328.4" text-anchor="middle" class="b" style="font-size:13px">+</text><path class="z1" style="stroke:var(--accent);stroke-width:1.5" d="M0,0 C14.7,-15.0 42.0,-15.0 42.0,0 C42.0,15.0 14.7,15.0 0,0 Z" transform="translate(75,305) rotate(135)"/><text x="56.6" y="328.4" text-anchor="middle" class="b" style="font-size:13px">−</text><path class="z3" style="stroke:var(--accent);stroke-width:1.5" d="M0,0 C14.7,-15.0 42.0,-15.0 42.0,0 C42.0,15.0 14.7,15.0 0,0 Z" transform="translate(75,305) rotate(225)"/><text x="56.6" y="291.6" text-anchor="middle" class="b" style="font-size:13px">+</text><path class="z1" style="stroke:var(--accent);stroke-width:1.5" d="M0,0 C14.7,-15.0 42.0,-15.0 42.0,0 C42.0,15.0 14.7,15.0 0,0 Z" transform="translate(75,305) rotate(315)"/><text x="93.4" y="291.6" text-anchor="middle" class="b" style="font-size:13px">−</text><text x="75" y="388" text-anchor="middle" class="b">d<tspan dy="4" style="font-size:11px">xy</tspan></text><line class="ln-d" x1="155" y1="305" x2="265" y2="305"/><line class="ln-d" x1="210" y1="360" x2="210" y2="250"/><text x="269" y="309" class="sm">x</text><text x="215" y="258" class="sm">z</text><path class="z3" style="stroke:var(--accent);stroke-width:1.5" d="M0,0 C14.7,-15.0 42.0,-15.0 42.0,0 C42.0,15.0 14.7,15.0 0,0 Z" transform="translate(210,305) rotate(45)"/><text x="228.4" y="328.4" text-anchor="middle" class="b" style="font-size:13px">+</text><path class="z1" style="stroke:var(--accent);stroke-width:1.5" d="M0,0 C14.7,-15.0 42.0,-15.0 42.0,0 C42.0,15.0 14.7,15.0 0,0 Z" transform="translate(210,305) rotate(135)"/><text x="191.6" y="328.4" text-anchor="middle" class="b" style="font-size:13px">−</text><path class="z3" style="stroke:var(--accent);stroke-width:1.5" d="M0,0 C14.7,-15.0 42.0,-15.0 42.0,0 C42.0,15.0 14.7,15.0 0,0 Z" transform="translate(210,305) rotate(225)"/><text x="191.6" y="291.6" text-anchor="middle" class="b" style="font-size:13px">+</text><path class="z1" style="stroke:var(--accent);stroke-width:1.5" d="M0,0 C14.7,-15.0 42.0,-15.0 42.0,0 C42.0,15.0 14.7,15.0 0,0 Z" transform="translate(210,305) rotate(315)"/><text x="228.4" y="291.6" text-anchor="middle" class="b" style="font-size:13px">−</text><text x="210" y="388" text-anchor="middle" class="b">d<tspan dy="4" style="font-size:11px">xz</tspan></text><line class="ln-d" x1="290" y1="305" x2="400" y2="305"/><line class="ln-d" x1="345" y1="360" x2="345" y2="250"/><text x="404" y="309" class="sm">y</text><text x="350" y="258" class="sm">z</text><path class="z3" style="stroke:var(--accent);stroke-width:1.5" d="M0,0 C14.7,-15.0 42.0,-15.0 42.0,0 C42.0,15.0 14.7,15.0 0,0 Z" transform="translate(345,305) rotate(45)"/><text x="363.4" y="328.4" text-anchor="middle" class="b" style="font-size:13px">+</text><path class="z1" style="stroke:var(--accent);stroke-width:1.5" d="M0,0 C14.7,-15.0 42.0,-15.0 42.0,0 C42.0,15.0 14.7,15.0 0,0 Z" transform="translate(345,305) rotate(135)"/><text x="326.6" y="328.4" text-anchor="middle" class="b" style="font-size:13px">−</text><path class="z3" style="stroke:var(--accent);stroke-width:1.5" d="M0,0 C14.7,-15.0 42.0,-15.0 42.0,0 C42.0,15.0 14.7,15.0 0,0 Z" transform="translate(345,305) rotate(225)"/><text x="326.6" y="291.6" text-anchor="middle" class="b" style="font-size:13px">+</text><path class="z1" style="stroke:var(--accent);stroke-width:1.5" d="M0,0 C14.7,-15.0 42.0,-15.0 42.0,0 C42.0,15.0 14.7,15.0 0,0 Z" transform="translate(345,305) rotate(315)"/><text x="363.4" y="291.6" text-anchor="middle" class="b" style="font-size:13px">−</text><text x="345" y="388" text-anchor="middle" class="b">d<tspan dy="4" style="font-size:11px">yz</tspan></text><line class="ln-d" x1="425" y1="305" x2="535" y2="305"/><line class="ln-d" x1="480" y1="360" x2="480" y2="250"/><text x="539" y="309" class="sm">x</text><text x="485" y="258" class="sm">y</text><path class="z3" style="stroke:var(--accent);stroke-width:1.5" d="M0,0 C14.7,-15.0 42.0,-15.0 42.0,0 C42.0,15.0 14.7,15.0 0,0 Z" transform="translate(480,305) rotate(0)"/><text x="506.0" y="310.0" text-anchor="middle" class="b" style="font-size:13px">+</text><path class="z1" style="stroke:var(--accent);stroke-width:1.5" d="M0,0 C14.7,-15.0 42.0,-15.0 42.0,0 C42.0,15.0 14.7,15.0 0,0 Z" transform="translate(480,305) rotate(90)"/><text x="480.0" y="336.0" text-anchor="middle" class="b" style="font-size:13px">−</text><path class="z3" style="stroke:var(--accent);stroke-width:1.5" d="M0,0 C14.7,-15.0 42.0,-15.0 42.0,0 C42.0,15.0 14.7,15.0 0,0 Z" transform="translate(480,305) rotate(180)"/><text x="454.0" y="310.0" text-anchor="middle" class="b" style="font-size:13px">+</text><path class="z1" style="stroke:var(--accent);stroke-width:1.5" d="M0,0 C14.7,-15.0 42.0,-15.0 42.0,0 C42.0,15.0 14.7,15.0 0,0 Z" transform="translate(480,305) rotate(270)"/><text x="480.0" y="284.0" text-anchor="middle" class="b" style="font-size:13px">−</text><text x="480" y="388" text-anchor="middle" class="b">d<tspan dy="4" style="font-size:11px">x²−y²</tspan></text><line class="ln-d" x1="560" y1="305" x2="670" y2="305"/><line class="ln-d" x1="615" y1="360" x2="615" y2="250"/><text x="674" y="309" class="sm">x</text><text x="620" y="258" class="sm">z</text><path class="z3" style="stroke:var(--accent);stroke-width:1.5" d="M0,0 C16.1,-16.0 46.0,-16.0 46.0,0 C46.0,16.0 16.1,16.0 0,0 Z" transform="translate(615,305) rotate(-90)"/><text x="615.0" y="281.5" text-anchor="middle" class="b" style="font-size:13px">+</text><path class="z3" style="stroke:var(--accent);stroke-width:1.5" d="M0,0 C16.1,-16.0 46.0,-16.0 46.0,0 C46.0,16.0 16.1,16.0 0,0 Z" transform="translate(615,305) rotate(90)"/><text x="615.0" y="338.5" text-anchor="middle" class="b" style="font-size:13px">+</text><ellipse class="z1" style="stroke:var(--accent);stroke-width:1.5" cx="615" cy="305" rx="28" ry="9"/><text x="651" y="324" class="b" style="font-size:13px">−</text><text x="615" y="388" text-anchor="middle" class="b">d<tspan dy="4" style="font-size:11px">z²</tspan></text></svg>
+<figcaption><b>שלוש הצורות.</b> <b>s</b> – כדור סימטרי, גדל עם n. <b>p</b> – שתי אונות משני צדי הגרעין, עם צומת בגרעין עצמו; שלושה אורביטלים לאורך הצירים x, y ו-z. <b>d</b> – ארבע אונות ("תלתן"), ועוד אורביטל אחד <span class="f">(d<sub>z²</sub>)</span> שנראה כמו משקולת עם טבעת. הסימנים + ו-− הם הסימן של ψ באונה (פאזה) – <b>לא</b> מטען חשמלי. <span class="src">הרצאה 3 שקפים 5–7</span></figcaption>
+</figure>
+<div class="tbl"><table>
+<thead><tr><th>תת-קליפה</th><th>l</th><th>m<sub>l</sub></th><th>מספר אורביטלים</th><th>צורה</th></tr></thead>
+<tbody>
+<tr><td class="f">s</td><td class="f">0</td><td class="f">0</td><td class="f">1</td><td>כדור</td></tr>
+<tr><td class="f">p</td><td class="f">1</td><td class="f">−1, 0, +1</td><td class="f">3</td><td>שתי אונות (משקולת): <span class="f">p<sub>x</sub>, p<sub>y</sub>, p<sub>z</sub></span></td></tr>
+<tr><td class="f">d</td><td class="f">2</td><td class="f">−2, −1, 0, +1, +2</td><td class="f">5</td><td>ארבע אונות; אחד שונה בצורתו (d<sub>z²</sub>)</td></tr>
+<tr><td class="f">f</td><td class="f">3</td><td class="f">−3 … +3</td><td class="f">7</td><td>מורכבת (לא נדרש לצייר)</td></tr>
+</tbody></table></div>
+<div class="callout note"><span class="tag">הערה על המקור</span><p>בשקף 7 של הרצאה 3 כתוב "עבור <span class="f">l = 2</span> קיימים <b>שלושה</b> ערכים אפשריים", אבל ברשימה עצמה יש חמישה – <span class="f">+2, +1, 0, −1, −2</span>. הנכון: <b>חמישה</b> ערכים, ולכן חמישה אורביטלי d.</p></div>
+<p class="src">הרצאה 3 שקפים 4–7</p>
+</section>
+
+<section class="topic" id="q16">
+<h3><span class="n">16</span>אטום רב-אלקטרוני: מיסוך וחדירות</h3>
+<p>במימן יש אלקטרון אחד בלבד, והאנרגיה תלויה רק ב-n, ולכן 2s ו-2p באותה אנרגיה, וגם 3s, 3p ו-3d. כשיש כמה אלקטרונים, הם <b>דוחים</b> זה את זה, וזה משנה את התמונה.</p>
+<p><b>מיסוך:</b> האלקטרונים הפנימיים "מסתירים" חלק ממטען הגרעין מהאלקטרונים החיצוניים. אלקטרון רחוק מרגיש <b>מטען גרעין אפקטיבי</b> <span class="f">(Z<sub>eff</sub>)</span> קטן מהמטען האמיתי, ולכן נמשך חלש יותר.</p>
+<p><b>חדירות:</b> אורביטל s "חודר" קרוב לגרעין יותר מ-p, ו-p יותר מ-d (ראו את הבליטות הפנימיות בגרף של <a href="#q13">פרק 13</a>). אורביטל חודר מרגיש <span class="f">Z<sub>eff</sub></span> גבוה יותר ⇒ קשור חזק יותר ⇒ אנרגיה נמוכה יותר. לכן בתוך אותה קליפה: <span class="f">s &lt; p &lt; d</span>.</p>
+<figure>
+<svg viewBox="0 0 700 380" role="img" aria-label="דיאגרמת אנרגיה: במימן כל תתי-הרמות של אותו n באותה אנרגיה; באטום רב-אלקטרוני הן מתפצלות, ו-4s יורד מתחת ל-3d">
+<defs><marker id="q16-k" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="fi" d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<line class="ln" x1="30" y1="365" x2="30" y2="40" marker-end="url(#q16-k)"/>
+<text x="18" y="200" text-anchor="middle" class="sm" direction="rtl" transform="rotate(-90 18 200)">אנרגיה</text>
+<text x="190" y="26" text-anchor="middle" class="b" direction="rtl">מימן – אלקטרון אחד</text>
+<text x="540" y="26" text-anchor="middle" class="b" direction="rtl">אטום רב-אלקטרוני</text>
+<line class="ln-d" x1="340" y1="40" x2="340" y2="365"/>
+<line class="ln-d" x1="60" y1="330" x2="325" y2="330"/><line class="ln-d" x1="60" y1="225" x2="325" y2="225"/><line class="ln-d" x1="60" y1="150" x2="325" y2="150"/><line class="ln-d" x1="60" y1="105" x2="325" y2="105"/><rect class="bx" x="95" y="322" width="18" height="16"/><text x="89" y="335" text-anchor="end" class="b" style="font-size:13px">1s</text><rect class="bx" x="95" y="217" width="18" height="16"/><text x="89" y="230" text-anchor="end" class="b" style="font-size:13px">2s</text><rect class="bx" x="150" y="217" width="18" height="16"/><rect class="bx" x="168" y="217" width="18" height="16"/><rect class="bx" x="186" y="217" width="18" height="16"/><text x="144" y="230" text-anchor="end" class="b" style="font-size:13px">2p</text><rect class="bx" x="95" y="142" width="18" height="16"/><text x="89" y="155" text-anchor="end" class="b" style="font-size:13px">3s</text><rect class="bx" x="150" y="142" width="18" height="16"/><rect class="bx" x="168" y="142" width="18" height="16"/><rect class="bx" x="186" y="142" width="18" height="16"/><text x="144" y="155" text-anchor="end" class="b" style="font-size:13px">3p</text><rect class="bx" x="232" y="142" width="18" height="16"/><rect class="bx" x="250" y="142" width="18" height="16"/><rect class="bx" x="268" y="142" width="18" height="16"/><rect class="bx" x="286" y="142" width="18" height="16"/><rect class="bx" x="304" y="142" width="18" height="16"/><text x="226" y="155" text-anchor="end" class="b" style="font-size:13px">3d</text><rect class="bx" x="95" y="97" width="18" height="16"/><text x="89" y="110" text-anchor="end" class="b" style="font-size:13px">4s</text><rect class="bx" x="420" y="337" width="18" height="16"/><text x="414" y="350" text-anchor="end" class="b" style="font-size:13px">1s</text><rect class="bx" x="420" y="277" width="18" height="16"/><text x="414" y="290" text-anchor="end" class="b" style="font-size:13px">2s</text><rect class="bx" x="475" y="254" width="18" height="16"/><rect class="bx" x="493" y="254" width="18" height="16"/><rect class="bx" x="511" y="254" width="18" height="16"/><text x="469" y="267" text-anchor="end" class="b" style="font-size:13px">2p</text><rect class="bx" x="420" y="207" width="18" height="16"/><text x="414" y="220" text-anchor="end" class="b" style="font-size:13px">3s</text><rect class="bx" x="475" y="187" width="18" height="16"/><rect class="bx" x="493" y="187" width="18" height="16"/><rect class="bx" x="511" y="187" width="18" height="16"/><text x="469" y="200" text-anchor="end" class="b" style="font-size:13px">3p</text><rect class="bx-ac" x="420" y="152" width="18" height="16"/><text x="414" y="165" text-anchor="end" class="ac" style="font-size:13px">4s</text><rect class="bx" x="560" y="132" width="18" height="16"/><rect class="bx" x="578" y="132" width="18" height="16"/><rect class="bx" x="596" y="132" width="18" height="16"/><rect class="bx" x="614" y="132" width="18" height="16"/><rect class="bx" x="632" y="132" width="18" height="16"/><text x="554" y="145" text-anchor="end" class="b" style="font-size:13px">3d</text><rect class="bx" x="475" y="104" width="18" height="16"/><rect class="bx" x="493" y="104" width="18" height="16"/><rect class="bx" x="511" y="104" width="18" height="16"/><text x="469" y="117" text-anchor="end" class="b" style="font-size:13px">4p</text>
+<text x="610" y="304" text-anchor="start" class="sm" direction="rtl">2s נמוך מ-2p</text>
+<text x="575" y="172" text-anchor="start" class="ac" direction="rtl">4s מתחת ל-3d!</text>
+</svg>
+<figcaption><b>מימין:</b> באטום רב-אלקטרוני תתי-הרמות של אותה קליפה כבר לא מנוונות: <span class="f">ns &lt; np &lt; nd</span>. ובגלל החדירות הגבוהה של 4s, הוא יורד אפילו מתחת ל-3d – לכן ממלאים 4s לפני 3d (למשל באשלגן, K). <span class="src">הרצאה 3 שקפים 10, 14–19</span></figcaption>
+</figure>
+<div class="callout must"><span class="tag">חובה לזכור</span><ul><li>במימן: האנרגיה תלויה <b>רק ב-n</b>. באטום רב-אלקטרוני: ב-n <b>וב-l</b>.</li><li>חדירות: <span class="f">s &gt; p &gt; d</span>, ולכן אנרגיה: <span class="f">s &lt; p &lt; d</span>.</li><li>ל-4s n גבוה יותר מ-3d, אבל חדירות גבוהה יותר – ולכן אנרגיה נמוכה יותר.</li></ul></div>
+<div class="callout note"><span class="tag">הערה על המקור</span><p>בשקף 18 התיבה "חוזק המיסוך" מציגה <span class="f">1s &gt; 2s &gt; 3s &gt; 4s</span> ו-<span class="f">3s &gt; 3p &gt; 3d</span>. זה בעצם סדר ה<b>חדירות</b>: אורביטל חודר יותר "פחות ממוסך, אך יותר ממסך" (כלשון השקף). שקף 14 בקובץ ה-PDF חתוך באמצע הטקסט.</p></div>
+<p class="src">הרצאה 3 שקפים 12–19</p>
+</section>
+
+<section class="topic" id="q17">
+<h3><span class="n">17</span>שלושת כללי האכלוס: אופבאו, פאולי והונד</h3>
+<h4>1. עקרון אופבאו (Aufbau – "בנייה")</h4>
+<p>ממלאים קודם את האורביטלים בעלי האנרגיה הנמוכה, כך שהאנרגיה הכוללת של האטום מינימלית. כלל עבודה מההרצאה: <b>ככל שסכום <span class="f">n + l</span> קטן יותר – האורביטל נמוך יותר ומתמלא קודם. בתיקו – קודם זה עם n קטן יותר.</b> כלל האלכסונים (<a href="#i5">פרק 0.5</a>) נותן בדיוק את אותו סדר.</p>
+<div class="tbl"><table>
+<caption>סדר המילוי לפי <span class="li">n + l</span></caption>
+<thead><tr><th>n + l</th><th>תת-רמות (בתיקו – n קטן קודם)</th></tr></thead>
+<tbody>
+<tr><td class="f">1</td><td class="f">1s</td></tr>
+<tr><td class="f">2</td><td class="f">2s</td></tr>
+<tr><td class="f">3</td><td class="f">2p (2+1) → 3s (3+0)</td></tr>
+<tr><td class="f">4</td><td class="f">3p (3+1) → 4s (4+0)</td></tr>
+<tr><td class="hl f">5</td><td class="f">3d (3+2) → 4p (4+1) → 5s (5+0)</td></tr>
+<tr><td class="f">6</td><td class="f">4d → 5p → 6s</td></tr>
+<tr><td class="f">7</td><td class="f">4f → 5d → 6p → 7s</td></tr>
+</tbody></table></div>
+<div class="eq">1s → 2s → 2p → 3s → 3p → 4s → 3d → 4p → 5s → 4d → 5p → 6s → 4f → 5d → 6p → 7s</div>
+<h4>2. כלל הברירה של פאולי</h4>
+<p>לא ייתכנו באטום שני אלקטרונים עם אותם <b>ארבעה</b> מספרים קוונטיים. מכיוון ששלושת הראשונים מגדירים את האורביטל, באותו אורביטל האלקטרונים חייבים להיבדל ב-<span class="f">m<sub>s</sub></span> ⇒ <b>לכל היותר 2 אלקטרונים באורביטל, בספינים הפוכים</b>.</p>
+<h4>3. כלל הונד ("כלל האוטובוס")</h4>
+<p>באורביטלים מנוונים (אותה תת-רמה) האלקטרונים מתפזרים קודם <b>אחד בכל אורביטל, בספינים מקבילים</b>, ורק אחר כך מתחילים להזדווג – כמו נוסעים באוטובוס שמעדיפים מושב זוגי ריק לפני שמתיישבים ליד מישהו.</p>
+<figure>
+<svg viewBox="0 0 700 250" role="img" aria-label="מצבים מותרים ואסורים לפי עקרון פאולי וכלל הונד"><defs><marker id="q17-k" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="fi" d="M0,0 L10,5 L0,10 z"/></marker><marker id="q17-a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path class="fa" d="M0,0 L10,5 L0,10 z"/></marker><marker id="q17-t" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path class="ft" d="M0,0 L10,5 L0,10 z"/></marker></defs><text x="680" y="30" text-anchor="start" class="b" direction="rtl">עקרון פאולי – אורביטל אחד</text><rect class="bx" x="560" y="46" width="44" height="36"/><text x="582" y="74" text-anchor="middle" class="ac" style="font-size:20px">↑↓</text><text x="582" y="104" text-anchor="middle" class="ac">✓ מותר</text><rect class="bx" x="440" y="46" width="44" height="36"/><text x="462" y="74" text-anchor="middle" class="tr" style="font-size:20px">↑↑</text><text x="462" y="104" text-anchor="middle" class="tr" direction="rtl">✗ אותו ספין</text><rect class="bx" x="320" y="46" width="44" height="36"/><text x="342" y="74" text-anchor="middle" class="tr" style="font-size:16px">↑↑↓</text><text x="342" y="104" text-anchor="middle" class="tr" direction="rtl">✗ 3 אלקטרונים</text><text x="250" y="60" text-anchor="start" class="sm" direction="rtl">לכל היותר 2 אלקטרונים באורביטל,</text><text x="250" y="80" text-anchor="start" class="sm" direction="rtl">ובספינים הפוכים: <tspan style="direction:ltr;unicode-bidi:isolate">+½</tspan> ו-<tspan style="direction:ltr;unicode-bidi:isolate">−½</tspan></text><line class="ln-d" x1="20" y1="122" x2="680" y2="122"/><text x="680" y="150" text-anchor="start" class="b" direction="rtl">כלל הונד – שלושה אורביטלי p</text><rect class="bx" x="540" y="166" width="40" height="34"/><text x="560" y="192" text-anchor="middle" class="ac" style="font-size:20px">↑</text><rect class="bx" x="580" y="166" width="40" height="34"/><text x="600" y="192" text-anchor="middle" class="ac" style="font-size:20px">↑</text><rect class="bx" x="620" y="166" width="40" height="34"/><text x="640" y="192" text-anchor="middle" class="ac" style="font-size:20px">↑</text><text x="600" y="224" text-anchor="middle" class="ac">✓ מצב יסוד</text><rect class="bx" x="390" y="166" width="40" height="34"/><text x="410" y="192" text-anchor="middle" class="tr" style="font-size:20px">↑↓</text><rect class="bx" x="430" y="166" width="40" height="34"/><text x="450" y="192" text-anchor="middle" class="tr" style="font-size:20px">↑</text><rect class="bx" x="470" y="166" width="40" height="34"/><text x="450" y="224" text-anchor="middle" class="tr" direction="rtl">✗ זיווג מוקדם</text><rect class="bx" x="240" y="166" width="40" height="34"/><text x="260" y="192" text-anchor="middle" class="tr" style="font-size:20px">↑</text><rect class="bx" x="280" y="166" width="40" height="34"/><text x="300" y="192" text-anchor="middle" class="tr" style="font-size:20px">↓</text><rect class="bx" x="320" y="166" width="40" height="34"/><text x="340" y="192" text-anchor="middle" class="tr" style="font-size:20px">↑</text><text x="300" y="224" text-anchor="middle" class="tr" direction="rtl">✗ ספינים לא מקבילים</text><text x="200" y="182" text-anchor="start" class="sm" direction="rtl">קודם אחד בכל תא,</text><text x="200" y="202" text-anchor="start" class="sm" direction="rtl">בספינים מקבילים</text></svg>
+<figcaption><b>מותר ואסור.</b> למעלה – פאולי: באורביטל אחד רק ↑↓. למטה – הונד: שלושה אלקטרונים ב-p מתפזרים ↑ ↑ ↑. ההגדרות "אסור" בהונד מתארות מצבים שאינם מצב היסוד (לפי השקף: "אסורים או מעוררים"). <span class="src">הרצאה 3 שקף 17</span></figcaption>
+</figure>
+<div class="ex"><header>דוגמה: מה מתמלא קודם? <small>הרצאה 3 שקפים 16, 19</small></header><div class="body">
+<ol class="steps">
+<li><div><b>4s או 3d?</b> 4s: <span class="f">4 + 0 = 4</span>; 3d: <span class="f">3 + 2 = 5</span> ⇒ <b>4s קודם</b>.</div></li>
+<li><div><b>4p או 5s?</b> שניהם <span class="f">n + l = 5</span> ⇒ תיקו, n קטן קודם ⇒ <b>4p קודם</b>.</div></li>
+<li><div><b>6s או 4f?</b> 6s: <span class="f">6 + 0 = 6</span>; 4f: <span class="f">4 + 3 = 7</span> ⇒ <b>6s קודם</b>.</div></li>
+</ol></div></div>
+<div class="callout trap"><span class="tag">איזה כלל הופר?</span><ul><li>יותר מ-2 אלקטרונים באורביטל, או שניים באותו ספין באותו אורביטל ⇒ <b>פאולי</b>. למשל <span class="f">1s²2s³</span> בלתי אפשרי בכל מצב.</li><li>זיווג לפני שכל האורביטלים המנוונים קיבלו אלקטרון ⇒ <b>הונד</b>. למשל <span class="f">2p<sub>x</sub>²2p<sub>y</sub>⁰</span> בפחמן.</li><li>דילוג על אורביטל נמוך (למשל <span class="f">1s¹2s¹</span>) ⇒ <b>אופבאו</b> – מצב מעורר, מותר אבל לא מצב היסוד.</li></ul></div>
+<p class="src">הרצאה 3 שקפים 15–17, 19 · תרגול 3 שאלה 3</p>
+</section>
+
+<section class="topic" id="q18">
+<h3><span class="n">18</span>קונפיגורציות אלקטרוניות, כתיב מקוצר ויונים</h3>
+<p>איך קוראים <span class="f">2p³</span> ואיך כותבים קונפיגורציה צעד אחר צעד – ב<a href="#i6">פרק 0.6</a>. כאן: הכתיב המקוצר, מתכות המעבר ויונים.</p>
+<h4>כתיב מקוצר עם גז אציל</h4>
+<p>כותבים בסוגריים מרובעים את הגז האציל שלפני היסוד (אלקטרוני הליבה), ומוסיפים רק את מה שאחריו (אלקטרוני הערכיות): <span class="f">Li = 1s²2s¹ = [He]2s¹</span>, <span class="f">Na = [Ne]3s¹</span>.</p>
+<div class="tbl"><table>
+<caption>הליבות של הגזים האצילים</caption>
+<thead><tr><th>ליבה</th><th>Z</th><th>מה היא מחליפה</th><th>אחריה מתחילים ב…</th></tr></thead>
+<tbody>
+<tr><td class="f">[He]</td><td class="f">2</td><td class="f">1s²</td><td class="f">2s</td></tr>
+<tr><td class="f">[Ne]</td><td class="f">10</td><td class="f">1s² 2s² 2p⁶</td><td class="f">3s</td></tr>
+<tr><td class="f">[Ar]</td><td class="f">18</td><td class="f">[Ne] 3s² 3p⁶</td><td class="f">4s, 3d</td></tr>
+<tr><td class="f">[Kr]</td><td class="f">36</td><td class="f">[Ar] 4s² 3d¹⁰ 4p⁶</td><td class="f">5s, 4d</td></tr>
+<tr><td class="f">[Xe]</td><td class="f">54</td><td class="f">[Kr] 5s² 4d¹⁰ 5p⁶</td><td class="f">6s, 4f, 5d</td></tr>
+</tbody></table></div>
+<div class="ex"><header>דוגמה מההרצאה: ברזל, <span class="li">Fe (Z = 26)</span> <small>הרצאה 3 שקף 28</small></header><div class="body">
+<ol class="steps">
+<li><div>ממלאים לפי הסדר עד 26: <span class="f">1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d⁶</span></div></li>
+<li><div>בדיקה: <span class="f">2 + 2 + 6 + 2 + 6 + 2 + 6 = 26</span> ✓</div></li>
+<li><div>מקוצר: 18 האלקטרונים הראשונים הם <span class="f">[Ar]</span> ⇒ <span class="f">[Ar] 4s² 3d⁶</span></div></li>
+<li><div>דיאגרמת תאים (הונד): ב-3d שישה אלקטרונים בחמישה תאים – זוג אחד וארבעה בודדים.</div></li>
+</ol>
+<div class="ans">Fe = <span class="li">[Ar] 4s² 3d⁶</span>, עם 4 אלקטרונים לא מזווגים</div></div></div>
+<h4>קונפיגורציה של יונים</h4>
+<ul>
+<li><b>אניון</b> (מטען שלילי) – <b>מוסיפים</b> אלקטרונים: <span class="f">Cl⁻</span> = 17 + 1 = 18 ⇒ <span class="f">1s²2s²2p⁶3s²3p⁶ = [Ar]</span>.</li>
+<li><b>קטיון</b> של יסוד ראשי – <b>מוציאים</b> מהקליפה החיצונית: <span class="f">Mg²⁺</span> = 12 − 2 = 10 ⇒ <span class="f">1s²2s²2p⁶ = [Ne]</span>.</li>
+<li><b>קטיון של מתכת מעבר</b> – מוציאים קודם את אלקטרוני <b>4s</b> (ה-n הגבוה ביותר), ורק אחר כך מ-3d:</li>
+</ul>
+<figure>
+<svg viewBox="0 0 700 280" role="img" aria-label="דיאגרמות תאים של Fe, Fe2+ ו-Fe3+: ביון נפלטים קודם האלקטרונים של 4s ורק אחר כך של 3d"><defs><marker id="q18-k" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="fi" d="M0,0 L10,5 L0,10 z"/></marker><marker id="q18-a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path class="fa" d="M0,0 L10,5 L0,10 z"/></marker><marker id="q18-t" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path class="ft" d="M0,0 L10,5 L0,10 z"/></marker></defs><text x="345" y="24" text-anchor="middle" class="b">3d</text><text x="455" y="24" text-anchor="middle" class="b">4s</text><text x="20" y="61" class="b" style="font-size:18px">Fe</text><text x="80" y="61" class="sm">[Ar] 3d⁶ 4s²</text><text x="250" y="61" text-anchor="end" class="sm">[Ar]</text><rect class="bx" x="260" y="40" width="34" height="30"/><text x="277" y="62" text-anchor="middle" class="ac" style="font-size:20px">↑↓</text><rect class="bx" x="294" y="40" width="34" height="30"/><text x="311" y="62" text-anchor="middle" class="ac" style="font-size:20px">↑</text><rect class="bx" x="328" y="40" width="34" height="30"/><text x="345" y="62" text-anchor="middle" class="ac" style="font-size:20px">↑</text><rect class="bx" x="362" y="40" width="34" height="30"/><text x="379" y="62" text-anchor="middle" class="ac" style="font-size:20px">↑</text><rect class="bx" x="396" y="40" width="34" height="30"/><text x="413" y="62" text-anchor="middle" class="ac" style="font-size:20px">↑</text><rect class="bx" x="438" y="40" width="34" height="30"/><text x="455" y="62" text-anchor="middle" class="ac" style="font-size:20px">↑↓</text><text x="680" y="61" text-anchor="start" class="sm" direction="rtl">4 לא מזווגים</text><text x="20" y="131" class="b" style="font-size:18px">Fe²⁺</text><text x="80" y="131" class="sm">[Ar] 3d⁶</text><text x="250" y="131" text-anchor="end" class="sm">[Ar]</text><rect class="bx" x="260" y="110" width="34" height="30"/><text x="277" y="132" text-anchor="middle" class="ac" style="font-size:20px">↑↓</text><rect class="bx" x="294" y="110" width="34" height="30"/><text x="311" y="132" text-anchor="middle" class="ac" style="font-size:20px">↑</text><rect class="bx" x="328" y="110" width="34" height="30"/><text x="345" y="132" text-anchor="middle" class="ac" style="font-size:20px">↑</text><rect class="bx" x="362" y="110" width="34" height="30"/><text x="379" y="132" text-anchor="middle" class="ac" style="font-size:20px">↑</text><rect class="bx" x="396" y="110" width="34" height="30"/><text x="413" y="132" text-anchor="middle" class="ac" style="font-size:20px">↑</text><rect class="bx-ac" x="438" y="110" width="34" height="30"/><text x="680" y="131" text-anchor="start" class="sm" direction="rtl">יצאו 2 אלקטרוני 4s</text><text x="20" y="201" class="b" style="font-size:18px">Fe³⁺</text><text x="80" y="201" class="sm">[Ar] 3d⁵</text><text x="250" y="201" text-anchor="end" class="sm">[Ar]</text><rect class="bx" x="260" y="180" width="34" height="30"/><text x="277" y="202" text-anchor="middle" class="ac" style="font-size:20px">↑</text><rect class="bx" x="294" y="180" width="34" height="30"/><text x="311" y="202" text-anchor="middle" class="ac" style="font-size:20px">↑</text><rect class="bx" x="328" y="180" width="34" height="30"/><text x="345" y="202" text-anchor="middle" class="ac" style="font-size:20px">↑</text><rect class="bx" x="362" y="180" width="34" height="30"/><text x="379" y="202" text-anchor="middle" class="ac" style="font-size:20px">↑</text><rect class="bx" x="396" y="180" width="34" height="30"/><text x="413" y="202" text-anchor="middle" class="ac" style="font-size:20px">↑</text><rect class="bx-ac" x="438" y="180" width="34" height="30"/><text x="680" y="201" text-anchor="start" class="sm" direction="rtl">3d חצי מלאה – 5 לא מזווגים</text><text x="345" y="265" text-anchor="middle" class="sm" direction="rtl">ביון של מתכת מעבר: מוציאים קודם מ-4s (ה-n הגבוה), ורק אחר כך מ-3d</text></svg>
+<figcaption><b>Fe, <span class="f">Fe²⁺</span> ו-<span class="f">Fe³⁺</span>.</b> ממלאים 4s לפני 3d – אבל כשמוציאים אלקטרונים, 4s מתרוקן ראשון. <span class="f">Fe²⁺ = [Ar]3d⁶</span>, ולא <span class="f">[Ar]4s²3d⁴</span>.</figcaption>
+</figure>
+<div class="callout note"><span class="tag">הערה על המקור</span><p>בשקפים של הרצאה 3 אין דוגמה של יונים, אבל תרגול 3 שואל על <span class="f">Cl⁻</span> ו-<span class="f">Mg²⁺</span>. הכלל של מתכות המעבר (4s יוצא קודם) הוא החומר הסטנדרטי של כימיה כללית (OpenStax 6.4).</p></div>
+<div class="callout tip"><span class="tag">בכיוון ההפוך: איזה יסוד זה?</span><p>סופרים את כל האלקטרונים – הסכום הוא Z של האטום הניטרלי. למשל <span class="f">[Ar]4s²3d⁸</span>: <span class="f">18 + 2 + 8 = 28</span> ⇒ ניקל (Ni). אפשר גם לפי המיקום בטבלה: הקונפיגורציה מסתיימת ב-<span class="f">3d⁸</span> ⇒ המתכת השמינית בשורה של 3d.</p></div>
+<div class="callout trap"><span class="tag">מלכודות</span><ul><li>לשכוח להוסיף או להחסיר אלקטרונים לפי המטען.</li><li>ביון של מתכת מעבר להוציא מ-3d במקום מ-4s.</li><li>הסדר בכתיבה <span class="f">4s²3d⁶</span> או <span class="f">3d⁶4s²</span> – שניהם מקובלים (בהרצאה מופיעים שניהם).</li></ul></div>
+<p class="src">הרצאה 3 שקפים 20–28 · תרגול 3 שאלה 1</p>
+</section>
+
+<section class="topic" id="q19">
+<h3><span class="n">19</span>החריגות של Cr ו-Cu, ותכונות מגנטיות</h3>
+<p>תת-רמה <b>מלאה</b> <span class="f">(d¹⁰)</span> או <b>חצי מלאה</b> <span class="f">(d⁵)</span> יציבה במיוחד. בכרום ובנחושת ההפרש בין 4s ל-3d קטן, ולכן משתלם לאטום להעביר אלקטרון אחד מ-4s ל-3d כדי להגיע למצב כזה.</p>
+<figure>
+<svg viewBox="0 0 700 330" role="img" aria-label="החריגות של כרום ונחושת: אלקטרון אחד עובר מ-4s ל-3d כדי ליצור תת-רמה d חצי מלאה (Cr) או מלאה (Cu)"><defs><marker id="q19-k" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="fi" d="M0,0 L10,5 L0,10 z"/></marker><marker id="q19-a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path class="fa" d="M0,0 L10,5 L0,10 z"/></marker><marker id="q19-t" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path class="ft" d="M0,0 L10,5 L0,10 z"/></marker></defs><text x="345" y="24" text-anchor="middle" class="b">3d</text><text x="455" y="24" text-anchor="middle" class="b">4s</text><text x="20" y="61" class="b" style="font-size:18px">Cr</text><text x="120" y="61" text-anchor="start" class="tr" direction="rtl">צפוי</text><text x="130" y="61" class="sm">[Ar] 3d⁴ 4s²</text><rect class="bx" x="260" y="40" width="34" height="30"/><text x="277" y="62" text-anchor="middle" class="tr" style="font-size:20px">↑</text><rect class="bx" x="294" y="40" width="34" height="30"/><text x="311" y="62" text-anchor="middle" class="tr" style="font-size:20px">↑</text><rect class="bx" x="328" y="40" width="34" height="30"/><text x="345" y="62" text-anchor="middle" class="tr" style="font-size:20px">↑</text><rect class="bx" x="362" y="40" width="34" height="30"/><text x="379" y="62" text-anchor="middle" class="tr" style="font-size:20px">↑</text><rect class="bx" x="396" y="40" width="34" height="30"/><rect class="bx" x="438" y="40" width="34" height="30"/><text x="455" y="62" text-anchor="middle" class="tr" style="font-size:20px">↑↓</text><text x="522" y="63" class="tr" style="font-size:22px">✗</text><text x="20" y="127" class="b" style="font-size:18px">Cr</text><text x="120" y="127" text-anchor="start" class="ac" direction="rtl">בפועל</text><text x="130" y="127" class="sm">[Ar] 3d⁵ 4s¹</text><rect class="bx-ac" x="260" y="106" width="34" height="30"/><text x="277" y="128" text-anchor="middle" class="ac" style="font-size:20px">↑</text><rect class="bx-ac" x="294" y="106" width="34" height="30"/><text x="311" y="128" text-anchor="middle" class="ac" style="font-size:20px">↑</text><rect class="bx-ac" x="328" y="106" width="34" height="30"/><text x="345" y="128" text-anchor="middle" class="ac" style="font-size:20px">↑</text><rect class="bx-ac" x="362" y="106" width="34" height="30"/><text x="379" y="128" text-anchor="middle" class="ac" style="font-size:20px">↑</text><rect class="bx-ac" x="396" y="106" width="34" height="30"/><text x="413" y="128" text-anchor="middle" class="ac" style="font-size:20px">↑</text><rect class="bx" x="438" y="106" width="34" height="30"/><text x="455" y="128" text-anchor="middle" class="ac" style="font-size:20px">↑</text><text x="522" y="129" class="ac" style="font-size:22px">✓</text><text x="690" y="127" text-anchor="start" class="sm" direction="rtl">3d ו-4s חצי מלאות</text><text x="20" y="207" class="b" style="font-size:18px">Cu</text><text x="120" y="207" text-anchor="start" class="tr" direction="rtl">צפוי</text><text x="130" y="207" class="sm">[Ar] 3d⁹ 4s²</text><rect class="bx" x="260" y="186" width="34" height="30"/><text x="277" y="208" text-anchor="middle" class="tr" style="font-size:20px">↑↓</text><rect class="bx" x="294" y="186" width="34" height="30"/><text x="311" y="208" text-anchor="middle" class="tr" style="font-size:20px">↑↓</text><rect class="bx" x="328" y="186" width="34" height="30"/><text x="345" y="208" text-anchor="middle" class="tr" style="font-size:20px">↑↓</text><rect class="bx" x="362" y="186" width="34" height="30"/><text x="379" y="208" text-anchor="middle" class="tr" style="font-size:20px">↑↓</text><rect class="bx" x="396" y="186" width="34" height="30"/><text x="413" y="208" text-anchor="middle" class="tr" style="font-size:20px">↑</text><rect class="bx" x="438" y="186" width="34" height="30"/><text x="455" y="208" text-anchor="middle" class="tr" style="font-size:20px">↑↓</text><text x="522" y="209" class="tr" style="font-size:22px">✗</text><text x="20" y="273" class="b" style="font-size:18px">Cu</text><text x="120" y="273" text-anchor="start" class="ac" direction="rtl">בפועל</text><text x="130" y="273" class="sm">[Ar] 3d¹⁰ 4s¹</text><rect class="bx-ac" x="260" y="252" width="34" height="30"/><text x="277" y="274" text-anchor="middle" class="ac" style="font-size:20px">↑↓</text><rect class="bx-ac" x="294" y="252" width="34" height="30"/><text x="311" y="274" text-anchor="middle" class="ac" style="font-size:20px">↑↓</text><rect class="bx-ac" x="328" y="252" width="34" height="30"/><text x="345" y="274" text-anchor="middle" class="ac" style="font-size:20px">↑↓</text><rect class="bx-ac" x="362" y="252" width="34" height="30"/><text x="379" y="274" text-anchor="middle" class="ac" style="font-size:20px">↑↓</text><rect class="bx-ac" x="396" y="252" width="34" height="30"/><text x="413" y="274" text-anchor="middle" class="ac" style="font-size:20px">↑↓</text><rect class="bx" x="438" y="252" width="34" height="30"/><text x="455" y="274" text-anchor="middle" class="ac" style="font-size:20px">↑</text><text x="522" y="275" class="ac" style="font-size:22px">✓</text><text x="690" y="273" text-anchor="start" class="sm" direction="rtl">3d מלאה (10)</text><line class="ln-d" x1="20" y1="168" x2="680" y2="168"/><path class="ln-ac" d="M455,62 C455,90 420,96 410,104" marker-end="url(#q19-a)"/><path class="ln-ac" d="M455,208 C455,236 420,242 410,250" marker-end="url(#q19-a)"/><text x="690" y="70" text-anchor="start" class="sm" direction="rtl">אלקטרון עובר מ-4s ל-3d</text></svg>
+<figcaption><b>שתי החריגות שצריך לזכור.</b> כרום: <span class="f">[Ar]3d⁵4s¹</span> – שתי תת-רמות חצי מלאות. נחושת: <span class="f">[Ar]3d¹⁰4s¹</span> – 3d מלאה. <span class="src">הרצאה 3 שקף 29</span></figcaption>
+</figure>
+<div class="ex"><header>שאלה 5 במבחן לדוגמה: נחושת במצב היסוד <small>מבחן לדוגמה שאלה 5</small></header><div class="body">
+<p class="q">א. <span class="f">[Ar]3d⁹4s²</span> · ב. <span class="f">[Ar]3d⁸4s²4p¹</span> · ג. <span class="f">[Ar]3d¹⁰4s²</span> · ד. <span class="f">[Ar]3d¹⁰4s¹</span> · ה. <span class="f">[Ar]3d⁹4s¹</span></p>
+<ol class="steps">
+<li><div>Cu: <span class="f">Z = 29</span> ⇒ אחרי <span class="f">[Ar]</span> נשארו <span class="f">29 − 18 = 11</span> אלקטרונים.</div></li>
+<li><div>לפי הסדר הרגיל: <span class="f">4s²3d⁹</span> (תשובה א – המלכודת).</div></li>
+<li><div>החריגה: אלקטרון עובר מ-4s ל-3d ⇒ <span class="f">3d¹⁰4s¹</span> – 3d מלאה.</div></li>
+<li><div>פסילות: ג מכיל 12 אלקטרונים במקום 11, ה מכיל רק 10. ב מכיל 11 אלקטרונים, אבל אלקטרון ב-4p לפני ש-3d התמלא – מצב מעורר, לא מצב היסוד.</div></li>
+</ol>
+<div class="ans">תשובה ד: <span class="li">[Ar] 3d¹⁰ 4s¹</span></div></div></div>
+<h4>פראמגנטי ודיאמגנטי</h4>
+<div class="compare">
+<div><h5>פראמגנטי</h5><ul><li>יש <b>לפחות אלקטרון אחד לא מזווג</b></li><li><b>נמשך</b> לשדה מגנטי</li><li>יותר אלקטרונים לא מזווגים ⇒ משיכה חזקה יותר</li></ul></div>
+<div><h5>דיאמגנטי</h5><ul><li><b>כל</b> האלקטרונים מזווגים</li><li>נדחה <b>באופן חלש</b> משדה מגנטי</li><li>השדות של שני ספינים הפוכים מבטלים זה את זה</li></ul></div>
+</div>
+<div class="tbl"><table>
+<caption>כמה אלקטרונים לא מזווגים? (סופרים לפי הונד)</caption>
+<thead><tr><th>מין כימי</th><th>קונפיגורציה</th><th>לא מזווגים</th><th>מגנטיות</th></tr></thead>
+<tbody>
+<tr><td class="f">He</td><td class="f">1s²</td><td class="f">0</td><td>דיאמגנטי</td></tr>
+<tr><td class="f">O</td><td class="f">[He] 2s² 2p⁴</td><td class="f">2</td><td>פראמגנטי</td></tr>
+<tr><td class="f">Cr</td><td class="f">[Ar] 3d⁵ 4s¹</td><td class="hl f">6</td><td>פראמגנטי (חזק)</td></tr>
+<tr><td class="f">Zn</td><td class="f">[Ar] 3d¹⁰ 4s²</td><td class="f">0</td><td>דיאמגנטי</td></tr>
+<tr><td class="f">Fe³⁺</td><td class="f">[Ar] 3d⁵</td><td class="f">5</td><td>פראמגנטי</td></tr>
+</tbody></table></div>
+<p class="src">הרצאה 3 שקפים 29–30 · מבחן לדוגמה שאלה 5 · תרגול 3 שאלה 2</p>
+</section>
+
+<section class="topic" id="qsol">
+<h3><span class="n">✓</span>פתרונות לתרגולים 1 ו-3 ולפעילות 2</h3>
+<p>נסו קודם לפתור לבד – ורק אחר כך לפתוח.</p>
+<details class="sol"><summary>תרגול 1 – שימור מסה, קרינה אלקטרומגנטית וקוונטיזציה</summary><div class="body">
+<h5>שאלה 1 – חומר או אנרגיה</h5>
+<p>א. גז חמצן <span class="f">(O₂)</span> – <b>חומר</b>. ב. אור השמש – <b>אנרגיה</b>. ג. קוביות קרח – <b>חומר</b>. ד. חום מתנור – <b>אנרגיה</b>.</p>
+<h5>שאלה 2 – שינוי כימי או פיזיקלי</h5>
+<p>א. אידוי אלכוהול – <b>פיזיקלי</b> (אותן מולקולות, רק עוברות לגז). ב. שריפת נייר – <b>כימי</b> (נוצרים <span class="f">CO₂</span>, מים ואפר). ג. התכת חמאה – <b>פיזיקלי</b> (מעבר ממוצק לנוזל). ד. חלודה של ברזל – <b>כימי</b> (נוצרת תחמוצת ברזל, חומר חדש).</p>
+<h5>שאלה 3 – טבליה תוססת</h5>
+<p>א. מסת הגז: <span class="f">180 − 176 = 4 g</span>.</p>
+<p>ב. בכלי סגור הגז לא יוצא, ולכן המסה נשארת <span class="f">180 g</span>.</p>
+<p>ג. לא. המסה "נעלמה" רק מהכוס – 4 גרם של גז יצאו לאוויר. אם סופרים גם אותם, המסה הכוללת נשמרה.</p>
+<h5>שאלה 4 – שלוש קרינות</h5>
+<p>א. ν הפוכה ל-λ, ולכן מהנמוכה לגבוהה: <b><span class="f">C (750 nm) &lt; B (500 nm) &lt; A (300 nm)</span></b>.</p>
+<p>ב. <span class="f">ν = c/λ</span>:</p>
+<div class="tbl"><table><thead><tr><th>קרינה</th><th>λ</th><th>ν</th></tr></thead><tbody>
+<tr><td class="f">A</td><td class="f">3.00×10⁻⁷ m</td><td class="f">3.00×10⁸ / 3.00×10⁻⁷ = 1.00×10¹⁵ Hz</td></tr>
+<tr><td class="f">B</td><td class="f">5.00×10⁻⁷ m</td><td class="f">6.00×10¹⁴ Hz</td></tr>
+<tr><td class="f">C</td><td class="f">7.50×10⁻⁷ m</td><td class="f">4.00×10¹⁴ Hz</td></tr>
+</tbody></table></div>
+<p>ג. A <span class="f">(300 nm)</span> – UV, מתחת ל-<span class="f">400 nm</span>. B <span class="f">(500 nm)</span> – אור נראה (כחול-ירוק). C <span class="f">(750 nm)</span> – בקצה האדום, סמוך לתחום ה-IR.</p>
+<p>ד. כן. כל הגלים האלקטרומגנטיים נעים בריק באותה מהירות, <span class="f">c = 3.00×10⁸ m/s</span>; הם נבדלים רק ב-λ וב-ν.</p>
+<p>ה. <span class="f">λ = c/ν</span> – אם ν גדלה פי 3, <b>λ קטן פי 3</b>.</p>
+<h5>שאלה 5 – מודל פלנק</h5>
+<p>א. <span class="f">E = n·hν</span> עם <span class="f">hν = 2×10⁻²⁰ J</span>: הערכים החיוביים הנמוכים הם <span class="f">2×10⁻²⁰, 4×10⁻²⁰, 6×10⁻²⁰, 8×10⁻²⁰ J</span> (<span class="f">n = 1</span> עד 4).</p>
+<p>ב. לא. <span class="f">5×10⁻²⁰ / 2×10⁻²⁰ = 2.5</span> – זה לא מספר שלם, כלומר לא כפולה שלמה של המנה הבסיסית.</p>
+<p>ג. אנרגיה רציפה יכולה לקבל כל ערך (כמו מדרון). אנרגיה בדידה מקבלת רק ערכים מסוימים – כפולות שלמות של <span class="f">hν</span> (כמו מדרגות), בלי ערכי ביניים.</p>
+</div></details>
+<details class="sol"><summary>תרגול 3 – אורביטלים</summary><div class="body">
+<h5>שאלה 1 – השלמת הטבלה</h5>
+<div class="tbl"><table><thead><tr><th>סעיף</th><th>נתון</th><th>תשובה</th></tr></thead><tbody>
+<tr><td class="f">1</td><td class="f">Si (Z = 14)</td><td class="f">1s² 2s² 2p⁶ 3s² 3p²</td></tr>
+<tr><td class="f">2</td><td class="f">Cr (Z = 24)</td><td class="f">1s² 2s² 2p⁶ 3s² 3p⁶ 4s¹ 3d⁵ = [Ar] 3d⁵ 4s¹</td></tr>
+<tr><td class="f">3</td><td class="f">Cl⁻ (Z = 17)</td><td class="f">18 e⁻: 1s² 2s² 2p⁶ 3s² 3p⁶ = [Ar]</td></tr>
+<tr><td class="f">4</td><td class="f">Mg²⁺ (Z = 12)</td><td class="f">10 e⁻: 1s² 2s² 2p⁶ = [Ne]</td></tr>
+<tr><td class="f">5</td><td class="f">1s² 2s² 2p⁶ 3s² 3p⁶ 4s¹</td><td>19 אלקטרונים ⇒ <b>אשלגן (K)</b></td></tr>
+<tr><td class="f">6</td><td class="f">[Ar] 4s² 3d⁸</td><td><span class="li">18 + 2 + 8 = 28</span> ⇒ <b>ניקל (Ni)</b></td></tr>
+</tbody></table></div>
+<p>בסעיף 2 – החריגה: במקום <span class="f">4s²3d⁴</span> אלקטרון עובר ל-3d ומתקבלות שתי תת-רמות חצי מלאות. בסעיפים 3–4 שני היונים <b>איזואלקטרוניים</b> לגז אציל: <span class="f">Cl⁻</span> כמו Ar, ו-<span class="f">Mg²⁺</span> כמו Ne.</p>
+<h5>שאלה 2 – מי פראמגנטי?</h5>
+<div class="tbl"><table><thead><tr><th>מין</th><th>קונפיגורציה</th><th>לא מזווגים</th><th>תשובה</th></tr></thead><tbody>
+<tr><td class="f">Be</td><td class="f">1s² 2s²</td><td class="f">0</td><td>דיאמגנטי</td></tr>
+<tr><td class="f">N</td><td class="f">1s² 2s² 2p³</td><td class="f">3</td><td class="hl">פראמגנטי</td></tr>
+<tr><td class="f">C</td><td class="f">1s² 2s² 2p²</td><td class="f">2</td><td class="hl">פראמגנטי</td></tr>
+<tr><td class="f">Li⁺</td><td class="f">1s²</td><td class="f">0</td><td>דיאמגנטי</td></tr>
+<tr><td class="f">O</td><td class="f">1s² 2s² 2p⁴</td><td class="f">2</td><td class="hl">פראמגנטי</td></tr>
+<tr><td class="f">Mg²⁺</td><td class="f">1s² 2s² 2p⁶</td><td class="f">0</td><td>דיאמגנטי</td></tr>
+</tbody></table></div>
+<p><b>הפראמגנטיים: N, C, O.</b> ב-2p האלקטרונים מתפזרים לפי הונד: ב-C שניים בודדים, ב-N שלושה, וב-O הרביעי מזדווג ונשארים שניים בודדים.</p>
+<h5>שאלה 3 – נכון או לא נכון</h5>
+<ol>
+<li><b>לא נכון – הופר כלל הונד.</b> במצב היסוד של פחמן שני אלקטרוני 2p נמצאים באורביטלים נפרדים בספינים מקבילים: <span class="f">2p<sub>x</sub>¹2p<sub>y</sub>¹2p<sub>z</sub>⁰</span>, לא <span class="f">2p<sub>x</sub>²</span>.</li>
+<li><b>נכון.</b> זה בדיוק כלל פאולי: לכל היותר שני אלקטרונים באורביטל, עם <span class="f">m<sub>s</sub> = +½</span> ו-<span class="f">−½</span>.</li>
+<li><b>נכון.</b> ל-4s חדירות גבוהה יותר מ-3d, הוא ממוסך פחות, מרגיש <span class="f">Z<sub>eff</sub></span> גבוה יותר ולכן נמוך באנרגיה ומתמלא קודם (הרצאה 3 שקף 19).</li>
+<li><b>לא נכון – הופר כלל פאולי.</b> ב-2s יש אורביטל אחד, ובו לכל היותר 2 אלקטרונים. <span class="f">2s³</span> אסור בכל מצב, גם מעורר.</li>
+</ol>
+<h5>שאלה 4 – הרמה <span class="li">n = 4</span></h5>
+<p>א. <span class="f">l = 0, 1, 2, 3</span> – תת-הקליפות <span class="f">4s, 4p, 4d, 4f</span>.</p>
+<p>ב. <span class="f">1 + 3 + 5 + 7 = 16 = 4²</span> אורביטלים.</p>
+<p>ג. <span class="f">2 × 16 = 32 = 2·4²</span> אלקטרונים לכל היותר.</p>
+<h5>שאלה 5 – תת-קליפה d <span class="li">(l = 2)</span></h5>
+<p>א. <span class="f">2l + 1 = 5</span> אורביטלים מנוונים.</p>
+<p>ב. <span class="f">m<sub>l</sub> = −2, −1, 0, +1, +2</span>.</p>
+</div></details>
+<details class="sol"><summary>פעילות 2 – "האם גם לסופרמן יש אורך גל?"</summary><div class="body">
+<p>הנוסחה: <span class="f">λ = h/(m·v)</span>, עם <span class="f">h = 6.626×10⁻³⁴ J·s</span> ו-<span class="f">1 Å = 10⁻¹⁰ m</span>.</p>
+<h5>שאלות 2–4: המרות וחישוב</h5>
+<div class="tbl"><table><thead><tr><th>גוף</th><th>מסה (kg)</th><th>מהירות (m/s)</th><th>λ (m)</th><th>λ (Å)</th></tr></thead><tbody>
+<tr><td>אלקטרון</td><td class="f">9.109×10⁻³¹</td><td class="f">1.0×10⁶</td><td class="f">7.27×10⁻¹⁰</td><td class="hl f">7.27</td></tr>
+<tr><td>פרוטון</td><td class="f">1.67×10⁻²⁷</td><td class="f">1.0×10⁵</td><td class="f">3.97×10⁻¹²</td><td class="f">3.97×10⁻²</td></tr>
+<tr><td>חלקיק נגיף SARS</td><td class="f">1×10⁻¹⁸</td><td class="f">1×10⁻³</td><td class="f">6.63×10⁻¹³</td><td class="f">6.63×10⁻³</td></tr>
+<tr><td>גרגר אבקת פרחים</td><td class="f">1×10⁻¹²</td><td class="f">1×10⁻²</td><td class="f">6.63×10⁻²⁰</td><td class="f">6.63×10⁻¹⁰</td></tr>
+<tr><td>כדורגל</td><td class="f">0.450</td><td class="f">20</td><td class="f">7.36×10⁻³⁵</td><td class="f">7.36×10⁻²⁵</td></tr>
+<tr><td>אדם הולך</td><td class="f">70</td><td class="f">1.11</td><td class="f">8.52×10⁻³⁶</td><td class="f">8.52×10⁻²⁶</td></tr>
+<tr><td>אדם רץ</td><td class="f">70</td><td class="f">5.56</td><td class="f">1.70×10⁻³⁶</td><td class="f">1.70×10⁻²⁶</td></tr>
+<tr><td>סופרמן</td><td class="f">70</td><td class="f">6.0×10⁷</td><td class="f">1.58×10⁻⁴³</td><td class="f">1.58×10⁻³³</td></tr>
+</tbody></table></div>
+<p>המרות שכדאי לבדוק: <span class="f">10⁻¹⁵ g = 10⁻¹⁸ kg</span> · <span class="f">1 ng = 10⁻⁹ g = 10⁻¹² kg</span> · <span class="f">70,000,000 mg = 70 kg</span> · <span class="f">4 km/h = 4000/3600 = 1.11 m/s</span> · <span class="f">20 km/h = 5.56 m/s</span> · <span class="f">1 mm/s = 10⁻³ m/s</span> · <span class="f">1 cm/s = 10⁻² m/s</span> · <span class="f">c/5 = 6.0×10⁷ m/s</span>.</p>
+<h5>שאלות 1 ו-6: הדירוג</h5>
+<p>λ הפוך ל<b>תנע</b> <span class="f">m·v</span>, ולכן מהקצר לארוך (מהתנע הגדול לקטן): <b>סופרמן &lt; אדם רץ &lt; אדם הולך &lt; כדורגל &lt; אבקת פרחים &lt; נגיף &lt; פרוטון &lt; אלקטרון</b>. מלכודת נפוצה בניחוש: לדרג רק לפי מסה. למשל, האדם הרץ והאדם ההולך שוקלים אותו דבר – הרץ מהיר יותר, ולכן אורך הגל שלו קצר יותר.</p>
+<h5>שאלה 5: מה בגודל של קשר כימי (1–2 Å)?</h5>
+<p>רק <b>האלקטרון</b> <span class="f">(≈ 7 Å)</span> באותו סדר גודל. הפרוטון כבר קטן בשני סדרי גודל <span class="f">(0.04 Å)</span>, וכל השאר זעירים לאין שיעור. המשמעות: כשאורך הגל דומה לגודל האטומים, הגל "מרגיש" את המבנה – אלקטרונים עוברים עקיפה (דיפרקציה) מגבישים, ועל זה בנוי מיקרוסקופ האלקטרונים.</p>
+<h5>שאלה 7: למה זה חשוב רק לאלקטרונים?</h5>
+<p>לאלקטרון מסה זעירה, ולכן אורך הגל שלו גדול – בגודל האטום עצמו. לכן אי אפשר לתאר אותו כ"כדור במסלול": הוא מתנהג כגל עומד סביב הגרעין, וזה מה שמוביל לרמות האנרגיה ולאורביטלים. לגופים יומיומיים המסה גדולה כל כך שאורך הגל קטן בעשרות סדרי גודל מכל מרחק שאפשר למדוד – ההתנהגות הגלית קיימת, אבל לא ניתנת להבחנה.</p>
+<p class="src">הערה: בחישוב של סופרמן השתמשנו בנוסחה הרגילה. במהירות של חמישית ממהירות האור התיקון היחסותי הוא כ-2% בלבד, והוא לא משנה את המסקנה.</p>
+</div></details>
+<details class="sol"><summary>מבחן לדוגמה – השאלות של הפרק הזה</summary><div class="body">
+<ul>
+<li><b>שאלה 2</b> (מעבר שדורש הכי הרבה אנרגיה) – תשובה: <span class="f">He⁺</span> מ-1 ל-2. פתרון מלא ב<a href="#q9">פרק 9</a>.</li>
+<li><b>שאלה 3</b> (פליטה פוטואלקטרית ב-<span class="f">250 nm</span>) – יפלטו אלקטרונים עם <span class="f">E<sub>kin</sub> = 1.65×10⁻¹⁹ J</span>. ב<a href="#q7">פרק 7</a>.</li>
+<li><b>שאלה 4</b> (למה בוהר נכשל) – האינטראקציות בין האלקטרונים. ב<a href="#q10">פרק 10</a>.</li>
+<li><b>שאלה 5</b> (קונפיגורציה של Cu) – <span class="f">[Ar]3d¹⁰4s¹</span>. ב<a href="#q19">פרק 19</a>.</li>
+<li><b>שאלה 14</b> (מימן מ-2 ל-5) – נבלע פוטון, <span class="f">λ = 434 nm</span>. ב<a href="#q9">פרק 9</a>.</li>
+</ul>
+</div></details>
+</section>
+
+<div class="recap"><span class="tag">בשורה התחתונה – מבנה האטום</span><ol>
+<li>במערכת סגורה מסת המגיבים = מסת התוצרים. אור וחום – אנרגיה, לא חומר.</li>
+<li><span class="f">c = λν</span>: λ קצר ⇔ ν גבוהה ⇔ אנרגיה גבוהה. לפי האנרגיה: קרני γ, קרני X, על-סגול, אור נראה, תת-אדום, מיקרוגל, רדיו; האור הנראה בין <span class="f">400</span> ל-<span class="f">700 nm</span>.</li>
+<li>פלנק: <span class="f">E = nhν</span> – אנרגיה במנות. פוטון: <span class="f">E = hν = hc/λ</span> (λ במטרים!).</li>
+<li>פוטואלקטרי: <span class="f">E<sub>kin</sub> = hν − E₀</span>. מתחת ל-<span class="f">ν₀</span> אין פליטה; עוצמה משנה רק את מספר האלקטרונים.</li>
+<li>בוהר: <span class="f">Eₙ = −R<sub>H</sub>Z²/n²</span>, <span class="f">R<sub>H</sub> = 2.179×10⁻¹⁸ J</span>, רק לחלקיק עם אלקטרון אחד.</li>
+<li><span class="f">ΔE = R<sub>H</sub>Z²(1/n<sub>i</sub>² − 1/n<sub>f</sub>²)</span>: חיובי = בליעה (עולה), שלילי = פליטה (יורד); <span class="f">λ = hc/|ΔE|</span>.</li>
+<li>בוהר נכשל באטומים רב-אלקטרוניים – הוא מתעלם מהאינטראקציות בין האלקטרונים.</li>
+<li>דה-ברויי <span class="f">λ = h/mv</span> (m בק"ג); אי-ודאות <span class="f">ΔxΔP ≥ h/4π</span> – אין מסלול, יש אורביטל (ψ² = הסתברות).</li>
+<li><span class="f">n ≥ 1</span>; <span class="f">l = 0…n−1</span>; <span class="f">m<sub>l</sub> = −l…+l</span>; <span class="f">m<sub>s</sub> = ±½</span>. ברמה n: <span class="f">n²</span> אורביטלים, <span class="f">2n²</span> אלקטרונים.</li>
+<li>אופבאו (<span class="f">n + l</span> קטן קודם; 4s לפני 3d), פאולי (2 באורביטל, ספינים הפוכים), הונד (קודם בודדים, ספינים מקבילים).</li>
+<li>יונים של מתכות מעבר מאבדים קודם את 4s. חריגות: <span class="f">Cr = [Ar]3d⁵4s¹</span>, <span class="f">Cu = [Ar]3d¹⁰4s¹</span>.</li>
+<li>אלקטרון לא מזווג אחד לפחות ⇒ פראמגנטי; הכול מזווג ⇒ דיאמגנטי.</li>
+</ol></div>
+<div class="cta"><a href="practice.html#atom">לתרגל שאלות על מבנה האטום ←</a></div>
+</div></div>
+</div>
